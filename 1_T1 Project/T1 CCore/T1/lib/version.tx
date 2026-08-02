@@ -1,0 +1,19 @@
+Variant ID: 44
+Version: 3.5.0.0
+$Revision: 67899 $
+Rev.  Checksum (SHA-1)                         File Name (hightec)
+67898 24b3381f3bcc7bca49231a64d0613f4fbc25e4c8 libt1base.a
+67898 930f7c391df83f127bb4a010e2d4153681cf418e libt1cont.a
+67898 733c58cd2fab26e18dfc143c1b73010f6d214b83 libt1delay.a
+67898 fa3645a371dcdb12fdf2fec6682903a3e74eadfa libt1flex.a
+67898 37904e22631720dd4bdf59a69c602534fec425d0 libt1mod.a
+67898 dabb4185f433745592778ce65dff0d940245e9ba libt1scope.a
+Rev.  Checksum (SHA-1)                         File Name (hightec)
+67434 6b5681bd73d20efc8750f9ef17523936dc764b64 T1_baseInterface.h
+67652 86fdf6ccb6a52b726a11d0708ec2fb27a009d585 T1_contInterface.h
+67781 80e3e3de2a1879fca5ed7662137f8c8a1a9cdc2c T1_delayInterface.h
+67267 3b9cf6158077c04b17ec0e9b4c97730bdc396871 T1_flexInterface.h
+65733 ed691464edd903185ac3ff136b7eb42b5d9bc098 T1_MemMap.h
+65384 625116cd1d99bafa7bb01a8ea4683e54f84a9760 T1_modInterface.h
+60389 0feb2f7dc62bce871420c9e07ab60af9334d4f87 T1_scopeInterface.h
+64987 97276badb00fc328a279d1749868c5cc1d233e06 T1_targetSpecifics.h

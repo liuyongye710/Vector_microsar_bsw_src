@@ -1,0 +1,137 @@
+2020-07-28 - 16:16:06
+Workflow 'Update workflow.' started.
+              Using DaVinci Configurator  5.17.51 SP2 (x86_64).
+ 16:16:06 - Action 'Validate workflow environment' started.
+ 16:16:06 - Action 'Validate dpa file' started.
+ 16:16:07 - Action 'Validate dpa file' successfully finished.
+ 16:16:07 - Action 'SLP conformance check' started.
+ 16:16:07 - Action 'SLP conformance check' successfully finished.
+ 16:16:07 - Action 'Validate workflow environment' successfully finished.
+ 16:16:07 - Action 'Input File Pre-Processing' started.
+ 16:16:07 - Action 'Converting legacy file(s) to AUTOSAR files' started.
+ 16:16:07 - Action 'Converting legacy file(s) to AUTOSAR files' started.
+              Convert legacy file(s) to System Description.
+              Used executable: D:\Vector_FAW_297\Generators\LegacyDb2SystemDescrConverter\LegacyDb2SystemDescrConverter.exe.
+              Arguments: "X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\T1\CAN\ATD.dbc" -o "C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\LegacyConverterResults\1595924167594-0\ConvertedLegacy" -r 42 -e -v 19.
+              
+              Vector Legacy Database Converter.
+              Version: 1.8.22.0.
+              Copyright (c) 2018 Vector Informatik GmbH.
+              License is restricted to the usage with CBD1600956 (D02) for MSR_Vector_SLP4.
+              
+              [info] Command line: D:\Vector_FAW_297\Generators\LegacyDb2SystemDescrConverter\LegacyDb2SystemDescrConverter.exe "X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\T1\CAN\ATD.dbc" -o "C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\LegacyConverterResults\1595924167594-0\ConvertedLegacy" -r 42 -e -v 19.
+              [info] Converting DBC file X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\T1\CAN\ATD.dbc.
+              [warning] DBC attribute Manufacturer not defined.
+                    ==> Use Manufacturer='Vector' as attribute value.
+              [warning] DBC message T1_RxMsg has an GenMsgCycleTime value of 0.
+                    ==> ISignalIPdu.CyclicTiming.TimePeriod will be 0.
+              [warning] DBC message T1_TxMsg has an GenMsgCycleTime value of 0.
+                    ==> ISignalIPdu.CyclicTiming.TimePeriod will be 0.
+              [info] Writing System Description...
+              [info] Writing 2 ECU Extracts...
+              
+              C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\LegacyConverterResults\1595924167594-0\ConvertedLegacy.arxml.
+              C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\LegacyConverterResults\1595924167594-0\ConvertedLegacy_iECU.arxml.
+              C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\LegacyConverterResults\1595924167594-0\ConvertedLegacy_Tester.arxml.
+              Elapsed time: 1.800 seconds.
+              0 Errors.
+              3 Warnings.
+              [Warning] Legacy Converter finished with errors/warnings.
+ 16:16:09 - Action 'Converting legacy file(s) to AUTOSAR files' successfully finished with warnings.
+                 [Warning] Legacy Converter finished with errors/warnings.
+ 16:16:09 - Action 'Converting legacy file(s) to AUTOSAR files' successfully finished with warnings.
+                 [Warning] Legacy Converter finished with errors/warnings.
+ 16:16:10 - Action 'Input File Pre-Processing' finished.
+ 16:16:10 - Action 'Creating back up' started.
+              Create backup TEMP folder: 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924170508-0\backup_dvpa_2020-07-28_16-16-10'.
+              Copied project file from: 'X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\Workspace\Davinci_MultiCore_FAW\FAW_MultiCore297_Demo.dpa' to 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924170508-0\backup_dvpa_2020-07-28_16-16-10\FAW_MultiCore297_Demo.dpa'.
+              Copied 'ECUC' folder from: 'X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\Workspace\Davinci_MultiCore_FAW\Config\ECUC' to 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924170508-0\backup_dvpa_2020-07-28_16-16-10\Config\ECUC'.
+              Copied 'System' folder from: 'X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\Workspace\Davinci_MultiCore_FAW\Config\System' to 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924170508-0\backup_dvpa_2020-07-28_16-16-10\Config\System'.
+              Copied DaVinci Developer Workspace folder from: 'X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\Workspace\Davinci_MultiCore_FAW\Config\Developer' to 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924170508-0\backup_dvpa_2020-07-28_16-16-10\Config\Developer'.
+              Copied BSW internal behavior folder from: 'X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\Workspace\Davinci_MultiCore_FAW\Config\InternalBehavior' to 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924170508-0\backup_dvpa_2020-07-28_16-16-10\Config\InternalBehavior'.
+              Copied Service Components folder from: 'X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\Workspace\Davinci_MultiCore_FAW\Config\ServiceComponents' to 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924170508-0\backup_dvpa_2020-07-28_16-16-10\Config\ServiceComponents'.
+              Copied Application Components files folder from: 'X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\Workspace\Davinci_MultiCore_FAW\Config\ApplicationComponents' to 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924170508-0\backup_dvpa_2020-07-28_16-16-10\Config\ApplicationComponents'.
+              Copied Definition Restriction files folder from: 'X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\Workspace\Davinci_MultiCore_FAW\DefRestrict' to 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924170508-0\backup_dvpa_2020-07-28_16-16-10\DefRestrict'.
+              Created Zip File in Backup Folder.
+ 16:16:10 - Action 'Creating back up' successfully finished.
+ 16:16:10 - Action 'Close Project' started.
+ 16:16:11 - Action 'Close Project' successfully finished.
+ 16:16:17 - Action 'Create copy of the Project' started.
+              Copy project 'X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\Workspace\Davinci_MultiCore_FAW' to 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0'...
+              Adjusting DPA file of copied project...
+ 16:16:18 - Action 'Create copy of the Project' successfully finished.
+ 16:16:18 - Action 'Prepare DaVinci Developer update data' started.
+ 16:16:18 - Action 'Prepare DaVinci Developer update data' successfully finished.
+ 16:16:18 - Action 'Prepare data for update' started.
+ 16:16:18 - Action 'Prepare data for update' successfully finished.
+ 16:16:18 - Action 'Prepare System Extract' started.
+ 16:16:19 - Action 'Preprocessing System Extract' started.
+ 16:16:19 - Action 'Preprocessing System Extract' successfully finished.
+ 16:16:19 - Action 'Create OEM Communication Extract' started.
+ 16:16:19 - Action 'Create OEM Communication Extract' successfully finished.
+ 16:16:19 - Action 'Prepare System Extract' successfully finished.
+ 16:16:19 - Action 'Updating the project' started.
+ 16:16:24 - Action 'Create ECU configuration' started.
+ 16:16:31 - Action 'Create ECU configuration' successfully finished.
+ 16:16:31 - Action 'Update ECU configuration' started.
+              [Warning] Module configuration '/ActiveEcuC/Mcu' is ignored because of different definition '/AURIX/Mcu' (currently used: '/AUTOSAR/EcucDefs/Mcu').
+              No Package path available for module configuration: Com. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: ComM. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: CanIf. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: Can. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: PduR. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: CanSM. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: Nm. Default /ActiveEcuC is used instead.
+ 16:16:39 - Action 'Update ECU configuration' successfully finished with warnings.
+                 [Warning] Module configuration '/ActiveEcuC/Mcu' is ignored because of different definition '/AURIX/Mcu' (currently used: '/AUTOSAR/EcucDefs/Mcu').
+ 16:16:39 - Action 'Updating the project' finished.
+ 16:16:39 - Action 'Adapt project file' started.
+ 16:16:40 - Action 'Adapt project file' successfully finished.
+ 16:16:40 - Action 'Generate update report' started.
+              [Warning] Could not generate Updater-Report: Error during creation of difference report.
+ 16:16:50 - Action 'Generate update report' successfully finished with warnings.
+                 [Warning] Could not generate Updater-Report: Error during creation of difference report.
+ 16:16:50 - Action 'Execute Solving Actions' started.
+              Executing all Preferred-Solving-Actions...
+              All Preferred-Solving-Actions done.
+              Executing update specific Preferred-Solving-Actions...
+              Update specific Preferred-Solving-Actions done.
+ 16:16:57 - Action 'Execute Solving Actions' successfully finished.
+ 16:16:57 - Action 'Update DaVinci Developer Workspace' started.
+              ﻿28 Jul 2020 16:17:12 - Opening workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf'...
+              28 Jul 2020 16:17:16 - Loading file PlatformTypes_AR4.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\AUTOSAR\PlatformTypes_AR4.arxml).
+              28 Jul 2020 16:17:16 - Loading file BswM_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\BswM_swc.arxml).
+              28 Jul 2020 16:17:16 - Loading file ComM_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\ComM_swc.arxml).
+              28 Jul 2020 16:17:16 - Loading file Det_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\Det_swc.arxml).
+              28 Jul 2020 16:17:16 - Loading file EcuM_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\EcuM_swc.arxml).
+              28 Jul 2020 16:17:16 - Loading file IoHwAb_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\IoHwAb_swc.arxml).
+              28 Jul 2020 16:17:16 - Loading file Os_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\Os_swc.arxml).
+              28 Jul 2020 16:17:16 - Loading file CtAp_FAWDemo_Core1.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\CtAp_FAWDemo_Core1.arxml).
+              28 Jul 2020 16:17:16 - Loading file CtAp_FAWDemo_Core2.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\CtAp_FAWDemo_Core2.arxml).
+              28 Jul 2020 16:17:16 - Loading file CtAp_FAW_Demo.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\CtAp_FAW_Demo.arxml).
+              28 Jul 2020 16:17:16 - Loading file DataTypes.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\DataTypes.arxml).
+              28 Jul 2020 16:17:16 - Loading file FAW_MultiCore297_Demo.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.arxml).
+              28 Jul 2020 16:17:16 - Loading file Packages.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\Packages.arxml).
+              28 Jul 2020 16:17:16 - Loading file PortInterfaces.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\PortInterfaces.arxml).
+              28 Jul 2020 16:17:17 - Opened workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf' successfully.
+              28 Jul 2020 16:17:18 - Start import.
+              28 Jul 2020 16:17:18 - Importing file (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\System\SystemExtract.arxml).
+              28 Jul 2020 16:17:18 - Merging imported data.
+              28 Jul 2020 16:17:21 - Finished import.
+              28 Jul 2020 16:17:21 - Saving workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf'...
+              28 Jul 2020 16:17:21 - Saving file FAW_MultiCore297_Demo.dvg (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dvg).
+              28 Jul 2020 16:17:21 - Saving file DataTypes.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\DataTypes.arxml).
+              28 Jul 2020 16:17:21 - Saving file FAW_MultiCore297_Demo.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.arxml).
+              28 Jul 2020 16:17:21 - Saving file Packages.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\Packages.arxml).
+              28 Jul 2020 16:17:21 - Saved workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf' successfully.
+              28 Jul 2020 16:17:21 - Closing workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf'...
+              28 Jul 2020 16:17:21 - Closed workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf' successfully.
+              OK.
+ 16:17:25 - Action 'Update DaVinci Developer Workspace' successfully finished.
+ 16:17:25 - Action 'Update RTE configuration' started.
+ 16:17:26 - Action 'Update RTE configuration' successfully finished.
+ 16:17:27 - Action 'Align differences after successful update' started.
+ 16:17:28 - Action 'Align differences after successful update' successfully finished.
+ 16:17:28 - Action 'Clean up update data' started.
+ 16:17:28 - Action 'Clean up update data' successfully finished.
+16:17:30 - Workflow 'Update workflow.' finished.

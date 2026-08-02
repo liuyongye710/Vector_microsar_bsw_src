@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <Item State="true">BswM</Item>
+    <Item State="true">Can</Item>
+    <Item State="true">CanIf</Item>
+    <Item State="true">CanSM</Item>
+    <Item State="true">CanTp</Item>
+    <Item State="true">CanTrcv</Item>
+    <Item State="true">Com</Item>
+    <Item State="true">ComM</Item>
+    <Item State="true">Crc</Item>
+    <Item State="true">Dcm</Item>
+    <Item State="true">Dem</Item>
+    <Item State="true">Det</Item>
+    <Item State="true">EcuC</Item>
+    <Item State="true">EcuM</Item>
+    <Item State="true">Fee</Item>
+    <Item State="true">J1939Tp</Item>
+    <Item State="true">MemIf</Item>
+    <Item State="true">MemMap</Item>
+    <Item State="true">NvM</Item>
+    <Item State="true">Os</Item>
+    <Item State="true">PduR</Item>
+    <Item State="true">Rte</Item>
+    <Item State="true">Spi</Item>
+    <Item State="true">Xcp</Item>
+</Config>

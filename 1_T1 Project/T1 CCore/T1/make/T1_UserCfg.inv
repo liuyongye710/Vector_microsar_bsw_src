@@ -1,0 +1,240 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; \file            T1_UserCfg.inv
+;;
+;; \brief           Contains T1 configuration parameters which might get changed after
+;;                  a successful T1-TARGET-SW integration.
+;;
+;; \author christianher
+;;
+;; \version 3.5.0.0 r56120
+;;
+;; \copyright       GLIWA embedded systems GmbH & Co. KG, Weilheim i.OB. All rights reserved
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+#system all:
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Files
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Relative file paths are based on the directory ABOVE T1_projGen.bat
+-inlineHeader=..\src\T1_AppInterface.h          ; name and path for in-lining T1_AppInterface.h into T1 project file
+-configHeader=..\src\T1_config.h                ; name and path of T1_config.h being generated
+-configGenC=..\src\T1_configGen.c               ; name and path of T1_configGen.c being generated
+-bidHeader=..\src\T1_bid.h                      ; name and path of generated header file containing T1 Build ID (which is then excluded from T1_config.h)
+; -runnableHeader=..\src\T1_runnables.h         ; name and path of generated header file containing runnable IDs (and wrappers if supported by OS-script)
+-projectFile=..\T1_project.t1p                  ; name and path of T1 project file being generated
+-symbolFile=myProjectFolder\test.elf            ; name and path of symbol-file
+; -t1LibAnnotationsFile=..\T1_annotations.t1a   ; name and path of generated Annotation file (optional).
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Project Information
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-projectName=customer T1 project                ; project name meaningful to customer
+-licInfo1=POT3726                               ; project and license information for GLIWA
+-licInfo2=LicID1353                             ; project and license information for GLIWA
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Miscellaneous Configurations
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-storeTimingInformation=false                   ; store timing information in T1 project file (e.g. for being used in T1.diff) [true/false]
+; -targetExcludeFromTraceByName=Task_Excluded_Core0 ; exclude task from tracing. Only allowed for the group of tasks at the lowest used priority level! ( using macro T1_TRACE_TASK) [optional]
+; -targetExcludeFromTraceByName=Task_Excluded_Core1 ; exclude task from tracing. Only allowed for the group of tasks at the lowest used priority level! ( using macro T1_TRACE_TASK) [optional]
+-targetExcludeFromTraceByName=Idle_Task_Core0;
+-targetExcludeFromTraceByName=Idle_Task_Core1;
+-targetExcludeFromTraceByName=Idle_Task_Core2;
+-staticRunnableID=1023                          ; define the value of the static runnable ID [0..1023]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Allocate Application Features for all Cores
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-allocateAF=TRACE_STARTUP,     "Capture Startup Trace",    false
+-allocateAF=ALLOW_TRIGGER,     "Allow on Target Trigger",  false
+-allocateAF=ALLOW_TRACEDATA,   "Allow T1 Trace Data",      false
+-allocateAF=CHECK_INTEGRATION, "Trace the stopwatch T1_SW_CHECK_INTEGRATION_CORE_ALL", false
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Allocate Delays for all Cores
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-allocateDL=CHECK_INTEGRATION, "Check Integration"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Allocate User Events for all Cores
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-allocateUE=T1_UE_T1_CONT_ERR_CORE0,        "T1.cont error callback for core 0"
+-allocateUE=T1_UE_T1_CONT_ERR_CORE1,        "T1.cont error callback for core 1"
+-allocateUE=T1_UE_T1_CONT_ERR_CORE2,        "T1.cont error callback for core 2"
+-allocateUE=T1_UE_T1_CONT_ERR_CORE3,        "T1.cont error callback for core 3"
+-allocateUE=T1_UE_T1_CONT_ERR_CORE4,        "T1.cont error callback for core 4"
+-allocateUE=T1_UE_T1_CONT_ERR_CORE5,        "T1.cont error callback for core 5"
+
+-allocateUE=T1_UE_CPU_LOAD_CALLBACK_CORE0,  "T1.cont CPU load callback for core 0"
+-allocateUE=T1_UE_CPU_LOAD_CALLBACK_CORE1,  "T1.cont CPU load callback for core 1"
+-allocateUE=T1_UE_CPU_LOAD_CALLBACK_CORE2,  "T1.cont CPU load callback for core 2"
+-allocateUE=T1_UE_CPU_LOAD_CALLBACK_CORE3,  "T1.cont CPU load callback for core 3"
+-allocateUE=T1_UE_CPU_LOAD_CALLBACK_CORE4,  "T1.cont CPU load callback for core 4"
+-allocateUE=T1_UE_CPU_LOAD_CALLBACK_CORE5,  "T1.cont CPU load callback for core 5"
+
+-allocateUE=T1_UE_T1_ERR_CORE_ALL, "T1_errorCount Increase"
+-allocateUE=T1_UE_TRACE_DEBUG, "T1 trace debug"
+-keyValueMapUE=T1_UE_T1_ERR_CORE_ALL, 0x00, "Core0 Error"
+-keyValueMapUE=T1_UE_T1_ERR_CORE_ALL, 0x01, "Core1 Error"
+-keyValueMapUE=T1_UE_T1_ERR_CORE_ALL, 0x02, "Core2 Error"
+-keyValueMapUE=T1_UE_T1_ERR_CORE_ALL, 0x03, "Core3 Error"
+-keyValueMapUE=T1_UE_T1_ERR_CORE_ALL, 0x04, "Core4 Error"
+-keyValueMapUE=T1_UE_T1_ERR_CORE_ALL, 0x05, "Core5 Error"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Allocate User Data Events for all Cores
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-allocateUDE=CHECK_INTEGRATION_SYNCTIMER, "Check Integration Sync Timer Ticks"
+-allocateUDE=PRINTF,                      "printf string"
+-allocateUDE=16BitDataTrace,              "16 bit Data tracing"
+-allocateUDE=32BitDataTrace,              "32 bit Data tracing"
+-allocateUDE=BinaryTrace,                 "Binary Data tracing"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Allocate User Stopwatches for all Cores
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-allocateUserSW=CHECK_INTEGRATION, "Check Integration", GET
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Configurations for Core 0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 0:
+-systemName=Core0                               ; any system name being displayed in T1.base menu in T1-HOST-SW
+-systemComment=Core0                            ; any system comment
+-osBasicSchedFrameName=Task_20ms_Core0_QM         ; basicSchedulingFrameEvent: OS-name of periodic task containing the main control or calculations of the system
+-osBackgroundTaskName=Idle_Task_Core0             ; task to be excluded from T1.cont and T1.scope CPU-load calculation [OS-name] [optional]
+-traceBufferEntries=6000                        ; trace buffer entries
+; -flexAnalysisCapacity=2000                    ; maximum allowed number of T1.flex exception handler calls between two T1_Handler calls.
+-cpuLoadThreshold=95                            ; CPU-load threshold for T1.cont CPU-load callback [0..99]
+-numberOfConstraints=2                          ; number of T1.cont constraints
+
+-allocateCat1IsrIdPrio=GTM_ATOM10_ISRfunc,250;
+-allocateCat1IsrIdPrio=EDMA_Ch1_IRQHandler,249;
+-allocateCat1IsrIdPrio=EDMA_Ch3_IRQHandler,248;
+-allocateCat1IsrIdPrio=EDMA_Ch16_IRQHandler,247;
+-additionalCat1IsrIdOffset=60;
+-numberOfAdditionalCat1Isrs=4;
+; Allocate Delays for Core 0
+; -allocateDL=RUNNABLE_0, "Runnable 0 Core 0", 100us
+
+; Allocate User Events for Core 0
+; -allocateUE=BSF, "Basic Scheduling Frame Core 0"
+
+; Allocate User Stopwatches for Core 0
+; -allocateUserSW=CORE_LOOP_RUNNABLE_0, "Core Loop in Runnable 0 Core 0", CET
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Configurations for Core 1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 1:
+-systemName=Core1                               ; any system name being displayed in T1.base menu in T1-HOST-SW
+-systemComment=Core1                            ; any system comment
+-osBasicSchedFrameName=Task_20ms_Core1_QM         ; basicSchedulingFrameEvent: OS-name of periodic task containing the main control or calculations of the system
+-osBackgroundTaskName=Idle_Task_Core1           ; task to be excluded from T1.cont and T1.scope CPU-load calculation [OS-name] [optional]
+-traceBufferEntries=2000                        ; trace buffer entries
+; -flexAnalysisCapacity=2000                    ; maximum allowed number of T1.flex exception handler calls between two T1_Handler calls.
+-cpuLoadThreshold=95                            ; CPU-load threshold for T1.cont CPU-load callback [0..99]
+-numberOfConstraints=2                          ; number of T1.cont constraints
+
+; Allocate Delays for Core 1
+; -allocateDL=RUNNABLE_0, "Runnable 0 Core 1", 100us
+
+; Allocate User Events for Core 1
+; -allocateUE=BSF, "Basic Scheduling Frame Core 1"
+
+; Allocate User Stopwatches for Core 1
+; -allocateUserSW=CORE_LOOP_RUNNABLE_0, "Core Loop in Runnable 0 Core 1", CET
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Configurations for Core 2
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 2:
+-systemName=Core2                               ; any system name being displayed in T1.base menu in T1-HOST-SW
+-systemComment=Core2                            ; any system comment
+-osBasicSchedFrameName=Task_20ms_Core2_QM         ; basicSchedulingFrameEvent: OS-name of periodic task containing the main control or calculations of the system
+-osBackgroundTaskName=Idle_Task_Core2           ; task to be excluded from T1.cont and T1.scope CPU-load calculation [OS-name] [optional]
+-traceBufferEntries=4000                        ; trace buffer entries
+; -flexAnalysisCapacity=2000                    ; maximum allowed number of T1.flex exception handler calls between two T1_Handler calls.
+-cpuLoadThreshold=95                            ; CPU-load threshold for T1.cont CPU-load callback [0..99]
+-numberOfConstraints=2                          ; number of T1.cont constraints
+
+; Allocate Delays for Core 
+; -allocateDL=RUNNABLE_0, "Runnable 0 Core 2", 100us
+
+; Allocate User Events for Core 2
+; -allocateUE=BSF, "Basic Scheduling Frame Core 2"
+
+; Allocate User Stopwatches for Core 2
+; -allocateUserSW=CORE_LOOP_RUNNABLE_0, "Core Loop in Runnable 0 Core 2", CET
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Configurations for Core 3
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 3:
+-systemName=Core3                               ; any system name being displayed in T1.base menu in T1-HOST-SW
+-systemComment=Core3                            ; any system comment
+-osBasicSchedFrameName=Task_100ms_Core3         ; basicSchedulingFrameEvent: OS-name of periodic task containing the main control or calculations of the system
+-osBackgroundTaskName=Idle_Task_Core3           ; task to be excluded from T1.cont and T1.scope CPU-load calculation [OS-name] [optional]
+-traceBufferEntries=1000                        ; trace buffer entries
+; -flexAnalysisCapacity=2000                    ; maximum allowed number of T1.flex exception handler calls between two T1_Handler calls.
+-cpuLoadThreshold=95                            ; CPU-load threshold for T1.cont CPU-load callback [0..99]
+-numberOfConstraints=2                          ; number of T1.cont constraints
+
+; Allocate Delays for Core 3
+; -allocateDL=RUNNABLE_0, "Runnable 0 Core 3", 100us
+
+; Allocate User Events for Core 3
+; -allocateUE=BSF, "Basic Scheduling Frame Core 3"
+
+; Allocate User Stopwatches for Core 3
+; -allocateUserSW=CORE_LOOP_RUNNABLE_0, "Core Loop in Runnable 0 Core 3", CET
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Configurations for Core 4
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 4:
+-systemName=Core4                               ; any system name being displayed in T1.base menu in T1-HOST-SW
+-systemComment=Core4                            ; any system comment
+-osBasicSchedFrameName=Task_100ms_Core4         ; basicSchedulingFrameEvent: OS-name of periodic task containing the main control or calculations of the system
+-osBackgroundTaskName=Idle_Task_Core4           ; task to be excluded from T1.cont and T1.scope CPU-load calculation [OS-name] [optional]
+-traceBufferEntries=1000                        ; trace buffer entries
+; -flexAnalysisCapacity=2000                    ; maximum allowed number of T1.flex exception handler calls between two T1_Handler calls.
+-cpuLoadThreshold=95                            ; CPU-load threshold for T1.cont CPU-load callback [0..99]
+-numberOfConstraints=2                          ; number of T1.cont constraints
+
+; Allocate Delays for Core 4
+; -allocateDL=RUNNABLE_0, "Runnable 0 Core 4", 100us
+
+; Allocate User Events for Core 4
+; -allocateUE=BSF, "Basic Scheduling Frame Core 4"
+
+; Allocate User Stopwatches for Core 4
+; -allocateUserSW=CORE_LOOP_RUNNABLE_0, "Core Loop in Runnable 0 Core 4", CET
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Configurations for Core 5
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 5:
+-systemName=Core5                               ; any system name being displayed in T1.base menu in T1-HOST-SW
+-systemComment=Core5                            ; any system comment
+-osBasicSchedFrameName=Task_100ms_Core5         ; basicSchedulingFrameEvent: OS-name of periodic task containing the main control or calculations of the system
+-osBackgroundTaskName=Idle_Task_Core5           ; task to be excluded from T1.cont and T1.scope CPU-load calculation [OS-name] [optional]
+-traceBufferEntries=1000                        ; trace buffer entries
+; -flexAnalysisCapacity=2000                    ; maximum allowed number of T1.flex exception handler calls between two T1_Handler calls.
+-cpuLoadThreshold=95                            ; CPU-load threshold for T1.cont CPU-load callback [0..99]
+-numberOfConstraints=2                          ; number of T1.cont constraints
+
+; Allocate Delays for Core 5
+; -allocateDL=RUNNABLE_0, "Runnable 0 Core 5", 100us
+
+; Allocate User Events for Core 5
+; -allocateUE=BSF, "Basic Scheduling Frame Core 5"
+
+; Allocate User Stopwatches for Core 5
+; -allocateUserSW=CORE_LOOP_RUNNABLE_0, "Core Loop in Runnable 0 Core 5", CET
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; EOF
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

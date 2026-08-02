@@ -1,0 +1,48 @@
+// T3210002 Wed Apr 17 11:09:44 2024
+
+B::
+
+TOOLBAR   ON
+STATUSBAR ON
+FramePOS 27.714,10.333,,,Maximized
+WinPAGE.RESet
+
+WinPAGE.Create P000
+WinCLEAR
+
+WinPOS 111.14 39.417 102. 9. 5. 0. W002
+Frame /Locals /Caller
+
+WinPOS 111.29 27.833 102. 6. 24. 1. W004
+WinTABS 13. 0. 0. 0. 0. 0. 0. 0. 0. 50.
+Break.List
+
+setup.VAR %E.on %SpotLight.on 
+WinPOS 68.286 0.083333 38. 14. 0. 0. W001
+Var.Watch
+
+VAR.ADDWATCH AppTask1000ms2Counter
+VAR.ADDWATCH AppTask500ms2Counter
+VAR.ADDWATCH AppTask200ms2Counter
+VAR.ADDWATCH AppTask100ms2Counter
+VAR.ADDWATCH AppTask50ms2Counter
+VAR.ADDWATCH AppTask20ms2Counter
+VAR.ADDWATCH AppTask10ms2Counter
+VAR.ADDWATCH AppTask5ms2Counter
+VAR.ADDWATCH AppTask4ms2Counter
+VAR.ADDWATCH AppTask1ms2Counter
+
+WinPOS 142.43 13.417 58. 8. 10. 1. W005
+RunTime
+
+WinPOS 111.29 0.083333 103. 21. 14. 1. W000
+WinTABS 10. 10. 25.
+list
+
+WinPOS 0.0 0.0 64. 48. 0. 0. W003
+VAR.watch PETTER_test
+
+
+WinPAGE.select P000
+
+ENDDO

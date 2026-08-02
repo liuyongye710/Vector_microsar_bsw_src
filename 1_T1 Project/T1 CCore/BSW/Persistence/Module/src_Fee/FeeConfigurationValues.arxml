@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>Fee</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/Fee</DEFINITION-REF>
+                    <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FeeBlockConfiguration0</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockNumber</DEFINITION-REF>
+                                    <VALUE>0</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockSize</DEFINITION-REF>
+                                    <VALUE>0</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeImmediateData</DEFINITION-REF>
+                                    <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FeeBlockConfiguration1_0</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockNumber</DEFINITION-REF>
+                                    <VALUE>4</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockSize</DEFINITION-REF>
+                                    <VALUE>5</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeImmediateData</DEFINITION-REF>
+                                    <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FeeBlockConfiguration1_1</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockNumber</DEFINITION-REF>
+                                    <VALUE>5</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockSize</DEFINITION-REF>
+                                    <VALUE>5</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeImmediateData</DEFINITION-REF>
+                                    <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Fee_dsm_nvm_data_block</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockNumber</DEFINITION-REF>
+                                    <VALUE>8</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockSize</DEFINITION-REF>
+                                    <VALUE>32772</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeImmediateData</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Fee_app_nvm_data_block</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockNumber</DEFINITION-REF>
+                                    <VALUE>12</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockSize</DEFINITION-REF>
+                                    <VALUE>16388</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeImmediateData</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Fee_data_nvm_onfly_block</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockNumber</DEFINITION-REF>
+                                    <VALUE>16</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeBlockSize</DEFINITION-REF>
+                                    <VALUE>1028</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeBlockConfiguration/FeeImmediateData</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FeeGeneral</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeDevErrorDetect</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeMainFunctionPeriod</DEFINITION-REF>
+                                    <VALUE>0.001</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeNvmJobEndNotification</DEFINITION-REF>
+                                    <VALUE>NULL_PTR</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeNvmJobErrorNotification</DEFINITION-REF>
+                                    <VALUE>NULL_PTR</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeePollingMode</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeSetModeSupported</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeVersionInfoApi</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeVirtualPageSize</DEFINITION-REF>
+                                    <VALUE>8</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeSectorBlockThreshold</DEFINITION-REF>
+                                    <VALUE>1024</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeInternalBufferSize</DEFINITION-REF>
+                                    <VALUE>128</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeFirstSectorAddress</DEFINITION-REF>
+                                    <VALUE>229376</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeSecondSectorAddress</DEFINITION-REF>
+                                    <VALUE>491520</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeGeneral/FeeSectorSize</DEFINITION-REF>
+                                    <VALUE>262144</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FeeSectorConfiguration0</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Fee/FeeSectorConfiguration</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeSectorConfiguration/FeeSectorNumber</DEFINITION-REF>
+                                    <VALUE>1</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeSectorConfiguration/FeeSectorAddress</DEFINITION-REF>
+                                    <VALUE>229376</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeSectorConfiguration/FeeSectorSize</DEFINITION-REF>
+                                    <VALUE>262144</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FeeSectorConfiguration1</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Fee/FeeSectorConfiguration</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeSectorConfiguration/FeeSectorNumber</DEFINITION-REF>
+                                    <VALUE>2</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeSectorConfiguration/FeeSectorAddress</DEFINITION-REF>
+                                    <VALUE>491520</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Fee/FeeSectorConfiguration/FeeSectorSize</DEFINITION-REF>
+                                    <VALUE>262144</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                    </CONTAINERS>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

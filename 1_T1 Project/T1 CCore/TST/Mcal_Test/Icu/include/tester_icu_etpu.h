@@ -1,0 +1,195 @@
+#ifndef TESTER_ICU_ETPU_H
+#define TESTER_ICU_ETPU_H
+#include <stdint.h>
+#include <stdlib.h>
+
+void icu_169(void);
+void icu_170(void);
+void icu_171(void);
+void icu_172(void);
+void icu_173(void);
+void icu_174(void);
+void icu_175(void);
+void icu_176(void);
+void icu_177(void);
+void icu_178(void);
+void icu_179(void);
+void icu_180(void);
+void icu_181(void);
+void icu_182(void);
+void icu_183(void);
+void icu_184(void);
+void icu_185(void);
+void icu_186(void);
+void icu_187(void);
+void icu_188(void);
+void icu_189(void);
+void icu_190(void);
+void icu_191(void);
+void icu_192(void);
+void icu_193(void);
+void icu_194(void);
+void icu_195(void);
+void icu_196(void);
+void icu_197(void);
+void icu_198(void);
+void icu_199(void);
+void icu_200(void);
+void icu_201(void);
+void icu_202(void);
+void icu_203(void);
+void icu_204(void);
+void icu_205(void);
+void icu_206(void);
+void icu_207(void);
+void icu_208(void);
+void icu_209(void);
+void icu_210(void);
+void icu_211(void);
+void icu_212(void);
+void icu_213(void);
+void icu_214(void);
+void icu_215(void);
+void icu_216(void);
+void icu_217(void);
+void icu_218(void);
+void icu_219(void);
+void icu_220(void);
+void icu_221(void);
+void icu_222(void);
+void icu_223(void);
+void icu_224(void);
+void icu_225(void);
+void icu_226(void);
+void icu_227(void);
+void icu_228(void);
+void icu_229(void);
+void icu_230(void);
+void icu_231(void);
+void icu_232(void);
+void icu_233(void);
+void icu_234(void);
+void icu_235(void);
+void icu_236(void);
+void icu_237(void);
+void icu_238(void);
+void icu_239(void);
+void icu_240(void);
+void icu_241(void);
+void icu_242(void);
+void icu_243(void);
+void icu_244(void);
+void icu_245(void);
+void icu_246(void);
+void icu_247(void);
+void icu_248(void);
+void icu_249(void);
+void icu_250(void);
+void icu_251(void);
+void icu_252(void);
+void icu_253(void);
+void icu_254(void);
+void icu_255(void);
+void icu_256(void);
+void icu_257(void);
+void icu_291(void);
+void icu_292(void);
+void icu_293(void);
+
+
+#define ICU_ETPU_TEST       \
+    {"icu_169",	icu_169},\
+    {"icu_170",	icu_170},\
+    {"icu_171",	icu_171},\
+    {"icu_172",	icu_172},\
+    {"icu_173",	icu_173},\
+    {"icu_174",	icu_174},\
+    {"icu_175",	icu_175},\
+    {"icu_176",	icu_176},\
+    {"icu_177",	icu_177},\
+    {"icu_178",	icu_178},\
+    {"icu_179",	icu_179},\
+    {"icu_180",	icu_180},\
+    {"icu_181",	icu_181},\
+    {"icu_182",	icu_182},\
+    {"icu_183",	icu_183},\
+    {"icu_184",	icu_184},\
+    {"icu_185",	icu_185},\
+    {"icu_186",	icu_186},\
+    {"icu_187",	icu_187},\
+    {"icu_188",	icu_188},\
+    {"icu_189",	icu_189},\
+    {"icu_190",	icu_190},\
+    {"icu_191",	icu_191},\
+    {"icu_192",	icu_192},\
+    {"icu_193",	icu_193},\
+    {"icu_194",	icu_194},\
+    {"icu_195",	icu_195},\
+    {"icu_196",	icu_196},\
+    {"icu_197",	icu_197},\
+    {"icu_198",	icu_198},\
+    {"icu_199",	icu_199},\
+    {"icu_200",	icu_200},\
+    {"icu_201",	icu_201},\
+    {"icu_202",	icu_202},\
+    {"icu_203",	icu_203},\
+    {"icu_204",	icu_204},\
+    {"icu_205",	icu_205},\
+    {"icu_206",	icu_206},\
+    {"icu_207",	icu_207},\
+    {"icu_208",	icu_208},\
+    {"icu_209",	icu_209},\
+    {"icu_210",	icu_210},\
+    {"icu_211",	icu_211},\
+    {"icu_212",	icu_212},\
+    {"icu_213",	icu_213},\
+    {"icu_214",	icu_214},\
+    {"icu_215",	icu_215},\
+    {"icu_216",	icu_216},\
+    {"icu_217",	icu_217},\
+    {"icu_218",	icu_218},\
+    {"icu_219",	icu_219},\
+    {"icu_220",	icu_220},\
+    {"icu_221",	icu_221},\
+    {"icu_222",	icu_222},\
+    {"icu_223",	icu_223},\
+    {"icu_224",	icu_224},\
+    {"icu_225",	icu_225},\
+    {"icu_226",	icu_226},\
+    {"icu_227",	icu_227},\
+    {"icu_228",	icu_228},\
+    {"icu_229",	icu_229},\
+    {"icu_230",	icu_230},\
+    {"icu_231",	icu_231},\
+    {"icu_232",	icu_232},\
+    {"icu_233",	icu_233},\
+    {"icu_234",	icu_234},\
+    {"icu_235",	icu_235},\
+    {"icu_236",	icu_236},\
+    {"icu_237",	icu_237},\
+    {"icu_238",	icu_238},\
+    {"icu_239",	icu_239},\
+    {"icu_240",	icu_240},\
+    {"icu_241",	icu_241},\
+    {"icu_242",	icu_242},\
+    {"icu_243",	icu_243},\
+    {"icu_244",	icu_244},\
+    {"icu_245",	icu_245},\
+    {"icu_246",	icu_246},\
+    {"icu_247",	icu_247},\
+    {"icu_248",	icu_248},\
+    {"icu_249",	icu_249},\
+    {"icu_250",	icu_250},\
+    {"icu_251",	icu_251},\
+    {"icu_252",	icu_252},\
+    {"icu_253",	icu_253},\
+    {"icu_254",	icu_254},\
+    {"icu_255",	icu_255},\
+    {"icu_256",	icu_256},\
+    {"icu_257",	icu_257},\
+    {"icu_291",	icu_291},\
+    {"icu_292",	icu_292},\
+    {"icu_293",	icu_293},\
+
+
+#endif

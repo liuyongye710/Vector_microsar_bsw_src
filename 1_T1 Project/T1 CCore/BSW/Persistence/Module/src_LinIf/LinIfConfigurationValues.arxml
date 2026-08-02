@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>LinIf</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/LinIf</DEFINITION-REF>
+                    <CONTAINERS/>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

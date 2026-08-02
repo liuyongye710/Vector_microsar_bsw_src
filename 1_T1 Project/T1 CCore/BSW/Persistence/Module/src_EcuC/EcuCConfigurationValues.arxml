@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>EcuC</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/EcuC</DEFINITION-REF>
+                    <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EcucConfigSet</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EcucPduCollection</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection</DEFINITION-REF>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MCU1_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>ECMCU_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>34</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MCU3_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MCU21_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MCU22_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MCU23_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DM1MCU_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>48</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DM1MCU2_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>48</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MCU2_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPCMBAMMCU2_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPDTMCU2_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPCMBAMMCU_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPDTMCU_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TSC1Mtr_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>EEC2HCU_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CCVSHCU_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TC1_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TC1Handle_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>ETC1_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>ETC2_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>AMT3_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>HCUMCU_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>HCUMCU2_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>SC_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TSC1Mtr2_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>GL_Tx_RES_Voxyrf</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>XCP_Response_Voxyrf</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MCU_Tx_Data_Voxyrf</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>GL_Rx_REQ_Voxyrf</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>XCP_Request_Voxyrf</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MCU_Rx_Data_2_Voxyrf</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MCU_Rx_Data_1_Voxyrf</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DCDC_Cmd1_VR82BV</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DCDC_Status1_VR82BV</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DCDC_Status2_VR82BV</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DCDC_Status3_VR82BV</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>APCU1_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>APCU2_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DM1APCU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>48</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DCDC1_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DM1DCDC_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>48</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DM1OPCU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>48</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>OPCU1_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>OPCU2_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>RelayState_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>RelayState2_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>IMCU1PTU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MECU1Reserved_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>DM1PTU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>48</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPCMBAMDCDC_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPDTDCDC_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPCMBAMOPCU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPDTOPCU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPCMBAMAPCU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPDTAPCU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPCMBAMPTU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TPDTPTU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/MetaDataLength</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>HCUDCDC_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>HCUAPCU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>HCUOPCU_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>HCU3_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>BMS5_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>MCU2_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu/PduLength</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EcucHardware</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucHardware</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>OsCore_CORE0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucHardware/EcucCoreDefinition</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucHardware/EcucCoreDefinition/EcucCoreId</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>OsCore_CORE1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucHardware/EcucCoreDefinition</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucHardware/EcucCoreDefinition/EcucCoreId</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>OsCore_CORE2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucHardware/EcucCoreDefinition</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucHardware/EcucCoreDefinition/EcucCoreId</DEFINITION-REF>
+                                            <VALUE>2</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EcucPartitionCollection</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EcucPartitionASILA</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition/EcucPartitionASILBswModuleExecution</DEFINITION-REF>
+                                            <VALUE>A</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EcucPartitionASILB</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition/EcucPartitionASILBswModuleExecution</DEFINITION-REF>
+                                            <VALUE>B</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EcucPartitionASILC</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition/EcucPartitionASILBswModuleExecution</DEFINITION-REF>
+                                            <VALUE>C</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EcucPartitionQM</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition/EcucPartitionASILBswModuleExecution</DEFINITION-REF>
+                                            <VALUE>QM</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                    </CONTAINERS>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

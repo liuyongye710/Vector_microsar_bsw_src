@@ -1,0 +1,60 @@
+ 
+/*
+********************************************************************************
+*
+* File name: SchM_Com.h
+*
+* Copyright 2018-2024 Neusoft Reach Corporation. All rights reserved.
+*
+********************************************************************************
+*
+* History
+*-------------------------------------------------------------------------------
+********************************************************************************
+* Version: 3.0
+* Author/Date: Gaol/2022.6.14
+* Change: New created.
+* Cause: New
+********************************************************************************
+*/
+/*
+********************************************************************************
+*    double include preventio and include files
+********************************************************************************
+*/
+#ifndef SCHM_COM_H
+#define SCHM_COM_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "SchM_Com_Type.h"
+#include "Com.h"
+
+/*
+********************************************************************************
+*    MainFuntion prototypes
+********************************************************************************
+*/
+FUNC(void, COM_CODE) Com_MainFunction_RouteSignals(uint16 ComGatewayInfoTableIndex);
+
+FUNC(void, COM_CODE) Com_MainFunction_Rx(uint16 ComRxPduInfoTableIndex);
+
+FUNC(void, COM_CODE) Com_MainFunction_Tx(uint16 ComTxPduInfoTableIndex);
+
+/*
+********************************************************************************
+*    Exclusive_area prototypes
+********************************************************************************
+*/
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* SCHM_COM_H */
+
+ 
+ 
+ 

@@ -1,0 +1,28 @@
+﻿28 Jul 2020 16:17:12 - Opening workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf'...
+28 Jul 2020 16:17:16 - Loading file PlatformTypes_AR4.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\AUTOSAR\PlatformTypes_AR4.arxml)
+28 Jul 2020 16:17:16 - Loading file BswM_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\BswM_swc.arxml)
+28 Jul 2020 16:17:16 - Loading file ComM_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\ComM_swc.arxml)
+28 Jul 2020 16:17:16 - Loading file Det_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\Det_swc.arxml)
+28 Jul 2020 16:17:16 - Loading file EcuM_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\EcuM_swc.arxml)
+28 Jul 2020 16:17:16 - Loading file IoHwAb_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\IoHwAb_swc.arxml)
+28 Jul 2020 16:17:16 - Loading file Os_swc.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\ServiceComponents\Os_swc.arxml)
+28 Jul 2020 16:17:16 - Loading file CtAp_FAWDemo_Core1.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\CtAp_FAWDemo_Core1.arxml)
+28 Jul 2020 16:17:16 - Loading file CtAp_FAWDemo_Core2.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\CtAp_FAWDemo_Core2.arxml)
+28 Jul 2020 16:17:16 - Loading file CtAp_FAW_Demo.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\CtAp_FAW_Demo.arxml)
+28 Jul 2020 16:17:16 - Loading file DataTypes.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\DataTypes.arxml)
+28 Jul 2020 16:17:16 - Loading file FAW_MultiCore297_Demo.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.arxml)
+28 Jul 2020 16:17:16 - Loading file Packages.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\Packages.arxml)
+28 Jul 2020 16:17:16 - Loading file PortInterfaces.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\PortInterfaces.arxml)
+28 Jul 2020 16:17:17 - Opened workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf' successfully.
+28 Jul 2020 16:17:18 - Start import
+28 Jul 2020 16:17:18 - Importing file (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\System\SystemExtract.arxml).
+28 Jul 2020 16:17:18 - Merging imported data
+28 Jul 2020 16:17:21 - Finished import
+28 Jul 2020 16:17:21 - Saving workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf'...
+28 Jul 2020 16:17:21 - Saving file FAW_MultiCore297_Demo.dvg (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dvg)
+28 Jul 2020 16:17:21 - Saving file DataTypes.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\DataTypes.arxml)
+28 Jul 2020 16:17:21 - Saving file FAW_MultiCore297_Demo.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.arxml)
+28 Jul 2020 16:17:21 - Saving file Packages.arxml (C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\Packages.arxml)
+28 Jul 2020 16:17:21 - Saved workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf' successfully.
+28 Jul 2020 16:17:21 - Closing workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf'...
+28 Jul 2020 16:17:21 - Closed workspace 'C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\Workflow\1595924176853-0\Config\Developer\FAW_MultiCore297_Demo.dcf' successfully.

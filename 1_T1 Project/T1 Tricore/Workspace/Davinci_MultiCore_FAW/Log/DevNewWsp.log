@@ -1,0 +1,15 @@
+﻿12 Jun 2020 11:21:44 - Saving file AdminDataTemplates.xml (X:\Projects\FAW_OS\Davinci_Worksapce\MultiCore_FAW\Config\Developer\AdminDataTemplates.xml)
+12 Jun 2020 11:21:44 - Saving file FAW_MultiCore297_Demo.dcf (X:\Projects\FAW_OS\Davinci_Worksapce\MultiCore_FAW\Config\Developer\FAW_MultiCore297_Demo.dcf)
+12 Jun 2020 11:21:44 - Start import
+12 Jun 2020 11:21:45 - Importing file (D:\Vector\Davinci_Developer\Bin\Predefines\StandardPackages_AR4.arxml).
+12 Jun 2020 11:21:46 - Importing file (D:\Vector\Davinci_Developer\Bin\Predefines\ServicePortInterfaces_4.3.1.arxml).
+12 Jun 2020 11:21:46 - Importing file (D:\Vector\Davinci_Developer\Bin\Predefines\ApplicationPortInterfaces_4.3.1.arxml).
+12 Jun 2020 11:21:46 - Importing file (X:\Projects\FAW_OS\Davinci_Worksapce\MultiCore_FAW\Config\AUTOSAR\PlatformTypes_AR4.arxml).
+12 Jun 2020 11:21:46 - Merging imported data
+12 Jun 2020 11:21:48 - Finished import
+12 Jun 2020 11:21:49 - Saving file ProfileSettings.xml (X:\Projects\FAW_OS\Davinci_Worksapce\MultiCore_FAW\Config\Developer\ProfileSettings.xml)
+12 Jun 2020 11:21:49 - Saving file Packages.arxml (X:\Projects\FAW_OS\Davinci_Worksapce\MultiCore_FAW\Config\Developer\Packages.arxml)
+12 Jun 2020 11:21:49 - Saving file DataTypes.arxml (X:\Projects\FAW_OS\Davinci_Worksapce\MultiCore_FAW\Config\Developer\DataTypes.arxml)
+12 Jun 2020 11:21:49 - Saving file PortInterfaces.arxml (X:\Projects\FAW_OS\Davinci_Worksapce\MultiCore_FAW\Config\Developer\PortInterfaces.arxml)
+12 Jun 2020 11:21:49 - Saving file FAW_MultiCore297_Demo.arxml (X:\Projects\FAW_OS\Davinci_Worksapce\MultiCore_FAW\Config\Developer\ECUProjects\FAW_MultiCore297_Demo.arxml)
+12 Jun 2020 11:21:49 - Saving file FAW_MultiCore297_Demo.dcf (X:\Projects\FAW_OS\Davinci_Worksapce\MultiCore_FAW\Config\Developer\FAW_MultiCore297_Demo.dcf)

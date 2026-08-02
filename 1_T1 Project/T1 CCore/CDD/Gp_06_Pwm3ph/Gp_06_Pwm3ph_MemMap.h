@@ -1,0 +1,8 @@
+#ifndef GP_06_PWM3PH_MEMMAP_H_
+#define GP_06_PWM3PH_MEMMAP_H_
+
+#define MEMMAP_ERROR
+
+
+#undef GP_06_PWM3PH_MEMMAP_H_
+#endif

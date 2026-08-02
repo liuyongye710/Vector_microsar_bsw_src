@@ -1,0 +1,65 @@
+-syncTimeBitLength=32                           ; number of actual counting bits in the sync timer (ideally 32)
+-timeoutRxMs=1000                               ; maximum time allowed between reception of two frames of the same message [t in ms]
+-timeoutTxMs=1000                               ; maximum time allowed for (retrying) the sending of a frame [t in ms]
+-timeoutResponseMs=10000                        ; maximum time permitted between transmitting the last frame of a message that requires acknowledgement and receiving the last frame of that acknowledgement [t in ms]
+-usingMulticoreLibs=true                        ; true if using multi-core libs (regardless of using single- or multi-core processor) [true,false]
+-bigEndian=false                                ; must be set to 'true' for big-endian targets.
+-numberOfFocusMeasurements=2                    ; number of parallel focus measurements [1..2]
+
+-txCycleMs=10                                   ; TX cycle of T1-HOST-SW in [t in ms]
+-useSameConnectionForAllSystems=true            ; Use the same connection settings for all systems [true,false]
+-canBitrate=500000                              ; Specifies the CAN bit rate [Bit/s]
+-canHardware=U2C                                ; [U2C,VECTOR]
+-connectionType=pure T1                         ; [pure T1,Diagnosis]
+-canTxID=0x7CB                                 ; CAN ID T1-HOST-SW -> T1-TARGET-SW
+-canRxID=0x7FA                                 ; CAN ID T1-TARGET-SW -> T1-HOST-SW
+-canExtendedIds=false                           ; [true,false]
+-useSameRxTxChannel=true                        ; same settings for RX and TX [true,false]
+
+#system 0:
+-sid=2                                          ; system ID
+-systemType=AUTOSAR OS                          ; [OSEK/ErcosEK/gliwOS/RTA OSEK/AUTOSAR OS/Unknown]
+-tickDurationNs=(1000.0/100*16)						                  ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-traceTimerIsSyncTimer=true                     ; is trace timer used on this core == sync timer? [true,false]
+-t1ScopeOverheadNs=178                          ; duration of one T1_TraceEventNoSusp_ call [t in ns]
+-t1FlexOverheadNs=500                           ; additional overhead for a T1.flex event [t in ns]
+-numberOfFlexStopwatches=16                     ; number of used T1.flex stopwatches [0..255]
+-numberOfFlexAddrs=16                           ; number of T1.flex addresses (must be >= nofFlexStopwatches) [0..255]
+-pTimer=0xF0000114                              ; address of memory mapped timer
+-traceTimerDownCounting=false                   ; trace timer counts down: [true/false]
+-32BitCpuWithSmallerTimer=false                 ; 32 Bit core with smaller trace timer: [true/false]
+-t1HandlerPeriodMs=10                           ; period of T1_Handler() [t in ms]
+-cpuLoadTxPeriod=100                             ; Transmit CPU load every x CPU load frames (BSF-frame) [0..255]
+-cpuLoadAvgSamples=100                           ; Number of samples taken within period [1 or cpuLoadTxPeriod]
+
+#system 1:
+-sid=3                                          ; system ID
+-systemType=AUTOSAR OS                          ; [OSEK/ErcosEK/gliwOS/RTA OSEK/AUTOSAR OS/Unknown]
+-tickDurationNs=(1000.0/100*16)							                  ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-traceTimerIsSyncTimer=true                     ; is trace timer used on this core == sync timer? [true,false]
+-t1ScopeOverheadNs=178                          ; duration of one T1_TraceEventNoSusp_ call [t in ns]
+-t1FlexOverheadNs=500                           ; additional overhead for a T1.flex event [t in ns]
+-numberOfFlexStopwatches=16                     ; number of used T1.flex stopwatches [0..255]
+-numberOfFlexAddrs=16                           ; number of T1.flex addresses (must be >= nofFlexStopwatches) [0..255]
+-pTimer=0xF0000114                              ; address of memory mapped timer
+-traceTimerDownCounting=false                   ; trace timer counts down: [true,false]
+-32BitCpuWithSmallerTimer=false                 ; 32 Bit core with smaller trace timer: [true,false]
+-t1HandlerPeriodMs=10                           ; period of T1_Handler() [t in ms]
+-cpuLoadTxPeriod=100                             ; Transmit CPU load every x CPU load frames (BSF-frame) [0..255]
+-cpuLoadAvgSamples=100                           ; Number of samples taken within period [1 or cpuLoadTxPeriod]
+
+#system 2:
+-sid=4                                          ; system ID
+-systemType=AUTOSAR OS                          ; [OSEK/ErcosEK/gliwOS/RTA OSEK/AUTOSAR OS/Unknown]
+-tickDurationNs=(1000.0/100*16)							                  ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-traceTimerIsSyncTimer=true                     ; is trace timer used on this core == sync timer? [true,false]
+-t1ScopeOverheadNs=178                          ; duration of one T1_TraceEventNoSusp_ call [t in ns]
+-t1FlexOverheadNs=500                           ; additional overhead for a T1.flex event [t in ns]
+-numberOfFlexStopwatches=16                     ; number of used T1.flex stopwatches [0..255]
+-numberOfFlexAddrs=16                           ; number of T1.flex addresses (must be >= nofFlexStopwatches) [0..255]
+-pTimer=0xF0000114                              ; address of memory mapped timer
+-traceTimerDownCounting=false                   ; trace timer counts down: [true,false]
+-32BitCpuWithSmallerTimer=false                 ; 32 Bit core with smaller trace timer: [true,false]
+-t1HandlerPeriodMs=10                           ; period of T1_Handler() [t in ms]
+-cpuLoadTxPeriod=100                             ; Transmit CPU load every x CPU load frames (BSF-frame) [0..255]
+-cpuLoadAvgSamples=100                           ; Number of samples taken within period [1 or cpuLoadTxPeriod]

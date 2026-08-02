@@ -1,0 +1,5 @@
+; Relative file paths are based on the directory ABOVE T1_projGen.bat
+
+;-osCfgPath=.\..\..\OS\Source\cfg\                              ; Path to OS configuration files.
+-osCfgPath=.\..\..\BSW\Codes\Components\src_Os\Source\cfg\
+

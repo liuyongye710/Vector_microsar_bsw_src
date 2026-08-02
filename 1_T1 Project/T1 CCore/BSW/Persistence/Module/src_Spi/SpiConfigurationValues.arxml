@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>Spi</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/Spi</DEFINITION-REF>
+                    <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>SpiDriver</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiMaxChannel</DEFINITION-REF>
+                                    <VALUE>4</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiMaxJob</DEFINITION-REF>
+                                    <VALUE>4</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiMaxSequence</DEFINITION-REF>
+                                    <VALUE>4</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiChannel0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiChannelId</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiChannelType</DEFINITION-REF>
+                                            <VALUE>EB</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiDataWidth</DEFINITION-REF>
+                                            <VALUE>8</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiDefaultData</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiEbMaxLength</DEFINITION-REF>
+                                            <VALUE>64</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiIbNBuffers</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiTransferStart</DEFINITION-REF>
+                                            <VALUE>MSB</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiChannel1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiChannelId</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiChannelType</DEFINITION-REF>
+                                            <VALUE>EB</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiDataWidth</DEFINITION-REF>
+                                            <VALUE>16</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiDefaultData</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiEbMaxLength</DEFINITION-REF>
+                                            <VALUE>64</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiIbNBuffers</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiTransferStart</DEFINITION-REF>
+                                            <VALUE>MSB</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiChannel2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiChannelId</DEFINITION-REF>
+                                            <VALUE>2</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiChannelType</DEFINITION-REF>
+                                            <VALUE>EB</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiDataWidth</DEFINITION-REF>
+                                            <VALUE>8</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiDefaultData</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiEbMaxLength</DEFINITION-REF>
+                                            <VALUE>64</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiIbNBuffers</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiTransferStart</DEFINITION-REF>
+                                            <VALUE>MSB</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiChannel3</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiChannelId</DEFINITION-REF>
+                                            <VALUE>3</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiChannelType</DEFINITION-REF>
+                                            <VALUE>EB</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiDataWidth</DEFINITION-REF>
+                                            <VALUE>16</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiDefaultData</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiEbMaxLength</DEFINITION-REF>
+                                            <VALUE>64</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiIbNBuffers</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiChannel/SpiTransferStart</DEFINITION-REF>
+                                            <VALUE>MSB</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiExternalDevice0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiBaudrate</DEFINITION-REF>
+                                            <VALUE>5000000</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiCsIdentifier</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiCsPolarity</DEFINITION-REF>
+                                            <VALUE>LOW</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiCsSelection</DEFINITION-REF>
+                                            <VALUE>CS_VIA_GPIO</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiDataShiftEdge</DEFINITION-REF>
+                                            <VALUE>TRAILING</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiExternalDevice1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiBaudrate</DEFINITION-REF>
+                                            <VALUE>1000000</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiCsIdentifier</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiCsPolarity</DEFINITION-REF>
+                                            <VALUE>LOW</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiCsSelection</DEFINITION-REF>
+                                            <VALUE>CS_VIA_GPIO</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiDataShiftEdge</DEFINITION-REF>
+                                            <VALUE>TRAILING</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiExternalDevice2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiBaudrate</DEFINITION-REF>
+                                            <VALUE>1000000</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiCsIdentifier</DEFINITION-REF>
+                                            <VALUE>2</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiCsPolarity</DEFINITION-REF>
+                                            <VALUE>LOW</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiCsSelection</DEFINITION-REF>
+                                            <VALUE>CS_VIA_GPIO</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiExternalDevice/SpiDataShiftEdge</DEFINITION-REF>
+                                            <VALUE>TRAILING</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiJob0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiHwUnitSynchronous</DEFINITION-REF>
+                                            <VALUE>SYNCHRONOUS</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiJobId</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiDeviceAssignment</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiExternalDevices/SpiExternalDevice0</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>SpiChannelList0</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList/SpiChannelIndex</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList/SpiChannelAssignment</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiChannels/SpiChannel0</VALUE-REF>
+                                                    <IMPORT>NONE</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiJob1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiHwUnitSynchronous</DEFINITION-REF>
+                                            <VALUE>SYNCHRONOUS</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiJobId</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiDeviceAssignment</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiExternalDevices/SpiExternalDevice1</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>SpiChannelList0</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList/SpiChannelIndex</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList/SpiChannelAssignment</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiChannels/SpiChannel1</VALUE-REF>
+                                                    <IMPORT>NONE</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiJob2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiHwUnitSynchronous</DEFINITION-REF>
+                                            <VALUE>SYNCHRONOUS</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiJobId</DEFINITION-REF>
+                                            <VALUE>2</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiDeviceAssignment</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiExternalDevices/SpiExternalDevice2</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>SpiChannelList0</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList/SpiChannelIndex</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList/SpiChannelAssignment</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiChannels/SpiChannel2</VALUE-REF>
+                                                    <IMPORT>NONE</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiJob3</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiHwUnitSynchronous</DEFINITION-REF>
+                                            <VALUE>SYNCHRONOUS</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiJobId</DEFINITION-REF>
+                                            <VALUE>3</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiDeviceAssignment</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiExternalDevices/SpiExternalDevice0</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>SpiChannelList0</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList/SpiChannelIndex</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiJob/SpiChannelList/SpiChannelAssignment</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiChannels/SpiChannel3</VALUE-REF>
+                                                    <IMPORT>NONE</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiSequence0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence/SpiSequenceId</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence/SpiJobAssignment</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiJobs/SpiJob0</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiSequence1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence/SpiSequenceId</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence/SpiJobAssignment</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiJobs/SpiJob1</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiSequence2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence/SpiSequenceId</DEFINITION-REF>
+                                            <VALUE>2</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence/SpiJobAssignment</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiJobs/SpiJob2</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SpiSequence3</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence/SpiSequenceId</DEFINITION-REF>
+                                            <VALUE>3</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiSequence/SpiJobAssignment</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Spi/SpiDriver/SpiJobs/SpiJob3</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>SpiGeneral</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiGeneral</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                    </CONTAINERS>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

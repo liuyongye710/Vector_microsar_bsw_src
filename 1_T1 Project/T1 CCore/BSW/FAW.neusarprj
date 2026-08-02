@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <Information>
+        <ProjectName>FAW</ProjectName>
+        <Author></Author>
+        <Description></Description>
+        <CreateTime>2023-09-30 13:52:45</CreateTime>
+        <LatestReviewTime>2025-10-23 16:26:17</LatestReviewTime>
+        <LatestReviewContent></LatestReviewContent>
+    </Information>
+    <Import>
+        <Communication Type=""/>
+        <Diagnosis ECUName="" Type="" VariantName=""/>
+        <SWC Type=""/>
+    </Import>
+</Config>

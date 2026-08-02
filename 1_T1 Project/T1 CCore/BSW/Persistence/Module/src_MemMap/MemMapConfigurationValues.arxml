@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>MemMap</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/MemMap</DEFINITION-REF>
+                    <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>BswM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanIf</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanNm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanSM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanTp</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Com</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>ComM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Crc</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Dcm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Dem</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Det</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>DoIP</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>E2E</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EcuM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EthIf</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EthSM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Fee</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FiM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>IpduM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>J1939Tp</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>LdCom</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>LinIf</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>LinNm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>LinSM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>MemIf</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Nm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>NvM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>PduR</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Sd</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>SoAd</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>TcpIp</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>UdpNm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>WdgIf</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>WdgM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Xcp</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FrIf</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FrNm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FrSM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Rte</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanTrcv</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>StbM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>SomeIpTp</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>SomeIpXf</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>SecOC</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>KeyM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Csm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CryIf</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanTSyn</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EcuC</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>NeuLib</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/MemMap/MemMapAllocation</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                    </CONTAINERS>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

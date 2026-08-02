@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>Crc</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/Crc</DEFINITION-REF>
+                    <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CrcGeneral</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Crc/CrcGeneral</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Crc/CrcGeneral/Crc16Mode</DEFINITION-REF>
+                                    <VALUE>CRC_16_RUNTIME</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Crc/CrcGeneral/Crc32Mode</DEFINITION-REF>
+                                    <VALUE>CRC_32_RUNTIME</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Crc/CrcGeneral/Crc32P4Mode</DEFINITION-REF>
+                                    <VALUE>CRC_32P4_RUNTIME</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Crc/CrcGeneral/Crc8H2FMode</DEFINITION-REF>
+                                    <VALUE>CRC_8H2F_RUNTIME</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Crc/CrcGeneral/Crc8Mode</DEFINITION-REF>
+                                    <VALUE>CRC_8_RUNTIME</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                    </CONTAINERS>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

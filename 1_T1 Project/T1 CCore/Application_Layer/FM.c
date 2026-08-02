@@ -1,0 +1,3290 @@
+#include "FM.h"
+#include "FM_private.h"
+
+rtTimingBridge FM_TimingBrdg;
+real32_T RDC_agRtrEe;
+uint16_T iUNoOff;
+uint16_T iVNoOff;
+uint16_T iWNoOff;
+real32_T uDcLnk;
+uint16_T tDBCTempU;
+uint16_T tDBCTempV;
+uint16_T tDBCTempW;
+uint16_T tmoterTempV;
+real32_T VAR_Hspf_uKl30_f32;
+boolean_T VAR_Bsw_bt15_b;
+uint8_T VAR_ccvs_hcu_u8[8];
+uint8_T VAR_hcu_mcu_u8[8];
+boolean_T VAR_flg_ov_b;
+boolean_T VAR_flg_oc_b;
+real32_T Var_rdc_Ag_f32;
+real32_T RDC_ArctanAgRtr_CmPn;
+real32_T RDC_Delta_Theta;
+real32_T RDC_Delta_Theta_Flt;
+real32_T RDC_Arctan_nWoFlt;
+boolean_T Var_rdc_initend_b;
+real32_T CAL_RDC_nWofltDelay_u16 = 1000.0F;
+real32_T GLB_RDC_MotorPole_u8 = 4.0F;
+
+#pragma section ".CAL_CONST"
+
+const volatile real32_T CAL_BCC_AgGenCoe_f32 = 2.0F;
+const volatile real32_T CAL_BCC_dycLowLimt_f32 = 0.012F;
+const volatile real32_T CAL_BCC_dycUpLimt_f32 = 0.988F;
+const volatile boolean_T CAL_BCC_flgDelayDyc_b = 0;
+const volatile boolean_T CAL_BCC_flgEnableIdc_b = 0;
+const volatile boolean_T CAL_BCC_flgEnableTj_b = 0;
+const volatile real32_T CAL_BCC_iDcEstflt_f32 = 10.0F;
+const volatile real32_T CAL_BCC_tiFull_f32 = 1.0F;
+const volatile real32_T CAL_CoolantFlowReq_u8 = 8.0F;
+const volatile real32_T CAL_Hspf_CltInletTempFltFrq_f32 = 10.0F;
+const volatile int8_T CAL_Hspf_CrashChkCntHiLim_u8 = 5;
+const volatile int8_T CAL_Hspf_CrashChkCntLoLim_s8 = 0;
+const volatile int8_T CAL_Hspf_CrashChkSubCnt_s8 = -1;
+const volatile uint8_T CAL_Hspf_DBCTempROCLimChkCnt_u8 = 10U;
+const volatile uint8_T CAL_Hspf_INVOpenChkAddCnt_u8 = 1U;
+const volatile uint8_T CAL_Hspf_INVOpenChkCntHiLim_u8 = 5U;
+const volatile int8_T CAL_Hspf_INVOpenChkCntLoLim_s8 = 0;
+const volatile int8_T CAL_Hspf_INVOpenChkSubCnt_s8 = -1;
+const volatile uint8_T CAL_Hspf_MotTemHigTable_af32[1024] = { 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U,
+  200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 200U, 199U, 199U, 198U,
+  198U, 197U, 197U, 197U, 196U, 196U, 195U, 195U, 195U, 194U, 194U, 193U, 193U,
+  193U, 192U, 192U, 191U, 191U, 191U, 190U, 190U, 190U, 189U, 189U, 189U, 188U,
+  188U, 187U, 187U, 187U, 186U, 186U, 186U, 185U, 185U, 185U, 184U, 184U, 184U,
+  183U, 183U, 183U, 182U, 182U, 182U, 182U, 181U, 181U, 181U, 180U, 180U, 180U,
+  179U, 179U, 179U, 178U, 178U, 178U, 178U, 177U, 177U, 177U, 176U, 176U, 176U,
+  176U, 175U, 175U, 175U, 174U, 174U, 174U, 174U, 173U, 173U, 173U, 172U, 172U,
+  172U, 172U, 171U, 171U, 171U, 171U, 170U, 170U, 170U, 170U, 169U, 169U, 169U,
+  168U, 168U, 168U, 168U, 167U, 167U, 167U, 167U, 166U, 166U, 166U, 166U, 165U,
+  165U, 165U, 165U, 165U, 164U, 164U, 164U, 164U, 163U, 163U, 163U, 163U, 162U,
+  162U, 162U, 162U, 161U, 161U, 161U, 161U, 161U, 160U, 160U, 160U, 160U, 159U,
+  159U, 159U, 159U, 159U, 158U, 158U, 158U, 158U, 157U, 157U, 157U, 157U, 157U,
+  156U, 156U, 156U, 156U, 156U, 155U, 155U, 155U, 155U, 154U, 154U, 154U, 154U,
+  154U, 153U, 153U, 153U, 153U, 153U, 152U, 152U, 152U, 152U, 152U, 151U, 151U,
+  151U, 151U, 151U, 150U, 150U, 150U, 150U, 150U, 149U, 149U, 149U, 149U, 149U,
+  149U, 148U, 148U, 148U, 148U, 148U, 147U, 147U, 147U, 147U, 147U, 146U, 146U,
+  146U, 146U, 146U, 146U, 145U, 145U, 145U, 145U, 145U, 144U, 144U, 144U, 144U,
+  144U, 144U, 143U, 143U, 143U, 143U, 143U, 142U, 142U, 142U, 142U, 142U, 142U,
+  141U, 141U, 141U, 141U, 141U, 141U, 140U, 140U, 140U, 140U, 140U, 139U, 139U,
+  139U, 139U, 139U, 139U, 138U, 138U, 138U, 138U, 138U, 138U, 137U, 137U, 137U,
+  137U, 137U, 137U, 136U, 136U, 136U, 136U, 136U, 136U, 135U, 135U, 135U, 135U,
+  135U, 135U, 134U, 134U, 134U, 134U, 134U, 134U, 133U, 133U, 133U, 133U, 133U,
+  133U, 133U, 132U, 132U, 132U, 132U, 132U, 132U, 131U, 131U, 131U, 131U, 131U,
+  131U, 130U, 130U, 130U, 130U, 130U, 130U, 129U, 129U, 129U, 129U, 129U, 129U,
+  129U, 128U, 128U, 128U, 128U, 128U, 128U, 127U, 127U, 127U, 127U, 127U, 127U,
+  127U, 126U, 126U, 126U, 126U, 126U, 126U, 125U, 125U, 125U, 125U, 125U, 125U,
+  125U, 124U, 124U, 124U, 124U, 124U, 124U, 124U, 123U, 123U, 123U, 123U, 123U,
+  123U, 122U, 122U, 122U, 122U, 122U, 122U, 122U, 121U, 121U, 121U, 121U, 121U,
+  121U, 121U, 120U, 120U, 120U, 120U, 120U, 120U, 120U, 119U, 119U, 119U, 119U,
+  119U, 119U, 119U, 118U, 118U, 118U, 118U, 118U, 118U, 118U, 117U, 117U, 117U,
+  117U, 117U, 117U, 117U, 116U, 116U, 116U, 116U, 116U, 116U, 116U, 115U, 115U,
+  115U, 115U, 115U, 115U, 115U, 114U, 114U, 114U, 114U, 114U, 114U, 113U, 113U,
+  113U, 113U, 113U, 113U, 113U, 112U, 112U, 112U, 112U, 112U, 112U, 112U, 111U,
+  111U, 111U, 111U, 111U, 111U, 111U, 111U, 110U, 110U, 110U, 110U, 110U, 110U,
+  110U, 109U, 109U, 109U, 109U, 109U, 109U, 109U, 108U, 108U, 108U, 108U, 108U,
+  108U, 108U, 107U, 107U, 107U, 107U, 107U, 107U, 107U, 106U, 106U, 106U, 106U,
+  106U, 106U, 106U, 105U, 105U, 105U, 105U, 105U, 105U, 105U, 104U, 104U, 104U,
+  104U, 104U, 104U, 104U, 103U, 103U, 103U, 103U, 103U, 103U, 103U, 102U, 102U,
+  102U, 102U, 102U, 102U, 102U, 101U, 101U, 101U, 101U, 101U, 101U, 101U, 100U,
+  100U, 100U, 100U, 100U, 100U, 100U, 99U, 99U, 99U, 99U, 99U, 99U, 99U, 98U,
+  98U, 98U, 98U, 98U, 98U, 98U, 97U, 97U, 97U, 97U, 97U, 97U, 97U, 96U, 96U, 96U,
+  96U, 96U, 96U, 96U, 95U, 95U, 95U, 95U, 95U, 95U, 95U, 94U, 94U, 94U, 94U, 94U,
+  94U, 94U, 93U, 93U, 93U, 93U, 93U, 93U, 93U, 92U, 92U, 92U, 92U, 92U, 92U, 91U,
+  91U, 91U, 91U, 91U, 91U, 91U, 90U, 90U, 90U, 90U, 90U, 90U, 90U, 89U, 89U, 89U,
+  89U, 89U, 89U, 89U, 88U, 88U, 88U, 88U, 88U, 88U, 87U, 87U, 87U, 87U, 87U, 87U,
+  87U, 86U, 86U, 86U, 86U, 86U, 86U, 85U, 85U, 85U, 85U, 85U, 85U, 85U, 84U, 84U,
+  84U, 84U, 84U, 84U, 83U, 83U, 83U, 83U, 83U, 83U, 82U, 82U, 82U, 82U, 82U, 82U,
+  82U, 81U, 81U, 81U, 81U, 81U, 81U, 80U, 80U, 80U, 80U, 80U, 80U, 79U, 79U, 79U,
+  79U, 79U, 79U, 78U, 78U, 78U, 78U, 78U, 78U, 77U, 77U, 77U, 77U, 77U, 77U, 76U,
+  76U, 76U, 76U, 76U, 76U, 75U, 75U, 75U, 75U, 75U, 74U, 74U, 74U, 74U, 74U, 74U,
+  73U, 73U, 73U, 73U, 73U, 73U, 72U, 72U, 72U, 72U, 72U, 71U, 71U, 71U, 71U, 71U,
+  71U, 70U, 70U, 70U, 70U, 70U, 69U, 69U, 69U, 69U, 69U, 68U, 68U, 68U, 68U, 68U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U, 67U,
+  67U, 67U } ;
+
+const volatile int8_T CAL_Hspf_MotTemLowTable_af32[1024] = { 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105,
+  105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 104, 104, 104, 104, 103,
+  103, 103, 103, 103, 102, 102, 102, 102, 102, 101, 101, 101, 101, 101, 100, 100,
+  100, 100, 100, 99, 99, 99, 99, 99, 98, 98, 98, 98, 98, 97, 97, 97, 97, 97, 96,
+  96, 96, 96, 96, 95, 95, 95, 95, 95, 95, 94, 94, 94, 94, 94, 93, 93, 93, 93, 93,
+  93, 92, 92, 92, 92, 92, 92, 91, 91, 91, 91, 91, 91, 90, 90, 90, 90, 90, 90, 89,
+  89, 89, 89, 89, 89, 88, 88, 88, 88, 88, 88, 88, 87, 87, 87, 87, 87, 87, 86, 86,
+  86, 86, 86, 86, 86, 85, 85, 85, 85, 85, 85, 84, 84, 84, 84, 84, 84, 84, 83, 83,
+  83, 83, 83, 83, 83, 82, 82, 82, 82, 82, 82, 82, 81, 81, 81, 81, 81, 81, 81, 80,
+  80, 80, 80, 80, 80, 80, 80, 79, 79, 79, 79, 79, 79, 79, 78, 78, 78, 78, 78, 78,
+  78, 78, 77, 77, 77, 77, 77, 77, 77, 76, 76, 76, 76, 76, 76, 76, 76, 75, 75, 75,
+  75, 75, 75, 75, 75, 74, 74, 74, 74, 74, 74, 74, 74, 73, 73, 73, 73, 73, 73, 73,
+  73, 72, 72, 72, 72, 72, 72, 72, 72, 71, 71, 71, 71, 71, 71, 71, 71, 71, 70, 70,
+  70, 70, 70, 70, 70, 70, 69, 69, 69, 69, 69, 69, 69, 69, 69, 68, 68, 68, 68, 68,
+  68, 68, 68, 67, 67, 67, 67, 67, 67, 67, 67, 67, 66, 66, 66, 66, 66, 66, 66, 66,
+  66, 65, 65, 65, 65, 65, 65, 65, 65, 64, 64, 64, 64, 64, 64, 64, 64, 64, 63, 63,
+  63, 63, 63, 63, 63, 63, 63, 63, 62, 62, 62, 62, 62, 62, 62, 62, 62, 61, 61, 61,
+  61, 61, 61, 61, 61, 61, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59, 59, 59, 59, 59,
+  59, 59, 59, 59, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 57, 57, 57, 57, 57, 57,
+  57, 57, 57, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 55, 55, 55, 55, 55, 55, 55,
+  55, 55, 54, 54, 54, 54, 54, 54, 54, 54, 54, 53, 53, 53, 53, 53, 53, 53, 53, 53,
+  53, 52, 52, 52, 52, 52, 52, 52, 52, 52, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51,
+  50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 49, 49, 49, 49, 49, 49, 49, 49, 49, 48,
+  48, 48, 48, 48, 48, 48, 48, 48, 48, 47, 47, 47, 47, 47, 47, 47, 47, 47, 46, 46,
+  46, 46, 46, 46, 46, 46, 46, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 44, 44, 44,
+  44, 44, 44, 44, 44, 44, 43, 43, 43, 43, 43, 43, 43, 43, 43, 42, 42, 42, 42, 42,
+  42, 42, 42, 42, 42, 41, 41, 41, 41, 41, 41, 41, 41, 41, 40, 40, 40, 40, 40, 40,
+  40, 40, 40, 39, 39, 39, 39, 39, 39, 39, 39, 39, 38, 38, 38, 38, 38, 38, 38, 38,
+  38, 37, 37, 37, 37, 37, 37, 37, 37, 37, 36, 36, 36, 36, 36, 36, 36, 36, 35, 35,
+  35, 35, 35, 35, 35, 35, 35, 34, 34, 34, 34, 34, 34, 34, 34, 34, 33, 33, 33, 33,
+  33, 33, 33, 33, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, 31, 31, 31, 31, 31,
+  31, 30, 30, 30, 30, 30, 30, 30, 30, 29, 29, 29, 29, 29, 29, 29, 29, 28, 28, 28,
+  28, 28, 28, 28, 27, 27, 27, 27, 27, 27, 27, 27, 26, 26, 26, 26, 26, 26, 26, 26,
+  25, 25, 25, 25, 25, 25, 25, 24, 24, 24, 24, 24, 24, 24, 23, 23, 23, 23, 23, 23,
+  23, 22, 22, 22, 22, 22, 22, 22, 21, 21, 21, 21, 21, 21, 21, 20, 20, 20, 20, 20,
+  20, 20, 19, 19, 19, 19, 19, 19, 18, 18, 18, 18, 18, 18, 17, 17, 17, 17, 17, 17,
+  16, 16, 16, 16, 16, 16, 15, 15, 15, 15, 15, 15, 14, 14, 14, 14, 14, 14, 13, 13,
+  13, 13, 13, 12, 12, 12, 12, 12, 12, 11, 11, 11, 11, 11, 10, 10, 10, 10, 10, 9,
+  9, 9, 9, 9, 8, 8, 8, 8, 7, 7, 7, 7, 7, 6, 6, 6, 6, 5, 5, 5, 5, 5, 4, 4, 4, 4,
+  3, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 0, 0, 0, -1, -1, -1, -1, -2, -2, -2, -3, -3,
+  -3, -4, -4, -4, -5, -5, -5, -6, -6, -6, -7, -7, -7, -8, -8, -9, -9, -9, -10,
+  -10, -11, -11, -11, -12, -12, -13, -13, -14, -14, -15, -15, -16, -17, -17, -18,
+  -18, -19, -20, -20, -21, -22, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31,
+  -32, -33, -35, -36, -38, -40, -40, -40, -40, -40, -40, -40, -40 } ;
+
+const volatile uint8_T CAL_Hspf_MotorOpenChkAddCnt_u8 = 1U;
+const volatile uint8_T CAL_Hspf_MotorOpenChkCntHiLim_u8 = 5U;
+const volatile int8_T CAL_Hspf_MotorOpenChkCntLoLim_s8 = 0;
+const volatile int8_T CAL_Hspf_MototOpenChkSubCnt_s8 = -1;
+const volatile uint8_T CAL_Hspf_Multiple_u8 = 2U;
+const volatile real32_T CAL_Hspf_TmpCoolanTjFltFrq_f32 = 10.0F;
+const volatile real32_T CAL_Hspf_TmpUFltFrq_f32 = 10.0F;
+const volatile real32_T CAL_Hspf_TmpVFltFrq_f32 = 10.0F;
+const volatile real32_T CAL_Hspf_TmpWFltFrq_f32 = 10.0F;
+const volatile int8_T CAL_Hspf_bt15ChkAddCnt_u8 = 1;
+const volatile int8_T CAL_Hspf_bt15ChkCntHiLim_u8 = 5;
+const volatile int8_T CAL_Hspf_bt15ChkCntLoLim_s8 = 0;
+const volatile int8_T CAL_Hspf_bt15ChkSubCnt_s8 = -1;
+const volatile uint16_T CAL_Hspf_cntIPhCalOffTolCnt_u16 = 128U;
+const volatile uint16_T CAL_Hspf_cntIPhCalOffValCnt_u16 = 32U;
+const volatile real32_T CAL_Hspf_iDcLnkEstFltFrq_f32 = 10.0F;
+const volatile uint16_T CAL_Hspf_iPhaHighSet_u16 = 3000U;
+const volatile uint16_T CAL_Hspf_iPhaLowSet_u16 = 1000U;
+const volatile real32_T CAL_Hspf_nFltFrq_f32 = 10.0F;
+const volatile uint8_T CAL_Hspf_stPreDrvCtl_u8 = 3U;
+const volatile real32_T CAL_Hspf_tCoolantFltFrq_f32 = 10.0F;
+const volatile uint16_T CAL_Hspf_tDBCCmpTime_u16 = 300U;
+const volatile uint8_T CAL_Hspf_tDBCTempROCLim_u8 = 5U;
+const volatile uint8_T CAL_Hspf_tDBCtempOffset_u8 = 10U;
+const volatile real32_T CAL_Hspf_tStrrTmp1FltFrq_f32 = 10.0F;
+const volatile real32_T CAL_Hspf_tStrrTmp2FltFrq_f32 = 10.0F;
+const volatile real32_T CAL_Hspf_tSwtTempSttrHiLim_f32 = 88.0F;
+const volatile real32_T CAL_Hspf_tSwtTempSttrLoLim_f32 = 84.0F;
+const volatile real32_T CAL_Hspf_uDcLnkFltFrq_f32 = 50.0F;
+const volatile real32_T CAL_Hspf_uKl30FltFrq_f32 = 100.0F;
+const volatile uint8_T CAL_MCF_ActiveHeatInit_u8 = 0U;
+const volatile uint8_T CAL_MCF_ActiveHeatNormal_u8 = 3U;
+const volatile real32_T CAL_MCF_AgDiffCurrSec_f32 = 30.0F;
+const volatile real32_T CAL_MCF_AgRangeDeadCpnX_Trq_af32[7] = { 0.0F, 5.0F,
+  10.0F, 30.0F, 50.0F, 100.0F, 310.0F } ;
+
+const volatile real32_T CAL_MCF_AgRangeDeadCpnY_Ag_af32[7] = { 25.0F, 25.0F,
+  10.0F, 5.0F, 5.0F, 5.0F, 5.0F } ;
+
+const volatile real32_T CAL_MCF_DeadTimeCpn_f32 = 3.4F;
+const volatile real32_T CAL_MCF_DeadTimeTableX_Frq_af32[15] = { 1000.0F, 2000.0F,
+  3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F, 10000.0F,
+  11000.0F, 12000.0F, 13000.0F, 14000.0F, 15000.0F } ;
+
+const volatile real32_T CAL_MCF_DeadTimeTableY_Ti_af32[15] = { 2.4F, 2.4F, 2.4F,
+  2.4F, 2.4F, 2.4F, 2.4F, 2.4F, 2.4F, 2.4F, 2.4F, 2.4F, 2.4F, 2.4F, 2.4F } ;
+
+const volatile real32_T CAL_MCF_DeltaPower_f32 = 2.0F;
+const volatile real32_T CAL_MCF_DisChaisdDes_f32 = -50.0F;
+const volatile real32_T CAL_MCF_DisChaisqDes_f32 = 0.0F;
+const volatile real32_T CAL_MCF_DownLimitIMotHeat_f32 = -500.0F;
+const volatile real32_T CAL_MCF_DownLimitPIMotHeat_f32 = -500.0F;
+const volatile real32_T CAL_MCF_DycUSet_f32 = 0.5F;
+const volatile real32_T CAL_MCF_DycVSet_f32 = 0.5F;
+const volatile real32_T CAL_MCF_DycWSet_f32 = 0.5F;
+const volatile real32_T CAL_MCF_FfcTx_af32[11] = { 0.0F, 1.0F, 1.02F, 1.04F,
+  1.05F, 1.06F, 1.07F, 1.08F, 1.09F, 1.1F, 2.0F } ;
+
+const volatile real32_T CAL_MCF_FfcTy_af32[11] = { 1.0F, 1.0F, 1.05F, 1.15F,
+  1.22F, 1.31F, 1.45F, 1.68F, 4.0F, 10.0F, 10.0F } ;
+
+const volatile real32_T CAL_MCF_FixFreq_f32 = 9000.0F;
+const volatile boolean_T CAL_MCF_FlgUpdateDyc_b = 0;
+const volatile boolean_T CAL_MCF_FlgUseDeadCpn_b = 1;
+const volatile boolean_T CAL_MCF_FlgUseSetDyc_b = 0;
+const volatile real32_T CAL_MCF_FrqRmp_f32 = 500.0F;
+const volatile real32_T CAL_MCF_HalfFreq_f32 = 5000.0F;
+const volatile real32_T CAL_MCF_HarmIn1113ZRX_Spd_af32[23] = { 0.0F, 500.0F,
+  1000.0F, 1500.0F, 2000.0F, 2500.0F, 3000.0F, 3500.0F, 4000.0F, 4500.0F,
+  5000.0F, 5500.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F, 10000.0F, 11000.0F,
+  12000.0F, 13000.0F, 14000.0F, 15000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_MCF_HarmIn11ZRY_Is_af32[23] = { 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_MCF_HarmIn11ZRY_Thetam_af32[23] = { 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_MCF_IsSet11ZR_f32 = 0.0F;
+const volatile real32_T CAL_MCF_IsThetaSet11ZR_f32 = 0.0F;
+const volatile real32_T CAL_MCF_KiMotHeat_f32 = 0.008F;
+const volatile real32_T CAL_MCF_KpMotHeat_f32 = 0.05F;
+const volatile uint8_T CAL_MCF_Non_ActiveHeat_u8 = 2U;
+const volatile real32_T CAL_MCF_OffsetInternal_f32 = 209.2F;
+const volatile real32_T CAL_MCF_OverPointSet_f32 = 1.0F;
+const volatile uint8_T CAL_MCF_Part_ActiveHeat_u8 = 1U;
+const volatile real32_T CAL_MCF_SpdActiveHeat_af32[9] = { 1000.0F, 2000.0F,
+  3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F } ;
+
+const volatile real32_T CAL_MCF_SpdOffActiveHeat_f32 = 8000.0F;
+const volatile real32_T CAL_MCF_SpdOffDeadCpn_f32 = 1000.0F;
+const volatile real32_T CAL_MCF_SpdOnDeadCpn_f32 = 950.0F;
+const volatile real32_T CAL_MCF_TrqOffActiveHeat_af32[9] = { 150.0F, 150.0F,
+  150.0F, 150.0F, 150.0F, 200.0F, 200.0F, 200.0F, 200.0F } ;
+
+const volatile real32_T CAL_MCF_TrqOffDeadCpn_f32 = 100.0F;
+const volatile real32_T CAL_MCF_UpLimitIMotHeat_f32 = 500.0F;
+const volatile real32_T CAL_MCF_UpLimitPIMotHeat_f32 = 0.0F;
+const volatile real32_T CAL_MCF_UpPowerHeat_f32 = 3.0F;
+const volatile real32_T CAL_MCF_UsUseRateDesTableX_Spd_af32[11] = { 0.0F,
+  1000.0F, 2000.0F, 2500.0F, 3000.0F, 4000.0F, 6000.0F, 8000.0F, 12000.0F,
+  14000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_MCF_UsUseRateDesTableY_UsRes_af32[11] = { 0.893F,
+  0.893F, 0.893F, 0.893F, 0.893F, 0.893F, 0.893F, 0.893F, 0.893F, 0.893F, 0.893F
+} ;
+
+const volatile real32_T CAL_MCF_UsdScalSet_f32 = 0.0F;
+const volatile real32_T CAL_MCF_UsqScalSet_f32 = 0.0F;
+const volatile boolean_T CAL_MCF_bUseduDclnkSet_b = 0;
+const volatile real32_T CAL_MCF_cofFltN_f32 = 0.01F;
+const volatile real32_T CAL_MCF_cofFltPowerHeat_f32 = 0.01F;
+const volatile real32_T CAL_MCF_cofFltWe_f32 = 0.01F;
+const volatile real32_T CAL_MCF_cofOverModu_f32 = 1.0F;
+const volatile boolean_T CAL_MCF_flgCalibOffset_b = 1;
+const volatile boolean_T CAL_MCF_flgDpwm_b = 0;
+const volatile boolean_T CAL_MCF_flgHarmInIsThetaTab11ZR_b = 0;
+const volatile boolean_T CAL_MCF_flgInternalOffset_b = 1;
+const volatile boolean_T CAL_MCF_flgLowOrHvudcLnk_b = 1;
+const volatile boolean_T CAL_MCF_flgMotHeat_b = 0;
+const volatile boolean_T CAL_MCF_flgNWS_b = 1;
+const volatile boolean_T CAL_MCF_flgOfsClbTest_b = 1;
+const volatile boolean_T CAL_MCF_flgOverModu_b = 1;
+const volatile boolean_T CAL_MCF_flgRpwmFrqRandom_b = 0;
+const volatile boolean_T CAL_MCF_flgUse1113ZR_b = 0;
+const volatile boolean_T CAL_MCF_flgUseFF_b = 0;
+const volatile boolean_T CAL_MCF_flgUseUsOver_b = 1;
+const volatile boolean_T CAL_MCF_flgUseUsdqSet_b = 0;
+const volatile boolean_T CAL_MCF_flgUseisTheta_b = 0;
+const volatile boolean_T CAL_MCF_flgUseisdqSet_b = 0;
+const volatile boolean_T CAL_MCF_flgVF_b = 1;
+const volatile real32_T CAL_MCF_iUCnvFac_f32 = 0.488F;
+const volatile real32_T CAL_MCF_iVCnvFac_f32 = 0.488F;
+const volatile real32_T CAL_MCF_iWCnvFac_f32 = 0.488F;
+const volatile real32_T CAL_MCF_isMax_f32 = 470.0F;
+const volatile real32_T CAL_MCF_isSet_f32 = 0.0F;
+const volatile real32_T CAL_MCF_isThetaSet_f32 = 0.0F;
+const volatile real32_T CAL_MCF_isdSet_f32 = 0.0F;
+const volatile real32_T CAL_MCF_isdfwKi_f32 = 5.0F;
+const volatile real32_T CAL_MCF_isdfwKp_f32 = 10.0F;
+const volatile real32_T CAL_MCF_isqSet_f32 = 0.0F;
+const volatile real32_T CAL_MCF_nDpwmOffDelay_f32 = 5950.0F;
+const volatile real32_T CAL_MCF_nDpwmOff_f32 = 6000.0F;
+const volatile real32_T CAL_MCF_perCpnAg_f32 = 1.5F;
+const volatile real32_T CAL_MCF_ratLo_f32 = 0.0F;
+const volatile real32_T CAL_MCF_ratNarrWave_f32 = 5.4F;
+const volatile real32_T CAL_MCF_ratUp_f32 = 1.0F;
+const volatile uint8_T CAL_MCF_stChangePha_u8 = 1U;
+const volatile uint8_T CAL_MCF_stDpwm_u8 = 4U;
+const volatile uint8_T CAL_MCF_stPwmMode_u8 = 0U;
+const volatile real32_T CAL_MCF_trqDpwmOff_f32 = 100.0F;
+const volatile real32_T CAL_MCF_uDclnkSet_f32 = 0.0F;
+const volatile real32_T CAL_MCF_udDecoupki_f32 = 0.2F;
+const volatile real32_T CAL_MCF_udOverGain_f32 = 1.01F;
+const volatile real32_T CAL_MCF_udki_f32 = 1.0F;
+const volatile real32_T CAL_MCF_udkp_f32 = 1.0F;
+const volatile real32_T CAL_MCF_uqDecoupki_f32 = 0.2F;
+const volatile real32_T CAL_MCF_uqOverGain_f32 = 1.01F;
+const volatile real32_T CAL_MCF_uqki_f32 = 1.0F;
+const volatile real32_T CAL_MCF_uqkp_f32 = 1.0F;
+const volatile real32_T CAL_MDF_3PhaUnbalance_f32 = 0.99F;
+const volatile real32_T CAL_MDF_DIffAlOfsMax_f32 = 5.0F;
+const volatile real32_T CAL_MDF_IsMaxSet_f32 = 750.0F;
+const volatile real32_T CAL_MDF_IsPhaseFault_f32 = 10.0F;
+const volatile real32_T CAL_MDF_OfsDeltaAgFltFrq_f32 = 5.0F;
+const volatile real32_T CAL_MDF_UdcFwMin_f32 = 180.0F;
+const volatile real32_T CAL_MDF_UsFrwhlMax_f32 = 750.0F;
+const volatile real32_T CAL_MDF_cofnAbsPhaseFault_Y_af32[46] = { 1.0F, 1.0F,
+  0.0F, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.0F,
+  0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F,
+  1.0F, 1.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F,
+  1.0F, 0.0F, 0.0F, 1.0F, 1.0F } ;
+
+const volatile real32_T CAL_MDF_nAbsPhaseFault_X_af32[46] = { 0.0F, 600.0F,
+  651.0F, 900.0F, 901.0F, 1400.0F, 1401.0F, 1600.0F, 1601.0F, 2900.0F, 2901.0F,
+  3100.0F, 3101.0F, 4400.0F, 4401.0F, 4600.0F, 4601.0F, 5900.0F, 5901.0F,
+  6100.0F, 6101.0F, 7400.0F, 7401.0F, 7600.0F, 7601.0F, 8900.0F, 8901.0F,
+  9100.0F, 9101.0F, 10400.0F, 10401.0F, 10600.0F, 10601.0F, 11900.0F, 11901.0F,
+  12100.0F, 12101.0F, 13400.0F, 13401.0F, 13600.0F, 13601.0F, 14900.0F, 14901.0F,
+  15100.0F, 15101.0F, 16000.0F } ;
+
+const volatile real32_T CAL_MDF_nAbsPhaseFault_f32 = 200.0F;
+const volatile real32_T CAL_MDF_nThresAlOfsNoPlauseFaultMax_f32 = 8000.0F;
+const volatile real32_T CAL_MDF_nThresAlOfsNoPlauseFaultMin_f32 = 2000.0F;
+const volatile uint8_T CAL_MDF_stFrwhlPhd_u8 = 2U;
+const volatile uint8_T CAL_MDF_stFrwhlWiIs_u8 = 1U;
+const volatile uint8_T CAL_MDF_stFrwhlWoIs_u8 = 0U;
+const volatile real32_T CAL_MDF_tiAgComp_f32 = 1.0F;
+const volatile real32_T CAL_MDF_tiAlfOfsNoPlauseFault_f32 = 0.1F;
+const volatile real32_T CAL_MDF_tiOffsetSteady_f32 = 0.2F;
+const volatile real32_T CAL_MDF_tiPhaFaultDelay_f32 = 0.04F;
+const volatile real32_T CAL_MDF_trqOfsNoPlausFault_f32 = 0.05F;
+const volatile real32_T CAL_MPC_CofUdc_f32 = 0.0F;
+const volatile real32_T CAL_MPC_IsCutOffFrq_f32 = 100.0F;
+const volatile real32_T CAL_MPC_LdSubLqCAx_af32[18] = { 0.0F, 20.0F, 40.0F,
+  60.0F, 80.0F, 100.0F, 120.0F, 140.0F, 160.0F, 180.0F, 200.0F, 240.0F, 280.0F,
+  320.0F, 360.0F, 400.0F, 440.0F, 470.0F } ;
+
+const volatile real32_T CAL_MPC_LdSubLqCAy_af32[15] = { 0.0F, 20.0F, 40.0F,
+  60.0F, 80.0F, 100.0F, 120.0F, 140.0F, 160.0F, 180.0F, 200.0F, 230.0F, 260.0F,
+  290.0F, 320.0F } ;
+
+const volatile real32_T CAL_MPC_LdSubLqCAzGen_af32[270] = { -0.00153819402F,
+  -0.00144444394F, -0.00135416701F, -0.00125F, -0.00116666697F, -0.0011F,
+  -0.001055556F, -0.00102381F, -0.000973958F, -0.000925926F, -0.000883333F,
+  -0.000815972F, -0.00075F, -0.000682292F, -0.00062963F, -0.0005875F,
+  -0.000534091F, -0.000488201F, -0.00153819402F, -0.00144444394F,
+  -0.00135416701F, -0.00125F, -0.00116666697F, -0.0011F, -0.001055556F,
+  -0.00102381F, -0.000973958F, -0.000925926F, -0.000883333F, -0.000815972F,
+  -0.00075F, -0.000682292F, -0.00062963F, -0.0005875F, -0.000534091F,
+  -0.000488201F, -0.00134259299F, -0.00125925895F, -0.0011875F, -0.001069444F,
+  -0.00102083303F, -0.000983333F, -0.000958333F, -0.000934524F, -0.000895833F,
+  -0.000865741F, -0.0008375F, -0.000770833F, -0.000712798F, -0.000669271F,
+  -0.000618056F, -0.000577083F, -0.000543561F, -0.000505072F, -0.00119328697F,
+  -0.00113425904F, -0.00108333305F, -0.001F, -0.000965278F, -0.000933333F,
+  -0.000916667F, -0.000884921F, -0.000861111F, -0.000834877F, -0.000813889F,
+  -0.000747685F, -0.000700397F, -0.000647569F, -0.000606481F, -0.000570139F,
+  -0.000527778F, -0.000489429F, -0.00110156299F, -0.00105208298F, -0.001005208F,
+  -0.000947917F, -0.00090625F, -0.000891667F, -0.000864583F, -0.000845238F,
+  -0.000817708F, -0.000796296F, -0.000779167F, -0.000727431F, -0.000683036F,
+  -0.000636719F, -0.000594907F, -0.000558854F, -0.000524621F, -0.000486748F,
+  -0.00100972201F, -0.000969444F, -0.000929167F, -0.000888889F, -0.000854167F,
+  -0.000825F, -0.000805556F, -0.000791667F, -0.000776042F, -0.00075463F,
+  -0.0007375F, -0.000697917F, -0.000660714F, -0.000619792F, -0.000578704F,
+  -0.000545833F, -0.000515152F, -0.000480093F, -0.000341435F, -0.000462963F,
+  -0.000541667F, -0.000791667F, -0.000784722F, -0.000759722F, -0.000748843F,
+  -0.00072619F, -0.000722222F, -0.000703704F, -0.000692361F, -0.000657986F,
+  -0.000625992F, -0.000593316F, -0.000567901F, -0.000533681F, -0.000502525F,
+  -0.000465239F, -0.000416253F, -0.000494378F, -0.000541667F, -0.000712302F,
+  -0.000697917F, -0.000688095F, -0.000680556F, -0.000673469F, -0.000665179F,
+  -0.000650794F, -0.000639286F, -0.000617063F, -0.000590561F, -0.000570685F,
+  -0.000540344F, -0.000514583F, -0.00048539F, -0.000463062F, -0.00047772F,
+  -0.000516782F, -0.000541667F, -0.000623264F, -0.000619792F, -0.000615625F,
+  -0.000612847F, -0.000608631F, -0.00060612F, -0.000599537F, -0.000591667F,
+  -0.000575521F, -0.000552827F, -0.000539063F, -0.000513889F, -0.000489844F,
+  -0.000465436F, -0.000441753F, -0.000535494F, -0.00053858F, -0.000541667F,
+  -0.000544753F, -0.000553241F, -0.000544444F, -0.000549383F, -0.000547619F,
+  -0.000545718F, -0.000544239F, -0.000536111F, -0.000529707F, -0.000515212F,
+  -0.00050434F, -0.000484311F, -0.00046713F, -0.000444252F, -0.000424222F,
+  -0.000586806F, -0.000555556F, -0.000541667F, -0.000458333F, -0.000479167F,
+  -0.000483333F, -0.000488194F, -0.000488095F, -0.000489583F, -0.000493056F,
+  -0.000491667F, -0.000487847F, -0.000479167F, -0.000471354F, -0.000454861F,
+  -0.000441667F, -0.000421875F, -0.000405382F, -0.000179448F, -0.000225221F,
+  -0.000270994F, -0.000305556F, -0.000384964F, -0.000397101F, -0.000406401F,
+  -0.000410455F, -0.000418025F, -0.0004219F, -0.000425F, -0.00042965F,
+  -0.000425207F, -0.000420743F, -0.000412238F, -0.000400906F, -0.000395229F,
+  -0.000386725F, -0.000186874F, -0.000212317F, -0.000237761F, -0.000263205F,
+  -0.000283514F, -0.000324359F, -0.000334402F, -0.000346154F, -0.000352965F,
+  -0.000358262F, -0.000364103F, -0.000372863F, -0.000374542F, -0.000372396F,
+  -0.000368056F, -0.000368103F, -0.000365957F, -0.000363811F, -0.000292723F,
+  -0.000288418F, -0.000284112F, -0.000279807F, -0.000283514F, -0.000255172F,
+  -0.000274904F, -0.000286946F, -0.000295977F, -0.000304598F, -0.000311494F,
+  -0.000323036F, -0.000326149F, -0.000329023F, -0.00032567F, -0.000326469F,
+  -0.000326229F, -0.00032599F, -0.000396665F, -0.000363849F, -0.000331032F,
+  -0.000298216F, -0.000283514F, -0.000196354F, -0.000217882F, -0.000233259F,
+  -0.000246419F, -0.000255208F, -0.000263542F, -0.000278212F, -0.000288657F,
+  -0.000300159F, -0.000311661F, -0.000323163F, -0.000334664F, -0.000346166F } ;
+
+const volatile real32_T CAL_MPC_LdSubLqCAzMot_af32[270] = { -0.000105F,
+  -0.000126F, -0.000263F, -0.000467F, -0.000569F, -0.000756F, -0.000754F,
+  -0.000752F, -0.00075F, -0.000743F, -0.000731F, -0.000711F, -0.000694F,
+  -0.000658F, -0.000644F, -0.000595F, -0.000571F, -0.000551F, -0.000105F,
+  -0.000126F, -0.000263F, -0.000467F, -0.000569F, -0.000756F, -0.000754F,
+  -0.000752F, -0.00075F, -0.000743F, -0.000731F, -0.000711F, -0.000694F,
+  -0.000658F, -0.000644F, -0.000595F, -0.000571F, -0.000551F, -0.00032F,
+  -0.000418F, -0.000481F, -0.000685F, -0.000678F, -0.000756F, -0.000754F,
+  -0.000752F, -0.000749F, -0.000743F, -0.000731F, -0.000711F, -0.000694F,
+  -0.000658F, -0.000644F, -0.000595F, -0.000571F, -0.000551F, -0.000536F,
+  -0.00058F, -0.000627F, -0.000661F, -0.000715F, -0.000747F, -0.000744F,
+  -0.000742F, -0.000758F, -0.000739F, -0.000723F, -0.0007F, -0.000683F,
+  -0.000643F, -0.000633F, -0.000588F, -0.000561F, -0.000542F, -0.000488F,
+  -0.000546F, -0.000591F, -0.000685F, -0.000705F, -0.000739F, -0.000726F,
+  -0.000731F, -0.000736F, -0.000727F, -0.000709F, -0.000691F, -0.00067F,
+  -0.000634F, -0.000612F, -0.000579F, -0.000551F, -0.000519F, -0.000443F,
+  -0.000495F, -0.000542F, -0.000611F, -0.000646F, -0.00065F, -0.000653F,
+  -0.000655F, -0.000667F, -0.000657F, -0.00065F, -0.000632F, -0.000613F,
+  -0.000589F, -0.000565F, -0.000538F, -0.000511F, -0.000483F, -0.000494F,
+  -0.000514F, -0.000534F, -0.000537F, -0.000594F, -0.0006F, -0.000616F,
+  -0.000627F, -0.000627F, -0.000619F, -0.000619F, -0.000603F, -0.000586F,
+  -0.000569F, -0.000545F, -0.000522F, -0.000499F, -0.000475F, -0.000533F,
+  -0.000526F, -0.000542F, -0.000464F, -0.000527F, -0.000552F, -0.000569F,
+  -0.000573F, -0.000583F, -0.000585F, -0.00058F, -0.000567F, -0.000559F,
+  -0.000541F, -0.000521F, -0.000501F, -0.000483F, -0.000463F, -0.000589F,
+  -0.00055F, -0.000542F, -0.00041F, -0.000464F, -0.000496F, -0.000517F,
+  -0.000533F, -0.000538F, -0.000542F, -0.00054F, -0.000532F, -0.000523F,
+  -0.00051F, -0.000494F, -0.000478F, -0.000463F, -0.000447F, -0.000627F,
+  -0.000563F, -0.000542F, -0.000352F, -0.000414F, -0.000443F, -0.000461F,
+  -0.000475F, -0.000485F, -0.000493F, -0.000494F, -0.000497F, -0.000492F,
+  -0.000483F, -0.000468F, -0.000453F, -0.000438F, -0.000422F, -0.00067F,
+  -0.000581F, -0.000542F, -0.000306F, -0.000365F, -0.000392F, -0.000417F,
+  -0.000429F, -0.000438F, -0.000444F, -0.00045F, -0.000458F, -0.000455F,
+  -0.000451F, -0.00044F, -0.000429F, -0.000418F, -0.000408F, -0.000764F,
+  -0.000635F, -0.000542F, -0.000306F, -0.000284F, -0.000314F, -0.00034F,
+  -0.000359F, -0.000373F, -0.000384F, -0.000389F, -0.000402F, -0.000405F,
+  -0.000404F, -0.000397F, -0.00039F, -0.000384F, -0.000377F, -0.000764F,
+  -0.000635F, -0.000542F, -0.000306F, -0.000284F, -0.000254F, -0.000281F,
+  -0.0003F, -0.000315F, -0.000326F, -0.000335F, -0.000349F, -0.000356F,
+  -0.000356F, -0.000355F, -0.000355F, -0.000354F, -0.000354F, -0.000764F,
+  -0.000635F, -0.000542F, -0.000306F, -0.000284F, -0.000195F, -0.000225F,
+  -0.000246F, -0.000262F, -0.000277F, -0.000287F, -0.000301F, -0.00031F,
+  -0.000314F, -0.000316F, -0.000323F, -0.000327F, -0.000332F, -0.000764F,
+  -0.000635F, -0.000542F, -0.000306F, -0.000284F, -0.000142F, -0.000174F,
+  -0.000194F, -0.000215F, -0.000232F, -0.00024F, -0.000259F, -0.00027F,
+  -0.000284F, -0.000297F, -0.00031F, -0.00031F, -0.00031F } ;
+
+const volatile real32_T CAL_MPC_Ld_f32 = 0.0002615F;
+const volatile real32_T CAL_MPC_Lq_f32 = 0.0009822F;
+const volatile real32_T CAL_MPC_MtpaTableX_Trq_af32[15] = { 0.0F, 11.3F, 25.4F,
+  58.0F, 94.0F, 131.7F, 170.0F, 208.0F, 245.0F, 281.0F, 317.0F, 351.0F, 384.0F,
+  400.0F, 408.0F } ;
+
+const volatile real32_T CAL_MPC_MtpaTableY_isd_af32[15] = { 0.0F, -1.72636688F,
+  -13.6442156F, -34.9958725F, -59.8896255F, -86.9961548F, -122.95372F,
+  -157.24411F, -190.71843F, -226.003723F, -258.661224F, -292.210571F, -326.624F,
+  -346.794983F, -359.666382F } ;
+
+const volatile real32_T CAL_MPC_MtpvTableX_Udc_af32[8] = { 0.0F, 100.0F, 280.0F,
+  320.0F, 350.0F, 450.0F, 480.0F, 500.0F } ;
+
+const volatile real32_T CAL_MPC_MtpvTableY_N_af32[15] = { 0.0F, 100.0F, 1000.0F,
+  2000.0F, 3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F,
+  10000.0F, 11000.0F, 12000.0F, 13000.0F } ;
+
+const volatile real32_T CAL_MPC_MtpvTableZ_idGen_af32[120] = { -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F } ;
+
+const volatile real32_T CAL_MPC_MtpvTableZ_idMot_af32[120] = { -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F,
+  -400.0F, -400.0F, -400.0F, -400.0F, -400.0F, -400.0F } ;
+
+const volatile real32_T CAL_MPC_OmbwTableX_Spd_af32[11] = { 0.0F, 1000.0F,
+  2000.0F, 2500.0F, 3000.0F, 4000.0F, 6000.0F, 8000.0F, 12000.0F, 14000.0F,
+  16000.0F } ;
+
+const volatile real32_T CAL_MPC_OmbwTableY_Ombw_af32[11] = { 500.0F, 500.0F,
+  500.0F, 500.0F, 500.0F, 500.0F, 500.0F, 500.0F, 500.0F, 500.0F, 500.0F } ;
+
+const volatile real32_T CAL_MPC_Psi_f32 = 0.115F;
+const volatile real32_T CAL_MPC_Rcmp_f32 = 0.0F;
+const volatile real32_T CAL_MPC_Rs_f32 = 0.0285F;
+const volatile real32_T CAL_MPC_RvTableX_Spd_af32[11] = { 0.0F, 1000.0F, 2000.0F,
+  2500.0F, 3000.0F, 4000.0F, 6000.0F, 8000.0F, 12000.0F, 14000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_MPC_RvTableY_Rv_af32[11] = { 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_MPC_TrqMechCutOffFrq_f32 = 100.0F;
+const volatile real32_T CAL_MPC_cofRpwm_Y_af32[17] = { 0.5F, 0.5F, 0.5F, 0.5F,
+  0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F }
+;
+
+const volatile boolean_T CAL_MPC_flgDesOrAct_b = 0;
+const volatile boolean_T CAL_MPC_flgUseLdSubLq_b = 0;
+const volatile boolean_T CAL_MPC_flgUseLdq_b = 1;
+const volatile boolean_T CAL_MPC_flgUseRs_b = 1;
+const volatile real32_T CAL_MPC_frqPwmVFTableX_Is_af32[11] = { 0.0F, 50.0F,
+  100.0F, 150.0F, 200.0F, 250.0F, 300.0F, 350.0F, 400.0F, 450.0F, 500.0F } ;
+
+const volatile real32_T CAL_MPC_frqPwmVFTableY_VoltModuRate_af32[13] = { 0.0F,
+  0.1F, 0.2F, 0.3F, 0.4F, 0.5F, 0.6F, 0.7F, 0.8F, 0.9F, 1.0F, 1.03F, 1.1F } ;
+
+const volatile real32_T CAL_MPC_frqPwmVFTableZ_Frq_af32[143] = { 2000.0F,
+  2000.0F, 5000.0F, 6000.0F, 6500.0F, 6500.0F, 6500.0F, 6500.0F, 6500.0F,
+  6500.0F, 8075.0F, 9000.0F, 9000.0F, 2000.0F, 2000.0F, 5000.0F, 6000.0F,
+  6500.0F, 6500.0F, 6500.0F, 6500.0F, 6500.0F, 6500.0F, 8075.0F, 9000.0F,
+  9000.0F, 2000.0F, 2000.0F, 5000.0F, 6000.0F, 6500.0F, 6500.0F, 6500.0F,
+  6500.0F, 6500.0F, 6500.0F, 8026.0F, 9000.0F, 9000.0F, 2000.0F, 2000.0F,
+  5000.0F, 6000.0F, 6500.0F, 7500.0F, 7500.0F, 7500.0F, 7500.0F, 7500.0F,
+  8042.0F, 9000.0F, 9000.0F, 2000.0F, 2000.0F, 5000.0F, 6500.0F, 7000.0F,
+  7500.0F, 7500.0F, 8000.0F, 8000.0F, 8000.0F, 8829.0F, 9000.0F, 9000.0F,
+  2000.0F, 2428.0F, 5500.0F, 6500.0F, 7000.0F, 7500.0F, 7500.0F, 8000.0F,
+  8500.0F, 9000.0F, 9000.0F, 9000.0F, 9000.0F, 2000.0F, 2301.0F, 4500.0F,
+  6500.0F, 7000.0F, 7500.0F, 7500.0F, 7500.0F, 8000.0F, 8927.0F, 9000.0F,
+  9000.0F, 9000.0F, 2000.0F, 2217.0F, 4500.0F, 6000.0F, 6500.0F, 6542.0F,
+  6542.0F, 6542.0F, 7210.0F, 8603.0F, 9000.0F, 9000.0F, 9000.0F, 2000.0F,
+  2159.0F, 4500.0F, 6000.0F, 6000.0F, 6500.0F, 6500.0F, 6500.0F, 7019.0F,
+  8376.0F, 9000.0F, 9000.0F, 9000.0F, 2000.0F, 2115.0F, 4500.0F, 6000.0F,
+  6000.0F, 6240.0F, 6240.0F, 6240.0F, 6878.0F, 8207.0F, 9000.0F, 9000.0F,
+  9000.0F, 2000.0F, 2082.0F, 4000.0F, 4962.0F, 5763.0F, 6141.0F, 6141.0F,
+  6141.0F, 6769.0F, 8076.0F, 9000.0F, 9000.0F, 9000.0F } ;
+
+const volatile real32_T CAL_MPC_idActCutOffFrq_f32 = 100.0F;
+const volatile real32_T CAL_MPC_iqActCutOffFrq_f32 = 100.0F;
+const volatile real32_T CAL_MPC_isdFFTableX_Spd_af32[17] = { 0.0F, 1000.0F,
+  2000.0F, 3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F,
+  10000.0F, 11000.0F, 12000.0F, 13000.0F, 14000.0F, 15000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_MPC_isdFFTableX_Udc_af32[8] = { 0.0F, 100.0F, 280.0F,
+  320.0F, 350.0F, 450.0F, 480.0F, 500.0F } ;
+
+const volatile real32_T CAL_MPC_isdFFTableY_Trq_af32[17] = { 0.0F, 20.0F, 40.0F,
+  60.0F, 80.0F, 100.0F, 120.0F, 140.0F, 160.0F, 180.0F, 200.0F, 220.0F, 240.0F,
+  260.0F, 280.0F, 300.0F, 320.0F } ;
+
+const volatile real32_T CAL_MPC_isdFFTableY_UdcCof_af32[8] = { 1.0F, 1.0F, 1.0F,
+  1.0F, 1.0F, 1.0F, 1.0F, 1.0F } ;
+
+const volatile real32_T CAL_MPC_isdFFTableZ_isd_af32[289] = { 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, -30.0F, -60.0F, -81.0F,
+  -108.0F, -133.5F, -159.0F, -29.68F, -29.68F, -29.68F, -29.68F, -29.68F,
+  -29.68F, -29.68F, -29.68F, -29.68F, -39.1F, -69.0F, -95.0F, -119.0F, -139.0F,
+  -157.0F, -171.0F, -190.0F, -60.94F, -60.94F, -60.94F, -60.94F, -60.94F,
+  -60.94F, -60.94F, -60.94F, -78.5F, -113.0F, -143.0F, -172.0F, -200.0F, -220.0F,
+  -240.0F, -260.0F, -280.0F, -90.22F, -90.22F, -90.22F, -90.22F, -90.22F,
+  -90.22F, -90.22F, -106.0F, -149.0F, -187.0F, -223.5F, -257.0F, -292.0F,
+  -320.0F, -350.0F, -380.0F, -410.0F, -120.3F, -120.3F, -120.3F, -120.3F,
+  -120.3F, -120.3F, -120.3F, -168.9F, -219.0F, -264.0F, -309.0F, -355.0F,
+  -407.0F, -407.3F, -442.0F, -480.0F, -514.0F, -147.0F, -147.0F, -147.0F,
+  -147.0F, -147.0F, -147.0F, -168.0F, -231.5F, -290.0F, -347.0F, -410.0F,
+  -436.0F, -493.5F, -497.8F, -538.5F, -583.8F, -514.0F, -178.66F, -178.66F,
+  -178.66F, -178.66F, -178.66F, -178.66F, -224.5F, -297.0F, -368.0F, -445.0F,
+  -483.5F, -522.5F, -589.1F, -588.3F, -538.5F, -583.8F, -514.0F, -204.2F,
+  -204.2F, -204.2F, -204.2F, -204.2F, -204.2F, -281.5F, -367.0F, -459.0F,
+  -513.4F, -570.0F, -609.0F, -589.1F, -588.3F, -538.5F, -583.8F, -514.0F,
+  -240.5F, -240.5F, -240.5F, -240.5F, -240.5F, -240.5F, -341.5F, -442.0F,
+  -598.0F, -593.6F, -570.0F, -609.0F, -589.1F, -588.3F, -538.5F, -583.8F,
+  -514.0F, -283.2F, -283.2F, -283.2F, -283.2F, -283.2F, -283.2F, -403.0F,
+  -540.0F, -651.5F, -673.9F, -570.0F, -609.0F, -589.1F, -588.3F, -538.5F,
+  -583.8F, -514.0F, -317.9F, -317.9F, -317.9F, -317.9F, -317.9F, -341.0F,
+  -472.0F, -590.9F, -651.5F, -673.9F, -570.0F, -609.0F, -589.1F, -588.3F,
+  -538.5F, -583.8F, -514.0F, -357.0F, -357.0F, -357.0F, -357.0F, -357.0F,
+  -391.0F, -556.0F, -661.7F, -651.5F, -673.9F, -570.0F, -609.0F, -589.1F,
+  -588.3F, -538.5F, -583.8F, -514.0F, -394.5F, -394.5F, -394.5F, -394.5F,
+  -394.5F, -450.0F, -603.9F, -661.7F, -651.5F, -673.9F, -570.0F, -609.0F,
+  -589.1F, -588.3F, -538.5F, -583.8F, -514.0F, -437.4F, -437.4F, -437.4F,
+  -437.4F, -437.4F, -522.0F, -667.0F, -661.7F, -651.5F, -673.9F, -570.0F,
+  -609.0F, -589.1F, -588.3F, -538.5F, -583.8F, -514.0F, -455.0F, -455.0F,
+  -455.0F, -455.0F, -455.0F, -548.0F, -667.0F, -661.7F, -651.5F, -673.9F,
+  -570.0F, -609.0F, -589.1F, -588.3F, -538.5F, -583.8F, -514.0F, -488.6F,
+  -488.6F, -488.6F, -488.6F, -488.6F, -606.0F, -667.0F, -661.7F, -651.5F,
+  -673.9F, -570.0F, -609.0F, -589.1F, -588.3F, -538.5F, -583.8F, -514.0F,
+  -522.0F, -522.0F, -522.0F, -522.0F, -522.0F, -606.0F, -667.0F, -661.7F,
+  -651.5F, -673.9F, -570.0F, -609.0F, -589.1F, -588.3F, -538.5F, -583.8F,
+  -514.0F } ;
+
+const volatile real32_T CAL_MPC_nCofRpwm_X_af32[17] = { 0.0F, 1000.0F, 2000.0F,
+  3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F, 10000.0F,
+  11000.0F, 12000.0F, 13000.0F, 14000.0F, 15000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_MPC_nSetTrqMonMin_f32 = 1000.0F;
+const volatile real32_T CAL_MPC_nTrqMonMax_f32 = 1500.0F;
+const volatile real32_T CAL_MPC_nTrqMonMin_f32 = 1000.0F;
+const volatile real32_T CAL_MPC_tCpnBwdGenTableX_n_af32[16] = { 1000.0F, 2000.0F,
+  3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F, 10000.0F,
+  11000.0F, 12000.0F, 13000.0F, 14000.0F, 15000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_MPC_tCpnBwdGenTableY_tCpn_af32[16] = { 1.0F, 1.0F,
+  1.1F, 0.7F, 0.7F, 1.0F, 0.8F, 0.8F, 0.7F, 0.7F, 0.7F, 0.4F, 0.2F, 0.0F, -0.3F,
+  -0.6F } ;
+
+const volatile real32_T CAL_MPC_tCpnBwdMotTableX_n_af32[16] = { 1000.0F, 2000.0F,
+  3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F, 10000.0F,
+  11000.0F, 12000.0F, 13000.0F, 14000.0F, 15000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_MPC_tCpnBwdMotTableY_tCpn_af32[16] = { 1.0F, 1.0F,
+  1.1F, 0.9F, 1.2F, 1.3F, 1.3F, 1.3F, 1.0F, 1.0F, 1.0F, 0.8F, 0.7F, 0.3F, 0.1F,
+  -0.1F } ;
+
+const volatile real32_T CAL_MPC_tCpnFwdGenTableX_n_af32[16] = { 1000.0F, 2000.0F,
+  3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F, 10000.0F,
+  11000.0F, 12000.0F, 13000.0F, 14000.0F, 15000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_MPC_tCpnFwdGenTableY_tCpn_af32[16] = { 1.1F, 1.1F,
+  1.1F, 1.1F, 0.9F, 1.0F, 1.0F, 0.9F, 0.85F, 0.8F, 0.2F, 0.2F, 0.2F, -0.2F,
+  -0.4F, -0.9F } ;
+
+const volatile real32_T CAL_MPC_tCpnFwdMotTableX_n_af32[16] = { 1000.0F, 2000.0F,
+  3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F, 10000.0F,
+  11000.0F, 12000.0F, 13000.0F, 14000.0F, 15000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_MPC_tCpnFwdMotTableY_tCpn_af32[16] = { 1.1F, 1.1F,
+  1.1F, 1.1F, 1.3F, 1.5F, 1.5F, 1.5F, 1.5F, 1.3F, 1.0F, 0.9F, 0.6F, 0.4F, 0.3F,
+  0.0F } ;
+
+const volatile real32_T CAL_MPC_udActCutOffFrq_f32 = 100.0F;
+const volatile real32_T CAL_MPC_uqActCutOffFrq_f32 = 100.0F;
+const volatile real32_T CAL_PowerMotHeat_f32 = 0.0F;
+const volatile real32_T CAL_RDC_NRestrict_f32 = 10.0F;
+const volatile boolean_T CAL_RDC_Switch_Ag_bool = 0;
+const volatile boolean_T CAL_RDC_flgCorrectOrReal_b = 1;
+const volatile real32_T CAL_RDC_tiRsvlAngleSample_f32 = -16.6F;
+const volatile boolean_T CAL_SCF_stMainRly_b = 0;
+const volatile boolean_T CAL_SCF_stPreChgRly_b = 0;
+const volatile real32_T CAL_TDC_DeltaT_f32 = 0.002F;
+const volatile real32_T CAL_TDC_KiNCtl_Y_Af32[10] = { 0.31F, 0.31F, 0.31F, 0.31F,
+  0.31F, 0.4F, 0.63F, 0.63F, 0.64F, 0.64F } ;
+
+const volatile real32_T CAL_TDC_KpNCtl_Y_Af32[10] = { 0.05F, 0.05F, 0.05F, 0.05F,
+  0.05F, 0.055F, 0.063F, 0.063F, 0.063F, 0.064F } ;
+
+const volatile real32_T CAL_TDC_TrqRamp_f32 = 10.0F;
+const volatile real32_T CAL_TDC_n_Error_X_Af32[10] = { 0.0F, 100.0F, 300.0F,
+  400.0F, 500.0F, 700.0F, 1000.0F, 1500.0F, 2000.0F, 3000.0F } ;
+
+const volatile real32_T CAL_TDC_trqIncMax_f32 = 20.0F;
+const volatile real32_T CAL_TjCoolantFlowTab_af32[6] = { 0.0F, 2.0F, 4.0F, 6.0F,
+  8.0F, 10.0F } ;
+
+const volatile real32_T CAL_TjDycMax_f32 = 1.0F;
+const volatile real32_T CAL_TjDycMin_f32 = 0.0F;
+const volatile real32_T CAL_Tj_cofFltCoolant_f32 = 1000.0F;
+const volatile real32_T CAL_TjrthLv4DhIhTab_af32[6] = { 0.05F, 0.05F, 0.04F,
+  0.03F, 0.02F, 0.02F } ;
+
+const volatile real32_T CAL_TjrthLv4IhIhTab_af32[6] = { 0.096F, 0.096F, 0.086F,
+  0.076F, 0.066F, 0.066F } ;
+
+const volatile real32_T CAL_TjrthLv4IhNtcTab_af32[6] = { 0.06F, 0.06F, 0.05F,
+  0.04F, 0.03F, 0.03F } ;
+
+const volatile real32_T CAL_TjrthLv4dhntc_f32 = 0.03F;
+const volatile real32_T CAL_TjrthLv4dlih_f32 = 0.03F;
+const volatile real32_T CAL_TjrthLv4dlntc_f32 = 0.016F;
+const volatile real32_T CAL_TjrthLv4ilih_f32 = 0.03F;
+const volatile real32_T CAL_TjrthLv4ilntc_f32 = 0.017F;
+const volatile uint8_T CAL_TjstUVW_u8 = 1U;
+const volatile uint16_T CAL_TpcBlk_BlkRevTimSet_u16 = 3000U;
+const volatile uint16_T CAL_TpcBlk_BlkTimSet_u16 = 3000U;
+const volatile real32_T CAL_TpcBlk_MtrBlkIsFirstSet_f32 = 200.0F;
+const volatile real32_T CAL_TpcBlk_MtrBlkIsSecondSet_f32 = 180.0F;
+const volatile real32_T CAL_TpcBlk_MtrBlkSpdHighSet_f32 = 30.0F;
+const volatile real32_T CAL_TpcBlk_MtrBlkSpdLowSet_f32 = 20.0F;
+const volatile real32_T CAL_TpcBlk_TrqBlkStab_f32 = 120.0F;
+const volatile real32_T CAL_TpcBlk_TrqDecRamp_f32 = 1.0F;
+const volatile real32_T CAL_TpcBlk_TrqIncRamp_f32 = 1.0F;
+const volatile boolean_T CAL_TpcBlk_flgEnBlkFun_b = 0;
+const volatile uint16_T CAL_TpcCod_CntHysteresislop_u16 = 3000U;
+const volatile real32_T CAL_TpcCod_CoolFlow1LReq_f32 = 1.0F;
+const volatile real32_T CAL_TpcCod_CoolFlow2LTableX_Udc_af32[5] = { 100.0F,
+  200.0F, 300.0F, 400.0F, 500.0F } ;
+
+const volatile real32_T CAL_TpcCod_CoolFlow2LTableY_Spd_af32[8] = { 0.0F,
+  2000.0F, 4000.0F, 6000.0F, 10000.0F, 12000.0F, 14000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_TpcCod_CoolFlow2LTableZ_Trq_af32[40] = { 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcCod_CoolFlow4LTableX_Udc_af32[5] = { 100.0F,
+  200.0F, 300.0F, 400.0F, 500.0F } ;
+
+const volatile real32_T CAL_TpcCod_CoolFlow4LTableY_Spd_af32[8] = { 0.0F,
+  2000.0F, 4000.0F, 6000.0F, 10000.0F, 12000.0F, 14000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_TpcCod_CoolFlow4LTableZ_Trq_af32[40] = { 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcCod_CoolFlow6LTableX_Udc_af32[5] = { 100.0F,
+  200.0F, 300.0F, 400.0F, 500.0F } ;
+
+const volatile real32_T CAL_TpcCod_CoolFlow6LTableY_Spd_af32[8] = { 0.0F,
+  2000.0F, 4000.0F, 6000.0F, 10000.0F, 12000.0F, 14000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_TpcCod_CoolFlow6LTableZ_Trq_af32[40] = { 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
+
+const volatile boolean_T CAL_TpcCod_FlgUseTrqLimRampSet_b = 0;
+const volatile boolean_T CAL_TpcCod_IGBTSampErr_b = 0;
+const volatile boolean_T CAL_TpcCod_MotorSampErr_b = 0;
+const volatile boolean_T CAL_TpcCod_MotorStallWarn_b = 0;
+const volatile real32_T CAL_TpcCod_NTCHighTemp_f32 = 15.0F;
+const volatile real32_T CAL_TpcCod_NTCLowTemp_f32 = 10.0F;
+const volatile real32_T CAL_TpcCod_NegSpdDirStop_f32 = -10.0F;
+const volatile real32_T CAL_TpcCod_NegTrqDirStop_f32 = -3.0F;
+const volatile real32_T CAL_TpcCod_PosSpdDirStop_f32 = 10.0F;
+const volatile real32_T CAL_TpcCod_PosSpdHold_f32 = 200.0F;
+const volatile real32_T CAL_TpcCod_PosSpdStart_f32 = 300.0F;
+const volatile real32_T CAL_TpcCod_PosTrqDirStop_f32 = 3.0F;
+const volatile real32_T CAL_TpcCod_PowIncRatLim_f32 = 20.0F;
+const volatile real32_T CAL_TpcCod_TrqRelay_f32 = 10.0F;
+const volatile real32_T CAL_TpcFuv_CofPwrLimLv1_f32 = 0.9F;
+const volatile real32_T CAL_TpcFuv_CofPwrLimLv2_f32 = 0.5F;
+const volatile real32_T CAL_TpcFuv_CofPwrLimLv3_f32 = 0.2F;
+const volatile real32_T CAL_TpcFuv_CofPwrLimLv4_f32 = 0.0F;
+const volatile real32_T CAL_TpcFuv_CofTrqLimLv1_f32 = 0.9F;
+const volatile real32_T CAL_TpcFuv_CofTrqLimLv2_f32 = 0.5F;
+const volatile real32_T CAL_TpcFuv_CofTrqLimLv3_f32 = 0.2F;
+const volatile real32_T CAL_TpcFuv_CofTrqLimLv4_f32 = 0.0F;
+const volatile real32_T CAL_TpcMot_ExCElecTableX_Udc_af32[10] = { 0.0F, 100.0F,
+  150.0F, 210.0F, 280.0F, 320.0F, 350.0F, 450.0F, 480.0F, 485.0F } ;
+
+const volatile real32_T CAL_TpcMot_ExCElecTableY_Spd_af32[14] = { 0.0F, 1000.0F,
+  2000.0F, 3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F,
+  10000.0F, 11000.0F, 12000.0F, 13000.0F } ;
+
+const volatile real32_T CAL_TpcMot_ExCElecTableZ_Trq_af32[140] = { 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F,
+  400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F, 400.0F } ;
+
+const volatile real32_T CAL_TpcMot_ExCGenTableX_Udc_af32[10] = { 0.0F, 100.0F,
+  150.0F, 210.0F, 280.0F, 320.0F, 350.0F, 450.0F, 480.0F, 485.0F } ;
+
+const volatile real32_T CAL_TpcMot_ExCGenTableY_Spd_af32[17] = { 0.0F, 1000.0F,
+  2000.0F, 3000.0F, 4000.0F, 5000.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F,
+  10000.0F, 11000.0F, 12000.0F, 13000.0F, 14000.0F, 15000.0F, 16000.0F } ;
+
+const volatile real32_T CAL_TpcMot_ExCGenTableZ_Trq_af32[170] = { 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 295.0F, 295.0F,
+  290.0F, 255.0F, 185.0F, 150.0F, 125.0F, 105.0F, 85.0F, 75.0F, 65.0F, 57.0F,
+  50.0F, 42.0F, 35.0F, 20.0F, 20.0F, 305.0F, 305.0F, 300.0F, 293.0F, 238.0F,
+  210.0F, 190.0F, 150.0F, 130.0F, 110.0F, 95.0F, 85.0F, 75.0F, 65.0F, 60.0F,
+  50.0F, 40.0F, 305.0F, 305.0F, 305.0F, 303.0F, 298.0F, 262.0F, 218.0F, 183.0F,
+  155.0F, 133.0F, 116.0F, 103.0F, 92.0F, 83.0F, 76.0F, 68.0F, 63.0F, 305.0F,
+  305.0F, 305.0F, 303.0F, 300.0F, 282.0F, 243.0F, 208.0F, 176.0F, 152.0F, 133.0F,
+  118.0F, 106.0F, 93.0F, 85.0F, 78.0F, 72.0F, 305.0F, 305.0F, 305.0F, 303.0F,
+  300.0F, 290.0F, 244.0F, 207.0F, 180.0F, 160.0F, 144.0F, 131.0F, 120.0F, 111.0F,
+  103.0F, 96.0F, 90.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcMot_SttrChgTempDownDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcMot_SttrChgTempUpDiff_f32 = 0.1F;
+const volatile real32_T CAL_TpcMot_SttrTempAdds_f32 = 1.0F;
+const volatile real32_T CAL_TpcMot_SttrTempDecDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcMot_SttrTempKp_f32 = 0.2F;
+const volatile real32_T CAL_TpcMot_SttrTempMinus_f32 = -1.0F;
+const volatile real32_T CAL_TpcMot_SttrTempRiseDiff_f32 = 2.0F;
+const volatile boolean_T CAL_TpcMot_flgPwrRefSwt_b = 1;
+const volatile boolean_T CAL_TpcMot_flgTrqRefSwt_b = 1;
+const volatile real32_T CAL_TpcMot_tRiseSttrDertSave1TableX_tSttr_af32[9] = {
+  0.0F, 30.0F, 80.0F, 90.0F, 95.0F, 100.0F, 105.0F, 110.0F, 120.0F } ;
+
+const volatile real32_T CAL_TpcMot_tRiseSttrDertSave1TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcMot_tRiseSttrDertSave2TableX_tSttr_af32[9] = {
+  0.0F, 30.0F, 80.0F, 90.0F, 95.0F, 100.0F, 105.0F, 110.0F, 120.0F } ;
+
+const volatile real32_T CAL_TpcMot_tRiseSttrDertSave2TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcMot_tRiseSttrTraNormalToSave1_f32 = 100.0F;
+const volatile real32_T CAL_TpcMot_tRiseSttrTraSave1ToNormal_f32 = 105.0F;
+const volatile real32_T CAL_TpcMot_tRiseSttrTraSave1ToSave2_f32 = 107.0F;
+const volatile real32_T CAL_TpcMot_tRiseSttrTraSave2ToOverheating_f32 = 109.0F;
+const volatile real32_T CAL_TpcMot_tSttrDertSave1TableX_tSttr_af32[9] = { -50.0F,
+  0.0F, 170.0F, 172.0F, 174.0F, 176.0F, 178.0F, 180.0F, 182.0F } ;
+
+const volatile real32_T CAL_TpcMot_tSttrDertSave1TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcMot_tSttrDertSave2TableX_tSttr_af32[9] = { -50.0F,
+  0.0F, 170.0F, 172.0F, 174.0F, 176.0F, 178.0F, 180.0F, 182.0F } ;
+
+const volatile real32_T CAL_TpcMot_tSttrDertSave2TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcMot_tSttrHiLim_f32 = 179.0F;
+const volatile real32_T CAL_TpcMot_tSttrLoLim_f32 = -40.0F;
+const volatile real32_T CAL_TpcMot_tSttrTraNormalToSave1_f32 = 170.0F;
+const volatile real32_T CAL_TpcMot_tSttrTraSave1ToNormal_f32 = 165.0F;
+const volatile real32_T CAL_TpcMot_tSttrTraSave1ToSave2_f32 = 176.0F;
+const volatile real32_T CAL_TpcMot_tSttrTraSave2ToOverheating_f32 = 179.0F;
+const volatile real32_T CAL_TpcMot_tSttrTrqLimRamp_f32 = 0.05F;
+const volatile uint8_T CAL_TpcSmp_CntElecOvrCurt_u8 = 10U;
+const volatile uint8_T CAL_TpcSmp_CntElecUdrVolt_u8 = 10U;
+const volatile uint8_T CAL_TpcSmp_CntGenOvrCurt_u8 = 10U;
+const volatile uint8_T CAL_TpcSmp_CntGenOvrVolt_u8 = 10U;
+const volatile boolean_T CAL_TpcSmp_CurtModeSelc_b = 0;
+const volatile real32_T CAL_TpcSmp_ElecOvrCurtKi_f32 = 0.5F;
+const volatile real32_T CAL_TpcSmp_ElecOvrCurtKp_f32 = 1.0F;
+const volatile real32_T CAL_TpcSmp_ElecOvrCurtypLim_f32 = 100.0F;
+const volatile real32_T CAL_TpcSmp_ElecUdrVoltKi_f32 = 0.5F;
+const volatile real32_T CAL_TpcSmp_ElecUdrVoltKp_f32 = 1.0F;
+const volatile real32_T CAL_TpcSmp_ElecUdrVoltypLim_f32 = 100.0F;
+const volatile uint8_T CAL_TpcSmp_FacElecOvrCurt_u8 = 1U;
+const volatile uint8_T CAL_TpcSmp_FacElecUdrVolt_u8 = 1U;
+const volatile uint8_T CAL_TpcSmp_FacGenOvrCurt_u8 = 1U;
+const volatile uint8_T CAL_TpcSmp_FacGenOvrVolt_u8 = 1U;
+const volatile real32_T CAL_TpcSmp_GenOvrCurtKi_f32 = 0.5F;
+const volatile real32_T CAL_TpcSmp_GenOvrCurtKp_f32 = 1.0F;
+const volatile real32_T CAL_TpcSmp_GenOvrCurtypLim_f32 = 100.0F;
+const volatile real32_T CAL_TpcSmp_GenOvrVoltKi_f32 = 0.5F;
+const volatile real32_T CAL_TpcSmp_GenOvrVoltKp_f32 = 1.0F;
+const volatile real32_T CAL_TpcSmp_GenOvrVoltypLim_f32 = 100.0F;
+const volatile real32_T CAL_TpcSmp_OvSpdWarnHiLim_f32 = 16200.0F;
+const volatile real32_T CAL_TpcSmp_OvSpdWarnLoLim_f32 = 16000.0F;
+const volatile real32_T CAL_TpcSmp_OvrCurtLimElecTableX_iDc_af32[5] = { 10.0F,
+  30.0F, 40.0F, 50.0F, 60.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrCurtLimElecTableY_Cof_af32[5] = { 0.2F,
+  0.2F, 0.6F, 1.0F, 1.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrCurtLimGenTableX_iDc_af32[5] = { 10.0F,
+  30.0F, 40.0F, 50.0F, 60.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrCurtLimGenTableY_Cof_af32[5] = { 0.2F,
+  0.2F, 0.6F, 1.0F, 1.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrSpdQurd1TableX_Spd_af32[7] = { 0.0F,
+  150.0F, 6000.0F, 16000.0F, 16200.0F, 17000.0F, 17200.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrSpdQurd1TableY_Cof_af32[7] = { 1.0F, 1.0F,
+  1.0F, 1.0F, 1.0F, 1.0F, 1.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrSpdQurd2TableX_Spd_af32[7] = { 0.0F,
+  150.0F, 6000.0F, 16000.0F, 16200.0F, 17000.0F, 17200.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrSpdQurd2TableY_Cof_af32[7] = { 1.0F, 1.0F,
+  1.0F, 1.0F, 1.0F, 1.0F, 1.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrSpdQurd3TableX_Spd_af32[7] = { 0.0F,
+  150.0F, 6000.0F, 16000.0F, 16200.0F, 17000.0F, 17200.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrSpdQurd3TableY_Cof_af32[7] = { 1.0F, 1.0F,
+  1.0F, 1.0F, 1.0F, 1.0F, 1.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrSpdQurd4TableX_Spd_af32[7] = { 0.0F,
+  150.0F, 6000.0F, 16000.0F, 16200.0F, 17000.0F, 17200.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrSpdQurd4TableY_Cof_af32[7] = { 1.0F, 1.0F,
+  1.0F, 1.0F, 1.0F, 1.0F, 1.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrVoltGenTableX_uDc_af32[5] = { 1.0F, 5.0F,
+  15.0F, 30.0F, 80.0F } ;
+
+const volatile real32_T CAL_TpcSmp_OvrVoltGenTableY_Cof_af32[5] = { 0.2F, 0.2F,
+  0.6F, 1.0F, 1.0F } ;
+
+const volatile real32_T CAL_TpcSmp_PwrAddMaxGen_f32 = 0.0F;
+const volatile real32_T CAL_TpcSmp_PwrAddMax_f32 = 3.0F;
+const volatile real32_T CAL_TpcSmp_SystemEffiElec_f32 = 1.0F;
+const volatile real32_T CAL_TpcSmp_SystemEffiGen_f32 = 1.0F;
+const volatile real32_T CAL_TpcSmp_ThresOverSpd_f32 = 12500.0F;
+const volatile real32_T CAL_TpcSmp_TrqAddMaxGen_f32 = 0.0F;
+const volatile real32_T CAL_TpcSmp_TrqAddMax_f32 = 10.0F;
+const volatile real32_T CAL_TpcSmp_UdrVoltElecTableX_uDc_af32[5] = { 10.0F,
+  40.0F, 60.0F, 80.0F, 100.0F } ;
+
+const volatile real32_T CAL_TpcSmp_UdrVoltElecTableY_Cof_af32[5] = { 0.2F, 0.2F,
+  0.6F, 1.0F, 1.0F } ;
+
+const volatile boolean_T CAL_TpcSmp_flgUsePwrLossGen_b = 0;
+const volatile boolean_T CAL_TpcSmp_flgUsePwrLoss_b = 0;
+const volatile real32_T CAL_TpcSmp_iDcLnkMaxMax_f32 = 800.0F;
+const volatile real32_T CAL_TpcSmp_iDcLnkMaxMin_f32 = 0.0F;
+const volatile real32_T CAL_TpcSmp_iDcLnkMinMax_f32 = 0.0F;
+const volatile real32_T CAL_TpcSmp_iDcLnkMinMin_f32 = -800.0F;
+const volatile real32_T CAL_TpcSmp_iDcLnkOvCElecLim_f32 = 560.0F;
+const volatile real32_T CAL_TpcSmp_iDcLnkOvCGenLim_f32 = -560.0F;
+const volatile uint8_T CAL_TpcSmp_nCtlExtReq_u8 = 1U;
+const volatile uint8_T CAL_TpcSmp_nCtlIntReq_u8 = 9U;
+const volatile real32_T CAL_TpcSmp_uDcLnkMaxMax_f32 = 550.0F;
+const volatile real32_T CAL_TpcSmp_uDcLnkMaxMin_f32 = 0.0F;
+const volatile real32_T CAL_TpcSmp_uDcLnkMinMax_f32 = 550.0F;
+const volatile real32_T CAL_TpcSmp_uDcLnkMinMin_f32 = 0.0F;
+const volatile real32_T CAL_TpcSmp_uDcLnkOvVLim_f32 = 485.0F;
+const volatile real32_T CAL_TpcSmp_uDcLnkUnVLim_f32 = 200.0F;
+const volatile real32_T CAL_TpcTmp_CoolChgTempDownDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcTmp_CoolChgTempUpDiff_f32 = 0.01F;
+const volatile real32_T CAL_TpcTmp_CoolTempAdds_f32 = 1.0F;
+const volatile real32_T CAL_TpcTmp_CoolTempDecDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcTmp_CoolTempKp_f32 = 0.2F;
+const volatile real32_T CAL_TpcTmp_CoolTempMinus_f32 = -1.0F;
+const volatile real32_T CAL_TpcTmp_CoolTempRiseDiff_f32 = 2.0F;
+const volatile real32_T CAL_TpcTmp_DBCRiseTempAdds_f32 = 1.0F;
+const volatile real32_T CAL_TpcTmp_DBCRiseTempDecDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcTmp_DBCRiseTempKp_f32 = 0.2F;
+const volatile real32_T CAL_TpcTmp_DBCRiseTempMinus_f32 = -1.0F;
+const volatile real32_T CAL_TpcTmp_DBCRiseTempRiseDiff_f32 = 2.0F;
+const volatile real32_T CAL_TpcTmp_DBCTempAdds_f32 = 1.0F;
+const volatile real32_T CAL_TpcTmp_DBCTempDecDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcTmp_DBCTempKp_f32 = 0.2F;
+const volatile real32_T CAL_TpcTmp_DBCTempMinus_f32 = -1.0F;
+const volatile real32_T CAL_TpcTmp_DBCTempRiseDiff_f32 = 2.0F;
+const volatile real32_T CAL_TpcTmp_DbcChgTempDownDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcTmp_DbcChgTempUpDiff_f32 = 0.01F;
+const volatile real32_T CAL_TpcTmp_DbcRiseChgTempDownDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcTmp_DbcRiseChgTempUpDiff_f32 = 0.01F;
+const volatile real32_T CAL_TpcTmp_IGBRiseTTempAdds_f32 = 1.0F;
+const volatile real32_T CAL_TpcTmp_IGBTRiseTempDecDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcTmp_IGBTRiseTempKp_f32 = 0.2F;
+const volatile real32_T CAL_TpcTmp_IGBTRiseTempMinus_f32 = -1.0F;
+const volatile real32_T CAL_TpcTmp_IGBTRiseTempRiseDiff_f32 = 2.0F;
+const volatile real32_T CAL_TpcTmp_IGBTTempAdds_f32 = 1.0F;
+const volatile real32_T CAL_TpcTmp_IGBTTempDecDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcTmp_IGBTTempKp_f32 = 0.2F;
+const volatile real32_T CAL_TpcTmp_IGBTTempMinus_f32 = -1.0F;
+const volatile real32_T CAL_TpcTmp_IGBTTempRiseDiff_f32 = 2.0F;
+const volatile real32_T CAL_TpcTmp_IgbtChgTempDownDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcTmp_IgbtChgTempUpDiff_f32 = 0.01F;
+const volatile real32_T CAL_TpcTmp_IgbtRiseChgTempDownDiff_f32 = -2.0F;
+const volatile real32_T CAL_TpcTmp_IgbtRiseChgTempUpDiff_f32 = 0.01F;
+const volatile real32_T CAL_TpcTmp_tCoolantDertSave1TableX_tSttr_af32[9] = {
+  0.0F, 30.0F, 65.0F, 66.0F, 67.0F, 68.0F, 69.0F, 70.0F, 75.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tCoolantDertSave1TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tCoolantDertSave2TableX_tSttr_af32[9] = {
+  0.0F, 30.0F, 65.0F, 66.0F, 67.0F, 68.0F, 69.0F, 70.0F, 75.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tCoolantDertSave2TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tCoolantTraNormalToSave1_f32 = 65.0F;
+const volatile real32_T CAL_TpcTmp_tCoolantTraSave1ToNormal_f32 = 64.0F;
+const volatile real32_T CAL_TpcTmp_tCoolantTraSave1ToSave2_f32 = 70.0F;
+const volatile real32_T CAL_TpcTmp_tCoolantTraSave2ToOverheating_f32 = 75.0F;
+const volatile real32_T CAL_TpcTmp_tDBCTrqLimRamp_f32 = 0.5F;
+const volatile real32_T CAL_TpcTmp_tDbcDertSave1TableX_tSttr_af32[9] = { 0.0F,
+  30.0F, 90.0F, 92.0F, 94.0F, 96.0F, 98.0F, 100.0F, 102.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tDbcDertSave1TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tDbcDertSave2TableX_tSttr_af32[9] = { 0.0F,
+  30.0F, 90.0F, 92.0F, 94.0F, 96.0F, 98.0F, 100.0F, 102.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tDbcDertSave2TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tDbcTempUHiLim_f32 = 102.0F;
+const volatile real32_T CAL_TpcTmp_tDbcTempULoLim_f32 = -40.0F;
+const volatile real32_T CAL_TpcTmp_tDbcTempVHiLim_f32 = 102.0F;
+const volatile real32_T CAL_TpcTmp_tDbcTempVLoLim_f32 = -40.0F;
+const volatile real32_T CAL_TpcTmp_tDbcTempWHiLim_f32 = 102.0F;
+const volatile real32_T CAL_TpcTmp_tDbcTempWLoLim_f32 = -40.0F;
+const volatile real32_T CAL_TpcTmp_tDbcThrPhLoLim_f32 = -35.0F;
+const volatile real32_T CAL_TpcTmp_tDbcTraNormalToSave1_f32 = 90.0F;
+const volatile real32_T CAL_TpcTmp_tDbcTraSave1ToNormal_f32 = 85.0F;
+const volatile real32_T CAL_TpcTmp_tDbcTraSave1ToSave2_f32 = 95.0F;
+const volatile real32_T CAL_TpcTmp_tDbcTraSave2ToOverheating_f32 = 99.0F;
+const volatile real32_T CAL_TpcTmp_tDrvboardDertTableX_tDrv_af32[9] = { -50.0F,
+  0.0F, 50.0F, 100.0F, 120.0F, 125.0F, 130.0F, 140.0F, 150.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tDrvboardDertTableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 1.0F, 1.0F, 0.5F, 0.0F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tIGBTDertSave1TableX_tSttr_af32[9] = { 0.0F,
+  30.0F, 140.0F, 145.0F, 155.0F, 160.0F, 165.0F, 170.0F, 175.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tIGBTDertSave1TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tIGBTDertSave2TableX_tSttr_af32[9] = { 0.0F,
+  30.0F, 140.0F, 145.0F, 155.0F, 160.0F, 165.0F, 170.0F, 175.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tIGBTDertSave2TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tIGBTTempHiLim_f32 = 175.0F;
+const volatile real32_T CAL_TpcTmp_tIGBTTempLoLim_f32 = -40.0F;
+const volatile real32_T CAL_TpcTmp_tIGBTTraNormalToSave1_f32 = 140.0F;
+const volatile real32_T CAL_TpcTmp_tIGBTTraSave1ToNormal_f32 = 135.0F;
+const volatile real32_T CAL_TpcTmp_tIGBTTraSave1ToSave2_f32 = 150.0F;
+const volatile real32_T CAL_TpcTmp_tIGBTTraSave2ToOverheating_f32 = 155.0F;
+const volatile real32_T CAL_TpcTmp_tIGBTTrqLimRamp_f32 = 0.05F;
+const volatile real32_T CAL_TpcTmp_tRiseDbcDertSave1TableX_tSttr_af32[9] = {
+  0.0F, 30.0F, 50.0F, 52.0F, 54.0F, 56.0F, 58.0F, 60.0F, 62.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tRiseDbcDertSave1TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tRiseDbcDertSave2TableX_tSttr_af32[9] = {
+  0.0F, 30.0F, 50.0F, 52.0F, 54.0F, 56.0F, 58.0F, 60.0F, 62.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tRiseDbcDertSave2TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tRiseDbcTraNormalToSave1_f32 = 50.0F;
+const volatile real32_T CAL_TpcTmp_tRiseDbcTraSave1ToNormal_f32 = 45.0F;
+const volatile real32_T CAL_TpcTmp_tRiseDbcTraSave1ToSave2_f32 = 55.0F;
+const volatile real32_T CAL_TpcTmp_tRiseDbcTraSave2ToOverheating_f32 = 59.0F;
+const volatile real32_T CAL_TpcTmp_tRiseIGBTDertSave1TableX_tSttr_af32[9] = {
+  0.0F, 30.0F, 80.0F, 85.0F, 90.0F, 95.0F, 100.0F, 105.0F, 110.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tRiseIGBTDertSave1TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tRiseIGBTDertSave2TableX_tSttr_af32[9] = {
+  0.0F, 30.0F, 80.0F, 85.0F, 90.0F, 95.0F, 100.0F, 105.0F, 110.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tRiseIGBTDertSave2TableY_Cof_af32[9] = { 1.0F,
+  1.0F, 1.0F, 0.8F, 0.6F, 0.4F, 0.2F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_TpcTmp_tRiseIGBTTraNormalToSave1_f32 = 80.0F;
+const volatile real32_T CAL_TpcTmp_tRiseIGBTTraSave1ToNormal_f32 = 75.0F;
+const volatile real32_T CAL_TpcTmp_tRiseIGBTTraSave1ToSave2_f32 = 90.0F;
+const volatile real32_T CAL_TpcTmp_tRiseIGBTTraSave2ToOverheating_f32 = 95.0F;
+const volatile uint8_T CAL_Tpc_NormalMode_u8 = 0U;
+const volatile uint8_T CAL_Tpc_OverheatingMode_u8 = 3U;
+const volatile uint8_T CAL_Tpc_Powersave1Mode_u8 = 1U;
+const volatile uint8_T CAL_Tpc_Powersave2Mode_u8 = 2U;
+const volatile real32_T CAL_Tpc_TrqReduceRevStep_f32 = 4.0F;
+const volatile real32_T CAL_Tpc_TrqRevStep_f32 = 0.75F;
+const volatile real32_T CAL_Tpc_TrqRiseRevStep_f32 = 4.0F;
+const volatile uint8_T CAL_Tpcmot_CofuDclnk_u8 = 2U;
+const volatile real32_T CAL_Tpcmot_TrqDiffExc_f32 = 5.0F;
+const volatile real32_T CAL_Tpcmot_TrqDiffGen_f32 = 5.0F;
+const volatile boolean_T CAL_Tpcmot_flgOpenExcLimRamp_b = 0;
+const volatile real32_T CAL_Tpcmot_uDcHiset_f32 = 455.0F;
+const volatile real32_T CAL_Tpcmot_uDcLoset_f32 = 275.0F;
+const volatile real32_T CAL_cofPowerLimitMotHeat_af32[9] = { 1.0F, 1.0F, 1.0F,
+  0.8F, 0.6F, 0.4F, 0.0F, 0.0F, 0.0F } ;
+
+const volatile real32_T CAL_tStrrTempFltMotHeat_af32[9] = { -50.0F, 0.0F, 170.0F,
+  172.0F, 174.0F, 176.0F, 178.0F, 180.0F, 182.0F } ;
+
+const volatile real32_T CAL_tiPwmLim_f32 = 0.0004F;
+const volatile real32_T CAL_trqDesOvrdVal_f32 = 0.0F;
+const volatile boolean_T CAL_trqDesOvrdflg_f32 = 0;
+const volatile real32_T CAL_trqMaxOvrdVal_f32 = 420.0F;
+const volatile boolean_T CAL_trqMaxOvrdflg_b = 1;
+const volatile real32_T CAL_trqMinOvrdVal_f32 = -420.0F;
+const volatile boolean_T CAL_trqMinOvrdflg_b = 1;
+const volatile int16_T DCEMS_sC_Nm_EngRefTorqDefault = 400;
+const volatile int16_T DCEMS_sC_Nm_EngRefTorqHighLmt = 1000;
+const volatile int16_T DCEMS_sC_Nm_EngRefTorqLowLmt = -1000;
+const volatile int16_T PMSM_Nm_EngDrvTorq_EEC1 = 0;
+const volatile int16_T PMSM_Nm_HCUReqMCUTq_MCU1 = 0;
+const volatile int16_T PMSM_Nm_HCUReqMCUTq_MCU2 = 0;
+const volatile int16_T PMSM_Nm_ReferenceMCTorque_EC = 0;
+const volatile int16_T PMSM_Nm_ReqTqFric_MTR1 = 0;
+const volatile int16_T PMSM_Nm_ReqTqFric_MTR2 = 0;
+const volatile int16_T PMSM_Nm_ReqTqLimit_MTR1 = 0;
+const volatile int16_T PMSM_Nm_ReqTqLimit_MTR2 = 0;
+const volatile boolean_T PMSM_bool_ActvDischgCommand_MCU1 = 0;
+const volatile boolean_T PMSM_bool_ActvDischgCommand_MCU2 = 0;
+const volatile boolean_T PMSM_bool_CurrentGear_ETC2 = 0;
+const volatile boolean_T PMSM_bool_EPSwitch_TC1HCU = 0;
+const volatile boolean_T PMSM_bool_EPSwitch_TC1Hd = 0;
+const volatile boolean_T PMSM_bool_EngDrvTorq_EEC1 = 0;
+const volatile boolean_T PMSM_bool_EngPedal_EEC2 = 0;
+const volatile boolean_T PMSM_bool_FootBrake_CCVS = 0;
+const volatile boolean_T PMSM_bool_GearRatio_ETC2 = 0;
+const volatile boolean_T PMSM_bool_HCUAllowMotWorkEn_MCU1 = 0;
+const volatile boolean_T PMSM_bool_HCUAllowMotWorkEn_MCU2 = 0;
+const volatile boolean_T PMSM_bool_HCUReqAutoChgN_TC1HCU = 0;
+const volatile boolean_T PMSM_bool_HCUReqHiPowerOff_MCU1 = 0;
+const volatile boolean_T PMSM_bool_HCUReqHiPowerOff_MCU2 = 0;
+const volatile boolean_T PMSM_bool_HCUReqInhibitSftGear_TC1HCU = 0;
+const volatile boolean_T PMSM_bool_HCUReqMCUSpd_MCU1 = 0;
+const volatile boolean_T PMSM_bool_HCUReqMCUSpd_MCU2 = 0;
+const volatile boolean_T PMSM_bool_HCUReqMCUTq_MCU1 = 0;
+const volatile boolean_T PMSM_bool_HCUReqMCUTq_MCU2 = 0;
+const volatile boolean_T PMSM_bool_HCUReqMotRotaDir_MCU1 = 0;
+const volatile boolean_T PMSM_bool_HCUReqMotRotaDir_MCU2 = 0;
+const volatile boolean_T PMSM_bool_HCUReqMotWorkMode_MCU1 = 0;
+const volatile boolean_T PMSM_bool_HCUReqMotWorkMode_MCU2 = 0;
+const volatile boolean_T PMSM_bool_MsgSwitchC_TC1HCU = 0;
+const volatile boolean_T PMSM_bool_MsgSwitchL_TC1HCU = 0;
+const volatile boolean_T PMSM_bool_NegtvRelayState_MCU1 = 0;
+const volatile boolean_T PMSM_bool_NegtvRelayState_MCU2 = 0;
+const volatile boolean_T PMSM_bool_NmEngDrvTorq_EEC1 = 0;
+const volatile boolean_T PMSM_bool_OverrideConModePriority_MTR1 = 0;
+const volatile boolean_T PMSM_bool_OverrideConModePriority_MTR2 = 0;
+const volatile boolean_T PMSM_bool_ParkingBrkSW_CCVS = 0;
+const volatile boolean_T PMSM_bool_PostvRelayState_MCU1 = 0;
+const volatile boolean_T PMSM_bool_PostvRelayState_MCU2 = 0;
+const volatile boolean_T PMSM_bool_PreChargHiVoltRelayState_MCU1 = 0;
+const volatile boolean_T PMSM_bool_PreChargHiVoltRelayState_MCU2 = 0;
+const volatile boolean_T PMSM_bool_ReferenceMCTorque_EC = 0;
+const volatile boolean_T PMSM_bool_ReqSpdContCond_MTR1 = 0;
+const volatile boolean_T PMSM_bool_ReqSpdContCond_MTR2 = 0;
+const volatile boolean_T PMSM_bool_ReqSpdLimit_MTR1 = 0;
+const volatile boolean_T PMSM_bool_ReqSpdLimit_MTR2 = 0;
+const volatile boolean_T PMSM_bool_ReqTqFric_MTR1 = 0;
+const volatile boolean_T PMSM_bool_ReqTqFric_MTR2 = 0;
+const volatile boolean_T PMSM_bool_ReqTqLimit_MTR1 = 0;
+const volatile boolean_T PMSM_bool_ReqTqLimit_MTR2 = 0;
+const volatile boolean_T PMSM_bool_SelectGear_ETC2 = 0;
+const volatile boolean_T PMSM_bool_ShiftInProcess_ETC1 = 0;
+const volatile boolean_T PMSM_bool_TMCurAvalMaxSpeed_MCU1 = 0;
+const volatile boolean_T PMSM_bool_TMCurAvalMaxSpeed_MCU2 = 0;
+const volatile boolean_T PMSM_bool_TransmissionRequestedGear_TC1HCU = 0;
+const volatile boolean_T PMSM_bool_TransmissionRequestedGear_TC1Hd = 0;
+const volatile boolean_T PMSM_bool_overridConMode_MTR1 = 0;
+const volatile boolean_T PMSM_bool_overridConMode_MTR2 = 0;
+const volatile uint8_T PMSM_gear_CurrentGear_ETC2 = 0U;
+const volatile uint8_T PMSM_gear_SelectGear_ETC2 = 0U;
+const volatile uint8_T PMSM_gear_TransmissionRequestedGear_TC1HCU = 0U;
+const volatile uint8_T PMSM_gear_TransmissionRequestedGear_TC1Hd = 0U;
+const volatile uint8_T PMSM_mod_HCUReqMotWorkMode_MCU1 = 0U;
+const volatile uint8_T PMSM_mod_HCUReqMotWorkMode_MCU2 = 0U;
+const volatile uint8_T PMSM_overridConMode_MTR1 = 0U;
+const volatile uint8_T PMSM_overridConMode_MTR2 = 0U;
+const volatile int16_T PMSM_perc_EngDrvTorq_EEC1 = 0;
+const volatile int16_T PMSM_perc_EngPedal_EEC2 = 0;
+const volatile int16_T PMSM_rpm_HCUReqMCUSpd_MCU1 = 0;
+const volatile int16_T PMSM_rpm_HCUReqMCUSpd_MCU2 = 0;
+const volatile int16_T PMSM_rpm_ReqSpdLimit_MTR1 = 0;
+const volatile int16_T PMSM_rpm_ReqSpdLimit_MTR2 = 0;
+const volatile int16_T PMSM_rpm_TMCurAvalMaxSpeed_MCU1 = 0;
+const volatile int16_T PMSM_rpm_TMCurAvalMaxSpeed_MCU2 = 0;
+const volatile uint8_T PMSM_sC_OverrideConModePriority_MTR1 = 0U;
+const volatile uint8_T PMSM_sC_OverrideConModePriority_MTR2 = 0U;
+const volatile uint8_T PMSM_sC_ReqSpdContCond_MTR1 = 0U;
+const volatile uint8_T PMSM_sC_ReqSpdContCond_MTR2 = 0U;
+const volatile uint8_T PMSM_sC_bool_FootBrake_CCVS = 0U;
+const volatile uint8_T PMSM_st_ActvDischgCommand_MCU1 = 0U;
+const volatile uint8_T PMSM_st_ActvDischgCommand_MCU2 = 0U;
+const volatile uint8_T PMSM_st_EPSwitch_TC1HCU = 0U;
+const volatile uint8_T PMSM_st_EPSwitch_TC1Hd = 0U;
+const volatile uint8_T PMSM_st_HCUAllowMotWorkEn_MCU1 = 0U;
+const volatile uint8_T PMSM_st_HCUAllowMotWorkEn_MCU2 = 0U;
+const volatile uint8_T PMSM_st_HCUReqAutoChgN_TC1HCU = 0U;
+const volatile uint8_T PMSM_st_HCUReqHiPowerOff_MCU1 = 0U;
+const volatile uint8_T PMSM_st_HCUReqHiPowerOff_MCU2 = 0U;
+const volatile uint8_T PMSM_st_HCUReqInhibitSftGear_TC1HCU = 0U;
+const volatile uint8_T PMSM_st_HCUReqMotRotaDir_MCU1 = 0U;
+const volatile uint8_T PMSM_st_HCUReqMotRotaDir_MCU2 = 0U;
+const volatile uint8_T PMSM_st_MsgSwitchC_TC1HCU = 0U;
+const volatile uint8_T PMSM_st_MsgSwitchL_TC1HCU = 0U;
+const volatile uint8_T PMSM_st_NegtvRelayState_MCU1 = 0U;
+const volatile uint8_T PMSM_st_NegtvRelayState_MCU2 = 0U;
+const volatile uint8_T PMSM_st_ParkingBrkSW_CCVS = 0U;
+const volatile uint8_T PMSM_st_PostvRelayState_MCU1 = 0U;
+const volatile uint8_T PMSM_st_PostvRelayState_MCU2 = 0U;
+const volatile uint8_T PMSM_st_PreChargHiVoltRelayState_MCU1 = 0U;
+const volatile uint8_T PMSM_st_PreChargHiVoltRelayState_MCU2 = 0U;
+const volatile uint8_T PMSM_st_ShiftInProcess_ETC1 = 0U;
+const volatile int16_T PMSM_z_GearRatio_ETC2 = 0;
+const volatile real32_T RDC_COSTABLE[4096] = { 1.0F, 0.999998808F, 0.999995291F,
+  0.99998939F, 0.999981165F, 0.999970555F, 0.999957621F, 0.999942303F,
+  0.99992466F, 0.999904633F, 0.999882281F, 0.999857545F, 0.999830484F,
+  0.999801099F, 0.99976927F, 0.999735177F, 0.999698699F, 0.999659836F,
+  0.999618649F, 0.999575078F, 0.999529183F, 0.999480963F, 0.999430299F,
+  0.99937737F, 0.999322057F, 0.999264359F, 0.999204397F, 0.999142F, 0.99907726F,
+  0.999010205F, 0.998940766F, 0.998869F, 0.998794854F, 0.998718381F,
+  0.998639584F, 0.998558342F, 0.998474836F, 0.998388946F, 0.998300731F,
+  0.998210132F, 0.998117208F, 0.998021901F, 0.997924268F, 0.997824311F,
+  0.99772197F, 0.997617245F, 0.997510254F, 0.99740088F, 0.997289121F,
+  0.997175038F, 0.99705863F, 0.996939838F, 0.996818721F, 0.99669528F,
+  0.996569455F, 0.996441305F, 0.99631083F, 0.996178F, 0.996042788F, 0.995905221F,
+  0.995765328F, 0.995623112F, 0.99547857F, 0.995331645F, 0.995182395F,
+  0.995030761F, 0.994876862F, 0.994720519F, 0.994561911F, 0.994401F,
+  0.994237661F, 0.99407196F, 0.993904F, 0.993733644F, 0.99356097F, 0.993386F,
+  0.993208647F, 0.993028939F, 0.992846906F, 0.992662549F, 0.992475867F,
+  0.992286801F, 0.99209547F, 0.991901755F, 0.991705716F, 0.991507351F,
+  0.991306603F, 0.99110359F, 0.990898192F, 0.99069047F, 0.990480423F,
+  0.990268052F, 0.990053356F, 0.989836335F, 0.98961693F, 0.989395261F,
+  0.989171207F, 0.988944888F, 0.988716185F, 0.988485157F, 0.988251865F,
+  0.988016188F, 0.987778187F, 0.987537861F, 0.98729521F, 0.987050235F, 0.986803F,
+  0.986553371F, 0.986301422F, 0.986047149F, 0.98579061F, 0.985531688F,
+  0.985270441F, 0.985006928F, 0.984741092F, 0.984472871F, 0.984202385F,
+  0.983929574F, 0.983654439F, 0.983377039F, 0.983097255F, 0.982815206F,
+  0.982530773F, 0.982244074F, 0.981955111F, 0.981663764F, 0.981370151F,
+  0.981074154F, 0.980775952F, 0.980475366F, 0.980172515F, 0.97986728F,
+  0.979559839F, 0.97925F, 0.978937924F, 0.978623509F, 0.97830683F, 0.977987826F,
+  0.977666497F, 0.977342904F, 0.977017F, 0.976688743F, 0.976358235F,
+  0.976025403F, 0.975690305F, 0.975352883F, 0.975013196F, 0.974671185F,
+  0.974326909F, 0.973980308F, 0.973631442F, 0.973280251F, 0.972926795F,
+  0.972571F, 0.972213F, 0.97185266F, 0.97149F, 0.971125126F, 0.970757961F,
+  0.970388472F, 0.970016658F, 0.969642639F, 0.969266295F, 0.968887687F,
+  0.968506813F, 0.968123615F, 0.967738152F, 0.967350423F, 0.96696043F,
+  0.966568172F, 0.966173589F, 0.965776742F, 0.965377629F, 0.964976251F,
+  0.964572608F, 0.964166701F, 0.963758469F, 0.963348031F, 0.962935269F,
+  0.962520301F, 0.962103F, 0.961683512F, 0.96126169F, 0.960837662F, 0.96041131F,
+  0.959982753F, 0.959551871F, 0.959118783F, 0.958683431F, 0.958245814F,
+  0.957805932F, 0.957363844F, 0.956919432F, 0.956472814F, 0.956023932F,
+  0.955572784F, 0.955119431F, 0.954663813F, 0.95420593F, 0.953745782F,
+  0.953283429F, 0.952818811F, 0.952351928F, 0.951882839F, 0.951411486F,
+  0.950937927F, 0.950462103F, 0.949984F, 0.94950372F, 0.94902122F, 0.948536456F,
+  0.948049426F, 0.947560191F, 0.947068751F, 0.946575046F, 0.946079135F,
+  0.945581F, 0.945080638F, 0.944578052F, 0.9440732F, 0.943566144F, 0.943056881F,
+  0.942545414F, 0.942031741F, 0.941515803F, 0.94099766F, 0.940477312F,
+  0.939954758F, 0.939429939F, 0.938903F, 0.938373744F, 0.937842369F,
+  0.937308729F, 0.936772883F, 0.936234891F, 0.935694635F, 0.935152173F,
+  0.934607565F, 0.934060693F, 0.933511674F, 0.932960451F, 0.932407F,
+  0.931851387F, 0.931293547F, 0.930733562F, 0.930171311F, 0.929606915F,
+  0.929040372F, 0.928471565F, 0.927900612F, 0.927327454F, 0.92675215F,
+  0.926174641F, 0.925595F, 0.925013065F, 0.924429059F, 0.923842847F, 0.92325443F,
+  0.922663867F, 0.922071099F, 0.921476185F, 0.920879126F, 0.92027986F,
+  0.91967845F, 0.919074893F, 0.918469131F, 0.917861223F, 0.91725117F,
+  0.916638911F, 0.916024566F, 0.915408F, 0.914789319F, 0.914168477F, 0.91354543F,
+  0.912920296F, 0.912293F, 0.911663532F, 0.911031961F, 0.910398185F,
+  0.909762323F, 0.909124315F, 0.908484161F, 0.907841802F, 0.907197356F,
+  0.906550825F, 0.905902088F, 0.905251265F, 0.904598296F, 0.903943181F,
+  0.903285921F, 0.902626574F, 0.901965082F, 0.901301444F, 0.900635719F,
+  0.899967909F, 0.899297893F, 0.898625851F, 0.897951603F, 0.897275329F,
+  0.896596849F, 0.895916343F, 0.895233691F, 0.894548953F, 0.893862069F,
+  0.893173099F, 0.892482042F, 0.89178884F, 0.891093552F, 0.890396237F,
+  0.889696717F, 0.888995171F, 0.888291538F, 0.887585819F, 0.886877954F,
+  0.886168063F, 0.885456F, 0.884741962F, 0.884025753F, 0.883307517F,
+  0.882587194F, 0.881864727F, 0.881140232F, 0.880413711F, 0.879685044F,
+  0.878954351F, 0.878221571F, 0.877486706F, 0.876749814F, 0.876010835F,
+  0.87526983F, 0.87452668F, 0.873781562F, 0.873034358F, 0.872285068F,
+  0.871533751F, 0.870780349F, 0.87002492F, 0.869267464F, 0.868508F, 0.867746413F,
+  0.866982758F, 0.866217136F, 0.865449429F, 0.864679694F, 0.863907933F,
+  0.863134146F, 0.862358332F, 0.861580491F, 0.860800624F, 0.860018671F,
+  0.85923475F, 0.858448803F, 0.85766083F, 0.85687083F, 0.856078804F, 0.85528475F,
+  0.85448873F, 0.853690684F, 0.852890611F, 0.852088511F, 0.851284444F,
+  0.850478351F, 0.849670291F, 0.848860204F, 0.848048091F, 0.847234F,
+  0.846417964F, 0.84559989F, 0.844779789F, 0.843957782F, 0.843133748F,
+  0.842307687F, 0.841479719F, 0.840649724F, 0.839817762F, 0.838983834F,
+  0.838147879F, 0.83731F, 0.836470127F, 0.835628331F, 0.834784508F, 0.833938718F,
+  0.833091F, 0.832241356F, 0.831389666F, 0.830536067F, 0.829680502F, 0.82882303F,
+  0.827963531F, 0.827102125F, 0.826238751F, 0.825373471F, 0.824506223F,
+  0.823637F, 0.822765887F, 0.821892858F, 0.821017861F, 0.820140898F, 0.819262F,
+  0.81838125F, 0.817498505F, 0.816613853F, 0.815727293F, 0.814838827F,
+  0.813948393F, 0.813056111F, 0.812161863F, 0.811265707F, 0.810367644F,
+  0.809467673F, 0.808565795F, 0.80766207F, 0.806756377F, 0.805848777F,
+  0.80493933F, 0.804028F, 0.803114712F, 0.802199543F, 0.801282525F, 0.8003636F,
+  0.799442768F, 0.798520088F, 0.797595501F, 0.796669066F, 0.795740724F,
+  0.794810534F, 0.793878436F, 0.792944491F, 0.792008698F, 0.791071057F,
+  0.790131509F, 0.789190114F, 0.78824687F, 0.787301779F, 0.78635478F, 0.785406F,
+  0.784455299F, 0.783502817F, 0.782548428F, 0.78159225F, 0.780634224F,
+  0.779674351F, 0.77871263F, 0.777749121F, 0.776783705F, 0.77581656F,
+  0.774847507F, 0.773876667F, 0.772904F, 0.771929502F, 0.770953178F,
+  0.769975066F, 0.768995106F, 0.768013358F, 0.767029822F, 0.766044438F,
+  0.765057266F, 0.764068305F, 0.763077557F, 0.762084961F, 0.761090636F,
+  0.760094464F, 0.759096563F, 0.758096814F, 0.757095277F, 0.756092F,
+  0.755086958F, 0.754080117F, 0.753071487F, 0.752061069F, 0.751048923F,
+  0.750035F, 0.749019265F, 0.748001814F, 0.746982574F, 0.745961607F, 0.74493885F,
+  0.743914366F, 0.742888093F, 0.741860092F, 0.740830362F, 0.739798903F,
+  0.738765657F, 0.737730682F, 0.736694F, 0.735655546F, 0.734615386F,
+  0.733573496F, 0.732529819F, 0.731484473F, 0.730437398F, 0.729388654F,
+  0.728338122F, 0.727285862F, 0.726231933F, 0.725176334F, 0.724118948F,
+  0.723059893F, 0.721999109F, 0.720936656F, 0.719872534F, 0.718806684F,
+  0.717739105F, 0.716669858F, 0.715598941F, 0.714526355F, 0.713452041F,
+  0.712376118F, 0.711298466F, 0.710219145F, 0.709138155F, 0.708055496F,
+  0.706971169F, 0.705885172F, 0.704797506F, 0.703708172F, 0.702617228F,
+  0.701524615F, 0.700430334F, 0.699334383F, 0.698236823F, 0.697137594F,
+  0.696036756F, 0.694934249F, 0.693830132F, 0.692724347F, 0.691616952F,
+  0.690507948F, 0.689397275F, 0.688285F, 0.687171102F, 0.686055601F, 0.68493849F,
+  0.683819771F, 0.682699382F, 0.681577444F, 0.680453897F, 0.67932874F, 0.678202F,
+  0.677073598F, 0.675943673F, 0.674812078F, 0.673679F, 0.672544241F,
+  0.671407938F, 0.670270085F, 0.669130623F, 0.667989552F, 0.666847F, 0.66570276F,
+  0.66455704F, 0.66340971F, 0.66226083F, 0.661110401F, 0.659958422F,
+  0.658804893F, 0.657649815F, 0.656493187F, 0.655335F, 0.654175282F, 0.653014F,
+  0.651851177F, 0.65068686F, 0.649521F, 0.648353577F, 0.64718461F, 0.646014214F,
+  0.644842207F, 0.643668711F, 0.642493725F, 0.641317189F, 0.640139163F,
+  0.638959646F, 0.63777858F, 0.636596F, 0.635412037F, 0.634226501F, 0.633039474F,
+  0.631850958F, 0.630660951F, 0.629469454F, 0.628276467F, 0.627082F,
+  0.625886083F, 0.624688685F, 0.623489797F, 0.622289479F, 0.62108767F,
+  0.619884372F, 0.618679643F, 0.617473483F, 0.616265833F, 0.615056753F,
+  0.613846242F, 0.612634242F, 0.61142081F, 0.610205948F, 0.608989656F,
+  0.607771933F, 0.60655272F, 0.605332136F, 0.604110122F, 0.602886677F,
+  0.601661861F, 0.600435555F, 0.599207878F, 0.597978771F, 0.596748292F,
+  0.595516384F, 0.594283044F, 0.593048334F, 0.591812193F, 0.590574741F,
+  0.589335799F, 0.588095546F, 0.586853862F, 0.585610807F, 0.584366381F,
+  0.583120584F, 0.581873417F, 0.580624878F, 0.579374969F, 0.578123689F,
+  0.576871037F, 0.575617075F, 0.574361742F, 0.573105037F, 0.571846962F,
+  0.570587575F, 0.569326818F, 0.568064749F, 0.56680131F, 0.565536559F,
+  0.564270496F, 0.563003063F, 0.561734319F, 0.560464263F, 0.559192896F,
+  0.557920218F, 0.556646168F, 0.555370867F, 0.554094255F, 0.552816331F,
+  0.551537097F, 0.55025655F, 0.548974752F, 0.547691584F, 0.546407223F,
+  0.545121491F, 0.543834507F, 0.542546272F, 0.541256726F, 0.539965928F,
+  0.538673818F, 0.537380457F, 0.536085844F, 0.53479F, 0.533492863F, 0.532194436F,
+  0.530894816F, 0.529593945F, 0.528291762F, 0.526988387F, 0.525683761F,
+  0.524377882F, 0.523070812F, 0.52176249F, 0.520452917F, 0.519142151F,
+  0.517830133F, 0.516516924F, 0.515202463F, 0.513886809F, 0.512569964F,
+  0.511251867F, 0.509932578F, 0.508612156F, 0.507290483F, 0.505967617F,
+  0.504643559F, 0.50331831F, 0.501991868F, 0.500664234F, 0.499335468F,
+  0.49800548F, 0.496674359F, 0.495342046F, 0.494008571F, 0.492673934F,
+  0.491338134F, 0.490001172F, 0.488663077F, 0.487323821F, 0.485983402F,
+  0.48464185F, 0.483299166F, 0.481955349F, 0.480610371F, 0.479264289F,
+  0.477917075F, 0.476568729F, 0.47521925F, 0.473868668F, 0.472516954F,
+  0.471164137F, 0.469810218F, 0.468455195F, 0.467099041F, 0.465741813F,
+  0.464383483F, 0.46302405F, 0.461663544F, 0.460301936F, 0.458939254F,
+  0.4575755F, 0.456210643F, 0.454844743F, 0.45347774F, 0.452109694F,
+  0.450740576F, 0.449370414F, 0.44799915F, 0.446626872F, 0.445253521F,
+  0.443879128F, 0.442503691F, 0.441127211F, 0.439749688F, 0.438371152F,
+  0.436991572F, 0.43561095F, 0.434229314F, 0.432846636F, 0.431462973F,
+  0.430078268F, 0.428692549F, 0.427305847F, 0.425918132F, 0.424529403F,
+  0.423139662F, 0.421748936F, 0.420357227F, 0.418964535F, 0.417570829F,
+  0.41617617F, 0.414780498F, 0.413383871F, 0.411986262F, 0.410587698F,
+  0.409188151F, 0.407787651F, 0.406386197F, 0.404983759F, 0.403580397F,
+  0.402176082F, 0.400770783F, 0.399364591F, 0.397957414F, 0.396549344F,
+  0.39514032F, 0.393730342F, 0.392319471F, 0.390907675F, 0.389494956F,
+  0.388081312F, 0.386666745F, 0.385251284F, 0.383834898F, 0.382417619F,
+  0.380999446F, 0.379580379F, 0.378160417F, 0.376739532F, 0.375317812F,
+  0.373895168F, 0.37247166F, 0.371047258F, 0.369622022F, 0.368195891F,
+  0.366768897F, 0.365341038F, 0.363912314F, 0.362482727F, 0.361052305F,
+  0.359621018F, 0.358188897F, 0.356755912F, 0.355322093F, 0.353887469F,
+  0.35245198F, 0.351015657F, 0.34957853F, 0.348140568F, 0.346701801F, 0.3452622F,
+  0.343821794F, 0.342380583F, 0.340938538F, 0.339495718F, 0.338052094F,
+  0.336607665F, 0.335162461F, 0.333716452F, 0.332269669F, 0.33082211F,
+  0.329373747F, 0.327924639F, 0.326474726F, 0.325024068F, 0.323572636F,
+  0.322120428F, 0.320667505F, 0.319213778F, 0.317759335F, 0.316304117F,
+  0.314848185F, 0.313391477F, 0.311934054F, 0.310475886F, 0.309017F,
+  0.307557374F, 0.306097031F, 0.304635972F, 0.303174168F, 0.301711679F,
+  0.300248474F, 0.298784554F, 0.297319949F, 0.295854628F, 0.294388592F,
+  0.292921901F, 0.291454494F, 0.289986432F, 0.288517654F, 0.287048221F,
+  0.285578072F, 0.284107298F, 0.282635838F, 0.281163692F, 0.279690921F,
+  0.278217465F, 0.276743352F, 0.275268614F, 0.273793191F, 0.272317141F,
+  0.270840466F, 0.269363135F, 0.267885178F, 0.266406596F, 0.264927387F,
+  0.263447523F, 0.261967063F, 0.260485977F, 0.259004295F, 0.257522F,
+  0.256039083F, 0.254555583F, 0.253071457F, 0.251586765F, 0.250101477F,
+  0.248615578F, 0.247129112F, 0.245642051F, 0.244154423F, 0.242666215F,
+  0.24117744F, 0.239688084F, 0.238198176F, 0.236707702F, 0.235216677F,
+  0.233725101F, 0.232232958F, 0.230740279F, 0.229247063F, 0.227753296F,
+  0.226259008F, 0.224764168F, 0.223268807F, 0.221772924F, 0.22027652F,
+  0.218779594F, 0.217282146F, 0.215784192F, 0.214285731F, 0.212786764F,
+  0.211287305F, 0.209787339F, 0.208286881F, 0.206785932F, 0.205284506F,
+  0.203782588F, 0.202280179F, 0.200777307F, 0.199273959F, 0.197770149F,
+  0.196265861F, 0.194761127F, 0.193255916F, 0.191750258F, 0.190244153F,
+  0.188737601F, 0.187230602F, 0.185723156F, 0.184215277F, 0.182706967F,
+  0.181198224F, 0.17968905F, 0.178179458F, 0.176669449F, 0.175159022F,
+  0.173648179F, 0.172136933F, 0.170625269F, 0.169113219F, 0.167600766F,
+  0.166087911F, 0.164574683F, 0.163061053F, 0.161547035F, 0.160032645F,
+  0.158517882F, 0.157002732F, 0.155487224F, 0.153971344F, 0.152455106F,
+  0.150938511F, 0.149421558F, 0.147904247F, 0.146386594F, 0.144868597F,
+  0.143350258F, 0.141831592F, 0.140312582F, 0.13879323F, 0.137273565F,
+  0.135753572F, 0.134233266F, 0.132712632F, 0.131191701F, 0.129670456F,
+  0.128148898F, 0.126627043F, 0.125104889F, 0.123582445F, 0.122059703F,
+  0.120536678F, 0.119013369F, 0.117489778F, 0.115965918F, 0.114441775F,
+  0.112917364F, 0.111392692F, 0.109867752F, 0.108342558F, 0.106817111F,
+  0.105291404F, 0.103765458F, 0.102239266F, 0.100712828F, 0.0991861597F,
+  0.0976592526F, 0.0961321145F, 0.094604753F, 0.0930771679F, 0.0915493667F,
+  0.0900213495F, 0.0884931162F, 0.0869646743F, 0.0854360312F, 0.083907187F,
+  0.0823781416F, 0.0808489099F, 0.0793194845F, 0.0777898654F, 0.0762600675F,
+  0.0747300908F, 0.0731999427F, 0.0716696158F, 0.070139125F, 0.0686084628F,
+  0.0670776442F, 0.0655466691F, 0.0640155375F, 0.0624842495F, 0.0609528199F,
+  0.0594212487F, 0.0578895323F, 0.0563576855F, 0.0548257F, 0.0532935895F,
+  0.0517613515F, 0.0502289943F, 0.0486965179F, 0.0471639261F, 0.0456312224F,
+  0.0440984108F, 0.0425655F, 0.0410324857F, 0.0394993722F, 0.0379661694F,
+  0.0364328772F, 0.0348994955F, 0.0333660357F, 0.0318324976F, 0.0302988812F,
+  0.0287651941F, 0.0272314418F, 0.0256976243F, 0.0241637453F, 0.0226298105F,
+  0.0210958216F, 0.0195617825F, 0.0180276986F, 0.0164935719F, 0.014959407F,
+  0.0134252058F, 0.0118909739F, 0.010356714F, 0.00882242899F, 0.00728812395F,
+  0.0057538012F, 0.00421946496F, 0.00268511893F, 0.00115076604F, -0.000383589F,
+  -0.00191794301F, -0.00345229311F, -0.00498663401F, -0.00652096421F,
+  -0.00805527903F, -0.0095895743F, -0.0111238472F, -0.0126580941F,
+  -0.0141923111F, -0.0157264937F, -0.0172606409F, -0.0187947471F, -0.0203288086F,
+  -0.0218628217F, -0.0233967844F, -0.0249306913F, -0.0264645405F, -0.0279983263F,
+  -0.029532047F, -0.0310656987F, -0.0325992741F, -0.0341327749F, -0.0356661975F,
+  -0.0371995345F, -0.038732782F, -0.0402659401F, -0.041799F, -0.0433319695F,
+  -0.0448648296F, -0.0463975854F, -0.0479302332F, -0.0494627692F, -0.0509951897F,
+  -0.0525274873F, -0.0540596619F, -0.0555917099F, -0.0571236275F, -0.0586554073F,
+  -0.0601870529F, -0.0617185533F, -0.0632499084F, -0.0647811219F, -0.0663121715F,
+  -0.0678430721F, -0.0693738163F, -0.070904389F, -0.0724348F, -0.0739650354F,
+  -0.0754951F, -0.0770249888F, -0.0785547F, -0.0800842196F, -0.0816135481F,
+  -0.0831426904F, -0.0846716315F, -0.0862003788F, -0.087728925F, -0.0892572552F,
+  -0.0907853842F, -0.0923133F, -0.0938409865F, -0.0953684598F, -0.0968957096F,
+  -0.0984227359F, -0.0999495238F, -0.101476073F, -0.103002392F, -0.104528464F,
+  -0.106054291F, -0.107579865F, -0.109105192F, -0.110630259F, -0.112155065F,
+  -0.113679603F, -0.11520388F, -0.116727881F, -0.118251614F, -0.119775064F,
+  -0.121298231F, -0.122821108F, -0.124343708F, -0.125866011F, -0.127388015F,
+  -0.128909707F, -0.130431116F, -0.131952211F, -0.133473F, -0.134993464F,
+  -0.136513606F, -0.138033435F, -0.139552951F, -0.141072124F, -0.14259097F,
+  -0.144109473F, -0.145627648F, -0.147145465F, -0.148662955F, -0.150180086F,
+  -0.151696861F, -0.153213277F, -0.154729337F, -0.156245023F, -0.157760352F,
+  -0.159275308F, -0.160789892F, -0.162304088F, -0.163817912F, -0.165331349F,
+  -0.166844383F, -0.168357044F, -0.169869304F, -0.171381146F, -0.1728926F,
+  -0.174403653F, -0.175914288F, -0.177424505F, -0.178934306F, -0.180443689F,
+  -0.18195264F, -0.183461174F, -0.184969261F, -0.186476931F, -0.187984154F,
+  -0.189490929F, -0.190997258F, -0.192503139F, -0.194008574F, -0.195513546F,
+  -0.197018057F, -0.198522106F, -0.200025693F, -0.201528803F, -0.203031436F,
+  -0.204533607F, -0.206035271F, -0.207536474F, -0.20903717F, -0.210537389F,
+  -0.212037101F, -0.213536322F, -0.215035036F, -0.216533244F, -0.21803093F,
+  -0.219528124F, -0.221024781F, -0.222520933F, -0.224016562F, -0.225511655F,
+  -0.227006212F, -0.228500247F, -0.229993746F, -0.231486693F, -0.232979104F,
+  -0.234470963F, -0.235962257F, -0.237453014F, -0.238943204F, -0.240432829F,
+  -0.241921902F, -0.243410394F, -0.244898304F, -0.246385649F, -0.247872412F,
+  -0.249358594F, -0.250844181F, -0.252329201F, -0.253813595F, -0.255297422F,
+  -0.256780624F, -0.25826323F, -0.25974521F, -0.261226594F, -0.262707382F,
+  -0.264187545F, -0.265667051F, -0.267145962F, -0.268624246F, -0.270101875F,
+  -0.271578878F, -0.273055255F, -0.274530977F, -0.276006073F, -0.277480483F,
+  -0.278954268F, -0.280427396F, -0.28189984F, -0.283371657F, -0.284842759F,
+  -0.286313236F, -0.287783027F, -0.289252132F, -0.290720552F, -0.292188287F,
+  -0.293655336F, -0.2951217F, -0.296587378F, -0.298052341F, -0.299516588F,
+  -0.300980151F, -0.302443027F, -0.303905159F, -0.305366576F, -0.306827277F,
+  -0.308287263F, -0.309746534F, -0.311205059F, -0.31266287F, -0.314119905F,
+  -0.315576226F, -0.317031831F, -0.318486661F, -0.319940746F, -0.321394056F,
+  -0.322846621F, -0.324298441F, -0.325749487F, -0.327199787F, -0.328649282F,
+  -0.330098033F, -0.331545979F, -0.33299318F, -0.334439576F, -0.335885167F,
+  -0.337329984F, -0.338774025F, -0.340217233F, -0.341659665F, -0.343101293F,
+  -0.344542086F, -0.345982105F, -0.347421288F, -0.348859668F, -0.350297213F,
+  -0.351733923F, -0.353169829F, -0.3546049F, -0.356039107F, -0.357472509F,
+  -0.358905047F, -0.360336751F, -0.36176762F, -0.363197625F, -0.364626765F,
+  -0.366055071F, -0.367482483F, -0.368909061F, -0.370334744F, -0.371759564F,
+  -0.373183519F, -0.37460658F, -0.376028776F, -0.377450079F, -0.378870487F,
+  -0.380290031F, -0.381708652F, -0.383126378F, -0.38454321F, -0.385959119F,
+  -0.387374133F, -0.388788223F, -0.39020142F, -0.391613692F, -0.393025041F,
+  -0.394435465F, -0.395844936F, -0.397253513F, -0.398661137F, -0.400067806F,
+  -0.401473552F, -0.402878344F, -0.404282212F, -0.405685097F, -0.407087028F,
+  -0.408488035F, -0.409888059F, -0.411287099F, -0.412685186F, -0.414082319F,
+  -0.415478438F, -0.416873604F, -0.418267787F, -0.419661F, -0.421053201F,
+  -0.422444433F, -0.423834652F, -0.425223887F, -0.426612109F, -0.427999318F,
+  -0.429385543F, -0.430770755F, -0.432154924F, -0.433538109F, -0.434920251F,
+  -0.43630138F, -0.437681496F, -0.439060539F, -0.440438598F, -0.441815585F,
+  -0.443191558F, -0.444566458F, -0.445940316F, -0.44731316F, -0.448684901F,
+  -0.450055629F, -0.451425284F, -0.452793866F, -0.454161376F, -0.455527842F,
+  -0.456893206F, -0.458257526F, -0.459620744F, -0.460982889F, -0.462343931F,
+  -0.463703901F, -0.465062797F, -0.466420561F, -0.467777252F, -0.469132841F,
+  -0.470487326F, -0.47184068F, -0.47319296F, -0.474544108F, -0.475894123F,
+  -0.477243036F, -0.478590816F, -0.479937464F, -0.481283F, -0.482627392F,
+  -0.483970672F, -0.48531279F, -0.486653745F, -0.487993598F, -0.489332289F,
+  -0.490669817F, -0.492006183F, -0.493341386F, -0.494675457F, -0.496008337F,
+  -0.497340053F, -0.498670608F, -0.5F, -0.50132823F, -0.502655208F,
+  -0.503981054F, -0.505305707F, -0.506629169F, -0.507951438F, -0.509272516F,
+  -0.510592401F, -0.511911035F, -0.513228536F, -0.514544785F, -0.515859842F,
+  -0.517173648F, -0.518486261F, -0.519797683F, -0.521107852F, -0.52241677F,
+  -0.523724496F, -0.525031F, -0.526336253F, -0.527640224F, -0.528943F,
+  -0.530244529F, -0.531544805F, -0.532843828F, -0.5341416F, -0.535438061F,
+  -0.536733329F, -0.538027346F, -0.539320052F, -0.540611506F, -0.541901648F,
+  -0.543190539F, -0.544478178F, -0.545764506F, -0.547049582F, -0.548333347F,
+  -0.5496158F, -0.550897F, -0.552176893F, -0.553455472F, -0.55473274F,
+  -0.556008697F, -0.557283342F, -0.558556736F, -0.559828758F, -0.56109947F,
+  -0.56236887F, -0.563636959F, -0.564903677F, -0.566169143F, -0.567433178F,
+  -0.568695962F, -0.569957376F, -0.571217418F, -0.572476149F, -0.573733509F,
+  -0.574989557F, -0.576244235F, -0.577497542F, -0.578749478F, -0.580000103F,
+  -0.581249297F, -0.58249718F, -0.583743691F, -0.584988773F, -0.586232543F,
+  -0.587474883F, -0.588715851F, -0.589955449F, -0.591193616F, -0.592430472F,
+  -0.593665838F, -0.594899893F, -0.596132457F, -0.59736371F, -0.598593473F,
+  -0.599821866F, -0.601048887F, -0.602274418F, -0.603498578F, -0.604721308F,
+  -0.605942607F, -0.607162535F, -0.608381F, -0.609598F, -0.610813558F,
+  -0.612027705F, -0.613240421F, -0.614451647F, -0.615661502F, -0.616869867F,
+  -0.618076742F, -0.619282186F, -0.6204862F, -0.621688724F, -0.622889817F,
+  -0.62408942F, -0.625287533F, -0.626484215F, -0.627679408F, -0.62887311F,
+  -0.630065382F, -0.631256104F, -0.632445395F, -0.633633137F, -0.634819448F,
+  -0.63600421F, -0.637187541F, -0.638369322F, -0.639549613F, -0.640728354F,
+  -0.641905665F, -0.643081427F, -0.644255638F, -0.64542836F, -0.646599591F,
+  -0.647769272F, -0.648937464F, -0.650104105F, -0.651269197F, -0.652432799F,
+  -0.653594792F, -0.654755294F, -0.655914247F, -0.65707171F, -0.658227563F,
+  -0.659381866F, -0.66053462F, -0.661685824F, -0.662835479F, -0.663983583F,
+  -0.665130079F, -0.666275084F, -0.66741848F, -0.668560266F, -0.669700563F,
+  -0.67083919F, -0.671976268F, -0.673111796F, -0.674245715F, -0.675378084F,
+  -0.676508844F, -0.677638F, -0.678765535F, -0.679891527F, -0.681015849F,
+  -0.682138622F, -0.683259785F, -0.684379339F, -0.685497224F, -0.68661356F,
+  -0.687728286F, -0.688841343F, -0.689952791F, -0.691062629F, -0.692170858F,
+  -0.693277419F, -0.69438237F, -0.695485711F, -0.696587384F, -0.697687387F,
+  -0.698785782F, -0.699882567F, -0.700977683F, -0.70207113F, -0.703162909F,
+  -0.704253078F, -0.705341518F, -0.706428349F, -0.707513511F, -0.708597F,
+  -0.709678829F, -0.710759F, -0.711837471F, -0.712914288F, -0.713989437F,
+  -0.715062857F, -0.716134608F, -0.71720469F, -0.718273103F, -0.719339788F,
+  -0.720404804F, -0.721468091F, -0.722529709F, -0.723589659F, -0.72464782F,
+  -0.725704372F, -0.726759136F, -0.727812231F, -0.728863597F, -0.729913235F,
+  -0.730961144F, -0.732007384F, -0.733051896F, -0.73409462F, -0.735135674F,
+  -0.736175F, -0.737212539F, -0.738248408F, -0.739282489F, -0.740314841F,
+  -0.741345465F, -0.742374301F, -0.743401468F, -0.744426787F, -0.745450437F,
+  -0.746472299F, -0.747492373F, -0.748510718F, -0.749527335F, -0.750542164F,
+  -0.751555204F, -0.752566516F, -0.753576F, -0.754583716F, -0.755589724F,
+  -0.756593883F, -0.757596254F, -0.758596897F, -0.759595752F, -0.760592759F,
+  -0.761588037F, -0.762581468F, -0.76357317F, -0.764563F, -0.76555109F,
+  -0.766537368F, -0.767521799F, -0.768504441F, -0.769485295F, -0.770464361F,
+  -0.771441579F, -0.772416949F, -0.773390532F, -0.774362326F, -0.775332272F,
+  -0.776300371F, -0.777266622F, -0.778231084F, -0.779193699F, -0.780154526F,
+  -0.781113446F, -0.782070577F, -0.783025861F, -0.783979297F, -0.784930885F,
+  -0.785880625F, -0.786828518F, -0.787774563F, -0.7887187F, -0.78966105F,
+  -0.790601492F, -0.791540086F, -0.792476833F, -0.793411732F, -0.794344723F,
+  -0.795275867F, -0.796205103F, -0.797132492F, -0.798058033F, -0.798981667F,
+  -0.799903393F, -0.800823271F, -0.801741242F, -0.802657366F, -0.803571582F,
+  -0.804483891F, -0.805394292F, -0.806302845F, -0.807209432F, -0.808114171F,
+  -0.809017F, -0.809917927F, -0.810816944F, -0.811714053F, -0.812609196F,
+  -0.813502491F, -0.814393878F, -0.815283298F, -0.816170812F, -0.817056417F,
+  -0.817940116F, -0.818821907F, -0.819701731F, -0.820579588F, -0.821455598F,
+  -0.82232964F, -0.823201716F, -0.824071884F, -0.824940085F, -0.825806379F,
+  -0.826670706F, -0.827533066F, -0.828393519F, -0.829252F, -0.830108523F,
+  -0.830963135F, -0.831815779F, -0.832666397F, -0.833515108F, -0.834361851F,
+  -0.835206628F, -0.836049497F, -0.83689034F, -0.837729216F, -0.838566065F,
+  -0.839401F, -0.840234F, -0.84106493F, -0.841894F, -0.842721F, -0.843546F,
+  -0.844369054F, -0.845190108F, -0.846009135F, -0.846826196F, -0.847641289F,
+  -0.848454416F, -0.849265456F, -0.850074589F, -0.850881636F, -0.851686716F,
+  -0.852489829F, -0.853290856F, -0.854089916F, -0.854887F, -0.855682F,
+  -0.856475055F, -0.857266068F, -0.858055055F, -0.858842F, -0.859626949F,
+  -0.860409915F, -0.861190796F, -0.86196965F, -0.862746537F, -0.863521338F,
+  -0.864294112F, -0.865064859F, -0.865833521F, -0.866600215F, -0.867364824F,
+  -0.868127406F, -0.868887961F, -0.86964649F, -0.870402932F, -0.871157289F,
+  -0.871909678F, -0.87266F, -0.873408198F, -0.874154389F, -0.874898493F,
+  -0.875640571F, -0.876380563F, -0.877118528F, -0.877854407F, -0.8785882F,
+  -0.879319966F, -0.880049646F, -0.88077724F, -0.881502748F, -0.882226229F,
+  -0.882947564F, -0.883666873F, -0.884384096F, -0.885099232F, -0.885812283F,
+  -0.886523247F, -0.887232125F, -0.887938917F, -0.888643622F, -0.889346242F,
+  -0.890046716F, -0.890745163F, -0.891441464F, -0.89213568F, -0.892827809F,
+  -0.893517852F, -0.894205749F, -0.89489156F, -0.895575285F, -0.896256864F,
+  -0.896936357F, -0.897613704F, -0.898288965F, -0.89896214F, -0.899633169F,
+  -0.900302052F, -0.90096885F, -0.901633561F, -0.902296066F, -0.902956486F,
+  -0.903614819F, -0.904271F, -0.904925048F, -0.905576944F, -0.906226695F,
+  -0.906874359F, -0.907519877F, -0.908163249F, -0.908804476F, -0.909443557F,
+  -0.910080552F, -0.910715342F, -0.911348045F, -0.911978543F, -0.912606895F,
+  -0.913233161F, -0.913857222F, -0.914479136F, -0.915098906F, -0.915716529F,
+  -0.916332F, -0.916945338F, -0.917556465F, -0.918165445F, -0.91877228F,
+  -0.919376969F, -0.919979453F, -0.920579791F, -0.921177924F, -0.921773911F,
+  -0.922367752F, -0.922959447F, -0.923548877F, -0.924136221F, -0.92472136F,
+  -0.925304294F, -0.925885081F, -0.926463664F, -0.9270401F, -0.927614331F,
+  -0.928186357F, -0.928756237F, -0.929323912F, -0.929889381F, -0.930452704F,
+  -0.931013823F, -0.931572735F, -0.932129443F, -0.932684F, -0.933236361F,
+  -0.933786452F, -0.934334397F, -0.934880137F, -0.935423672F, -0.935965F,
+  -0.936504185F, -0.937041104F, -0.937575817F, -0.938108325F, -0.938638628F,
+  -0.939166725F, -0.939692616F, -0.940216303F, -0.940737784F, -0.941257F,
+  -0.941774F, -0.942288816F, -0.942801416F, -0.94331181F, -0.94381994F,
+  -0.944325924F, -0.944829583F, -0.945331097F, -0.945830345F, -0.946327388F,
+  -0.946822166F, -0.947314739F, -0.947805107F, -0.948293209F, -0.948779106F,
+  -0.949262738F, -0.949744165F, -0.950223327F, -0.950700283F, -0.951175F,
+  -0.95164746F, -0.952117682F, -0.952585638F, -0.953051388F, -0.953514874F,
+  -0.953976154F, -0.95443511F, -0.95489186F, -0.955346406F, -0.955798626F,
+  -0.956248641F, -0.956696451F, -0.957141936F, -0.957585156F, -0.958026171F,
+  -0.958464921F, -0.958901405F, -0.959335625F, -0.95976758F, -0.96019733F,
+  -0.960624754F, -0.96105F, -0.961472869F, -0.961893559F, -0.962311924F,
+  -0.962728083F, -0.963141918F, -0.963553548F, -0.963962853F, -0.964369893F,
+  -0.964774728F, -0.965177238F, -0.965577483F, -0.965975463F, -0.966371119F,
+  -0.966764569F, -0.967155695F, -0.967544615F, -0.967931211F, -0.968315482F,
+  -0.968697548F, -0.969077289F, -0.969454765F, -0.96983F, -0.970202863F,
+  -0.970573485F, -0.970941842F, -0.971307874F, -0.971671641F, -0.972033083F,
+  -0.972392321F, -0.972749174F, -0.973103821F, -0.973456144F, -0.973806143F,
+  -0.974153876F, -0.974499345F, -0.974842489F, -0.975183308F, -0.975521922F,
+  -0.975858152F, -0.976192117F, -0.976523757F, -0.976853132F, -0.977180183F,
+  -0.977504969F, -0.97782743F, -0.978147626F, -0.978465438F, -0.978781044F,
+  -0.979094267F, -0.979405224F, -0.979713857F, -0.980020165F, -0.980324209F,
+  -0.980625927F, -0.980925322F, -0.981222451F, -0.981517255F, -0.981809735F,
+  -0.982099891F, -0.982387722F, -0.982673287F, -0.982956529F, -0.983237445F,
+  -0.983516037F, -0.983792305F, -0.984066308F, -0.984337926F, -0.984607279F,
+  -0.984874308F, -0.985139F, -0.985401392F, -0.985661447F, -0.985919178F,
+  -0.986174583F, -0.986427665F, -0.986678481F, -0.986926913F, -0.987173F,
+  -0.987416863F, -0.987658322F, -0.987897456F, -0.988134325F, -0.988368809F,
+  -0.988600969F, -0.988830805F, -0.989058375F, -0.989283562F, -0.989506423F,
+  -0.989726961F, -0.989945114F, -0.990161F, -0.990374565F, -0.990585744F,
+  -0.990794659F, -0.991001189F, -0.991205394F, -0.991407275F, -0.991606832F,
+  -0.991804F, -0.991998911F, -0.992191434F, -0.992381632F, -0.992569506F,
+  -0.992755055F, -0.992938221F, -0.993119061F, -0.993297577F, -0.993473768F,
+  -0.993647635F, -0.993819118F, -0.993988276F, -0.994155109F, -0.994319558F,
+  -0.994481742F, -0.994641542F, -0.994798958F, -0.994954109F, -0.995106876F,
+  -0.995257318F, -0.995405376F, -0.995551109F, -0.995694518F, -0.995835602F,
+  -0.995974302F, -0.996110678F, -0.996244669F, -0.996376336F, -0.996505678F,
+  -0.996632695F, -0.996757329F, -0.996879578F, -0.996999562F, -0.997117162F,
+  -0.997232378F, -0.997345269F, -0.997455835F, -0.997564077F, -0.997669935F,
+  -0.997773409F, -0.997874558F, -0.997973382F, -0.998069823F, -0.998163939F,
+  -0.99825573F, -0.998345137F, -0.998432159F, -0.998516917F, -0.998599231F,
+  -0.99867928F, -0.998756945F, -0.998832226F, -0.998905182F, -0.998975754F,
+  -0.999044061F, -0.999109924F, -0.999173462F, -0.999234676F, -0.999293506F,
+  -0.99935F, -0.999404132F, -0.999455929F, -0.999505341F, -0.999552429F,
+  -0.999597132F, -0.999639511F, -0.999679565F, -0.999717236F, -0.999752522F,
+  -0.999785483F, -0.99981606F, -0.999844313F, -0.999870241F, -0.999893785F,
+  -0.999914944F, -0.999933779F, -0.99995029F, -0.999964416F, -0.999976158F,
+  -0.999985576F, -0.999992669F, -0.999997377F, -0.999999702F, -0.999999702F,
+  -0.999997377F, -0.999992669F, -0.999985576F, -0.999976158F, -0.999964416F,
+  -0.99995029F, -0.999933779F, -0.999914944F, -0.999893785F, -0.999870241F,
+  -0.999844313F, -0.99981606F, -0.999785483F, -0.999752522F, -0.999717236F,
+  -0.999679565F, -0.999639511F, -0.999597132F, -0.999552429F, -0.999505341F,
+  -0.999455929F, -0.999404132F, -0.99935F, -0.999293506F, -0.999234676F,
+  -0.999173462F, -0.999109924F, -0.999044061F, -0.998975754F, -0.998905182F,
+  -0.998832226F, -0.998756945F, -0.99867928F, -0.998599231F, -0.998516917F,
+  -0.998432159F, -0.998345137F, -0.99825573F, -0.998163939F, -0.998069823F,
+  -0.997973382F, -0.997874558F, -0.997773409F, -0.997669935F, -0.997564077F,
+  -0.997455835F, -0.997345269F, -0.997232378F, -0.997117162F, -0.996999562F,
+  -0.996879578F, -0.996757329F, -0.996632695F, -0.996505678F, -0.996376336F,
+  -0.996244669F, -0.996110678F, -0.995974302F, -0.995835602F, -0.995694518F,
+  -0.995551109F, -0.995405376F, -0.995257318F, -0.995106876F, -0.994954109F,
+  -0.994798958F, -0.994641542F, -0.994481742F, -0.994319558F, -0.994155109F,
+  -0.993988276F, -0.993819118F, -0.993647635F, -0.993473768F, -0.993297577F,
+  -0.993119061F, -0.992938221F, -0.992755055F, -0.992569506F, -0.992381632F,
+  -0.992191434F, -0.991998911F, -0.991804F, -0.991606832F, -0.991407275F,
+  -0.991205394F, -0.991001189F, -0.990794659F, -0.990585744F, -0.990374565F,
+  -0.990161F, -0.989945114F, -0.989726961F, -0.989506423F, -0.989283562F,
+  -0.989058375F, -0.988830805F, -0.988600969F, -0.988368809F, -0.988134325F,
+  -0.987897456F, -0.987658322F, -0.987416863F, -0.987173F, -0.986926913F,
+  -0.986678481F, -0.986427665F, -0.986174583F, -0.985919178F, -0.985661447F,
+  -0.985401392F, -0.985139F, -0.984874308F, -0.984607279F, -0.984337926F,
+  -0.984066308F, -0.983792305F, -0.983516037F, -0.983237445F, -0.982956529F,
+  -0.982673287F, -0.982387722F, -0.982099891F, -0.981809735F, -0.981517255F,
+  -0.981222451F, -0.980925322F, -0.980625927F, -0.980324209F, -0.980020165F,
+  -0.979713857F, -0.979405224F, -0.979094267F, -0.978781044F, -0.978465438F,
+  -0.978147626F, -0.97782743F, -0.977504969F, -0.977180183F, -0.976853132F,
+  -0.976523757F, -0.976192117F, -0.975858152F, -0.975521922F, -0.975183308F,
+  -0.974842489F, -0.974499345F, -0.974153876F, -0.973806143F, -0.973456144F,
+  -0.973103821F, -0.972749174F, -0.972392321F, -0.972033083F, -0.971671641F,
+  -0.971307874F, -0.970941842F, -0.970573485F, -0.970202863F, -0.96983F,
+  -0.969454765F, -0.969077289F, -0.968697548F, -0.968315482F, -0.967931211F,
+  -0.967544615F, -0.967155695F, -0.966764569F, -0.966371119F, -0.965975463F,
+  -0.965577483F, -0.965177238F, -0.964774728F, -0.964369893F, -0.963962853F,
+  -0.963553548F, -0.963141918F, -0.962728083F, -0.962311924F, -0.961893559F,
+  -0.961472869F, -0.96105F, -0.960624754F, -0.96019733F, -0.95976758F,
+  -0.959335625F, -0.958901405F, -0.958464921F, -0.958026171F, -0.957585156F,
+  -0.957141936F, -0.956696451F, -0.956248641F, -0.955798626F, -0.955346406F,
+  -0.95489186F, -0.95443511F, -0.953976154F, -0.953514874F, -0.953051388F,
+  -0.952585638F, -0.952117682F, -0.95164746F, -0.951175F, -0.950700283F,
+  -0.950223327F, -0.949744165F, -0.949262738F, -0.948779106F, -0.948293209F,
+  -0.947805107F, -0.947314739F, -0.946822166F, -0.946327388F, -0.945830345F,
+  -0.945331097F, -0.944829583F, -0.944325924F, -0.94381994F, -0.94331181F,
+  -0.942801416F, -0.942288816F, -0.941774F, -0.941257F, -0.940737784F,
+  -0.940216303F, -0.939692616F, -0.939166725F, -0.938638628F, -0.938108325F,
+  -0.937575817F, -0.937041104F, -0.936504185F, -0.935965F, -0.935423672F,
+  -0.934880137F, -0.934334397F, -0.933786452F, -0.933236361F, -0.932684F,
+  -0.932129443F, -0.931572735F, -0.931013823F, -0.930452704F, -0.929889381F,
+  -0.929323912F, -0.928756237F, -0.928186357F, -0.927614331F, -0.9270401F,
+  -0.926463664F, -0.925885081F, -0.925304294F, -0.92472136F, -0.924136221F,
+  -0.923548877F, -0.922959447F, -0.922367752F, -0.921773911F, -0.921177924F,
+  -0.920579791F, -0.919979453F, -0.919376969F, -0.91877228F, -0.918165445F,
+  -0.917556465F, -0.916945338F, -0.916332F, -0.915716529F, -0.915098906F,
+  -0.914479136F, -0.913857222F, -0.913233161F, -0.912606895F, -0.911978543F,
+  -0.911348045F, -0.910715342F, -0.910080552F, -0.909443557F, -0.908804476F,
+  -0.908163249F, -0.907519877F, -0.906874359F, -0.906226695F, -0.905576944F,
+  -0.904925048F, -0.904271F, -0.903614819F, -0.902956486F, -0.902296066F,
+  -0.901633561F, -0.90096885F, -0.900302052F, -0.899633169F, -0.89896214F,
+  -0.898288965F, -0.897613704F, -0.896936357F, -0.896256864F, -0.895575285F,
+  -0.89489156F, -0.894205749F, -0.893517852F, -0.892827809F, -0.89213568F,
+  -0.891441464F, -0.890745163F, -0.890046716F, -0.889346242F, -0.888643622F,
+  -0.887938917F, -0.887232125F, -0.886523247F, -0.885812283F, -0.885099232F,
+  -0.884384096F, -0.883666873F, -0.882947564F, -0.882226229F, -0.881502748F,
+  -0.88077724F, -0.880049646F, -0.879319966F, -0.8785882F, -0.877854407F,
+  -0.877118528F, -0.876380563F, -0.875640571F, -0.874898493F, -0.874154389F,
+  -0.873408198F, -0.87266F, -0.871909678F, -0.871157289F, -0.870402932F,
+  -0.86964649F, -0.868887961F, -0.868127406F, -0.867364824F, -0.866600215F,
+  -0.865833521F, -0.865064859F, -0.864294112F, -0.863521338F, -0.862746537F,
+  -0.86196965F, -0.861190796F, -0.860409915F, -0.859626949F, -0.858842F,
+  -0.858055055F, -0.857266068F, -0.856475055F, -0.855682F, -0.854887F,
+  -0.854089916F, -0.853290856F, -0.852489829F, -0.851686716F, -0.850881636F,
+  -0.850074589F, -0.849265456F, -0.848454416F, -0.847641289F, -0.846826196F,
+  -0.846009135F, -0.845190108F, -0.844369054F, -0.843546F, -0.842721F,
+  -0.841894F, -0.84106493F, -0.840234F, -0.839401F, -0.838566065F, -0.837729216F,
+  -0.83689034F, -0.836049497F, -0.835206628F, -0.834361851F, -0.833515108F,
+  -0.832666397F, -0.831815779F, -0.830963135F, -0.830108523F, -0.829252F,
+  -0.828393519F, -0.827533066F, -0.826670706F, -0.825806379F, -0.824940085F,
+  -0.824071884F, -0.823201716F, -0.82232964F, -0.821455598F, -0.820579588F,
+  -0.819701731F, -0.818821907F, -0.817940116F, -0.817056417F, -0.816170812F,
+  -0.815283298F, -0.814393878F, -0.813502491F, -0.812609196F, -0.811714053F,
+  -0.810816944F, -0.809917927F, -0.809017F, -0.808114171F, -0.807209432F,
+  -0.806302845F, -0.805394292F, -0.804483891F, -0.803571582F, -0.802657366F,
+  -0.801741242F, -0.800823271F, -0.799903393F, -0.798981667F, -0.798058033F,
+  -0.797132492F, -0.796205103F, -0.795275867F, -0.794344723F, -0.793411732F,
+  -0.792476833F, -0.791540086F, -0.790601492F, -0.78966105F, -0.7887187F,
+  -0.787774563F, -0.786828518F, -0.785880625F, -0.784930885F, -0.783979297F,
+  -0.783025861F, -0.782070577F, -0.781113446F, -0.780154526F, -0.779193699F,
+  -0.778231084F, -0.777266622F, -0.776300371F, -0.775332272F, -0.774362326F,
+  -0.773390532F, -0.772416949F, -0.771441579F, -0.770464361F, -0.769485295F,
+  -0.768504441F, -0.767521799F, -0.766537368F, -0.76555109F, -0.764563F,
+  -0.76357317F, -0.762581468F, -0.761588037F, -0.760592759F, -0.759595752F,
+  -0.758596897F, -0.757596254F, -0.756593883F, -0.755589724F, -0.754583716F,
+  -0.753576F, -0.752566516F, -0.751555204F, -0.750542164F, -0.749527335F,
+  -0.748510718F, -0.747492373F, -0.746472299F, -0.745450437F, -0.744426787F,
+  -0.743401468F, -0.742374301F, -0.741345465F, -0.740314841F, -0.739282489F,
+  -0.738248408F, -0.737212539F, -0.736175F, -0.735135674F, -0.73409462F,
+  -0.733051896F, -0.732007384F, -0.730961144F, -0.729913235F, -0.728863597F,
+  -0.727812231F, -0.726759136F, -0.725704372F, -0.72464782F, -0.723589659F,
+  -0.722529709F, -0.721468091F, -0.720404804F, -0.719339788F, -0.718273103F,
+  -0.71720469F, -0.716134608F, -0.715062857F, -0.713989437F, -0.712914288F,
+  -0.711837471F, -0.710759F, -0.709678829F, -0.708597F, -0.707513511F,
+  -0.706428349F, -0.705341518F, -0.704253078F, -0.703162909F, -0.70207113F,
+  -0.700977683F, -0.699882567F, -0.698785782F, -0.697687387F, -0.696587384F,
+  -0.695485711F, -0.69438237F, -0.693277419F, -0.692170858F, -0.691062629F,
+  -0.689952791F, -0.688841343F, -0.687728286F, -0.68661356F, -0.685497224F,
+  -0.684379339F, -0.683259785F, -0.682138622F, -0.681015849F, -0.679891527F,
+  -0.678765535F, -0.677638F, -0.676508844F, -0.675378084F, -0.674245715F,
+  -0.673111796F, -0.671976268F, -0.67083919F, -0.669700563F, -0.668560266F,
+  -0.66741848F, -0.666275084F, -0.665130079F, -0.663983583F, -0.662835479F,
+  -0.661685824F, -0.66053462F, -0.659381866F, -0.658227563F, -0.65707171F,
+  -0.655914247F, -0.654755294F, -0.653594792F, -0.652432799F, -0.651269197F,
+  -0.650104105F, -0.648937464F, -0.647769272F, -0.646599591F, -0.64542836F,
+  -0.644255638F, -0.643081427F, -0.641905665F, -0.640728354F, -0.639549613F,
+  -0.638369322F, -0.637187541F, -0.63600421F, -0.634819448F, -0.633633137F,
+  -0.632445395F, -0.631256104F, -0.630065382F, -0.62887311F, -0.627679408F,
+  -0.626484215F, -0.625287533F, -0.62408942F, -0.622889817F, -0.621688724F,
+  -0.6204862F, -0.619282186F, -0.618076742F, -0.616869867F, -0.615661502F,
+  -0.614451647F, -0.613240421F, -0.612027705F, -0.610813558F, -0.609598F,
+  -0.608381F, -0.607162535F, -0.605942607F, -0.604721308F, -0.603498578F,
+  -0.602274418F, -0.601048887F, -0.599821866F, -0.598593473F, -0.59736371F,
+  -0.596132457F, -0.594899893F, -0.593665838F, -0.592430472F, -0.591193616F,
+  -0.589955449F, -0.588715851F, -0.587474883F, -0.586232543F, -0.584988773F,
+  -0.583743691F, -0.58249718F, -0.581249297F, -0.580000103F, -0.578749478F,
+  -0.577497542F, -0.576244235F, -0.574989557F, -0.573733509F, -0.572476149F,
+  -0.571217418F, -0.569957376F, -0.568695962F, -0.567433178F, -0.566169143F,
+  -0.564903677F, -0.563636959F, -0.56236887F, -0.56109947F, -0.559828758F,
+  -0.558556736F, -0.557283342F, -0.556008697F, -0.55473274F, -0.553455472F,
+  -0.552176893F, -0.550897F, -0.5496158F, -0.548333347F, -0.547049582F,
+  -0.545764506F, -0.544478178F, -0.543190539F, -0.541901648F, -0.540611506F,
+  -0.539320052F, -0.538027346F, -0.536733329F, -0.535438061F, -0.5341416F,
+  -0.532843828F, -0.531544805F, -0.530244529F, -0.528943F, -0.527640224F,
+  -0.526336253F, -0.525031F, -0.523724496F, -0.52241677F, -0.521107852F,
+  -0.519797683F, -0.518486261F, -0.517173648F, -0.515859842F, -0.514544785F,
+  -0.513228536F, -0.511911035F, -0.510592401F, -0.509272516F, -0.507951438F,
+  -0.506629169F, -0.505305707F, -0.503981054F, -0.502655208F, -0.50132823F,
+  -0.5F, -0.498670608F, -0.497340053F, -0.496008337F, -0.494675457F,
+  -0.493341386F, -0.492006183F, -0.490669817F, -0.489332289F, -0.487993598F,
+  -0.486653745F, -0.48531279F, -0.483970672F, -0.482627392F, -0.481283F,
+  -0.479937464F, -0.478590816F, -0.477243036F, -0.475894123F, -0.474544108F,
+  -0.47319296F, -0.47184068F, -0.470487326F, -0.469132841F, -0.467777252F,
+  -0.466420561F, -0.465062797F, -0.463703901F, -0.462343931F, -0.460982889F,
+  -0.459620744F, -0.458257526F, -0.456893206F, -0.455527842F, -0.454161376F,
+  -0.452793866F, -0.451425284F, -0.450055629F, -0.448684901F, -0.44731316F,
+  -0.445940316F, -0.444566458F, -0.443191558F, -0.441815585F, -0.440438598F,
+  -0.439060539F, -0.437681496F, -0.43630138F, -0.434920251F, -0.433538109F,
+  -0.432154924F, -0.430770755F, -0.429385543F, -0.427999318F, -0.426612109F,
+  -0.425223887F, -0.423834652F, -0.422444433F, -0.421053201F, -0.419661F,
+  -0.418267787F, -0.416873604F, -0.415478438F, -0.414082319F, -0.412685186F,
+  -0.411287099F, -0.409888059F, -0.408488035F, -0.407087028F, -0.405685097F,
+  -0.404282212F, -0.402878344F, -0.401473552F, -0.400067806F, -0.398661137F,
+  -0.397253513F, -0.395844936F, -0.394435465F, -0.393025041F, -0.391613692F,
+  -0.39020142F, -0.388788223F, -0.387374133F, -0.385959119F, -0.38454321F,
+  -0.383126378F, -0.381708652F, -0.380290031F, -0.378870487F, -0.377450079F,
+  -0.376028776F, -0.37460658F, -0.373183519F, -0.371759564F, -0.370334744F,
+  -0.368909061F, -0.367482483F, -0.366055071F, -0.364626765F, -0.363197625F,
+  -0.36176762F, -0.360336751F, -0.358905047F, -0.357472509F, -0.356039107F,
+  -0.3546049F, -0.353169829F, -0.351733923F, -0.350297213F, -0.348859668F,
+  -0.347421288F, -0.345982105F, -0.344542086F, -0.343101293F, -0.341659665F,
+  -0.340217233F, -0.338774025F, -0.337329984F, -0.335885167F, -0.334439576F,
+  -0.33299318F, -0.331545979F, -0.330098033F, -0.328649282F, -0.327199787F,
+  -0.325749487F, -0.324298441F, -0.322846621F, -0.321394056F, -0.319940746F,
+  -0.318486661F, -0.317031831F, -0.315576226F, -0.314119905F, -0.31266287F,
+  -0.311205059F, -0.309746534F, -0.308287263F, -0.306827277F, -0.305366576F,
+  -0.303905159F, -0.302443027F, -0.300980151F, -0.299516588F, -0.298052341F,
+  -0.296587378F, -0.2951217F, -0.293655336F, -0.292188287F, -0.290720552F,
+  -0.289252132F, -0.287783027F, -0.286313236F, -0.284842759F, -0.283371657F,
+  -0.28189984F, -0.280427396F, -0.278954268F, -0.277480483F, -0.276006073F,
+  -0.274530977F, -0.273055255F, -0.271578878F, -0.270101875F, -0.268624246F,
+  -0.267145962F, -0.265667051F, -0.264187545F, -0.262707382F, -0.261226594F,
+  -0.25974521F, -0.25826323F, -0.256780624F, -0.255297422F, -0.253813595F,
+  -0.252329201F, -0.250844181F, -0.249358594F, -0.247872412F, -0.246385649F,
+  -0.244898304F, -0.243410394F, -0.241921902F, -0.240432829F, -0.238943204F,
+  -0.237453014F, -0.235962257F, -0.234470963F, -0.232979104F, -0.231486693F,
+  -0.229993746F, -0.228500247F, -0.227006212F, -0.225511655F, -0.224016562F,
+  -0.222520933F, -0.221024781F, -0.219528124F, -0.21803093F, -0.216533244F,
+  -0.215035036F, -0.213536322F, -0.212037101F, -0.210537389F, -0.20903717F,
+  -0.207536474F, -0.206035271F, -0.204533607F, -0.203031436F, -0.201528803F,
+  -0.200025693F, -0.198522106F, -0.197018057F, -0.195513546F, -0.194008574F,
+  -0.192503139F, -0.190997258F, -0.189490929F, -0.187984154F, -0.186476931F,
+  -0.184969261F, -0.183461174F, -0.18195264F, -0.180443689F, -0.178934306F,
+  -0.177424505F, -0.175914288F, -0.174403653F, -0.1728926F, -0.171381146F,
+  -0.169869304F, -0.168357044F, -0.166844383F, -0.165331349F, -0.163817912F,
+  -0.162304088F, -0.160789892F, -0.159275308F, -0.157760352F, -0.156245023F,
+  -0.154729337F, -0.153213277F, -0.151696861F, -0.150180086F, -0.148662955F,
+  -0.147145465F, -0.145627648F, -0.144109473F, -0.14259097F, -0.141072124F,
+  -0.139552951F, -0.138033435F, -0.136513606F, -0.134993464F, -0.133473F,
+  -0.131952211F, -0.130431116F, -0.128909707F, -0.127388015F, -0.125866011F,
+  -0.124343708F, -0.122821108F, -0.121298231F, -0.119775064F, -0.118251614F,
+  -0.116727881F, -0.11520388F, -0.113679603F, -0.112155065F, -0.110630259F,
+  -0.109105192F, -0.107579865F, -0.106054291F, -0.104528464F, -0.103002392F,
+  -0.101476073F, -0.0999495238F, -0.0984227359F, -0.0968957096F, -0.0953684598F,
+  -0.0938409865F, -0.0923133F, -0.0907853842F, -0.0892572552F, -0.087728925F,
+  -0.0862003788F, -0.0846716315F, -0.0831426904F, -0.0816135481F, -0.0800842196F,
+  -0.0785547F, -0.0770249888F, -0.0754951F, -0.0739650354F, -0.0724348F,
+  -0.070904389F, -0.0693738163F, -0.0678430721F, -0.0663121715F, -0.0647811219F,
+  -0.0632499084F, -0.0617185533F, -0.0601870529F, -0.0586554073F, -0.0571236275F,
+  -0.0555917099F, -0.0540596619F, -0.0525274873F, -0.0509951897F, -0.0494627692F,
+  -0.0479302332F, -0.0463975854F, -0.0448648296F, -0.0433319695F, -0.041799F,
+  -0.0402659401F, -0.038732782F, -0.0371995345F, -0.0356661975F, -0.0341327749F,
+  -0.0325992741F, -0.0310656987F, -0.029532047F, -0.0279983263F, -0.0264645405F,
+  -0.0249306913F, -0.0233967844F, -0.0218628217F, -0.0203288086F, -0.0187947471F,
+  -0.0172606409F, -0.0157264937F, -0.0141923111F, -0.0126580941F, -0.0111238472F,
+  -0.0095895743F, -0.00805527903F, -0.00652096421F, -0.00498663401F,
+  -0.00345229311F, -0.00191794301F, -0.000383589F, 0.00115076604F,
+  0.00268511893F, 0.00421946496F, 0.0057538012F, 0.00728812395F, 0.00882242899F,
+  0.010356714F, 0.0118909739F, 0.0134252058F, 0.014959407F, 0.0164935719F,
+  0.0180276986F, 0.0195617825F, 0.0210958216F, 0.0226298105F, 0.0241637453F,
+  0.0256976243F, 0.0272314418F, 0.0287651941F, 0.0302988812F, 0.0318324976F,
+  0.0333660357F, 0.0348994955F, 0.0364328772F, 0.0379661694F, 0.0394993722F,
+  0.0410324857F, 0.0425655F, 0.0440984108F, 0.0456312224F, 0.0471639261F,
+  0.0486965179F, 0.0502289943F, 0.0517613515F, 0.0532935895F, 0.0548257F,
+  0.0563576855F, 0.0578895323F, 0.0594212487F, 0.0609528199F, 0.0624842495F,
+  0.0640155375F, 0.0655466691F, 0.0670776442F, 0.0686084628F, 0.070139125F,
+  0.0716696158F, 0.0731999427F, 0.0747300908F, 0.0762600675F, 0.0777898654F,
+  0.0793194845F, 0.0808489099F, 0.0823781416F, 0.083907187F, 0.0854360312F,
+  0.0869646743F, 0.0884931162F, 0.0900213495F, 0.0915493667F, 0.0930771679F,
+  0.094604753F, 0.0961321145F, 0.0976592526F, 0.0991861597F, 0.100712828F,
+  0.102239266F, 0.103765458F, 0.105291404F, 0.106817111F, 0.108342558F,
+  0.109867752F, 0.111392692F, 0.112917364F, 0.114441775F, 0.115965918F,
+  0.117489778F, 0.119013369F, 0.120536678F, 0.122059703F, 0.123582445F,
+  0.125104889F, 0.126627043F, 0.128148898F, 0.129670456F, 0.131191701F,
+  0.132712632F, 0.134233266F, 0.135753572F, 0.137273565F, 0.13879323F,
+  0.140312582F, 0.141831592F, 0.143350258F, 0.144868597F, 0.146386594F,
+  0.147904247F, 0.149421558F, 0.150938511F, 0.152455106F, 0.153971344F,
+  0.155487224F, 0.157002732F, 0.158517882F, 0.160032645F, 0.161547035F,
+  0.163061053F, 0.164574683F, 0.166087911F, 0.167600766F, 0.169113219F,
+  0.170625269F, 0.172136933F, 0.173648179F, 0.175159022F, 0.176669449F,
+  0.178179458F, 0.17968905F, 0.181198224F, 0.182706967F, 0.184215277F,
+  0.185723156F, 0.187230602F, 0.188737601F, 0.190244153F, 0.191750258F,
+  0.193255916F, 0.194761127F, 0.196265861F, 0.197770149F, 0.199273959F,
+  0.200777307F, 0.202280179F, 0.203782588F, 0.205284506F, 0.206785932F,
+  0.208286881F, 0.209787339F, 0.211287305F, 0.212786764F, 0.214285731F,
+  0.215784192F, 0.217282146F, 0.218779594F, 0.22027652F, 0.221772924F,
+  0.223268807F, 0.224764168F, 0.226259008F, 0.227753296F, 0.229247063F,
+  0.230740279F, 0.232232958F, 0.233725101F, 0.235216677F, 0.236707702F,
+  0.238198176F, 0.239688084F, 0.24117744F, 0.242666215F, 0.244154423F,
+  0.245642051F, 0.247129112F, 0.248615578F, 0.250101477F, 0.251586765F,
+  0.253071457F, 0.254555583F, 0.256039083F, 0.257522F, 0.259004295F,
+  0.260485977F, 0.261967063F, 0.263447523F, 0.264927387F, 0.266406596F,
+  0.267885178F, 0.269363135F, 0.270840466F, 0.272317141F, 0.273793191F,
+  0.275268614F, 0.276743352F, 0.278217465F, 0.279690921F, 0.281163692F,
+  0.282635838F, 0.284107298F, 0.285578072F, 0.287048221F, 0.288517654F,
+  0.289986432F, 0.291454494F, 0.292921901F, 0.294388592F, 0.295854628F,
+  0.297319949F, 0.298784554F, 0.300248474F, 0.301711679F, 0.303174168F,
+  0.304635972F, 0.306097031F, 0.307557374F, 0.309017F, 0.310475886F,
+  0.311934054F, 0.313391477F, 0.314848185F, 0.316304117F, 0.317759335F,
+  0.319213778F, 0.320667505F, 0.322120428F, 0.323572636F, 0.325024068F,
+  0.326474726F, 0.327924639F, 0.329373747F, 0.33082211F, 0.332269669F,
+  0.333716452F, 0.335162461F, 0.336607665F, 0.338052094F, 0.339495718F,
+  0.340938538F, 0.342380583F, 0.343821794F, 0.3452622F, 0.346701801F,
+  0.348140568F, 0.34957853F, 0.351015657F, 0.35245198F, 0.353887469F,
+  0.355322093F, 0.356755912F, 0.358188897F, 0.359621018F, 0.361052305F,
+  0.362482727F, 0.363912314F, 0.365341038F, 0.366768897F, 0.368195891F,
+  0.369622022F, 0.371047258F, 0.37247166F, 0.373895168F, 0.375317812F,
+  0.376739532F, 0.378160417F, 0.379580379F, 0.380999446F, 0.382417619F,
+  0.383834898F, 0.385251284F, 0.386666745F, 0.388081312F, 0.389494956F,
+  0.390907675F, 0.392319471F, 0.393730342F, 0.39514032F, 0.396549344F,
+  0.397957414F, 0.399364591F, 0.400770783F, 0.402176082F, 0.403580397F,
+  0.404983759F, 0.406386197F, 0.407787651F, 0.409188151F, 0.410587698F,
+  0.411986262F, 0.413383871F, 0.414780498F, 0.41617617F, 0.417570829F,
+  0.418964535F, 0.420357227F, 0.421748936F, 0.423139662F, 0.424529403F,
+  0.425918132F, 0.427305847F, 0.428692549F, 0.430078268F, 0.431462973F,
+  0.432846636F, 0.434229314F, 0.43561095F, 0.436991572F, 0.438371152F,
+  0.439749688F, 0.441127211F, 0.442503691F, 0.443879128F, 0.445253521F,
+  0.446626872F, 0.44799915F, 0.449370414F, 0.450740576F, 0.452109694F,
+  0.45347774F, 0.454844743F, 0.456210643F, 0.4575755F, 0.458939254F,
+  0.460301936F, 0.461663544F, 0.46302405F, 0.464383483F, 0.465741813F,
+  0.467099041F, 0.468455195F, 0.469810218F, 0.471164137F, 0.472516954F,
+  0.473868668F, 0.47521925F, 0.476568729F, 0.477917075F, 0.479264289F,
+  0.480610371F, 0.481955349F, 0.483299166F, 0.48464185F, 0.485983402F,
+  0.487323821F, 0.488663077F, 0.490001172F, 0.491338134F, 0.492673934F,
+  0.494008571F, 0.495342046F, 0.496674359F, 0.49800548F, 0.499335468F,
+  0.500664234F, 0.501991868F, 0.50331831F, 0.504643559F, 0.505967617F,
+  0.507290483F, 0.508612156F, 0.509932578F, 0.511251867F, 0.512569964F,
+  0.513886809F, 0.515202463F, 0.516516924F, 0.517830133F, 0.519142151F,
+  0.520452917F, 0.52176249F, 0.523070812F, 0.524377882F, 0.525683761F,
+  0.526988387F, 0.528291762F, 0.529593945F, 0.530894816F, 0.532194436F,
+  0.533492863F, 0.53479F, 0.536085844F, 0.537380457F, 0.538673818F, 0.539965928F,
+  0.541256726F, 0.542546272F, 0.543834507F, 0.545121491F, 0.546407223F,
+  0.547691584F, 0.548974752F, 0.55025655F, 0.551537097F, 0.552816331F,
+  0.554094255F, 0.555370867F, 0.556646168F, 0.557920218F, 0.559192896F,
+  0.560464263F, 0.561734319F, 0.563003063F, 0.564270496F, 0.565536559F,
+  0.56680131F, 0.568064749F, 0.569326818F, 0.570587575F, 0.571846962F,
+  0.573105037F, 0.574361742F, 0.575617075F, 0.576871037F, 0.578123689F,
+  0.579374969F, 0.580624878F, 0.581873417F, 0.583120584F, 0.584366381F,
+  0.585610807F, 0.586853862F, 0.588095546F, 0.589335799F, 0.590574741F,
+  0.591812193F, 0.593048334F, 0.594283044F, 0.595516384F, 0.596748292F,
+  0.597978771F, 0.599207878F, 0.600435555F, 0.601661861F, 0.602886677F,
+  0.604110122F, 0.605332136F, 0.60655272F, 0.607771933F, 0.608989656F,
+  0.610205948F, 0.61142081F, 0.612634242F, 0.613846242F, 0.615056753F,
+  0.616265833F, 0.617473483F, 0.618679643F, 0.619884372F, 0.62108767F,
+  0.622289479F, 0.623489797F, 0.624688685F, 0.625886083F, 0.627082F,
+  0.628276467F, 0.629469454F, 0.630660951F, 0.631850958F, 0.633039474F,
+  0.634226501F, 0.635412037F, 0.636596F, 0.63777858F, 0.638959646F, 0.640139163F,
+  0.641317189F, 0.642493725F, 0.643668711F, 0.644842207F, 0.646014214F,
+  0.64718461F, 0.648353577F, 0.649521F, 0.65068686F, 0.651851177F, 0.653014F,
+  0.654175282F, 0.655335F, 0.656493187F, 0.657649815F, 0.658804893F,
+  0.659958422F, 0.661110401F, 0.66226083F, 0.66340971F, 0.66455704F, 0.66570276F,
+  0.666847F, 0.667989552F, 0.669130623F, 0.670270085F, 0.671407938F,
+  0.672544241F, 0.673679F, 0.674812078F, 0.675943673F, 0.677073598F, 0.678202F,
+  0.67932874F, 0.680453897F, 0.681577444F, 0.682699382F, 0.683819771F,
+  0.68493849F, 0.686055601F, 0.687171102F, 0.688285F, 0.689397275F, 0.690507948F,
+  0.691616952F, 0.692724347F, 0.693830132F, 0.694934249F, 0.696036756F,
+  0.697137594F, 0.698236823F, 0.699334383F, 0.700430334F, 0.701524615F,
+  0.702617228F, 0.703708172F, 0.704797506F, 0.705885172F, 0.706971169F,
+  0.708055496F, 0.709138155F, 0.710219145F, 0.711298466F, 0.712376118F,
+  0.713452041F, 0.714526355F, 0.715598941F, 0.716669858F, 0.717739105F,
+  0.718806684F, 0.719872534F, 0.720936656F, 0.721999109F, 0.723059893F,
+  0.724118948F, 0.725176334F, 0.726231933F, 0.727285862F, 0.728338122F,
+  0.729388654F, 0.730437398F, 0.731484473F, 0.732529819F, 0.733573496F,
+  0.734615386F, 0.735655546F, 0.736694F, 0.737730682F, 0.738765657F,
+  0.739798903F, 0.740830362F, 0.741860092F, 0.742888093F, 0.743914366F,
+  0.74493885F, 0.745961607F, 0.746982574F, 0.748001814F, 0.749019265F, 0.750035F,
+  0.751048923F, 0.752061069F, 0.753071487F, 0.754080117F, 0.755086958F,
+  0.756092F, 0.757095277F, 0.758096814F, 0.759096563F, 0.760094464F,
+  0.761090636F, 0.762084961F, 0.763077557F, 0.764068305F, 0.765057266F,
+  0.766044438F, 0.767029822F, 0.768013358F, 0.768995106F, 0.769975066F,
+  0.770953178F, 0.771929502F, 0.772904F, 0.773876667F, 0.774847507F, 0.77581656F,
+  0.776783705F, 0.777749121F, 0.77871263F, 0.779674351F, 0.780634224F,
+  0.78159225F, 0.782548428F, 0.783502817F, 0.784455299F, 0.785406F, 0.78635478F,
+  0.787301779F, 0.78824687F, 0.789190114F, 0.790131509F, 0.791071057F,
+  0.792008698F, 0.792944491F, 0.793878436F, 0.794810534F, 0.795740724F,
+  0.796669066F, 0.797595501F, 0.798520088F, 0.799442768F, 0.8003636F,
+  0.801282525F, 0.802199543F, 0.803114712F, 0.804028F, 0.80493933F, 0.805848777F,
+  0.806756377F, 0.80766207F, 0.808565795F, 0.809467673F, 0.810367644F,
+  0.811265707F, 0.812161863F, 0.813056111F, 0.813948393F, 0.814838827F,
+  0.815727293F, 0.816613853F, 0.817498505F, 0.81838125F, 0.819262F, 0.820140898F,
+  0.821017861F, 0.821892858F, 0.822765887F, 0.823637F, 0.824506223F,
+  0.825373471F, 0.826238751F, 0.827102125F, 0.827963531F, 0.82882303F,
+  0.829680502F, 0.830536067F, 0.831389666F, 0.832241356F, 0.833091F,
+  0.833938718F, 0.834784508F, 0.835628331F, 0.836470127F, 0.83731F, 0.838147879F,
+  0.838983834F, 0.839817762F, 0.840649724F, 0.841479719F, 0.842307687F,
+  0.843133748F, 0.843957782F, 0.844779789F, 0.84559989F, 0.846417964F, 0.847234F,
+  0.848048091F, 0.848860204F, 0.849670291F, 0.850478351F, 0.851284444F,
+  0.852088511F, 0.852890611F, 0.853690684F, 0.85448873F, 0.85528475F,
+  0.856078804F, 0.85687083F, 0.85766083F, 0.858448803F, 0.85923475F,
+  0.860018671F, 0.860800624F, 0.861580491F, 0.862358332F, 0.863134146F,
+  0.863907933F, 0.864679694F, 0.865449429F, 0.866217136F, 0.866982758F,
+  0.867746413F, 0.868508F, 0.869267464F, 0.87002492F, 0.870780349F, 0.871533751F,
+  0.872285068F, 0.873034358F, 0.873781562F, 0.87452668F, 0.87526983F,
+  0.876010835F, 0.876749814F, 0.877486706F, 0.878221571F, 0.878954351F,
+  0.879685044F, 0.880413711F, 0.881140232F, 0.881864727F, 0.882587194F,
+  0.883307517F, 0.884025753F, 0.884741962F, 0.885456F, 0.886168063F,
+  0.886877954F, 0.887585819F, 0.888291538F, 0.888995171F, 0.889696717F,
+  0.890396237F, 0.891093552F, 0.89178884F, 0.892482042F, 0.893173099F,
+  0.893862069F, 0.894548953F, 0.895233691F, 0.895916343F, 0.896596849F,
+  0.897275329F, 0.897951603F, 0.898625851F, 0.899297893F, 0.899967909F,
+  0.900635719F, 0.901301444F, 0.901965082F, 0.902626574F, 0.903285921F,
+  0.903943181F, 0.904598296F, 0.905251265F, 0.905902088F, 0.906550825F,
+  0.907197356F, 0.907841802F, 0.908484161F, 0.909124315F, 0.909762323F,
+  0.910398185F, 0.911031961F, 0.911663532F, 0.912293F, 0.912920296F, 0.91354543F,
+  0.914168477F, 0.914789319F, 0.915408F, 0.916024566F, 0.916638911F, 0.91725117F,
+  0.917861223F, 0.918469131F, 0.919074893F, 0.91967845F, 0.92027986F,
+  0.920879126F, 0.921476185F, 0.922071099F, 0.922663867F, 0.92325443F,
+  0.923842847F, 0.924429059F, 0.925013065F, 0.925595F, 0.926174641F, 0.92675215F,
+  0.927327454F, 0.927900612F, 0.928471565F, 0.929040372F, 0.929606915F,
+  0.930171311F, 0.930733562F, 0.931293547F, 0.931851387F, 0.932407F,
+  0.932960451F, 0.933511674F, 0.934060693F, 0.934607565F, 0.935152173F,
+  0.935694635F, 0.936234891F, 0.936772883F, 0.937308729F, 0.937842369F,
+  0.938373744F, 0.938903F, 0.939429939F, 0.939954758F, 0.940477312F, 0.94099766F,
+  0.941515803F, 0.942031741F, 0.942545414F, 0.943056881F, 0.943566144F,
+  0.9440732F, 0.944578052F, 0.945080638F, 0.945581F, 0.946079135F, 0.946575046F,
+  0.947068751F, 0.947560191F, 0.948049426F, 0.948536456F, 0.94902122F,
+  0.94950372F, 0.949984F, 0.950462103F, 0.950937927F, 0.951411486F, 0.951882839F,
+  0.952351928F, 0.952818811F, 0.953283429F, 0.953745782F, 0.95420593F,
+  0.954663813F, 0.955119431F, 0.955572784F, 0.956023932F, 0.956472814F,
+  0.956919432F, 0.957363844F, 0.957805932F, 0.958245814F, 0.958683431F,
+  0.959118783F, 0.959551871F, 0.959982753F, 0.96041131F, 0.960837662F,
+  0.96126169F, 0.961683512F, 0.962103F, 0.962520301F, 0.962935269F, 0.963348031F,
+  0.963758469F, 0.964166701F, 0.964572608F, 0.964976251F, 0.965377629F,
+  0.965776742F, 0.966173589F, 0.966568172F, 0.96696043F, 0.967350423F,
+  0.967738152F, 0.968123615F, 0.968506813F, 0.968887687F, 0.969266295F,
+  0.969642639F, 0.970016658F, 0.970388472F, 0.970757961F, 0.971125126F, 0.97149F,
+  0.97185266F, 0.972213F, 0.972571F, 0.972926795F, 0.973280251F, 0.973631442F,
+  0.973980308F, 0.974326909F, 0.974671185F, 0.975013196F, 0.975352883F,
+  0.975690305F, 0.976025403F, 0.976358235F, 0.976688743F, 0.977017F,
+  0.977342904F, 0.977666497F, 0.977987826F, 0.97830683F, 0.978623509F,
+  0.978937924F, 0.97925F, 0.979559839F, 0.97986728F, 0.980172515F, 0.980475366F,
+  0.980775952F, 0.981074154F, 0.981370151F, 0.981663764F, 0.981955111F,
+  0.982244074F, 0.982530773F, 0.982815206F, 0.983097255F, 0.983377039F,
+  0.983654439F, 0.983929574F, 0.984202385F, 0.984472871F, 0.984741092F,
+  0.985006928F, 0.985270441F, 0.985531688F, 0.98579061F, 0.986047149F,
+  0.986301422F, 0.986553371F, 0.986803F, 0.987050235F, 0.98729521F, 0.987537861F,
+  0.987778187F, 0.988016188F, 0.988251865F, 0.988485157F, 0.988716185F,
+  0.988944888F, 0.989171207F, 0.989395261F, 0.98961693F, 0.989836335F,
+  0.990053356F, 0.990268052F, 0.990480423F, 0.99069047F, 0.990898192F,
+  0.99110359F, 0.991306603F, 0.991507351F, 0.991705716F, 0.991901755F,
+  0.99209547F, 0.992286801F, 0.992475867F, 0.992662549F, 0.992846906F,
+  0.993028939F, 0.993208647F, 0.993386F, 0.99356097F, 0.993733644F, 0.993904F,
+  0.99407196F, 0.994237661F, 0.994401F, 0.994561911F, 0.994720519F, 0.994876862F,
+  0.995030761F, 0.995182395F, 0.995331645F, 0.99547857F, 0.995623112F,
+  0.995765328F, 0.995905221F, 0.996042788F, 0.996178F, 0.99631083F, 0.996441305F,
+  0.996569455F, 0.99669528F, 0.996818721F, 0.996939838F, 0.99705863F,
+  0.997175038F, 0.997289121F, 0.99740088F, 0.997510254F, 0.997617245F,
+  0.99772197F, 0.997824311F, 0.997924268F, 0.998021901F, 0.998117208F,
+  0.998210132F, 0.998300731F, 0.998388946F, 0.998474836F, 0.998558342F,
+  0.998639584F, 0.998718381F, 0.998794854F, 0.998869F, 0.998940766F,
+  0.999010205F, 0.99907726F, 0.999142F, 0.999204397F, 0.999264359F, 0.999322057F,
+  0.99937737F, 0.999430299F, 0.999480963F, 0.999529183F, 0.999575078F,
+  0.999618649F, 0.999659836F, 0.999698699F, 0.999735177F, 0.99976927F,
+  0.999801099F, 0.999830484F, 0.999857545F, 0.999882281F, 0.999904633F,
+  0.99992466F, 0.999942303F, 0.999957621F, 0.999970555F, 0.999981165F,
+  0.99998939F, 0.999995291F, 0.999998808F, 1.0F } ;
+
+const volatile real32_T RDC_SINTABLE[4096] = { 0.0F, 0.00153435499F,
+  0.00306870602F, 0.00460305F, 0.00613738317F, 0.00767170219F, 0.00920600165F,
+  0.0107402811F, 0.0122745354F, 0.0138087599F, 0.0153429518F, 0.0168771073F,
+  0.0184112247F, 0.0199452974F, 0.0214793235F, 0.0230133F, 0.0245472193F,
+  0.0260810833F, 0.0276148859F, 0.0291486233F, 0.0306822918F, 0.0322158895F,
+  0.033749409F, 0.0352828503F, 0.0368162058F, 0.0383494794F, 0.0398826599F,
+  0.0414157473F, 0.0429487377F, 0.0444816239F, 0.0460144095F, 0.0475470833F,
+  0.0490796454F, 0.0506120957F, 0.0521444231F, 0.0536766313F, 0.0552087091F,
+  0.0567406602F, 0.0582724735F, 0.0598041527F, 0.0613356903F, 0.0628670827F,
+  0.0643983334F, 0.0659294277F, 0.0674603656F, 0.068991147F, 0.0705217645F,
+  0.0720522106F, 0.0735824928F, 0.0751126F, 0.0766425356F, 0.0781722888F,
+  0.0797018558F, 0.0812312365F, 0.0827604234F, 0.0842894167F, 0.0858182088F,
+  0.0873468071F, 0.0888751894F, 0.0904033706F, 0.0919313356F, 0.0934590846F,
+  0.0949866176F, 0.0965139195F, 0.098041F, 0.0995678455F, 0.101094462F,
+  0.102620833F, 0.104146965F, 0.105672859F, 0.107198499F, 0.108723886F,
+  0.110249013F, 0.111773886F, 0.113298491F, 0.114822835F, 0.116346911F,
+  0.117870703F, 0.119394228F, 0.120917462F, 0.12244042F, 0.12396308F,
+  0.125485465F, 0.127007529F, 0.12852931F, 0.130050793F, 0.131571963F,
+  0.133092821F, 0.13461338F, 0.136133611F, 0.137653515F, 0.139173105F,
+  0.140692353F, 0.142211288F, 0.14372988F, 0.14524813F, 0.146766052F,
+  0.148283616F, 0.149800837F, 0.151317701F, 0.152834207F, 0.154350355F,
+  0.155866146F, 0.157381564F, 0.15889661F, 0.160411283F, 0.161925584F,
+  0.163439497F, 0.164953023F, 0.166466162F, 0.167978913F, 0.169491276F,
+  0.171003222F, 0.172514781F, 0.174025923F, 0.175536662F, 0.177046984F,
+  0.178556889F, 0.180066377F, 0.181575447F, 0.183084086F, 0.184592292F,
+  0.186100051F, 0.187607393F, 0.189114273F, 0.19062072F, 0.192126721F,
+  0.19363226F, 0.195137352F, 0.196641982F, 0.19814615F, 0.199649841F,
+  0.20115307F, 0.202655822F, 0.204158112F, 0.205659896F, 0.207161218F,
+  0.208662048F, 0.210162371F, 0.211662218F, 0.213161558F, 0.214660391F,
+  0.216158733F, 0.217656553F, 0.219153866F, 0.220650673F, 0.222146943F,
+  0.223642707F, 0.225137934F, 0.226632625F, 0.228126794F, 0.229620412F,
+  0.231113508F, 0.232606053F, 0.234098047F, 0.235589489F, 0.23708038F,
+  0.238570705F, 0.240060478F, 0.241549686F, 0.243038312F, 0.244526386F,
+  0.246013865F, 0.247500777F, 0.248987108F, 0.250472844F, 0.251957983F,
+  0.253442556F, 0.254926503F, 0.256409883F, 0.257892638F, 0.259374768F,
+  0.26085633F, 0.262337238F, 0.263817549F, 0.265297234F, 0.266776294F,
+  0.268254727F, 0.269732535F, 0.271209687F, 0.272686213F, 0.274162114F,
+  0.275637358F, 0.277111948F, 0.278585881F, 0.280059159F, 0.281531811F,
+  0.283003747F, 0.284475058F, 0.285945684F, 0.287415624F, 0.288884908F,
+  0.290353507F, 0.29182142F, 0.293288648F, 0.294755161F, 0.296221018F,
+  0.29768616F, 0.299150586F, 0.300614327F, 0.302077383F, 0.303539693F,
+  0.305001289F, 0.306462169F, 0.307922333F, 0.309381783F, 0.310840487F,
+  0.312298477F, 0.313755721F, 0.31521222F, 0.316668F, 0.318123F, 0.319577277F,
+  0.321030796F, 0.322483569F, 0.323935568F, 0.325386792F, 0.326837271F,
+  0.328286976F, 0.329735905F, 0.331184059F, 0.332631439F, 0.334078044F,
+  0.335523844F, 0.336968869F, 0.33841309F, 0.339856505F, 0.341299146F,
+  0.342740953F, 0.344181955F, 0.345622182F, 0.347061574F, 0.348500133F,
+  0.349937886F, 0.351374835F, 0.352810919F, 0.354246199F, 0.355680645F,
+  0.357114226F, 0.358547F, 0.359978914F, 0.36141F, 0.362840205F, 0.364269555F,
+  0.365698069F, 0.36712572F, 0.368552506F, 0.369978398F, 0.371403456F,
+  0.372827619F, 0.374250919F, 0.375673324F, 0.377094835F, 0.378515482F,
+  0.379935235F, 0.381354064F, 0.382772028F, 0.384189069F, 0.385605216F,
+  0.387020469F, 0.388434798F, 0.389848202F, 0.391260713F, 0.392672271F,
+  0.394082934F, 0.395492643F, 0.396901459F, 0.39830932F, 0.399716228F,
+  0.401122212F, 0.402527243F, 0.40393132F, 0.405334473F, 0.406736642F,
+  0.408137858F, 0.40953812F, 0.410937428F, 0.412335753F, 0.413733125F,
+  0.415129513F, 0.416524917F, 0.417919338F, 0.419312805F, 0.420705259F,
+  0.422096729F, 0.423487186F, 0.42487666F, 0.42626515F, 0.427652627F,
+  0.429039091F, 0.430424541F, 0.431808978F, 0.433192402F, 0.434574813F,
+  0.43595621F, 0.437336564F, 0.438715875F, 0.440094173F, 0.441471428F,
+  0.442847639F, 0.444222838F, 0.445596963F, 0.446970046F, 0.448342085F,
+  0.449713051F, 0.451082975F, 0.452451825F, 0.453819603F, 0.455186307F,
+  0.456551969F, 0.457916528F, 0.459280044F, 0.460642457F, 0.462003767F,
+  0.463364035F, 0.46472317F, 0.466081232F, 0.467438191F, 0.468794048F,
+  0.470148802F, 0.471502453F, 0.472855F, 0.474206418F, 0.475556731F,
+  0.476905912F, 0.478254F, 0.479600906F, 0.48094672F, 0.4822914F, 0.483634949F,
+  0.484977365F, 0.486318618F, 0.487658739F, 0.488997698F, 0.490335524F,
+  0.491672188F, 0.49300769F, 0.494342059F, 0.495675236F, 0.497007251F,
+  0.498338103F, 0.499667764F, 0.500996292F, 0.502323568F, 0.503649712F,
+  0.504974663F, 0.506298423F, 0.507621F, 0.508942366F, 0.510262549F,
+  0.511581481F, 0.51289928F, 0.514215827F, 0.515531182F, 0.516845345F,
+  0.518158257F, 0.51947F, 0.520780444F, 0.52208966F, 0.523397684F, 0.524704516F,
+  0.526010036F, 0.527314365F, 0.528617442F, 0.529919267F, 0.53121984F,
+  0.532519162F, 0.533817232F, 0.53511411F, 0.536409616F, 0.537703931F, 0.538997F,
+  0.540288746F, 0.541579247F, 0.542868435F, 0.544156373F, 0.545443058F,
+  0.546728432F, 0.548012495F, 0.549295306F, 0.550576806F, 0.551857F,
+  0.553135931F, 0.554413557F, 0.555689812F, 0.556964815F, 0.558238506F,
+  0.559510887F, 0.560781896F, 0.562051654F, 0.563320041F, 0.564587116F,
+  0.56585288F, 0.567117333F, 0.568380415F, 0.569642127F, 0.570902526F,
+  0.572161615F, 0.573419333F, 0.574675679F, 0.575930715F, 0.577184319F,
+  0.578436613F, 0.579687595F, 0.580937147F, 0.582185328F, 0.583432198F,
+  0.584677637F, 0.585921705F, 0.587164402F, 0.588405728F, 0.589645684F,
+  0.590884209F, 0.592121363F, 0.593357146F, 0.594591498F, 0.59582448F,
+  0.597056031F, 0.598286152F, 0.599514902F, 0.60074228F, 0.601968169F,
+  0.603192687F, 0.604415774F, 0.605637431F, 0.606857657F, 0.608076453F,
+  0.609293878F, 0.610509813F, 0.611724317F, 0.612937391F, 0.614149F,
+  0.615359187F, 0.61656791F, 0.617775142F, 0.618981F, 0.620185316F, 0.621388257F,
+  0.622589707F, 0.623789668F, 0.624988139F, 0.626185179F, 0.627380729F,
+  0.628574848F, 0.629767418F, 0.630958557F, 0.632148206F, 0.633336365F,
+  0.634523F, 0.635708153F, 0.636891842F, 0.638074F, 0.63925463F, 0.640433788F,
+  0.641611457F, 0.642787635F, 0.643962264F, 0.645135343F, 0.646306932F,
+  0.647477031F, 0.64864558F, 0.649812579F, 0.650978088F, 0.652142048F,
+  0.653304458F, 0.654465318F, 0.655624688F, 0.656782448F, 0.657938719F,
+  0.65909344F, 0.660246611F, 0.661398172F, 0.662548244F, 0.663696706F,
+  0.664843619F, 0.665989F, 0.667132735F, 0.668275F, 0.669415593F, 0.670554698F,
+  0.671692193F, 0.672828078F, 0.673962414F, 0.675095141F, 0.676226258F,
+  0.677355826F, 0.678483784F, 0.679610133F, 0.680734932F, 0.681858063F,
+  0.682979643F, 0.684099555F, 0.685217917F, 0.68633461F, 0.687449753F,
+  0.688563228F, 0.689675093F, 0.690785348F, 0.691893935F, 0.693001F,
+  0.694106281F, 0.69521004F, 0.696312129F, 0.69741255F, 0.698511362F,
+  0.699608505F, 0.700704038F, 0.701797903F, 0.702890098F, 0.703980684F,
+  0.705069542F, 0.70615679F, 0.70724237F, 0.70832628F, 0.709408522F,
+  0.710489094F, 0.711568F, 0.712645233F, 0.713720798F, 0.714794636F,
+  0.715866864F, 0.716937363F, 0.718006134F, 0.719073296F, 0.720138729F,
+  0.721202433F, 0.722264469F, 0.723324835F, 0.724383473F, 0.725440383F,
+  0.726495624F, 0.727549136F, 0.728600919F, 0.729651F, 0.73069936F, 0.731746F,
+  0.732790887F, 0.733834088F, 0.73487556F, 0.735915303F, 0.736953318F,
+  0.737989604F, 0.739024103F, 0.740056932F, 0.741088F, 0.742117286F, 0.74314481F,
+  0.744170606F, 0.745194674F, 0.746217F, 0.747237563F, 0.748256326F, 0.74927336F,
+  0.750288606F, 0.751302123F, 0.752313852F, 0.753323793F, 0.754331946F,
+  0.755338371F, 0.756343F, 0.757345855F, 0.758346915F, 0.759346187F,
+  0.760343671F, 0.761339366F, 0.762333274F, 0.763325393F, 0.764315724F,
+  0.765304267F, 0.766290963F, 0.76727587F, 0.768259F, 0.76924026F, 0.770219743F,
+  0.771197438F, 0.772173285F, 0.773147345F, 0.774119556F, 0.77508992F,
+  0.776058495F, 0.777025223F, 0.777990162F, 0.778953254F, 0.779914498F,
+  0.780873895F, 0.781831503F, 0.782787204F, 0.783741117F, 0.784693182F,
+  0.785643339F, 0.786591709F, 0.787538171F, 0.788482845F, 0.789425611F,
+  0.79036653F, 0.791305602F, 0.792242825F, 0.793178201F, 0.794111669F,
+  0.79504323F, 0.795973F, 0.796900809F, 0.797826827F, 0.798750937F, 0.79967314F,
+  0.800593495F, 0.801511943F, 0.802428484F, 0.803343177F, 0.804255962F,
+  0.805166841F, 0.806075871F, 0.806983F, 0.80788815F, 0.808791459F, 0.80969286F,
+  0.810592353F, 0.81148994F, 0.812385619F, 0.813279331F, 0.814171195F,
+  0.815061152F, 0.815949142F, 0.816835225F, 0.8177194F, 0.818601608F,
+  0.819481909F, 0.820360303F, 0.821236789F, 0.822111309F, 0.822983861F,
+  0.823854506F, 0.824723244F, 0.825589955F, 0.826454818F, 0.827317655F,
+  0.828178585F, 0.829037547F, 0.829894602F, 0.830749691F, 0.831602752F,
+  0.832453966F, 0.833303154F, 0.834150374F, 0.834995627F, 0.835839F,
+  0.836680293F, 0.837519646F, 0.838357031F, 0.83919245F, 0.840025902F,
+  0.840857387F, 0.841686904F, 0.842514396F, 0.84333992F, 0.844163477F, 0.844985F,
+  0.845804572F, 0.846622169F, 0.847437739F, 0.848251283F, 0.84906292F,
+  0.84987247F, 0.850680053F, 0.85148567F, 0.8522892F, 0.853090823F, 0.853890359F,
+  0.854687929F, 0.855483472F, 0.856277F, 0.857068479F, 0.857858F, 0.858645499F,
+  0.859430909F, 0.860214353F, 0.86099577F, 0.86177516F, 0.862552464F,
+  0.863327801F, 0.864101112F, 0.864872336F, 0.865641534F, 0.866408765F,
+  0.867173851F, 0.867936969F, 0.868698F, 0.869457F, 0.870214F, 0.870968878F,
+  0.871721745F, 0.872472584F, 0.873221338F, 0.873968F, 0.874712646F, 0.87545526F,
+  0.876195788F, 0.87693423F, 0.877670646F, 0.878405F, 0.879137218F, 0.879867435F,
+  0.880595505F, 0.881321549F, 0.882045567F, 0.882767439F, 0.883487284F,
+  0.884205F, 0.884920657F, 0.885634243F, 0.886345685F, 0.887055099F,
+  0.887762427F, 0.888467669F, 0.889170766F, 0.889871836F, 0.89057076F,
+  0.891267598F, 0.891962349F, 0.892655F, 0.893345535F, 0.894033968F,
+  0.894720316F, 0.895404518F, 0.896086693F, 0.896766663F, 0.897444606F,
+  0.898120344F, 0.898794055F, 0.899465621F, 0.90013504F, 0.900802374F,
+  0.901467562F, 0.902130663F, 0.902791619F, 0.903450429F, 0.904107153F,
+  0.904761732F, 0.905414164F, 0.906064451F, 0.906712651F, 0.907358706F,
+  0.908002615F, 0.908644378F, 0.909284F, 0.909921527F, 0.910556853F,
+  0.911190033F, 0.911821127F, 0.91245F, 0.913076818F, 0.913701415F, 0.914323866F,
+  0.914944172F, 0.915562332F, 0.916178346F, 0.916792214F, 0.917403877F,
+  0.918013394F, 0.918620765F, 0.919226F, 0.919829F, 0.920429885F, 0.921028614F,
+  0.921625137F, 0.922219515F, 0.922811687F, 0.923401713F, 0.923989594F,
+  0.924575269F, 0.925158739F, 0.925740063F, 0.926319242F, 0.926896214F,
+  0.927471F, 0.928043544F, 0.928613961F, 0.929182231F, 0.929748237F,
+  0.930312097F, 0.930873752F, 0.931433201F, 0.931990504F, 0.932545543F,
+  0.933098435F, 0.933649123F, 0.934197605F, 0.934743941F, 0.935288F,
+  0.935829878F, 0.936369598F, 0.936907053F, 0.937442362F, 0.937975407F,
+  0.938506246F, 0.939034939F, 0.939561367F, 0.94008559F, 0.940607607F,
+  0.941127419F, 0.941644967F, 0.942160368F, 0.942673504F, 0.943184435F,
+  0.943693161F, 0.944199622F, 0.944703877F, 0.945205927F, 0.945705771F,
+  0.946203351F, 0.946698725F, 0.947191834F, 0.947682738F, 0.948171377F,
+  0.94865787F, 0.949142039F, 0.949624F, 0.95010376F, 0.950581253F, 0.95105654F,
+  0.951529562F, 0.95200032F, 0.952468872F, 0.952935159F, 0.953399241F, 0.953861F,
+  0.95432061F, 0.954777896F, 0.955233F, 0.955685794F, 0.956136346F, 0.956584692F,
+  0.957030773F, 0.957474589F, 0.957916141F, 0.958355427F, 0.958792508F,
+  0.959227264F, 0.959659815F, 0.960090101F, 0.960518122F, 0.960943878F,
+  0.961367369F, 0.961788595F, 0.962207556F, 0.962624252F, 0.963038683F,
+  0.963450849F, 0.96386075F, 0.964268386F, 0.964673698F, 0.965076804F,
+  0.965477645F, 0.965876162F, 0.966272414F, 0.9666664F, 0.967058122F,
+  0.967447579F, 0.967834771F, 0.968219638F, 0.96860224F, 0.968982577F,
+  0.96936059F, 0.969736338F, 0.97010982F, 0.970481038F, 0.970849931F,
+  0.971216559F, 0.971580923F, 0.971942961F, 0.972302735F, 0.972660184F,
+  0.973015368F, 0.973368287F, 0.973718882F, 0.974067152F, 0.974413216F,
+  0.974756896F, 0.975098312F, 0.975437462F, 0.975774288F, 0.976108849F,
+  0.976441085F, 0.976771F, 0.977098644F, 0.977424F, 0.977747F, 0.978067756F,
+  0.978386223F, 0.978702366F, 0.979016185F, 0.979327679F, 0.979636908F,
+  0.979943812F, 0.980248451F, 0.980550706F, 0.980850697F, 0.981148362F,
+  0.981443763F, 0.981736779F, 0.982027531F, 0.982316F, 0.982602119F,
+  0.982885897F, 0.98316741F, 0.983446598F, 0.983723462F, 0.983998F, 0.984270215F,
+  0.984540164F, 0.98480773F, 0.98507303F, 0.985336F, 0.985596657F, 0.985854924F,
+  0.986110926F, 0.986364603F, 0.986615956F, 0.986865F, 0.987111747F,
+  0.987356126F, 0.987598181F, 0.987837911F, 0.988075316F, 0.988310397F,
+  0.988543153F, 0.988773584F, 0.989001691F, 0.989227474F, 0.989450932F,
+  0.989672F, 0.989890814F, 0.990107238F, 0.990321398F, 0.990533173F,
+  0.990742624F, 0.99094975F, 0.991154552F, 0.991357F, 0.991557121F, 0.991754949F,
+  0.991950393F, 0.992143512F, 0.992334306F, 0.992522776F, 0.992708862F,
+  0.992892623F, 0.993074119F, 0.993253171F, 0.993429959F, 0.993604362F,
+  0.993776441F, 0.993946195F, 0.994113624F, 0.994278669F, 0.99444139F,
+  0.994601786F, 0.994759858F, 0.994915545F, 0.995068908F, 0.995219886F,
+  0.9953686F, 0.995514929F, 0.995658875F, 0.995800555F, 0.995939851F,
+  0.996076763F, 0.99621141F, 0.996343672F, 0.996473551F, 0.996601164F,
+  0.996726394F, 0.996849239F, 0.996969759F, 0.997087955F, 0.997203767F,
+  0.997317314F, 0.997428417F, 0.997537196F, 0.99764365F, 0.997747779F,
+  0.997849524F, 0.997948885F, 0.998045921F, 0.998140633F, 0.998233F, 0.998323F,
+  0.998410642F, 0.998495936F, 0.998578906F, 0.998659492F, 0.998737752F,
+  0.998813629F, 0.998887181F, 0.998958349F, 0.999027193F, 0.999093652F,
+  0.999157786F, 0.999219596F, 0.999279F, 0.999336123F, 0.999390841F,
+  0.999443173F, 0.999493241F, 0.999540865F, 0.999586225F, 0.99962914F,
+  0.99966979F, 0.999708F, 0.999743938F, 0.999777436F, 0.999808669F, 0.999837518F,
+  0.999864F, 0.999888122F, 0.999909878F, 0.999929309F, 0.999946356F,
+  0.999961078F, 0.999973416F, 0.99998343F, 0.999991119F, 0.999996424F,
+  0.999999344F, 0.99999994F, 0.999998152F, 0.99999404F, 0.999987543F,
+  0.999978721F, 0.999967575F, 0.999954045F, 0.99993813F, 0.999919891F,
+  0.999899268F, 0.99987632F, 0.999851048F, 0.999823391F, 0.999793351F, 0.999761F,
+  0.999726236F, 0.999689162F, 0.999649763F, 0.999608F, 0.999563813F,
+  0.999517322F, 0.999468505F, 0.999417305F, 0.99936378F, 0.999307871F,
+  0.999249578F, 0.999189F, 0.999126F, 0.99906075F, 0.998993039F, 0.998923063F,
+  0.998850703F, 0.998775959F, 0.99869889F, 0.998619497F, 0.998537719F,
+  0.998453557F, 0.998367131F, 0.99827826F, 0.998187125F, 0.998093605F,
+  0.997997701F, 0.997899473F, 0.99779892F, 0.997696F, 0.997590721F, 0.997483134F,
+  0.997373164F, 0.997260809F, 0.997146189F, 0.997029185F, 0.996909797F,
+  0.996788085F, 0.996664047F, 0.996537626F, 0.99640888F, 0.996277809F,
+  0.996144414F, 0.996008635F, 0.995870471F, 0.99573F, 0.99558717F, 0.995442033F,
+  0.995294511F, 0.995144725F, 0.994992495F, 0.994838F, 0.99468112F, 0.994521916F,
+  0.994360328F, 0.994196475F, 0.994030237F, 0.993861616F, 0.993690729F,
+  0.993517458F, 0.993341863F, 0.993163943F, 0.992983639F, 0.99280107F,
+  0.992616117F, 0.992428839F, 0.992239177F, 0.99204725F, 0.991852939F,
+  0.991656363F, 0.991457403F, 0.991256058F, 0.991052449F, 0.990846515F,
+  0.990638196F, 0.990427554F, 0.990214586F, 0.989999294F, 0.989781678F,
+  0.989561737F, 0.989339471F, 0.989114881F, 0.988887906F, 0.988658667F,
+  0.988427043F, 0.988193154F, 0.987956882F, 0.987718344F, 0.987477422F,
+  0.987234175F, 0.986988664F, 0.986740768F, 0.986490607F, 0.986238062F,
+  0.985983253F, 0.985726058F, 0.985466599F, 0.985204816F, 0.984940708F,
+  0.984674215F, 0.984405518F, 0.984134436F, 0.983861F, 0.983585298F,
+  0.983307302F, 0.983027F, 0.982744277F, 0.982459366F, 0.982172072F,
+  0.981882453F, 0.981590569F, 0.98129636F, 0.980999827F, 0.980701F, 0.980399847F,
+  0.9800964F, 0.979790628F, 0.979482591F, 0.97917223F, 0.978859544F,
+  0.978544593F, 0.978227258F, 0.977907717F, 0.977585793F, 0.977261603F,
+  0.976935148F, 0.976606309F, 0.976275265F, 0.975941837F, 0.975606143F,
+  0.975268185F, 0.974927902F, 0.974585354F, 0.974240482F, 0.973893285F,
+  0.973543882F, 0.973192096F, 0.972838044F, 0.972481728F, 0.972123146F,
+  0.97176224F, 0.971399F, 0.971033573F, 0.970665753F, 0.970295727F, 0.969923377F,
+  0.969548762F, 0.969171882F, 0.968792677F, 0.968411207F, 0.968027472F,
+  0.967641473F, 0.967253149F, 0.966862559F, 0.966469705F, 0.966074586F,
+  0.965677202F, 0.965277493F, 0.964875579F, 0.96447134F, 0.964064837F,
+  0.963656068F, 0.963245034F, 0.962831736F, 0.962416172F, 0.961998343F,
+  0.96157825F, 0.961155891F, 0.960731268F, 0.960304379F, 0.959875226F,
+  0.959443808F, 0.959010184F, 0.958574235F, 0.958136082F, 0.957695663F,
+  0.957253F, 0.956808031F, 0.956360817F, 0.955911338F, 0.955459654F,
+  0.955005705F, 0.954549551F, 0.954091072F, 0.953630388F, 0.953167439F,
+  0.952702284F, 0.952234864F, 0.951765239F, 0.95129329F, 0.950819194F,
+  0.950342774F, 0.949864149F, 0.949383318F, 0.948900223F, 0.948414922F,
+  0.947927356F, 0.947437584F, 0.946945548F, 0.946451306F, 0.9459548F,
+  0.945456088F, 0.94495517F, 0.944452047F, 0.94394666F, 0.943439066F,
+  0.942929268F, 0.942417204F, 0.941902936F, 0.941386461F, 0.940867782F,
+  0.940346897F, 0.939823747F, 0.939298391F, 0.93877089F, 0.938241124F,
+  0.937709153F, 0.937175F, 0.936638594F, 0.9361F, 0.935559213F, 0.935016215F,
+  0.934471071F, 0.933923662F, 0.933374047F, 0.932822287F, 0.932268322F,
+  0.931712151F, 0.931153774F, 0.930593193F, 0.930030465F, 0.929465473F,
+  0.928898394F, 0.928329051F, 0.927757561F, 0.927183867F, 0.926607966F,
+  0.926029921F, 0.925449669F, 0.924867272F, 0.92428267F, 0.923695922F,
+  0.923106968F, 0.922515869F, 0.921922624F, 0.921327174F, 0.920729518F,
+  0.920129716F, 0.919527769F, 0.918923676F, 0.918317378F, 0.917708933F,
+  0.917098284F, 0.916485548F, 0.915870607F, 0.91525352F, 0.914634287F,
+  0.914012909F, 0.913389385F, 0.912763655F, 0.912135839F, 0.911505878F,
+  0.910873711F, 0.910239458F, 0.909603F, 0.908964455F, 0.908323765F,
+  0.907680929F, 0.907035947F, 0.906388819F, 0.905739605F, 0.905088186F,
+  0.904434681F, 0.90377903F, 0.903121293F, 0.90246141F, 0.901799381F,
+  0.901135206F, 0.900468946F, 0.899800599F, 0.899130106F, 0.898457468F,
+  0.897782743F, 0.897105873F, 0.896426916F, 0.895745873F, 0.895062685F,
+  0.89437741F, 0.89369F, 0.893000543F, 0.89230895F, 0.891615212F, 0.890919447F,
+  0.890221536F, 0.889521539F, 0.888819456F, 0.888115287F, 0.887409031F,
+  0.88670069F, 0.885990202F, 0.885277689F, 0.884563088F, 0.883846402F,
+  0.88312763F, 0.882406771F, 0.881683826F, 0.880958796F, 0.880231738F,
+  0.879502594F, 0.878771365F, 0.878038049F, 0.877302706F, 0.876565278F,
+  0.875825763F, 0.875084221F, 0.874340594F, 0.87359494F, 0.872847199F,
+  0.872097433F, 0.87134558F, 0.8705917F, 0.869835794F, 0.869077802F,
+  0.868317783F, 0.867555678F, 0.866791546F, 0.866025388F, 0.865257204F,
+  0.864487F, 0.863714695F, 0.862940431F, 0.86216408F, 0.861385703F, 0.860605299F,
+  0.859822869F, 0.859038472F, 0.858252F, 0.857463479F, 0.856673F, 0.855880499F,
+  0.855085969F, 0.854289412F, 0.853490829F, 0.852690279F, 0.851887703F,
+  0.8510831F, 0.85027653F, 0.849467933F, 0.84865737F, 0.847844779F, 0.847030163F,
+  0.846213579F, 0.845395F, 0.844574451F, 0.843751907F, 0.842927396F,
+  0.842100859F, 0.841272414F, 0.840441883F, 0.839609444F, 0.838775039F,
+  0.837938607F, 0.837100208F, 0.836259842F, 0.835417569F, 0.834573269F,
+  0.833727F, 0.832878768F, 0.832028627F, 0.83117646F, 0.830322385F, 0.829466343F,
+  0.828608334F, 0.827748358F, 0.826886475F, 0.826022625F, 0.825156868F,
+  0.824289083F, 0.823419452F, 0.822547793F, 0.821674287F, 0.820798755F,
+  0.819921374F, 0.819042F, 0.818160772F, 0.817277551F, 0.816392422F,
+  0.815505385F, 0.814616382F, 0.813725531F, 0.812832713F, 0.811938F,
+  0.811041355F, 0.810142875F, 0.809242427F, 0.808340073F, 0.807435811F,
+  0.806529641F, 0.805621624F, 0.80471164F, 0.803799808F, 0.802886069F,
+  0.801970482F, 0.801052928F, 0.800133526F, 0.799212277F, 0.79828912F,
+  0.797364056F, 0.796437144F, 0.795508325F, 0.794577658F, 0.793645144F,
+  0.792710721F, 0.791774452F, 0.790836334F, 0.789896309F, 0.788954496F,
+  0.788010776F, 0.787065208F, 0.786117733F, 0.785168469F, 0.784217358F,
+  0.783264399F, 0.782309592F, 0.781352937F, 0.780394435F, 0.779434085F,
+  0.778471947F, 0.777507961F, 0.776542127F, 0.775574446F, 0.774605F,
+  0.773633659F, 0.772660553F, 0.7716856F, 0.770708799F, 0.76973021F,
+  0.768749833F, 0.767767668F, 0.766783655F, 0.765797794F, 0.764810205F,
+  0.763820767F, 0.762829602F, 0.761836588F, 0.760841727F, 0.759845138F,
+  0.75884676F, 0.757846594F, 0.75684464F, 0.755840898F, 0.754835367F,
+  0.753828108F, 0.752819061F, 0.751808167F, 0.750795603F, 0.749781191F,
+  0.748765051F, 0.747747123F, 0.746727467F, 0.745706081F, 0.744682908F,
+  0.743657947F, 0.742631257F, 0.741602838F, 0.740572631F, 0.739540756F,
+  0.738507092F, 0.73747164F, 0.736434519F, 0.73539567F, 0.734355032F,
+  0.733312726F, 0.732268691F, 0.731222868F, 0.730175376F, 0.729126155F,
+  0.728075206F, 0.727022588F, 0.725968182F, 0.724912107F, 0.723854363F,
+  0.72279489F, 0.721733689F, 0.720670819F, 0.719606221F, 0.718539953F,
+  0.717471957F, 0.716402292F, 0.715330958F, 0.714257956F, 0.713183224F,
+  0.712106824F, 0.711028755F, 0.709949F, 0.70886761F, 0.707784534F, 0.706699789F,
+  0.705613375F, 0.704525352F, 0.7034356F, 0.702344239F, 0.701251149F,
+  0.70015651F, 0.699060142F, 0.697962165F, 0.696862519F, 0.695761263F,
+  0.694658399F, 0.693553805F, 0.692447662F, 0.69133985F, 0.690230429F,
+  0.689119339F, 0.688006699F, 0.68689239F, 0.685776472F, 0.684658945F,
+  0.683539808F, 0.682419062F, 0.681296706F, 0.680172741F, 0.679047167F,
+  0.677920043F, 0.676791251F, 0.675660908F, 0.674528956F, 0.673395455F,
+  0.672260344F, 0.671123624F, 0.669985354F, 0.668845475F, 0.667704046F,
+  0.666561067F, 0.665416479F, 0.664270341F, 0.663122654F, 0.661973417F,
+  0.66082257F, 0.659670174F, 0.658516288F, 0.657360792F, 0.656203747F,
+  0.655045211F, 0.653885067F, 0.652723432F, 0.651560247F, 0.650395513F,
+  0.649229288F, 0.648061454F, 0.64689219F, 0.645721316F, 0.644548953F,
+  0.643375099F, 0.642199755F, 0.641022861F, 0.639844418F, 0.638664544F,
+  0.63748312F, 0.636300206F, 0.635115743F, 0.633929849F, 0.632742465F,
+  0.63155359F, 0.630363166F, 0.629171312F, 0.627977967F, 0.626783133F,
+  0.625586867F, 0.624389112F, 0.623189867F, 0.621989131F, 0.620786965F,
+  0.619583368F, 0.618378222F, 0.617171705F, 0.615963697F, 0.61475426F,
+  0.613543332F, 0.612331033F, 0.611117244F, 0.609902F, 0.608685374F,
+  0.607467234F, 0.606247723F, 0.605026782F, 0.60380441F, 0.602580607F,
+  0.601355374F, 0.60012877F, 0.598900735F, 0.59767127F, 0.596440434F,
+  0.595208168F, 0.593974471F, 0.592739403F, 0.591502964F, 0.590265095F,
+  0.589025855F, 0.587785244F, 0.586543262F, 0.58529985F, 0.584055066F,
+  0.582808912F, 0.581561446F, 0.58031255F, 0.579062283F, 0.577810645F,
+  0.576557696F, 0.575303376F, 0.574047685F, 0.572790623F, 0.571532249F,
+  0.570272505F, 0.56901145F, 0.567749F, 0.566485286F, 0.565220177F, 0.563953757F,
+  0.562686F, 0.561416924F, 0.56014657F, 0.558874846F, 0.55760181F, 0.556327462F,
+  0.555051863F, 0.553774893F, 0.552496612F, 0.551217079F, 0.549936235F,
+  0.548654079F, 0.547370613F, 0.546085894F, 0.544799864F, 0.543512583F,
+  0.542224F, 0.540934145F, 0.539643F, 0.538350642F, 0.537056923F, 0.535762F,
+  0.534465849F, 0.533168375F, 0.53186965F, 0.530569732F, 0.529268503F, 0.527966F,
+  0.52666235F, 0.525357425F, 0.524051249F, 0.522743821F, 0.521435201F,
+  0.520125329F, 0.518814266F, 0.51750195F, 0.516188383F, 0.514873683F,
+  0.513557732F, 0.512240529F, 0.510922194F, 0.509602606F, 0.508281827F,
+  0.506959856F, 0.505636692F, 0.504312336F, 0.502986789F, 0.501660049F,
+  0.500332177F, 0.499003083F, 0.497672826F, 0.496341377F, 0.495008796F,
+  0.493675023F, 0.492340088F, 0.49100402F, 0.48966676F, 0.488328367F,
+  0.486988813F, 0.485648125F, 0.484306306F, 0.482963324F, 0.481619209F,
+  0.480273962F, 0.478927583F, 0.4775801F, 0.476231456F, 0.474881709F,
+  0.473530829F, 0.472178847F, 0.470825762F, 0.469471574F, 0.468116254F,
+  0.466759861F, 0.465402335F, 0.464043736F, 0.462684035F, 0.461323261F,
+  0.459961385F, 0.458598435F, 0.457234383F, 0.455869287F, 0.454503089F,
+  0.453135848F, 0.451767534F, 0.450398147F, 0.449027687F, 0.447656184F,
+  0.446283638F, 0.44491002F, 0.443535358F, 0.442159683F, 0.440782934F,
+  0.439405143F, 0.438026339F, 0.436646491F, 0.43526563F, 0.433883727F,
+  0.432500809F, 0.431116879F, 0.429731935F, 0.428345978F, 0.426959F,
+  0.425571024F, 0.424182057F, 0.422792077F, 0.421401113F, 0.420009136F,
+  0.418616205F, 0.417222261F, 0.415827334F, 0.414431423F, 0.413034558F,
+  0.41163671F, 0.410237908F, 0.408838123F, 0.407437384F, 0.406035662F,
+  0.404633015F, 0.403229415F, 0.401824832F, 0.400419325F, 0.399012893F,
+  0.397605509F, 0.39619717F, 0.394787908F, 0.393377721F, 0.391966611F,
+  0.390554577F, 0.389141619F, 0.387727737F, 0.386312962F, 0.384897262F,
+  0.383480668F, 0.38206315F, 0.380644768F, 0.379225463F, 0.377805263F,
+  0.376384199F, 0.374962211F, 0.373539358F, 0.372115642F, 0.370691031F,
+  0.369265556F, 0.367839217F, 0.366412F, 0.364983916F, 0.363554984F,
+  0.362125188F, 0.360694557F, 0.359263062F, 0.357830733F, 0.356397539F,
+  0.354963511F, 0.353528678F, 0.352092981F, 0.35065645F, 0.349219114F,
+  0.347780943F, 0.346341968F, 0.344902188F, 0.343461573F, 0.342020154F,
+  0.34057793F, 0.339134902F, 0.337691069F, 0.336246461F, 0.334801048F,
+  0.333354831F, 0.331907839F, 0.330460101F, 0.32901153F, 0.327562213F,
+  0.326112121F, 0.324661285F, 0.323209643F, 0.321757287F, 0.320304126F,
+  0.318850249F, 0.317395598F, 0.315940201F, 0.31448406F, 0.313027203F,
+  0.311569571F, 0.310111225F, 0.308652163F, 0.307192355F, 0.305731833F,
+  0.304270595F, 0.302808613F, 0.301345944F, 0.299882561F, 0.298418462F,
+  0.296953678F, 0.295488179F, 0.294022F, 0.292555124F, 0.291087538F,
+  0.289619297F, 0.28815034F, 0.286680728F, 0.28521046F, 0.283739477F,
+  0.282267869F, 0.280795574F, 0.279322624F, 0.277849F, 0.276374727F,
+  0.274899811F, 0.273424238F, 0.27194804F, 0.270471185F, 0.268993706F,
+  0.2675156F, 0.266036838F, 0.264557481F, 0.263077468F, 0.261596859F,
+  0.260115623F, 0.258633792F, 0.257151335F, 0.255668283F, 0.254184604F,
+  0.252700359F, 0.251215488F, 0.249730051F, 0.248244017F, 0.246757403F,
+  0.245270193F, 0.243782416F, 0.242294073F, 0.240805149F, 0.239315659F,
+  0.237825617F, 0.236335009F, 0.234843835F, 0.23335211F, 0.231859848F,
+  0.230367035F, 0.22887367F, 0.227379769F, 0.225885347F, 0.224390388F,
+  0.222894892F, 0.221398875F, 0.219902337F, 0.218405277F, 0.21690771F,
+  0.215409622F, 0.213911042F, 0.212411955F, 0.210912362F, 0.209412277F,
+  0.207911685F, 0.206410617F, 0.204909071F, 0.203407019F, 0.201904505F,
+  0.200401515F, 0.198898047F, 0.197394118F, 0.195889726F, 0.194384858F,
+  0.192879543F, 0.19137378F, 0.189867556F, 0.188360885F, 0.186853781F,
+  0.185346231F, 0.183838233F, 0.182329819F, 0.180820972F, 0.179311693F,
+  0.177802F, 0.176291883F, 0.174781352F, 0.173270404F, 0.171759054F,
+  0.170247301F, 0.168735147F, 0.167222589F, 0.165709645F, 0.164196312F,
+  0.162682578F, 0.161168471F, 0.159653991F, 0.158139125F, 0.1566239F,
+  0.155108288F, 0.153592318F, 0.152075991F, 0.150559306F, 0.149042264F,
+  0.147524878F, 0.146007136F, 0.14448905F, 0.142970622F, 0.141451865F,
+  0.139932767F, 0.138413355F, 0.1368936F, 0.135373533F, 0.133853137F,
+  0.132332429F, 0.130811423F, 0.129290089F, 0.127768457F, 0.126246527F,
+  0.124724306F, 0.123201787F, 0.121678978F, 0.120155878F, 0.118632495F,
+  0.117108837F, 0.115584902F, 0.1140607F, 0.112536222F, 0.111011483F,
+  0.109486483F, 0.107961223F, 0.106435709F, 0.104909942F, 0.103383929F,
+  0.101857677F, 0.10033118F, 0.0988044515F, 0.0972774923F, 0.0957502946F,
+  0.0942228809F, 0.0926952362F, 0.0911673829F, 0.0896393061F, 0.0881110281F,
+  0.086582534F, 0.0850538388F, 0.0835249424F, 0.0819958523F, 0.0804665685F,
+  0.0789371F, 0.0774074346F, 0.075877592F, 0.0743475705F, 0.0728173777F,
+  0.0712870061F, 0.0697564706F, 0.0682257712F, 0.0666949153F, 0.0651638955F,
+  0.0636327267F, 0.0621014088F, 0.060569942F, 0.0590383336F, 0.0575065836F,
+  0.0559747F, 0.0544426851F, 0.0529105403F, 0.0513782725F, 0.0498458855F,
+  0.0483133793F, 0.0467807613F, 0.0452480316F, 0.0437151939F, 0.0421822555F,
+  0.0406492166F, 0.0391160809F, 0.0375828557F, 0.0360495374F, 0.0345161408F,
+  0.0329826586F, 0.0314491F, 0.0299154669F, 0.028381763F, 0.0268479921F,
+  0.0253141597F, 0.0237802677F, 0.0222463179F, 0.020712316F, 0.0191782657F,
+  0.0176441707F, 0.0161100347F, 0.0145758605F, 0.0130416509F, 0.0115074106F,
+  0.00997314509F, 0.00843885355F, 0.00690454384F, 0.00537021784F, 0.00383587903F,
+  0.00230153091F, 0.000767178F, -0.000767178F, -0.00230153091F, -0.00383587903F,
+  -0.00537021784F, -0.00690454384F, -0.00843885355F, -0.00997314509F,
+  -0.0115074106F, -0.0130416509F, -0.0145758605F, -0.0161100347F, -0.0176441707F,
+  -0.0191782657F, -0.020712316F, -0.0222463179F, -0.0237802677F, -0.0253141597F,
+  -0.0268479921F, -0.028381763F, -0.0299154669F, -0.0314491F, -0.0329826586F,
+  -0.0345161408F, -0.0360495374F, -0.0375828557F, -0.0391160809F, -0.0406492166F,
+  -0.0421822555F, -0.0437151939F, -0.0452480316F, -0.0467807613F, -0.0483133793F,
+  -0.0498458855F, -0.0513782725F, -0.0529105403F, -0.0544426851F, -0.0559747F,
+  -0.0575065836F, -0.0590383336F, -0.060569942F, -0.0621014088F, -0.0636327267F,
+  -0.0651638955F, -0.0666949153F, -0.0682257712F, -0.0697564706F, -0.0712870061F,
+  -0.0728173777F, -0.0743475705F, -0.075877592F, -0.0774074346F, -0.0789371F,
+  -0.0804665685F, -0.0819958523F, -0.0835249424F, -0.0850538388F, -0.086582534F,
+  -0.0881110281F, -0.0896393061F, -0.0911673829F, -0.0926952362F, -0.0942228809F,
+  -0.0957502946F, -0.0972774923F, -0.0988044515F, -0.10033118F, -0.101857677F,
+  -0.103383929F, -0.104909942F, -0.106435709F, -0.107961223F, -0.109486483F,
+  -0.111011483F, -0.112536222F, -0.1140607F, -0.115584902F, -0.117108837F,
+  -0.118632495F, -0.120155878F, -0.121678978F, -0.123201787F, -0.124724306F,
+  -0.126246527F, -0.127768457F, -0.129290089F, -0.130811423F, -0.132332429F,
+  -0.133853137F, -0.135373533F, -0.1368936F, -0.138413355F, -0.139932767F,
+  -0.141451865F, -0.142970622F, -0.14448905F, -0.146007136F, -0.147524878F,
+  -0.149042264F, -0.150559306F, -0.152075991F, -0.153592318F, -0.155108288F,
+  -0.1566239F, -0.158139125F, -0.159653991F, -0.161168471F, -0.162682578F,
+  -0.164196312F, -0.165709645F, -0.167222589F, -0.168735147F, -0.170247301F,
+  -0.171759054F, -0.173270404F, -0.174781352F, -0.176291883F, -0.177802F,
+  -0.179311693F, -0.180820972F, -0.182329819F, -0.183838233F, -0.185346231F,
+  -0.186853781F, -0.188360885F, -0.189867556F, -0.19137378F, -0.192879543F,
+  -0.194384858F, -0.195889726F, -0.197394118F, -0.198898047F, -0.200401515F,
+  -0.201904505F, -0.203407019F, -0.204909071F, -0.206410617F, -0.207911685F,
+  -0.209412277F, -0.210912362F, -0.212411955F, -0.213911042F, -0.215409622F,
+  -0.21690771F, -0.218405277F, -0.219902337F, -0.221398875F, -0.222894892F,
+  -0.224390388F, -0.225885347F, -0.227379769F, -0.22887367F, -0.230367035F,
+  -0.231859848F, -0.23335211F, -0.234843835F, -0.236335009F, -0.237825617F,
+  -0.239315659F, -0.240805149F, -0.242294073F, -0.243782416F, -0.245270193F,
+  -0.246757403F, -0.248244017F, -0.249730051F, -0.251215488F, -0.252700359F,
+  -0.254184604F, -0.255668283F, -0.257151335F, -0.258633792F, -0.260115623F,
+  -0.261596859F, -0.263077468F, -0.264557481F, -0.266036838F, -0.2675156F,
+  -0.268993706F, -0.270471185F, -0.27194804F, -0.273424238F, -0.274899811F,
+  -0.276374727F, -0.277849F, -0.279322624F, -0.280795574F, -0.282267869F,
+  -0.283739477F, -0.28521046F, -0.286680728F, -0.28815034F, -0.289619297F,
+  -0.291087538F, -0.292555124F, -0.294022F, -0.295488179F, -0.296953678F,
+  -0.298418462F, -0.299882561F, -0.301345944F, -0.302808613F, -0.304270595F,
+  -0.305731833F, -0.307192355F, -0.308652163F, -0.310111225F, -0.311569571F,
+  -0.313027203F, -0.31448406F, -0.315940201F, -0.317395598F, -0.318850249F,
+  -0.320304126F, -0.321757287F, -0.323209643F, -0.324661285F, -0.326112121F,
+  -0.327562213F, -0.32901153F, -0.330460101F, -0.331907839F, -0.333354831F,
+  -0.334801048F, -0.336246461F, -0.337691069F, -0.339134902F, -0.34057793F,
+  -0.342020154F, -0.343461573F, -0.344902188F, -0.346341968F, -0.347780943F,
+  -0.349219114F, -0.35065645F, -0.352092981F, -0.353528678F, -0.354963511F,
+  -0.356397539F, -0.357830733F, -0.359263062F, -0.360694557F, -0.362125188F,
+  -0.363554984F, -0.364983916F, -0.366412F, -0.367839217F, -0.369265556F,
+  -0.370691031F, -0.372115642F, -0.373539358F, -0.374962211F, -0.376384199F,
+  -0.377805263F, -0.379225463F, -0.380644768F, -0.38206315F, -0.383480668F,
+  -0.384897262F, -0.386312962F, -0.387727737F, -0.389141619F, -0.390554577F,
+  -0.391966611F, -0.393377721F, -0.394787908F, -0.39619717F, -0.397605509F,
+  -0.399012893F, -0.400419325F, -0.401824832F, -0.403229415F, -0.404633015F,
+  -0.406035662F, -0.407437384F, -0.408838123F, -0.410237908F, -0.41163671F,
+  -0.413034558F, -0.414431423F, -0.415827334F, -0.417222261F, -0.418616205F,
+  -0.420009136F, -0.421401113F, -0.422792077F, -0.424182057F, -0.425571024F,
+  -0.426959F, -0.428345978F, -0.429731935F, -0.431116879F, -0.432500809F,
+  -0.433883727F, -0.43526563F, -0.436646491F, -0.438026339F, -0.439405143F,
+  -0.440782934F, -0.442159683F, -0.443535358F, -0.44491002F, -0.446283638F,
+  -0.447656184F, -0.449027687F, -0.450398147F, -0.451767534F, -0.453135848F,
+  -0.454503089F, -0.455869287F, -0.457234383F, -0.458598435F, -0.459961385F,
+  -0.461323261F, -0.462684035F, -0.464043736F, -0.465402335F, -0.466759861F,
+  -0.468116254F, -0.469471574F, -0.470825762F, -0.472178847F, -0.473530829F,
+  -0.474881709F, -0.476231456F, -0.4775801F, -0.478927583F, -0.480273962F,
+  -0.481619209F, -0.482963324F, -0.484306306F, -0.485648125F, -0.486988813F,
+  -0.488328367F, -0.48966676F, -0.49100402F, -0.492340088F, -0.493675023F,
+  -0.495008796F, -0.496341377F, -0.497672826F, -0.499003083F, -0.500332177F,
+  -0.501660049F, -0.502986789F, -0.504312336F, -0.505636692F, -0.506959856F,
+  -0.508281827F, -0.509602606F, -0.510922194F, -0.512240529F, -0.513557732F,
+  -0.514873683F, -0.516188383F, -0.51750195F, -0.518814266F, -0.520125329F,
+  -0.521435201F, -0.522743821F, -0.524051249F, -0.525357425F, -0.52666235F,
+  -0.527966F, -0.529268503F, -0.530569732F, -0.53186965F, -0.533168375F,
+  -0.534465849F, -0.535762F, -0.537056923F, -0.538350642F, -0.539643F,
+  -0.540934145F, -0.542224F, -0.543512583F, -0.544799864F, -0.546085894F,
+  -0.547370613F, -0.548654079F, -0.549936235F, -0.551217079F, -0.552496612F,
+  -0.553774893F, -0.555051863F, -0.556327462F, -0.55760181F, -0.558874846F,
+  -0.56014657F, -0.561416924F, -0.562686F, -0.563953757F, -0.565220177F,
+  -0.566485286F, -0.567749F, -0.56901145F, -0.570272505F, -0.571532249F,
+  -0.572790623F, -0.574047685F, -0.575303376F, -0.576557696F, -0.577810645F,
+  -0.579062283F, -0.58031255F, -0.581561446F, -0.582808912F, -0.584055066F,
+  -0.58529985F, -0.586543262F, -0.587785244F, -0.589025855F, -0.590265095F,
+  -0.591502964F, -0.592739403F, -0.593974471F, -0.595208168F, -0.596440434F,
+  -0.59767127F, -0.598900735F, -0.60012877F, -0.601355374F, -0.602580607F,
+  -0.60380441F, -0.605026782F, -0.606247723F, -0.607467234F, -0.608685374F,
+  -0.609902F, -0.611117244F, -0.612331033F, -0.613543332F, -0.61475426F,
+  -0.615963697F, -0.617171705F, -0.618378222F, -0.619583368F, -0.620786965F,
+  -0.621989131F, -0.623189867F, -0.624389112F, -0.625586867F, -0.626783133F,
+  -0.627977967F, -0.629171312F, -0.630363166F, -0.63155359F, -0.632742465F,
+  -0.633929849F, -0.635115743F, -0.636300206F, -0.63748312F, -0.638664544F,
+  -0.639844418F, -0.641022861F, -0.642199755F, -0.643375099F, -0.644548953F,
+  -0.645721316F, -0.64689219F, -0.648061454F, -0.649229288F, -0.650395513F,
+  -0.651560247F, -0.652723432F, -0.653885067F, -0.655045211F, -0.656203747F,
+  -0.657360792F, -0.658516288F, -0.659670174F, -0.66082257F, -0.661973417F,
+  -0.663122654F, -0.664270341F, -0.665416479F, -0.666561067F, -0.667704046F,
+  -0.668845475F, -0.669985354F, -0.671123624F, -0.672260344F, -0.673395455F,
+  -0.674528956F, -0.675660908F, -0.676791251F, -0.677920043F, -0.679047167F,
+  -0.680172741F, -0.681296706F, -0.682419062F, -0.683539808F, -0.684658945F,
+  -0.685776472F, -0.68689239F, -0.688006699F, -0.689119339F, -0.690230429F,
+  -0.69133985F, -0.692447662F, -0.693553805F, -0.694658399F, -0.695761263F,
+  -0.696862519F, -0.697962165F, -0.699060142F, -0.70015651F, -0.701251149F,
+  -0.702344239F, -0.7034356F, -0.704525352F, -0.705613375F, -0.706699789F,
+  -0.707784534F, -0.70886761F, -0.709949F, -0.711028755F, -0.712106824F,
+  -0.713183224F, -0.714257956F, -0.715330958F, -0.716402292F, -0.717471957F,
+  -0.718539953F, -0.719606221F, -0.720670819F, -0.721733689F, -0.72279489F,
+  -0.723854363F, -0.724912107F, -0.725968182F, -0.727022588F, -0.728075206F,
+  -0.729126155F, -0.730175376F, -0.731222868F, -0.732268691F, -0.733312726F,
+  -0.734355032F, -0.73539567F, -0.736434519F, -0.73747164F, -0.738507092F,
+  -0.739540756F, -0.740572631F, -0.741602838F, -0.742631257F, -0.743657947F,
+  -0.744682908F, -0.745706081F, -0.746727467F, -0.747747123F, -0.748765051F,
+  -0.749781191F, -0.750795603F, -0.751808167F, -0.752819061F, -0.753828108F,
+  -0.754835367F, -0.755840898F, -0.75684464F, -0.757846594F, -0.75884676F,
+  -0.759845138F, -0.760841727F, -0.761836588F, -0.762829602F, -0.763820767F,
+  -0.764810205F, -0.765797794F, -0.766783655F, -0.767767668F, -0.768749833F,
+  -0.76973021F, -0.770708799F, -0.7716856F, -0.772660553F, -0.773633659F,
+  -0.774605F, -0.775574446F, -0.776542127F, -0.777507961F, -0.778471947F,
+  -0.779434085F, -0.780394435F, -0.781352937F, -0.782309592F, -0.783264399F,
+  -0.784217358F, -0.785168469F, -0.786117733F, -0.787065208F, -0.788010776F,
+  -0.788954496F, -0.789896309F, -0.790836334F, -0.791774452F, -0.792710721F,
+  -0.793645144F, -0.794577658F, -0.795508325F, -0.796437144F, -0.797364056F,
+  -0.79828912F, -0.799212277F, -0.800133526F, -0.801052928F, -0.801970482F,
+  -0.802886069F, -0.803799808F, -0.80471164F, -0.805621624F, -0.806529641F,
+  -0.807435811F, -0.808340073F, -0.809242427F, -0.810142875F, -0.811041355F,
+  -0.811938F, -0.812832713F, -0.813725531F, -0.814616382F, -0.815505385F,
+  -0.816392422F, -0.817277551F, -0.818160772F, -0.819042F, -0.819921374F,
+  -0.820798755F, -0.821674287F, -0.822547793F, -0.823419452F, -0.824289083F,
+  -0.825156868F, -0.826022625F, -0.826886475F, -0.827748358F, -0.828608334F,
+  -0.829466343F, -0.830322385F, -0.83117646F, -0.832028627F, -0.832878768F,
+  -0.833727F, -0.834573269F, -0.835417569F, -0.836259842F, -0.837100208F,
+  -0.837938607F, -0.838775039F, -0.839609444F, -0.840441883F, -0.841272414F,
+  -0.842100859F, -0.842927396F, -0.843751907F, -0.844574451F, -0.845395F,
+  -0.846213579F, -0.847030163F, -0.847844779F, -0.84865737F, -0.849467933F,
+  -0.85027653F, -0.8510831F, -0.851887703F, -0.852690279F, -0.853490829F,
+  -0.854289412F, -0.855085969F, -0.855880499F, -0.856673F, -0.857463479F,
+  -0.858252F, -0.859038472F, -0.859822869F, -0.860605299F, -0.861385703F,
+  -0.86216408F, -0.862940431F, -0.863714695F, -0.864487F, -0.865257204F,
+  -0.866025388F, -0.866791546F, -0.867555678F, -0.868317783F, -0.869077802F,
+  -0.869835794F, -0.8705917F, -0.87134558F, -0.872097433F, -0.872847199F,
+  -0.87359494F, -0.874340594F, -0.875084221F, -0.875825763F, -0.876565278F,
+  -0.877302706F, -0.878038049F, -0.878771365F, -0.879502594F, -0.880231738F,
+  -0.880958796F, -0.881683826F, -0.882406771F, -0.88312763F, -0.883846402F,
+  -0.884563088F, -0.885277689F, -0.885990202F, -0.88670069F, -0.887409031F,
+  -0.888115287F, -0.888819456F, -0.889521539F, -0.890221536F, -0.890919447F,
+  -0.891615212F, -0.89230895F, -0.893000543F, -0.89369F, -0.89437741F,
+  -0.895062685F, -0.895745873F, -0.896426916F, -0.897105873F, -0.897782743F,
+  -0.898457468F, -0.899130106F, -0.899800599F, -0.900468946F, -0.901135206F,
+  -0.901799381F, -0.90246141F, -0.903121293F, -0.90377903F, -0.904434681F,
+  -0.905088186F, -0.905739605F, -0.906388819F, -0.907035947F, -0.907680929F,
+  -0.908323765F, -0.908964455F, -0.909603F, -0.910239458F, -0.910873711F,
+  -0.911505878F, -0.912135839F, -0.912763655F, -0.913389385F, -0.914012909F,
+  -0.914634287F, -0.91525352F, -0.915870607F, -0.916485548F, -0.917098284F,
+  -0.917708933F, -0.918317378F, -0.918923676F, -0.919527769F, -0.920129716F,
+  -0.920729518F, -0.921327174F, -0.921922624F, -0.922515869F, -0.923106968F,
+  -0.923695922F, -0.92428267F, -0.924867272F, -0.925449669F, -0.926029921F,
+  -0.926607966F, -0.927183867F, -0.927757561F, -0.928329051F, -0.928898394F,
+  -0.929465473F, -0.930030465F, -0.930593193F, -0.931153774F, -0.931712151F,
+  -0.932268322F, -0.932822287F, -0.933374047F, -0.933923662F, -0.934471071F,
+  -0.935016215F, -0.935559213F, -0.9361F, -0.936638594F, -0.937175F,
+  -0.937709153F, -0.938241124F, -0.93877089F, -0.939298391F, -0.939823747F,
+  -0.940346897F, -0.940867782F, -0.941386461F, -0.941902936F, -0.942417204F,
+  -0.942929268F, -0.943439066F, -0.94394666F, -0.944452047F, -0.94495517F,
+  -0.945456088F, -0.9459548F, -0.946451306F, -0.946945548F, -0.947437584F,
+  -0.947927356F, -0.948414922F, -0.948900223F, -0.949383318F, -0.949864149F,
+  -0.950342774F, -0.950819194F, -0.95129329F, -0.951765239F, -0.952234864F,
+  -0.952702284F, -0.953167439F, -0.953630388F, -0.954091072F, -0.954549551F,
+  -0.955005705F, -0.955459654F, -0.955911338F, -0.956360817F, -0.956808031F,
+  -0.957253F, -0.957695663F, -0.958136082F, -0.958574235F, -0.959010184F,
+  -0.959443808F, -0.959875226F, -0.960304379F, -0.960731268F, -0.961155891F,
+  -0.96157825F, -0.961998343F, -0.962416172F, -0.962831736F, -0.963245034F,
+  -0.963656068F, -0.964064837F, -0.96447134F, -0.964875579F, -0.965277493F,
+  -0.965677202F, -0.966074586F, -0.966469705F, -0.966862559F, -0.967253149F,
+  -0.967641473F, -0.968027472F, -0.968411207F, -0.968792677F, -0.969171882F,
+  -0.969548762F, -0.969923377F, -0.970295727F, -0.970665753F, -0.971033573F,
+  -0.971399F, -0.97176224F, -0.972123146F, -0.972481728F, -0.972838044F,
+  -0.973192096F, -0.973543882F, -0.973893285F, -0.974240482F, -0.974585354F,
+  -0.974927902F, -0.975268185F, -0.975606143F, -0.975941837F, -0.976275265F,
+  -0.976606309F, -0.976935148F, -0.977261603F, -0.977585793F, -0.977907717F,
+  -0.978227258F, -0.978544593F, -0.978859544F, -0.97917223F, -0.979482591F,
+  -0.979790628F, -0.9800964F, -0.980399847F, -0.980701F, -0.980999827F,
+  -0.98129636F, -0.981590569F, -0.981882453F, -0.982172072F, -0.982459366F,
+  -0.982744277F, -0.983027F, -0.983307302F, -0.983585298F, -0.983861F,
+  -0.984134436F, -0.984405518F, -0.984674215F, -0.984940708F, -0.985204816F,
+  -0.985466599F, -0.985726058F, -0.985983253F, -0.986238062F, -0.986490607F,
+  -0.986740768F, -0.986988664F, -0.987234175F, -0.987477422F, -0.987718344F,
+  -0.987956882F, -0.988193154F, -0.988427043F, -0.988658667F, -0.988887906F,
+  -0.989114881F, -0.989339471F, -0.989561737F, -0.989781678F, -0.989999294F,
+  -0.990214586F, -0.990427554F, -0.990638196F, -0.990846515F, -0.991052449F,
+  -0.991256058F, -0.991457403F, -0.991656363F, -0.991852939F, -0.99204725F,
+  -0.992239177F, -0.992428839F, -0.992616117F, -0.99280107F, -0.992983639F,
+  -0.993163943F, -0.993341863F, -0.993517458F, -0.993690729F, -0.993861616F,
+  -0.994030237F, -0.994196475F, -0.994360328F, -0.994521916F, -0.99468112F,
+  -0.994838F, -0.994992495F, -0.995144725F, -0.995294511F, -0.995442033F,
+  -0.99558717F, -0.99573F, -0.995870471F, -0.996008635F, -0.996144414F,
+  -0.996277809F, -0.99640888F, -0.996537626F, -0.996664047F, -0.996788085F,
+  -0.996909797F, -0.997029185F, -0.997146189F, -0.997260809F, -0.997373164F,
+  -0.997483134F, -0.997590721F, -0.997696F, -0.99779892F, -0.997899473F,
+  -0.997997701F, -0.998093605F, -0.998187125F, -0.99827826F, -0.998367131F,
+  -0.998453557F, -0.998537719F, -0.998619497F, -0.99869889F, -0.998775959F,
+  -0.998850703F, -0.998923063F, -0.998993039F, -0.99906075F, -0.999126F,
+  -0.999189F, -0.999249578F, -0.999307871F, -0.99936378F, -0.999417305F,
+  -0.999468505F, -0.999517322F, -0.999563813F, -0.999608F, -0.999649763F,
+  -0.999689162F, -0.999726236F, -0.999761F, -0.999793351F, -0.999823391F,
+  -0.999851048F, -0.99987632F, -0.999899268F, -0.999919891F, -0.99993813F,
+  -0.999954045F, -0.999967575F, -0.999978721F, -0.999987543F, -0.99999404F,
+  -0.999998152F, -0.99999994F, -0.999999344F, -0.999996424F, -0.999991119F,
+  -0.99998343F, -0.999973416F, -0.999961078F, -0.999946356F, -0.999929309F,
+  -0.999909878F, -0.999888122F, -0.999864F, -0.999837518F, -0.999808669F,
+  -0.999777436F, -0.999743938F, -0.999708F, -0.99966979F, -0.99962914F,
+  -0.999586225F, -0.999540865F, -0.999493241F, -0.999443173F, -0.999390841F,
+  -0.999336123F, -0.999279F, -0.999219596F, -0.999157786F, -0.999093652F,
+  -0.999027193F, -0.998958349F, -0.998887181F, -0.998813629F, -0.998737752F,
+  -0.998659492F, -0.998578906F, -0.998495936F, -0.998410642F, -0.998323F,
+  -0.998233F, -0.998140633F, -0.998045921F, -0.997948885F, -0.997849524F,
+  -0.997747779F, -0.99764365F, -0.997537196F, -0.997428417F, -0.997317314F,
+  -0.997203767F, -0.997087955F, -0.996969759F, -0.996849239F, -0.996726394F,
+  -0.996601164F, -0.996473551F, -0.996343672F, -0.99621141F, -0.996076763F,
+  -0.995939851F, -0.995800555F, -0.995658875F, -0.995514929F, -0.9953686F,
+  -0.995219886F, -0.995068908F, -0.994915545F, -0.994759858F, -0.994601786F,
+  -0.99444139F, -0.994278669F, -0.994113624F, -0.993946195F, -0.993776441F,
+  -0.993604362F, -0.993429959F, -0.993253171F, -0.993074119F, -0.992892623F,
+  -0.992708862F, -0.992522776F, -0.992334306F, -0.992143512F, -0.991950393F,
+  -0.991754949F, -0.991557121F, -0.991357F, -0.991154552F, -0.99094975F,
+  -0.990742624F, -0.990533173F, -0.990321398F, -0.990107238F, -0.989890814F,
+  -0.989672F, -0.989450932F, -0.989227474F, -0.989001691F, -0.988773584F,
+  -0.988543153F, -0.988310397F, -0.988075316F, -0.987837911F, -0.987598181F,
+  -0.987356126F, -0.987111747F, -0.986865F, -0.986615956F, -0.986364603F,
+  -0.986110926F, -0.985854924F, -0.985596657F, -0.985336F, -0.98507303F,
+  -0.98480773F, -0.984540164F, -0.984270215F, -0.983998F, -0.983723462F,
+  -0.983446598F, -0.98316741F, -0.982885897F, -0.982602119F, -0.982316F,
+  -0.982027531F, -0.981736779F, -0.981443763F, -0.981148362F, -0.980850697F,
+  -0.980550706F, -0.980248451F, -0.979943812F, -0.979636908F, -0.979327679F,
+  -0.979016185F, -0.978702366F, -0.978386223F, -0.978067756F, -0.977747F,
+  -0.977424F, -0.977098644F, -0.976771F, -0.976441085F, -0.976108849F,
+  -0.975774288F, -0.975437462F, -0.975098312F, -0.974756896F, -0.974413216F,
+  -0.974067152F, -0.973718882F, -0.973368287F, -0.973015368F, -0.972660184F,
+  -0.972302735F, -0.971942961F, -0.971580923F, -0.971216559F, -0.970849931F,
+  -0.970481038F, -0.97010982F, -0.969736338F, -0.96936059F, -0.968982577F,
+  -0.96860224F, -0.968219638F, -0.967834771F, -0.967447579F, -0.967058122F,
+  -0.9666664F, -0.966272414F, -0.965876162F, -0.965477645F, -0.965076804F,
+  -0.964673698F, -0.964268386F, -0.96386075F, -0.963450849F, -0.963038683F,
+  -0.962624252F, -0.962207556F, -0.961788595F, -0.961367369F, -0.960943878F,
+  -0.960518122F, -0.960090101F, -0.959659815F, -0.959227264F, -0.958792508F,
+  -0.958355427F, -0.957916141F, -0.957474589F, -0.957030773F, -0.956584692F,
+  -0.956136346F, -0.955685794F, -0.955233F, -0.954777896F, -0.95432061F,
+  -0.953861F, -0.953399241F, -0.952935159F, -0.952468872F, -0.95200032F,
+  -0.951529562F, -0.95105654F, -0.950581253F, -0.95010376F, -0.949624F,
+  -0.949142039F, -0.94865787F, -0.948171377F, -0.947682738F, -0.947191834F,
+  -0.946698725F, -0.946203351F, -0.945705771F, -0.945205927F, -0.944703877F,
+  -0.944199622F, -0.943693161F, -0.943184435F, -0.942673504F, -0.942160368F,
+  -0.941644967F, -0.941127419F, -0.940607607F, -0.94008559F, -0.939561367F,
+  -0.939034939F, -0.938506246F, -0.937975407F, -0.937442362F, -0.936907053F,
+  -0.936369598F, -0.935829878F, -0.935288F, -0.934743941F, -0.934197605F,
+  -0.933649123F, -0.933098435F, -0.932545543F, -0.931990504F, -0.931433201F,
+  -0.930873752F, -0.930312097F, -0.929748237F, -0.929182231F, -0.928613961F,
+  -0.928043544F, -0.927471F, -0.926896214F, -0.926319242F, -0.925740063F,
+  -0.925158739F, -0.924575269F, -0.923989594F, -0.923401713F, -0.922811687F,
+  -0.922219515F, -0.921625137F, -0.921028614F, -0.920429885F, -0.919829F,
+  -0.919226F, -0.918620765F, -0.918013394F, -0.917403877F, -0.916792214F,
+  -0.916178346F, -0.915562332F, -0.914944172F, -0.914323866F, -0.913701415F,
+  -0.913076818F, -0.91245F, -0.911821127F, -0.911190033F, -0.910556853F,
+  -0.909921527F, -0.909284F, -0.908644378F, -0.908002615F, -0.907358706F,
+  -0.906712651F, -0.906064451F, -0.905414164F, -0.904761732F, -0.904107153F,
+  -0.903450429F, -0.902791619F, -0.902130663F, -0.901467562F, -0.900802374F,
+  -0.90013504F, -0.899465621F, -0.898794055F, -0.898120344F, -0.897444606F,
+  -0.896766663F, -0.896086693F, -0.895404518F, -0.894720316F, -0.894033968F,
+  -0.893345535F, -0.892655F, -0.891962349F, -0.891267598F, -0.89057076F,
+  -0.889871836F, -0.889170766F, -0.888467669F, -0.887762427F, -0.887055099F,
+  -0.886345685F, -0.885634243F, -0.884920657F, -0.884205F, -0.883487284F,
+  -0.882767439F, -0.882045567F, -0.881321549F, -0.880595505F, -0.879867435F,
+  -0.879137218F, -0.878405F, -0.877670646F, -0.87693423F, -0.876195788F,
+  -0.87545526F, -0.874712646F, -0.873968F, -0.873221338F, -0.872472584F,
+  -0.871721745F, -0.870968878F, -0.870214F, -0.869457F, -0.868698F,
+  -0.867936969F, -0.867173851F, -0.866408765F, -0.865641534F, -0.864872336F,
+  -0.864101112F, -0.863327801F, -0.862552464F, -0.86177516F, -0.86099577F,
+  -0.860214353F, -0.859430909F, -0.858645499F, -0.857858F, -0.857068479F,
+  -0.856277F, -0.855483472F, -0.854687929F, -0.853890359F, -0.853090823F,
+  -0.8522892F, -0.85148567F, -0.850680053F, -0.84987247F, -0.84906292F,
+  -0.848251283F, -0.847437739F, -0.846622169F, -0.845804572F, -0.844985F,
+  -0.844163477F, -0.84333992F, -0.842514396F, -0.841686904F, -0.840857387F,
+  -0.840025902F, -0.83919245F, -0.838357031F, -0.837519646F, -0.836680293F,
+  -0.835839F, -0.834995627F, -0.834150374F, -0.833303154F, -0.832453966F,
+  -0.831602752F, -0.830749691F, -0.829894602F, -0.829037547F, -0.828178585F,
+  -0.827317655F, -0.826454818F, -0.825589955F, -0.824723244F, -0.823854506F,
+  -0.822983861F, -0.822111309F, -0.821236789F, -0.820360303F, -0.819481909F,
+  -0.818601608F, -0.8177194F, -0.816835225F, -0.815949142F, -0.815061152F,
+  -0.814171195F, -0.813279331F, -0.812385619F, -0.81148994F, -0.810592353F,
+  -0.80969286F, -0.808791459F, -0.80788815F, -0.806983F, -0.806075871F,
+  -0.805166841F, -0.804255962F, -0.803343177F, -0.802428484F, -0.801511943F,
+  -0.800593495F, -0.79967314F, -0.798750937F, -0.797826827F, -0.796900809F,
+  -0.795973F, -0.79504323F, -0.794111669F, -0.793178201F, -0.792242825F,
+  -0.791305602F, -0.79036653F, -0.789425611F, -0.788482845F, -0.787538171F,
+  -0.786591709F, -0.785643339F, -0.784693182F, -0.783741117F, -0.782787204F,
+  -0.781831503F, -0.780873895F, -0.779914498F, -0.778953254F, -0.777990162F,
+  -0.777025223F, -0.776058495F, -0.77508992F, -0.774119556F, -0.773147345F,
+  -0.772173285F, -0.771197438F, -0.770219743F, -0.76924026F, -0.768259F,
+  -0.76727587F, -0.766290963F, -0.765304267F, -0.764315724F, -0.763325393F,
+  -0.762333274F, -0.761339366F, -0.760343671F, -0.759346187F, -0.758346915F,
+  -0.757345855F, -0.756343F, -0.755338371F, -0.754331946F, -0.753323793F,
+  -0.752313852F, -0.751302123F, -0.750288606F, -0.74927336F, -0.748256326F,
+  -0.747237563F, -0.746217F, -0.745194674F, -0.744170606F, -0.74314481F,
+  -0.742117286F, -0.741088F, -0.740056932F, -0.739024103F, -0.737989604F,
+  -0.736953318F, -0.735915303F, -0.73487556F, -0.733834088F, -0.732790887F,
+  -0.731746F, -0.73069936F, -0.729651F, -0.728600919F, -0.727549136F,
+  -0.726495624F, -0.725440383F, -0.724383473F, -0.723324835F, -0.722264469F,
+  -0.721202433F, -0.720138729F, -0.719073296F, -0.718006134F, -0.716937363F,
+  -0.715866864F, -0.714794636F, -0.713720798F, -0.712645233F, -0.711568F,
+  -0.710489094F, -0.709408522F, -0.70832628F, -0.70724237F, -0.70615679F,
+  -0.705069542F, -0.703980684F, -0.702890098F, -0.701797903F, -0.700704038F,
+  -0.699608505F, -0.698511362F, -0.69741255F, -0.696312129F, -0.69521004F,
+  -0.694106281F, -0.693001F, -0.691893935F, -0.690785348F, -0.689675093F,
+  -0.688563228F, -0.687449753F, -0.68633461F, -0.685217917F, -0.684099555F,
+  -0.682979643F, -0.681858063F, -0.680734932F, -0.679610133F, -0.678483784F,
+  -0.677355826F, -0.676226258F, -0.675095141F, -0.673962414F, -0.672828078F,
+  -0.671692193F, -0.670554698F, -0.669415593F, -0.668275F, -0.667132735F,
+  -0.665989F, -0.664843619F, -0.663696706F, -0.662548244F, -0.661398172F,
+  -0.660246611F, -0.65909344F, -0.657938719F, -0.656782448F, -0.655624688F,
+  -0.654465318F, -0.653304458F, -0.652142048F, -0.650978088F, -0.649812579F,
+  -0.64864558F, -0.647477031F, -0.646306932F, -0.645135343F, -0.643962264F,
+  -0.642787635F, -0.641611457F, -0.640433788F, -0.63925463F, -0.638074F,
+  -0.636891842F, -0.635708153F, -0.634523F, -0.633336365F, -0.632148206F,
+  -0.630958557F, -0.629767418F, -0.628574848F, -0.627380729F, -0.626185179F,
+  -0.624988139F, -0.623789668F, -0.622589707F, -0.621388257F, -0.620185316F,
+  -0.618981F, -0.617775142F, -0.61656791F, -0.615359187F, -0.614149F,
+  -0.612937391F, -0.611724317F, -0.610509813F, -0.609293878F, -0.608076453F,
+  -0.606857657F, -0.605637431F, -0.604415774F, -0.603192687F, -0.601968169F,
+  -0.60074228F, -0.599514902F, -0.598286152F, -0.597056031F, -0.59582448F,
+  -0.594591498F, -0.593357146F, -0.592121363F, -0.590884209F, -0.589645684F,
+  -0.588405728F, -0.587164402F, -0.585921705F, -0.584677637F, -0.583432198F,
+  -0.582185328F, -0.580937147F, -0.579687595F, -0.578436613F, -0.577184319F,
+  -0.575930715F, -0.574675679F, -0.573419333F, -0.572161615F, -0.570902526F,
+  -0.569642127F, -0.568380415F, -0.567117333F, -0.56585288F, -0.564587116F,
+  -0.563320041F, -0.562051654F, -0.560781896F, -0.559510887F, -0.558238506F,
+  -0.556964815F, -0.555689812F, -0.554413557F, -0.553135931F, -0.551857F,
+  -0.550576806F, -0.549295306F, -0.548012495F, -0.546728432F, -0.545443058F,
+  -0.544156373F, -0.542868435F, -0.541579247F, -0.540288746F, -0.538997F,
+  -0.537703931F, -0.536409616F, -0.53511411F, -0.533817232F, -0.532519162F,
+  -0.53121984F, -0.529919267F, -0.528617442F, -0.527314365F, -0.526010036F,
+  -0.524704516F, -0.523397684F, -0.52208966F, -0.520780444F, -0.51947F,
+  -0.518158257F, -0.516845345F, -0.515531182F, -0.514215827F, -0.51289928F,
+  -0.511581481F, -0.510262549F, -0.508942366F, -0.507621F, -0.506298423F,
+  -0.504974663F, -0.503649712F, -0.502323568F, -0.500996292F, -0.499667764F,
+  -0.498338103F, -0.497007251F, -0.495675236F, -0.494342059F, -0.49300769F,
+  -0.491672188F, -0.490335524F, -0.488997698F, -0.487658739F, -0.486318618F,
+  -0.484977365F, -0.483634949F, -0.4822914F, -0.48094672F, -0.479600906F,
+  -0.478254F, -0.476905912F, -0.475556731F, -0.474206418F, -0.472855F,
+  -0.471502453F, -0.470148802F, -0.468794048F, -0.467438191F, -0.466081232F,
+  -0.46472317F, -0.463364035F, -0.462003767F, -0.460642457F, -0.459280044F,
+  -0.457916528F, -0.456551969F, -0.455186307F, -0.453819603F, -0.452451825F,
+  -0.451082975F, -0.449713051F, -0.448342085F, -0.446970046F, -0.445596963F,
+  -0.444222838F, -0.442847639F, -0.441471428F, -0.440094173F, -0.438715875F,
+  -0.437336564F, -0.43595621F, -0.434574813F, -0.433192402F, -0.431808978F,
+  -0.430424541F, -0.429039091F, -0.427652627F, -0.42626515F, -0.42487666F,
+  -0.423487186F, -0.422096729F, -0.420705259F, -0.419312805F, -0.417919338F,
+  -0.416524917F, -0.415129513F, -0.413733125F, -0.412335753F, -0.410937428F,
+  -0.40953812F, -0.408137858F, -0.406736642F, -0.405334473F, -0.40393132F,
+  -0.402527243F, -0.401122212F, -0.399716228F, -0.39830932F, -0.396901459F,
+  -0.395492643F, -0.394082934F, -0.392672271F, -0.391260713F, -0.389848202F,
+  -0.388434798F, -0.387020469F, -0.385605216F, -0.384189069F, -0.382772028F,
+  -0.381354064F, -0.379935235F, -0.378515482F, -0.377094835F, -0.375673324F,
+  -0.374250919F, -0.372827619F, -0.371403456F, -0.369978398F, -0.368552506F,
+  -0.36712572F, -0.365698069F, -0.364269555F, -0.362840205F, -0.36141F,
+  -0.359978914F, -0.358547F, -0.357114226F, -0.355680645F, -0.354246199F,
+  -0.352810919F, -0.351374835F, -0.349937886F, -0.348500133F, -0.347061574F,
+  -0.345622182F, -0.344181955F, -0.342740953F, -0.341299146F, -0.339856505F,
+  -0.33841309F, -0.336968869F, -0.335523844F, -0.334078044F, -0.332631439F,
+  -0.331184059F, -0.329735905F, -0.328286976F, -0.326837271F, -0.325386792F,
+  -0.323935568F, -0.322483569F, -0.321030796F, -0.319577277F, -0.318123F,
+  -0.316668F, -0.31521222F, -0.313755721F, -0.312298477F, -0.310840487F,
+  -0.309381783F, -0.307922333F, -0.306462169F, -0.305001289F, -0.303539693F,
+  -0.302077383F, -0.300614327F, -0.299150586F, -0.29768616F, -0.296221018F,
+  -0.294755161F, -0.293288648F, -0.29182142F, -0.290353507F, -0.288884908F,
+  -0.287415624F, -0.285945684F, -0.284475058F, -0.283003747F, -0.281531811F,
+  -0.280059159F, -0.278585881F, -0.277111948F, -0.275637358F, -0.274162114F,
+  -0.272686213F, -0.271209687F, -0.269732535F, -0.268254727F, -0.266776294F,
+  -0.265297234F, -0.263817549F, -0.262337238F, -0.26085633F, -0.259374768F,
+  -0.257892638F, -0.256409883F, -0.254926503F, -0.253442556F, -0.251957983F,
+  -0.250472844F, -0.248987108F, -0.247500777F, -0.246013865F, -0.244526386F,
+  -0.243038312F, -0.241549686F, -0.240060478F, -0.238570705F, -0.23708038F,
+  -0.235589489F, -0.234098047F, -0.232606053F, -0.231113508F, -0.229620412F,
+  -0.228126794F, -0.226632625F, -0.225137934F, -0.223642707F, -0.222146943F,
+  -0.220650673F, -0.219153866F, -0.217656553F, -0.216158733F, -0.214660391F,
+  -0.213161558F, -0.211662218F, -0.210162371F, -0.208662048F, -0.207161218F,
+  -0.205659896F, -0.204158112F, -0.202655822F, -0.20115307F, -0.199649841F,
+  -0.19814615F, -0.196641982F, -0.195137352F, -0.19363226F, -0.192126721F,
+  -0.19062072F, -0.189114273F, -0.187607393F, -0.186100051F, -0.184592292F,
+  -0.183084086F, -0.181575447F, -0.180066377F, -0.178556889F, -0.177046984F,
+  -0.175536662F, -0.174025923F, -0.172514781F, -0.171003222F, -0.169491276F,
+  -0.167978913F, -0.166466162F, -0.164953023F, -0.163439497F, -0.161925584F,
+  -0.160411283F, -0.15889661F, -0.157381564F, -0.155866146F, -0.154350355F,
+  -0.152834207F, -0.151317701F, -0.149800837F, -0.148283616F, -0.146766052F,
+  -0.14524813F, -0.14372988F, -0.142211288F, -0.140692353F, -0.139173105F,
+  -0.137653515F, -0.136133611F, -0.13461338F, -0.133092821F, -0.131571963F,
+  -0.130050793F, -0.12852931F, -0.127007529F, -0.125485465F, -0.12396308F,
+  -0.12244042F, -0.120917462F, -0.119394228F, -0.117870703F, -0.116346911F,
+  -0.114822835F, -0.113298491F, -0.111773886F, -0.110249013F, -0.108723886F,
+  -0.107198499F, -0.105672859F, -0.104146965F, -0.102620833F, -0.101094462F,
+  -0.0995678455F, -0.098041F, -0.0965139195F, -0.0949866176F, -0.0934590846F,
+  -0.0919313356F, -0.0904033706F, -0.0888751894F, -0.0873468071F, -0.0858182088F,
+  -0.0842894167F, -0.0827604234F, -0.0812312365F, -0.0797018558F, -0.0781722888F,
+  -0.0766425356F, -0.0751126F, -0.0735824928F, -0.0720522106F, -0.0705217645F,
+  -0.068991147F, -0.0674603656F, -0.0659294277F, -0.0643983334F, -0.0628670827F,
+  -0.0613356903F, -0.0598041527F, -0.0582724735F, -0.0567406602F, -0.0552087091F,
+  -0.0536766313F, -0.0521444231F, -0.0506120957F, -0.0490796454F, -0.0475470833F,
+  -0.0460144095F, -0.0444816239F, -0.0429487377F, -0.0414157473F, -0.0398826599F,
+  -0.0383494794F, -0.0368162058F, -0.0352828503F, -0.033749409F, -0.0322158895F,
+  -0.0306822918F, -0.0291486233F, -0.0276148859F, -0.0260810833F, -0.0245472193F,
+  -0.0230133F, -0.0214793235F, -0.0199452974F, -0.0184112247F, -0.0168771073F,
+  -0.0153429518F, -0.0138087599F, -0.0122745354F, -0.0107402811F,
+  -0.00920600165F, -0.00767170219F, -0.00613738317F, -0.00460305F,
+  -0.00306870602F, -0.00153435499F, 0.0F } ;
+
+#pragma section
+
+#define FAW_CORE0_IMEM0_CODE_START
+#include "FAW_MemMap.h"
+
+B_FM_T FM_B;
+DW_FM_T FM_DW;
+static RT_MODEL_FM_T FM_M_;
+RT_MODEL_FM_T *const FM_M = &FM_M_;
+
+#define FAW_CORE0_DMEM0_VALUE_STOP
+#include "FAW_MemMap.h"
+
+#define FAW_CORE0_IMEM0_CODE_START
+#include "FAW_MemMap.h"
+
+void tri_100us(void)
+{
+  int_T idxDelay;
+  real32_T rtb_Add1;
+  real32_T rtb_Gain;
+  real32_T rtb_Isc_ResSum4;
+  real32_T rtb_LookupCosTable1;
+  real32_T rtb_Product1;
+  real32_T rtb_Product3;
+  real32_T rtb_Switch;
+  boolean_T rtb_RelationalOperator1;
+  if (CAL_RDC_Switch_Ag_bool) {
+    rtb_LookupCosTable1 = 360.0F - RDC_agRtrEe;
+  } else {
+    rtb_LookupCosTable1 = RDC_agRtrEe;
+  }
+
+  if (CAL_RDC_flgCorrectOrReal_b) {
+    Var_rdc_Ag_f32 = FM_DW.UnitDelay2_DSTATE;
+  } else {
+    Var_rdc_Ag_f32 = rtb_LookupCosTable1;
+  }
+
+  RDC_ArctanAgRtr_CmPn = FM_DW.Delay_DSTATE * 4.0F * GLB_RDC_CircAge_f32 /
+    GLB_RDC_Sixty_f32 / 1.0E+6F * CAL_RDC_tiRsvlAngleSample_f32 + Var_rdc_Ag_f32;
+  if (360.0F <= RDC_ArctanAgRtr_CmPn) {
+    RDC_ArctanAgRtr_CmPn -= 360.0F;
+  } else {
+    if (RDC_ArctanAgRtr_CmPn < 0.0F) {
+      RDC_ArctanAgRtr_CmPn += 360.0F;
+    }
+  }
+
+  if (360.0F <= RDC_ArctanAgRtr_CmPn) {
+    rtb_Switch = RDC_ArctanAgRtr_CmPn - 360.0F;
+  } else if (RDC_ArctanAgRtr_CmPn <= FM_ConstB.Gain) {
+    rtb_Switch = RDC_ArctanAgRtr_CmPn + 360.0F;
+  } else {
+    rtb_Switch = RDC_ArctanAgRtr_CmPn;
+  }
+
+  RDC_Delta_Theta = rtb_Switch - FM_DW.UnitDelay_DSTATE;
+  if (RDC_Delta_Theta > 180.0F) {
+    RDC_Delta_Theta -= 360.0F;
+  } else {
+    if (RDC_Delta_Theta < -180.0F) {
+      RDC_Delta_Theta += 360.0F;
+    }
+  }
+
+  rtb_Product3 = RDC_Delta_Theta * FM_DW.Delay1_DSTATE;
+  rtb_Isc_ResSum4 = ((((((((rtb_Product3 + FM_DW.Delay1_DSTATE_d) +
+    FM_DW.Delay10_DSTATE[0]) + FM_DW.Delay9_DSTATE[0]) + FM_DW.Delay7_DSTATE[0])
+                        + FM_DW.Delay6_DSTATE[0]) + FM_DW.Delay5_DSTATE[0]) +
+                      FM_DW.Delay4_DSTATE[0]) + FM_DW.Delay3_DSTATE[0]) +
+    FM_DW.Delay2_DSTATE[0];
+  RDC_Delta_Theta_Flt = ((((((((rtb_Isc_ResSum4 + FM_DW.Delay8_DSTATE) +
+    FM_DW.Delay11_DSTATE[0]) + FM_DW.Delay18_DSTATE[0]) + FM_DW.Delay17_DSTATE[0])
+    + FM_DW.Delay16_DSTATE[0]) + FM_DW.Delay15_DSTATE[0]) +
+    FM_DW.Delay14_DSTATE[0]) + FM_DW.Delay13_DSTATE[0]) + FM_DW.Delay12_DSTATE[0];
+  if (!VAR_Bsw_bt15_b) {
+    if (FM_DW.UnitDelay_DSTATE_o > CAL_RDC_nWofltDelay_u16) {
+      rtb_Gain = floorf(CAL_RDC_nWofltDelay_u16);
+      if (rtIsNaNF(rtb_Gain) || rtIsInfF(rtb_Gain)) {
+        rtb_Gain = 0.0F;
+      } else {
+        rtb_Gain = fmodf(rtb_Gain, 65536.0F);
+      }
+
+      FM_DW.UnitDelay_DSTATE_o = (uint16_T)(rtb_Gain < 0.0F ? (int32_T)(uint16_T)
+        -(int16_T)(uint16_T)-rtb_Gain : (int32_T)(uint16_T)rtb_Gain);
+    }
+  } else {
+    FM_DW.UnitDelay_DSTATE_o = 0U;
+  }
+
+  FM_DW.UnitDelay_DSTATE_o++;
+  rtb_RelationalOperator1 = (FM_DW.UnitDelay_DSTATE_o >= CAL_RDC_nWofltDelay_u16);
+  rtb_LookupCosTable1 *= 11.3777781F;
+  if (FM_DW.UnitDelay_DSTATE_n > 4095.0F) {
+    FM_DW.UnitDelay_DSTATE_n = 4095.0F;
+  } else {
+    if (FM_DW.UnitDelay_DSTATE_n < 0.0F) {
+      FM_DW.UnitDelay_DSTATE_n = 0.0F;
+    }
+  }
+
+  if (rtb_LookupCosTable1 > 4095.0F) {
+    rtb_Gain = 4095.0F;
+    rtb_LookupCosTable1 = 4095.0F;
+  } else if (rtb_LookupCosTable1 < 0.0F) {
+    rtb_Gain = 0.0F;
+    rtb_LookupCosTable1 = 0.0F;
+  } else {
+    rtb_Gain = rtb_LookupCosTable1;
+  }
+
+  if (FM_DW.UnitDelay1_DSTATE > 4095.0F) {
+    FM_DW.UnitDelay1_DSTATE = 4095.0F;
+  } else {
+    if (FM_DW.UnitDelay1_DSTATE < 0.0F) {
+      FM_DW.UnitDelay1_DSTATE = 0.0F;
+    }
+  }
+
+  rtb_Add1 = RDC_COSTABLE[(int32_T)FM_DW.UnitDelay_DSTATE_n] * RDC_SINTABLE
+    [(int32_T)rtb_Gain] - RDC_COSTABLE[(int32_T)rtb_LookupCosTable1] *
+    RDC_SINTABLE[(int32_T)FM_DW.UnitDelay1_DSTATE];
+  rtb_Product1 = CAL_RDC_NRestrict_f32 * 6.283F * 1.414F;
+  Var_rdc_initend_b = FM_DW.Delay2_DSTATE_h;
+  if (FM_B.MCF_cofFrqPwm_d > 10.0F) {
+    rtb_Gain = 10.0F;
+  } else if (FM_B.MCF_cofFrqPwm_d < 0.1F) {
+    rtb_Gain = 0.1F;
+  } else {
+    rtb_Gain = FM_B.MCF_cofFrqPwm_d;
+  }
+
+  rtb_LookupCosTable1 = 0.0001F / rtb_Gain;
+  if (Var_rdc_initend_b) {
+    FM_DW.UnitDelay_DSTATE_h += rtb_Product1 * rtb_Product1 * 0.5F * rtb_Add1 *
+      rtb_LookupCosTable1;
+  } else {
+    FM_DW.UnitDelay_DSTATE_h = 0.0F;
+  }
+
+  rtb_Gain = (rtb_Add1 * rtb_Product1 + FM_DW.UnitDelay_DSTATE_h) * 57.2957802F;
+  FM_DW.UnitDelay_DSTATE_i = rtb_Gain / GLB_RDC_MotorPole_u8 / 6.0F * 0.01F +
+    0.99F * FM_DW.UnitDelay_DSTATE_i;
+  if (CAL_RDC_flgCorrectOrReal_b) {
+    RDC_Arctan_nWoFlt = FM_DW.UnitDelay_DSTATE_i;
+  } else if (rtb_RelationalOperator1) {
+    RDC_Arctan_nWoFlt = 0.166666672F * RDC_Delta_Theta_Flt / 100.0F /
+      GLB_RDC_MotorPole_u8 / 0.0001F;
+  } else {
+    RDC_Arctan_nWoFlt = 0.0F;
+  }
+
+  if (Var_rdc_initend_b) {
+    FM_DW.UnitDelay2_DSTATE = rtb_Gain * rtb_LookupCosTable1 +
+      FM_DW.UnitDelay_DSTATE_f;
+  } else {
+    FM_DW.UnitDelay2_DSTATE = 0.0F;
+  }
+
+  if (360.0F <= FM_DW.UnitDelay2_DSTATE) {
+    FM_DW.UnitDelay2_DSTATE -= 360.0F;
+  } else {
+    if (FM_DW.UnitDelay2_DSTATE <= 0.0F) {
+      FM_DW.UnitDelay2_DSTATE += 360.0F;
+    }
+  }
+
+  FM_DW.UnitDelay_DSTATE_n = 11.3777781F * FM_DW.UnitDelay2_DSTATE;
+  FM_DW.UnitDelay1_DSTATE = FM_DW.UnitDelay_DSTATE_n;
+  FM_DW.Delay_DSTATE = RDC_Arctan_nWoFlt;
+  FM_DW.UnitDelay_DSTATE = rtb_Switch;
+  FM_DW.Delay1_DSTATE = FM_B.MCF_cofFrqPwm_d;
+  FM_DW.Delay1_DSTATE_d = rtb_Product3;
+  FM_DW.Delay10_DSTATE[0] = FM_DW.Delay10_DSTATE[1];
+  FM_DW.Delay10_DSTATE[1] = rtb_Product3;
+  FM_DW.Delay9_DSTATE[0] = FM_DW.Delay9_DSTATE[1];
+  FM_DW.Delay9_DSTATE[1] = FM_DW.Delay9_DSTATE[2];
+  FM_DW.Delay9_DSTATE[2] = rtb_Product3;
+  FM_DW.Delay7_DSTATE[0] = FM_DW.Delay7_DSTATE[1];
+  FM_DW.Delay7_DSTATE[1] = FM_DW.Delay7_DSTATE[2];
+  FM_DW.Delay7_DSTATE[2] = FM_DW.Delay7_DSTATE[3];
+  FM_DW.Delay7_DSTATE[3] = rtb_Product3;
+  FM_DW.Delay6_DSTATE[0] = FM_DW.Delay6_DSTATE[1];
+  FM_DW.Delay6_DSTATE[1] = FM_DW.Delay6_DSTATE[2];
+  FM_DW.Delay6_DSTATE[2] = FM_DW.Delay6_DSTATE[3];
+  FM_DW.Delay6_DSTATE[3] = FM_DW.Delay6_DSTATE[4];
+  FM_DW.Delay6_DSTATE[4] = rtb_Product3;
+  for (idxDelay = 0; idxDelay < 5; idxDelay++) {
+    FM_DW.Delay5_DSTATE[idxDelay] = FM_DW.Delay5_DSTATE[idxDelay + 1];
+  }
+
+  FM_DW.Delay5_DSTATE[5] = rtb_Product3;
+  for (idxDelay = 0; idxDelay < 6; idxDelay++) {
+    FM_DW.Delay4_DSTATE[idxDelay] = FM_DW.Delay4_DSTATE[idxDelay + 1];
+  }
+
+  FM_DW.Delay4_DSTATE[6] = rtb_Product3;
+  for (idxDelay = 0; idxDelay < 7; idxDelay++) {
+    FM_DW.Delay3_DSTATE[idxDelay] = FM_DW.Delay3_DSTATE[idxDelay + 1];
+  }
+
+  FM_DW.Delay3_DSTATE[7] = rtb_Product3;
+  for (idxDelay = 0; idxDelay < 8; idxDelay++) {
+    FM_DW.Delay2_DSTATE[idxDelay] = FM_DW.Delay2_DSTATE[idxDelay + 1];
+  }
+
+  FM_DW.Delay2_DSTATE[8] = rtb_Product3;
+  FM_DW.Delay8_DSTATE = rtb_Isc_ResSum4;
+  FM_DW.Delay11_DSTATE[0] = FM_DW.Delay11_DSTATE[1];
+  FM_DW.Delay11_DSTATE[1] = rtb_Isc_ResSum4;
+  FM_DW.Delay18_DSTATE[0] = FM_DW.Delay18_DSTATE[1];
+  FM_DW.Delay18_DSTATE[1] = FM_DW.Delay18_DSTATE[2];
+  FM_DW.Delay18_DSTATE[2] = rtb_Isc_ResSum4;
+  FM_DW.Delay17_DSTATE[0] = FM_DW.Delay17_DSTATE[1];
+  FM_DW.Delay17_DSTATE[1] = FM_DW.Delay17_DSTATE[2];
+  FM_DW.Delay17_DSTATE[2] = FM_DW.Delay17_DSTATE[3];
+  FM_DW.Delay17_DSTATE[3] = rtb_Isc_ResSum4;
+  FM_DW.Delay16_DSTATE[0] = FM_DW.Delay16_DSTATE[1];
+  FM_DW.Delay16_DSTATE[1] = FM_DW.Delay16_DSTATE[2];
+  FM_DW.Delay16_DSTATE[2] = FM_DW.Delay16_DSTATE[3];
+  FM_DW.Delay16_DSTATE[3] = FM_DW.Delay16_DSTATE[4];
+  FM_DW.Delay16_DSTATE[4] = rtb_Isc_ResSum4;
+  for (idxDelay = 0; idxDelay < 5; idxDelay++) {
+    FM_DW.Delay15_DSTATE[idxDelay] = FM_DW.Delay15_DSTATE[idxDelay + 1];
+  }
+
+  FM_DW.Delay15_DSTATE[5] = rtb_Isc_ResSum4;
+  for (idxDelay = 0; idxDelay < 6; idxDelay++) {
+    FM_DW.Delay14_DSTATE[idxDelay] = FM_DW.Delay14_DSTATE[idxDelay + 1];
+  }
+
+  FM_DW.Delay14_DSTATE[6] = rtb_Isc_ResSum4;
+  for (idxDelay = 0; idxDelay < 7; idxDelay++) {
+    FM_DW.Delay13_DSTATE[idxDelay] = FM_DW.Delay13_DSTATE[idxDelay + 1];
+  }
+
+  FM_DW.Delay13_DSTATE[7] = rtb_Isc_ResSum4;
+  for (idxDelay = 0; idxDelay < 8; idxDelay++) {
+    FM_DW.Delay12_DSTATE[idxDelay] = FM_DW.Delay12_DSTATE[idxDelay + 1];
+  }
+
+  FM_DW.Delay12_DSTATE[8] = rtb_Isc_ResSum4;
+  FM_DW.Delay2_DSTATE_h = rtb_RelationalOperator1;
+  FM_DW.UnitDelay_DSTATE_f = FM_DW.UnitDelay2_DSTATE;
+  SWC_MCF_IG(&FM_B.HSPF_iPhaUOffset_o, &FM_B.HSPF_iPhaVOffset_e,
+             &FM_B.HSPF_iPhaWOffset_m, &FM_B.HSPF_stIphaOffCal_b,
+             &FM_B.HSPF_tStrrTempFlt_f, &FM_B.MPC_LdSubLq_c, &FM_B.MPC_Ld_c,
+             &FM_B.MPC_Lq_j, &FM_B.MPC_Rs_p, &FM_B.MPC_TrqMechFlt_e,
+             &FM_B.MPC_psiExc_o, &FM_B.MPC_isdMTPA_p, &FM_B.MPC_isdFF_c,
+             &FM_B.MPC_isdMTPV_a, &FM_B.MPC_OmBw_o, &FM_B.MPC_Rv_a,
+             &FM_B.MPC_frqPwmVF_f, &FM_B.MPC_CofRandomPwm_n, &FM_B.TDC_TrqDes_j,
+             &FM_B.BCC_iDcLnkEst, &RDC_ArctanAgRtr_CmPn, &iUNoOff, &iVNoOff,
+             &iWNoOff, &uDcLnk, &RDC_Arctan_nWoFlt, &FM_B.SCF_flginitPI_e,
+             &FM_B.SCF_flgEnDchaToMc_i, &FM_B.SCF_stPwmMode, &FM_B.MCF_idDes_c,
+             &FM_B.MCF_iqDes_n, &FM_B.MCF_udDes_j, &FM_B.MCF_uqDes_j,
+             &FM_B.MCF_dycU_b, &FM_B.MCF_dycV_l, &FM_B.MCF_dycW_p,
+             &FM_B.MCF_SecVolt_i, &FM_B.MCF_frqPwm_d, &FM_B.MCF_cofFrqPwm_d,
+             &FM_B.MCF_dtPwm_a, &FM_B.MCF_tiLock_b, &FM_B.MCF_stpwmMode_c,
+             &FM_B.MCF_Is_g, &FM_B.MCF_idAct_p, &FM_B.MCF_iqAct_g,
+             &FM_B.MCF_uDcLnk_o, &FM_B.MCF_iU_d, &FM_B.MCF_iV_o, &FM_B.MCF_iW_m,
+             &FM_B.MCF_VoltModuRate_f);
+  SWC_BCC_IG(&FM_B.MCF_dycU_b, &FM_B.MCF_dycV_l, &FM_B.MCF_dycW_p,
+             &FM_B.MCF_SecVolt_i, &FM_B.MCF_frqPwm_d, &FM_B.MCF_tiLock_b,
+             &FM_B.MCF_iU_d, &FM_B.MCF_iV_o, &FM_B.MCF_iW_m,
+             &FM_B.TPC_stMotorMod_g, &FM_B.HSPF_tDBCTempUFlt_o,
+             &FM_B.HSPF_tDBCTempVFlt_i, &FM_B.HSPF_tDBCTempWFlt_k,
+             &FM_B.HSPF_uDcLnkSlowFlt_g, &FM_B.SCF_stGateDrv_j,
+             &FM_B.BCC_iDcLnkEst, &FM_B.BCC_tIGBTTj_f, &FM_B.BCC_tCoolantTj_d);
+}
+
+#define FAW_CORE0_DMEM0_VALUE_STOP
+#include "FAW_MemMap.h"
+void tri_2ms(void)
+{
+  SWC_TDC_IG(&FM_B.TPC_TrqMax_k, &FM_B.TPC_TrqMin_b, &RDC_Arctan_nWoFlt,
+             &FM_B.Nm_HCUReqMCUTq, &FM_B.rpm_HCUReqMCUSpd,
+             &FM_B.SCF_stModeReqToTdc_k, &FM_B.TDC_TrqDes_j,
+             &FM_B.TDC_flgTrqLmtActv_l);
+  SWC_MPC_IG(&FM_B.MCF_idDes_c, &FM_B.MCF_iqDes_n, &FM_B.MCF_udDes_j,
+             &FM_B.MCF_Is_g, &FM_B.MCF_idAct_p, &FM_B.MCF_iqAct_g,
+             &FM_B.MCF_uDcLnk_o, &FM_B.MCF_VoltModuRate_f, &FM_B.TDC_TrqDes_j,
+             &FM_B.HSPF_nSlowFlt_o, &FM_B.HSPF_tStrrTempFlt_f,
+             &FM_B.TPC_stMotorMod_g, &FM_B.MPC_LdSubLq_c, &FM_B.MPC_Ld_c,
+             &FM_B.MPC_Lq_j, &FM_B.MPC_Rs_p, &FM_B.MPC_TrqMech_n,
+             &FM_B.MPC_TrqMechFlt_e, &FM_B.MPC_psiExc_o, &FM_B.MPC_IsFlt_e,
+             &FM_B.MPC_idActFlt_l, &FM_B.MPC_iqActFlt_o, &FM_B.MPC_dtCorFac_l,
+             &FM_B.MPC_isdMTPA_p, &FM_B.MPC_isdFF_c, &FM_B.MPC_isdMTPV_a,
+             &FM_B.MPC_OmBw_o, &FM_B.MPC_Rv_a, &FM_B.MPC_frqPwmVF_f,
+             &FM_B.MPC_CofRandomPwm_n);
+}
+
+void tri_10ms(void)
+{
+  SWC_HSPF_IG(&uDcLnk, &FM_B.BCC_iDcLnkEst, &RDC_Arctan_nWoFlt, &tDBCTempU,
+              &tDBCTempV, &tDBCTempW, &iUNoOff, &iVNoOff, &iWNoOff,
+              &FM_B.SCF_stPreDrvCtl_i, &FM_B.HSPF_uKl30Flt_g,
+              &FM_B.HSPF_tDBCTempUFlt_o, &FM_B.HSPF_tDBCTempVFlt_i,
+              &FM_B.HSPF_tDBCTempWFlt_k, &FM_B.HSPF_tStrrTemp1Flt_b,
+              &FM_B.HSPF_tStrrTemp2Flt_e, &FM_B.HSPF_nSlowFlt_o,
+              &FM_B.HSPF_tCoolantTempFlt_l, &FM_B.HSPF_tDrvBoardTempFlt_m,
+              &FM_B.HSPF_iDcLnkEstFlt_c, &FM_B.HSPF_PwrDcLnk_a,
+              &FM_B.HSPF_bt15_j, &FM_B.HSPF_Crash_l, &FM_B.HSPF_INV_Open_c,
+              &FM_B.HSPF_Motor_Open_f, &FM_B.HSPF_uDcLnkSlowFlt_g,
+              &FM_B.HSPF_Wake_d, &FM_B.HSPF_iPhaUOffset_o,
+              &FM_B.HSPF_iPhaVOffset_e, &FM_B.HSPF_iPhaWOffset_m,
+              &FM_B.HSPF_stIphaOffCal_b, &FM_B.HSPF_tStrrTempFlt_f,
+              &FM_B.HSPF_tIGBTTjFlt_j, &FM_B.HSPF_tCoolantTjFlt_l,
+              &FM_B.HSPF_VerMatchFailureErr_b, &FM_B.HSPF_tDBCTempCmpErrSt_n,
+              &FM_B.HSPF_MotorOpenErrSt_p, &FM_B.HSPF_InvOpenErrSt_j,
+              &FM_B.HSPF_checkstatus_h, &FM_B.HSPF_bSwtTempSttr1,
+              &FM_B.HSPF_bSwtTempSttr2);
+  SWC_CSPF_IG(&VAR_ccvs_hcu_u8[0], &VAR_hcu_mcu_u8[0],
+              &FM_B.Calc_perc_TotDrvTorqRaw, &FM_B.Calc_Nm_TotDrvTorqRaw,
+              &FM_B.Calc_perc_EngPedalRaw, &FM_B.Calc_st_ParkingBrkSW,
+              &FM_B.Calc_gear_TransmissionRequested, &FM_B.Calc_st_EPSwitch,
+              &FM_B.Calc_st_MsgSwitchC, &FM_B.Calc_st_MsgSwitchL,
+              &FM_B.Calc_bool_FootBrake, &FM_B.Calc_st_HCUReqInhibitSftGear,
+              &FM_B.Calc_st_HCUReqAutoChgN, &FM_B.Calc_mod_HCUReqMotWorkMode,
+              &FM_B.Calc_st_HCUReqMotRotaDir, &FM_B.Nm_HCUReqMCUTq,
+              &FM_B.rpm_HCUReqMCUSpd, &FM_B.Calc_st_HCUAllowMotWorkEn,
+              &FM_B.Calc_st_NegtvRelayState, &FM_B.Calc_st_PostvRelayState,
+              &FM_B.Calc_st_PreChargHiVoltRelayStat,
+              &FM_B.Calc_st_HCUReqHiPowerOff, &FM_B.Calc_st_ActvDischgCommand,
+              &FM_B.Calc_rpm_TMCurAvalMaxSpeed,
+              &FM_B.Calc_mod_HCUMCU2ReqMotWorkMode,
+              &FM_B.Calc_st_HCUMCU2ReqMotRotaDir, &FM_B.Nm_HCUMCU2ReqMCUTq,
+              &FM_B.rpm_HCUMCU2ReqMCUSpd, &FM_B.Calc_st_HCUMCU2AllowMotWorkEn,
+              &FM_B.Calc_st_MCU2NegtvRelayState,
+              &FM_B.Calc_st_MCU2PostvRelayState,
+              &FM_B.Calc_st_MCU2PreChargHiVoltRelay,
+              &FM_B.Calc_st_HCUMCU2ReqHiPowerOff,
+              &FM_B.Calc_st_MCU2ActvDischgCommand,
+              &FM_B.Calc_rpm_MCU2TMCurAvalMaxSpeed,
+              &FM_B.Calc_Nm_ReferenceMCTorque,
+              &FM_B.Calc_gear_HTransmissionRequeste,
+              &FM_B.Calc_st_TCHandEPSwitch, &FM_B.Calc_st_ShiftInProcess,
+              &FM_B.Calc_z_ETC2GearRatio, &FM_B.Calc_gear_ETC2SelectGear,
+              &FM_B.Calc_gear_ETC2CurrentGear, &FM_B.Calc_st_MtrOverridConMode,
+              &FM_B.Calc_st_MtrReqSpdContCond,
+              &FM_B.Calc_st_MtrOverrideConModePrior,
+              &FM_B.Calc_rpm_MtrReqSpdLimit, &FM_B.Cale_Nm_MtrReqTqLimit,
+              &FM_B.Calc_Nm_MtrReqTqFric, &FM_B.Calc_st_Mtr2OverridConMode,
+              &FM_B.Calc_st_Mtr2ReqSpdContCond,
+              &FM_B.Calc_st_Mtr2OverrideConModePrio,
+              &FM_B.Calc_rpm_Mtr2ReqSpdLimit, &FM_B.Calc_Nm_Mtr2ReqTqLimit,
+              &FM_B.Calc_Nm_Mtr2ReqTqFric);
+  SWC_SCF_IG(&FM_B.HSPF_bt15_j, &FM_B.HSPF_uDcLnkSlowFlt_g, &CAL_SCF_stMainRly_b,
+             &CAL_SCF_stPreChgRly_b, &FM_B.Calc_mod_HCUReqMotWorkMode,
+             &FM_B.Calc_st_ActvDischgCommand, &RDC_Arctan_nWoFlt, &VAR_flg_ov_b,
+             &VAR_flg_oc_b, &FM_B.SCF_flgDataStrgBgnToBsw_d,
+             &FM_B.SCF_stSysCtl_b, &FM_B.SCF_stGateDrv_j, &FM_B.SCF_stDrvCtl_f,
+             &FM_B.SCF_stDisChg_e, &FM_B.SCF_stPreDrvCtl_i,
+             &FM_B.SCF_flginitPI_e, &FM_B.SCF_flgEnDchaToMc_i, &FM_B.SCF_stSys_i,
+             &FM_B.SCF_stModeReqToTdc_k, &FM_B.SCF_stPwmMode,
+             &FM_B.SCF_flgUdcLowToTpc_b, &FM_B.SCF_bHvReady_write_b,
+             &FM_B.SCF_flgEmgReqInvDcha_f, &FM_B.SCF_flgActvDcha_k,
+             &FM_B.SCF_stFFAction_e, &FM_B.SCF_FIM_ReqFailrMod_m,
+             &FM_B.SCF_LwPwrDwn_o);
+  SWC_MDF_IG(&FM_B.HSPF_nSlowFlt_o, &FM_B.HSPF_uDcLnkSlowFlt_g,
+             &FM_B.MCF_udDes_j, &FM_B.MCF_uqDes_j, &FM_B.MCF_dtPwm_a,
+             &FM_B.MCF_iU_d, &FM_B.MCF_iV_o, &FM_B.MCF_iW_m, &FM_B.MPC_Lq_j,
+             &FM_B.MPC_Rs_p, &FM_B.MPC_psiExc_o, &FM_B.MPC_IsFlt_e,
+             &FM_B.MPC_idActFlt_l, &FM_B.MPC_iqActFlt_o, &RDC_Arctan_nWoFlt,
+             &FM_B.SCF_stGateDrv_j, &FM_B.SCF_stDrvCtl_f, &FM_B.MDF_stFrwhl,
+             &FM_B.MDF_bFaultEMBlkWarnSt, &FM_B.MDF_bFaultEMBlkErrSt,
+             &FM_B.MDF_bFaultPwrCmpSt, &FM_B.MDF_bPhaseFaultSt,
+             &FM_B.MDF_bAlfOfsNoPlauseFaultSt, &FM_B.MDF_bFaultICtlChkSt,
+             &FM_B.MDF_bOpenCirNoPsblFaultSt, &FM_B.MDF_bShCirNoPsblFaultSt,
+             &FM_B.MDF_flagOperOutdRngFaultSt, &FM_B.MDF_IsOvHiErrSt);
+  SWC_TPC_IG(&FM_B.MPC_TrqMechFlt_e, &FM_B.HSPF_tDBCTempUFlt_o,
+             &FM_B.HSPF_tDBCTempVFlt_i, &FM_B.HSPF_tDBCTempWFlt_k,
+             &FM_B.HSPF_nSlowFlt_o, &FM_B.HSPF_tDrvBoardTempFlt_m,
+             &FM_B.HSPF_iDcLnkEstFlt_c, &FM_B.HSPF_uDcLnkSlowFlt_g,
+             &FM_B.HSPF_tStrrTempFlt_f, &FM_B.HSPF_tIGBTTjFlt_j,
+             &FM_B.HSPF_tCoolantTjFlt_l, &FM_B.MCF_Is_g, &FM_B.TDC_TrqDes_j,
+             &FM_B.TPC_TrqMax_k, &FM_B.TPC_TrqMin_b, &FM_B.TPC_bDernExcMax_n,
+             &FM_B.TPC_bDernExcMin_i, &FM_B.TPC_bDernStrTemp_b,
+             &FM_B.TPC_bDernDbcTemp_p, &FM_B.TPC_bDernCoolantTemp_f,
+             &FM_B.TPC_bDernDrvBoardTemp_d, &FM_B.TPC_bDernMtrSpd_k,
+             &FM_B.TPC_bDernUndrUdc_g, &FM_B.TPC_bDernOvrUdc_p,
+             &FM_B.TPC_bDernCAN_f, &FM_B.TPC_stTrqEmMax_d,
+             &FM_B.TPC_stTrqEmMin_o, &FM_B.TPC_stMotorMod_g,
+             &FM_B.TPC_TDbcTrqMax_j, &FM_B.TPC_SgnRotDir_h,
+             &FM_B.TPC_SgnTrqMechDir_h, &FM_B.TPC_bDernElecOvrIdc_c,
+             &FM_B.TPC_bDernGenOvrIdc_d, &FM_B.TPC_bDernOvrIdc_m,
+             &FM_B.TPC_TrqMaxTrans_b, &FM_B.TPC_TrqMinTrans_o,
+             &FM_B.TPC_bDernIGBTTemp_k, &FM_B.TPC_o25);
+  FM_M->Timing.clockTick3++;
+}
+
+void FM_initialize(void)
+{
+  rt_InitInfAndNaN(sizeof(real_T));
+
+  {
+    static uint32_T *clockTickPtrs[5];
+    FM_TimingBrdg.nTasks = 5;
+    clockTickPtrs[0] = (NULL);
+    clockTickPtrs[1] = (NULL);
+    clockTickPtrs[2] = (NULL);
+    clockTickPtrs[3] = &(FM_M->Timing.clockTick3);
+    clockTickPtrs[4] = (NULL);
+    FM_TimingBrdg.clockTick = clockTickPtrs;
+    FM_TimingBrdg.clockTickH = (NULL);
+  }
+
+  SWC_BCC_IG_initialize(rtmGetErrorStatusPointer(FM_M));
+  SWC_MCF_IG_initialize(rtmGetErrorStatusPointer(FM_M));
+  SWC_CSPF_IG_initialize(rtmGetErrorStatusPointer(FM_M));
+  SWC_HSPF_IG_initialize(rtmGetErrorStatusPointer(FM_M));
+  SWC_MDF_IG_initialize(rtmGetErrorStatusPointer(FM_M));
+  SWC_SCF_IG_initialize(rtmGetErrorStatusPointer(FM_M), &FM_TimingBrdg, -1, 3);
+  SWC_TPC_IG_initialize(rtmGetErrorStatusPointer(FM_M));
+  SWC_MPC_IG_initialize(rtmGetErrorStatusPointer(FM_M));
+  SWC_TDC_IG_initialize(rtmGetErrorStatusPointer(FM_M));
+  SWC_HSPF_IG_Init();
+  SWC_SCF_IG_Init();
+  SWC_TPC_IG_Init();
+  SWC_SCF_IG_Enable();
+}
+
+void FM_terminate(void)
+{
+}

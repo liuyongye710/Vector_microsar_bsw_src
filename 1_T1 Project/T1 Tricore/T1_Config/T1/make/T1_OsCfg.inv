@@ -1,0 +1,4 @@
+; Relative file paths are based on the directory ABOVE T1_projGen.bat
+
+-osCfgPath=.\..\..\OS\                              ; Path to OS configuration files.
+-mcuCore=TC2xx                                       ; Name of MCU [V850, TC2xx, TC3xx, MPC5xxx]

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DCF ARSCHEMA="431_DEV">
+	<Version>1.0</Version>
+	<PROFILESETTINGS>ProfileSettings.xml</PROFILESETTINGS>
+	<ADMINDATATEMPLATES>AdminDataTemplates.xml</ADMINDATATEMPLATES>
+	<PROJECTASSISTANT>..\..\FAW_MultiCore297_Demo.dpa</PROJECTASSISTANT>
+	<FILEREF>
+		<ARXML>Packages.arxml</ARXML>
+	</FILEREF>
+	<FILEREF>
+		<ARXML>DataTypes.arxml</ARXML>
+	</FILEREF>
+	<FILEREF>
+		<ARXML>PortInterfaces.arxml</ARXML>
+	</FILEREF>
+	<FILEREF>
+		<ARXML>ECUProjects\FAW_MultiCore297_Demo.arxml</ARXML>
+		<DVG>ECUProjects\FAW_MultiCore297_Demo.dvg</DVG>
+	</FILEREF>
+	<FILEREF>
+		<ARXML>ComponentTypes\CtAp_FAW_Demo.arxml</ARXML>
+		<DVG>ComponentTypes\CtAp_FAW_Demo.dvg</DVG>
+	</FILEREF>
+	<FILEREF>
+		<ARXML>ComponentTypes\CtAp_FAWDemo_Core1.arxml</ARXML>
+		<DVG>ComponentTypes\CtAp_FAWDemo_Core1.dvg</DVG>
+	</FILEREF>
+	<FILEREF>
+		<ARXML>ComponentTypes\CtAp_FAWDemo_Core2.arxml</ARXML>
+		<DVG>ComponentTypes\CtAp_FAWDemo_Core2.dvg</DVG>
+	</FILEREF>
+</DCF>

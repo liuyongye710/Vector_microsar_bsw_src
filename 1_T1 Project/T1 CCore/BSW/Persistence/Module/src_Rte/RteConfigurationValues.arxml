@@ -1,0 +1,2010 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>Rte</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/Rte</DEFINITION-REF>
+                    <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>RteBswGeneral</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswGeneral</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Ea</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Ea_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>BswM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>BswM_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>BSWM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanIf</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CanIf_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CANIF_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanNm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CanNm_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CANNM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CANNM_EXCLUSIVE_AREA_1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CANNM_EXCLUSIVE_AREA_2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CANNM_EXCLUSIVE_AREA_3</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CANNM_EXCLUSIVE_AREA_4</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CANNM_EXCLUSIVE_AREA_5</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CANNM_EXCLUSIVE_AREA_6</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanSM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CanSM_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanTp</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CanTp_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanTrcv</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CanTrcv_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CanTrcv_MainFunctionDiagnostics</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Com</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Com_MainFunctionRouteSignals</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Com_MainFunctionRx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Com_MainFunctionTx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>ComM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>ComM_MainFunction_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>ComM_MainFunction_1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>ComM_MainFunction_2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>ComM_MainFunction_3</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Csm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Csm_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Dcm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Dcm_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core2_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>DCM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Dem</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Dem_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core2_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>DEM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>DoIP</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>DoIP_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>DOIP_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EcuM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EcuM_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EthIf</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EthIf_MainFunctionRx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EthIf_MainFunctionState</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EthIf_MainFunctionTx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EthSM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EthSM_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EthTrcv</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EthTrcv_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Fee</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Fee_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1ms_Core2_QM_1ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>FiM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>FiM_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>FIM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>IpduM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>IpduM_MainFunctionRx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>IpduM_MainFunctionTx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>IPDUM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>J1939Dcm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>J1939Dcm_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>J1939Nm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>J1939Nm_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>J1939NM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>J1939Rm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>J1939Rm_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>J1939Tp</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>J1939Tp_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>KeyM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>KeyM_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>LinSM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>LinSM_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Nm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Nm_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>NM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>NM_EXCLUSIVE_AREA_1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>NvM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>NvM_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1ms_Core2_QM_1ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>OsekNm</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>OsekNm_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>OSEKNM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Sd</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Sd_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>SecOC</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SecOC_MainFunctionRx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SecOC_MainFunctionTx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>SoAd</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SoAd_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SOAD_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>SomeIpTp</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SomeIpTp_MainFunctionRx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SomeIpTp_MainFunctionTx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SOMEIPTP_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>TcpIp</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>TcpIp_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>WdgM</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>WdgM_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>Xcp</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Xcp_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core2_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswEventToTaskMapping/RteBswUsedOsEventRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>XCP_EXCLUSIVE_AREA_0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteBswModuleInstance/RteBswExclusiveAreaImpl</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>RteGeneration</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteGeneration</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Rte/RteGeneration/OsVersion</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/Rte/RteGeneration/RteMultiCoreSyncEnabled</DEFINITION-REF>
+                                    <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>IoHwAb</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>BswM_CheckShutDown_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core2_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CDS_Mainfunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core2_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Com_MainFunctionRx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Com_MainFunctionTx</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Dsm_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core2_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EcuM_StartupTwo</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Fls_MainFunction</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1ms_Core2_QM_1ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Rte_Start</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable1000ms_Core0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1000ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1000ms_Core0_QM_1000ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable1000ms_Core1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1000ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1000ms_Core1_QM_1000ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable1000ms_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1000ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1000ms_Core2_QM_1000ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable100ms_Core0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_100ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_100ms_Core0_QM_100ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable100ms_Core1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_100ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_100ms_Core1_QM_100ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable100ms_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_100ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_100ms_Core2_QM_100ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable10ms_Core0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core0_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable10ms_Core1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core1_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable10ms_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core2_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable1ms_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1ms_Core2_QM_1ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable200ms_Core0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_200ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_200ms_Core0_QM_200ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable200ms_Core1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_200ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_200ms_Core1_QM_200ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable200ms_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_200ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_200ms_Core2_QM_200ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable20ms_Core0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_20ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_20ms_Core0_QM_20ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable20ms_Core1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_20ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_20ms_Core1_QM_20ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable20ms_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_20ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_20ms_Core2_QM_20ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable2ms_Core0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_2ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_2ms_Core0_QM_2ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable4ms_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_4ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_4ms_Core2_QM_4ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable500ms_Core0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_500ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_500ms_Core0_QM_500ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable500ms_Core1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_500ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_500ms_Core1_QM_500ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable500ms_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_500ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_500ms_Core2_QM_500ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable50ms_Core0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_50ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_50ms_Core0_QM_50ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable50ms_Core1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_50ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_50ms_Core1_QM_50ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable50ms_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_50ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_50ms_Core2_QM_50ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable5ms_Core1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core1_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Runnable5ms_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>RunnableInit_Core0</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>RunnableInit_Core1</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>RunnableInit_Core2</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>SchM_Init</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core0_1000ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1000ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1000ms_Core0_QM_1000ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core0_100ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_100ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_100ms_Core0_QM_100ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core0_10ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core0_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core0_200ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_200ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_200ms_Core0_QM_200ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core0_20ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_20ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_20ms_Core0_QM_20ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core0_2ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_2ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_2ms_Core0_QM_2ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core0_500ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_500ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_500ms_Core0_QM_500ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core0_50ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_50ms_Core0_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_50ms_Core0_QM_50ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core0_DefaultInit</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core0_Init</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core1_1000ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1000ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1000ms_Core1_QM_1000ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core1_100ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_100ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_100ms_Core1_QM_100ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core1_10ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core1_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core1_200ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_200ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_200ms_Core1_QM_200ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core1_20ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_20ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_20ms_Core1_QM_20ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core1_500ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_500ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_500ms_Core1_QM_500ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core1_50ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_50ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_50ms_Core1_QM_50ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core1_5ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core1_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core1_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core1_DefaultInit</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core1_Init</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_1000ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1000ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1000ms_Core2_QM_1000ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_100ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_100ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_100ms_Core2_QM_100ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_10ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_10ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_10ms_Core2_QM_10ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_1ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_1ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_1ms_Core2_QM_1ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_200ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_200ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_200ms_Core2_QM_200ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_20ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_20ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_20ms_Core2_QM_20ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_500ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_500ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_500ms_Core2_QM_500ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_50ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_50ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_50ms_Core2_QM_50ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_5ms</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsTasks/Task_5ms_Core2_QM</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteUsedOsAlarmRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAlarms/Rte_Al_TE_Task_5ms_Core2_QM_5ms</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_DefaultInit</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>Test_Runnable_Core2_Init</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                    </CONTAINERS>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

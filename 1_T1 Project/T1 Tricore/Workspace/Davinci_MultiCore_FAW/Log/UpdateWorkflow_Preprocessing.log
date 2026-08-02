@@ -1,0 +1,36 @@
+2020-07-28 - 16:15:27
+Workflow 'Input File Pre-Processing' started.
+ 16:15:28 - Action 'Converting legacy file(s) to AUTOSAR files' started.
+ 16:15:28 - Action 'Converting legacy file(s) to AUTOSAR files' started.
+              Convert legacy file(s) to System Description.
+              Used executable: D:\Vector_FAW_297\Generators\LegacyDb2SystemDescrConverter\LegacyDb2SystemDescrConverter.exe.
+              Arguments: "X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\T1\CAN\ATD.dbc" -o "C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\LegacyConverterResults\1595924128142-0\ConvertedLegacy" -r 42 -e -v 19.
+              
+              Vector Legacy Database Converter.
+              Version: 1.8.22.0.
+              Copyright (c) 2018 Vector Informatik GmbH.
+              License is restricted to the usage with CBD1600956 (D02) for MSR_Vector_SLP4.
+              
+              [info] Command line: D:\Vector_FAW_297\Generators\LegacyDb2SystemDescrConverter\LegacyDb2SystemDescrConverter.exe "X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\T1\CAN\ATD.dbc" -o "C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\LegacyConverterResults\1595924128142-0\ConvertedLegacy" -r 42 -e -v 19.
+              [info] Converting DBC file X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\T1\CAN\ATD.dbc.
+              [warning] DBC attribute Manufacturer not defined.
+                    ==> Use Manufacturer='Vector' as attribute value.
+              [warning] DBC message T1_RxMsg has an GenMsgCycleTime value of 0.
+                    ==> ISignalIPdu.CyclicTiming.TimePeriod will be 0.
+              [warning] DBC message T1_TxMsg has an GenMsgCycleTime value of 0.
+                    ==> ISignalIPdu.CyclicTiming.TimePeriod will be 0.
+              [info] Writing System Description...
+              [info] Writing 2 ECU Extracts...
+              
+              C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\LegacyConverterResults\1595924128142-0\ConvertedLegacy.arxml.
+              C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\LegacyConverterResults\1595924128142-0\ConvertedLegacy_iECU.arxml.
+              C:\Users\Jeremy Ma\AppData\Local\Temp\DaVinci\Cfg-2675016\LegacyConverterResults\1595924128142-0\ConvertedLegacy_Tester.arxml.
+              Elapsed time: 1.412 seconds.
+              0 Errors.
+              3 Warnings.
+              [Warning] Legacy Converter finished with errors/warnings.
+ 16:15:29 - Action 'Converting legacy file(s) to AUTOSAR files' successfully finished with warnings.
+                 [Warning] Legacy Converter finished with errors/warnings.
+ 16:15:29 - Action 'Converting legacy file(s) to AUTOSAR files' successfully finished with warnings.
+                 [Warning] Legacy Converter finished with errors/warnings.
+16:15:30 - Workflow 'Input File Pre-Processing' finished.

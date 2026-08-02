@@ -1,0 +1,1670 @@
+VERSION "created by canmatrix"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: HCU MCU HVAC BMS
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ DCDCOutpUReqHCUDCDC : 0|8@1+ (0.125,0) [0|31.25] "0.125V" Vector__XXX
+ SG_ DCDCworkingeanableCmdHCUDCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ DCDC2OutpUReqHCUDCDC : 0|8@1+ (1,0) [0|31.25] "0.125V" Vector__XXX
+ SG_ DCDC2workingeanableCmdHCUDCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ oilPUMPMotworkingEnaCmdHCUOPCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ mainPoshighURlyCtrlCmdHCU3 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ mainNeghighURlyCtrlCmdHCU3 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ fuelcellRlyCtrlCmdHCU3 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ BattheatPTCRlyCtrlCmdHCU3 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ AcsoryRlyCtrlCmdHCU3 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ PTCRlyCtrlCmdHCU3 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ MECURlyclosingReqHCU3 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ DCDCRlyclosingReqHCU3 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ acRlyclosingReqHCU3 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ DirtCurChrg1PosRlyCtrlCmdBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ DirtCurChrg1NegRlyCtrlCmdBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ DirtCurChrg2PosRlyCtrlCmdBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ DirtCurChrg2NegRlyCtrlCmdBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ WtrCoolgRlyCtrlCmdBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ insulationtesterCtrlCmdBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ BMSmainNegcoilDrvStBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ PwrBattsohBMS5 : 0|8@1+ (1,0) [0|100] "1" Vector__XXX
+ SG_ mainNegRlydisCnctReqBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ mainNegRlyStsBMS5 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ BattpackHeatgPosRlyCtrlCmdBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ BattpackHeatgNegRlyCtrlCmdBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ ChrgnplugCnctionStsBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ Chrgnplug2CnctionStsBMS5 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ ChrgnPosRlyStsBMS5 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ NegChrgnRlyStsBMS5 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ OPCUhighUbusUOPCU1 : 0|16@1+ (1,0) [0|65535] "V" Vector__XXX
+ SG_ OPCUMotFailrStsOPCU1 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ OPCUworkingStsOPCU1 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ oilPUMPMotIvterTOPCU2 : 0|8@1+ (1,-40) [-40|215] "C" Vector__XXX
+ SG_ oilPUMPMotOutpCurOPCU2 : 0|8@1+ (0.1,0) [0|25.5] "A" Vector__XXX
+ SG_ ProtlampDM1OPCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ amberWarnlampDM1OPCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ redstoplampDM1OPCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ malFctIndcrlampDM1OPCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashProtlampDM1OPCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashamberWarnlampDM1OPCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashredstoplampDM1OPCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashmalFctIndcrlampDM1OPCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ spn8leastsignificantbitsDM1OPCU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ spnSecbyteDM1OPCU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ FMiDM1OPCU : 0|5@1+ (1,0) [0|31] "1" Vector__XXX
+ SG_ spn3mostsignificantbitsDM1OPCU : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ occurrenceCntDM1OPCU : 0|7@1+ (1,0) [0|127] "1" Vector__XXX
+ SG_ spnCnvnMetHODDM1OPCU : 0|1@1+ (1,0) [0|1] "1" Vector__XXX
+ SG_ DCDCInpUDCDC1 : 0|16@1+ (0.05,0) [0|3276.75] "V" Vector__XXX
+ SG_ DCDCInpCurDCDC1 : 0|8@1+ (0.1,0) [0|25.5] "A" Vector__XXX
+ SG_ DCDCOutpUDCDC1 : 0|8@1+ (0.125,0) [0|31.875] "V" Vector__XXX
+ SG_ DCDCOutpCurDCDC1 : 0|8@1+ (1,0) [0|255] "A" Vector__XXX
+ SG_ DCDCTDCDC1 : 0|8@1+ (1,-40) [-40|215] "C" Vector__XXX
+ SG_ DCDCworkingStsDCDC1 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ DCDCFltStsDCDC1 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ ProtlampDM1DCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ amberWarnlampDM1DCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ redstoplampDM1DCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ malFctIndcrlampDM1DCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashProtlampDM1DCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashamberWarnlampDM1DCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashredstoplampDM1DCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashmalFctIndcrlampDM1DCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ spn8leastsignificantbitsDM1DCDC : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ spnSecbyteDM1DCDC : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ FMiDM1DCDC : 0|5@1+ (1,0) [0|31] "1" Vector__XXX
+ SG_ spn3mostsignificantbitsDM1DCDC : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ occurrenceCntDM1DCDC : 0|7@1+ (1,0) [0|127] "1" Vector__XXX
+ SG_ spnCnvnMetHODDM1DCDC : 0|1@1+ (1,0) [0|1] "1" Vector__XXX
+ SG_ mainPosRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ mainnegtiveRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ pduFailrStsRelayState : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ preChrgnRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ fuelcellRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ PTCRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ AcsoryRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ MECURlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ DCDCRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ mainPosRlyPwronStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ MECUPwronStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ BattpackHeatgPosRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ BattpackHeatgNegRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ hydroCoolgRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ acRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ insulationRIMCU1PTU : 0|16@1+ (1,0) [0|65535] "kΩ" Vector__XXX
+ SG_ sulationMonrdetectsUResdIMCU1PTU : 0|16@1+ (1,0) [0|65535] "V" Vector__XXX
+ SG_ insulationMonrSysStsIMCU1PTU : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ insulationMonrAlrmIMCU1PTU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ ProtlampDM1PTU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ amberWarnlampDM1PTU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ redstoplampDM1PTU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ malFctIndcrlampDM1PTU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashProtlampDM1PTU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashamberWarnlampDM1PTU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashredstoplampDM1PTU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashmalFctIndcrlampDM1PTU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ spn8leastsignificantbitsDM1PTU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ spnSecbyteDM1PTU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ FMiDM1PTU : 0|5@1+ (1,0) [0|31] "1" Vector__XXX
+ SG_ spn3mostsignificantbitsDM1PTU : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ occurrenceCntDM1PTU : 0|7@1+ (1,0) [0|127] "1" Vector__XXX
+ SG_ spnCnvnMetHODDM1PTU : 0|1@1+ (1,0) [0|1] "1" Vector__XXX
+ SG_ VehCtrllerSysStsHCUBMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ workingRdySts_Rdy_HCUBMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ permittingChrgnHCUBMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ enduranceMilgHCUBMS : 0|16@1+ (0.125,0) [0|8191.875] "km" Vector__XXX
+ SG_ SleepCmdHCUBMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ highUSysFailrStsHCUBMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ PwrChgpermitHCUBMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ vinIdnVIN : 0|64@1+ (1,0) [0|1.84467440737096E+019] "1" Vector__XXX
+ SG_ PwrBattUBMS1 : 0|16@1+ (0.05,0) [0|3276.75] "V" Vector__XXX
+ SG_ PwrBattCurBMS1 : 0|16@1+ (0.05,-1600) [-1600|1676.75] "A" Vector__XXX
+ SG_ PwrBattsocBMS1 : 0|8@1+ (0.4,0) [0|102] "%" Vector__XXX
+ SG_ PwrBattSysStsBMS1 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ PwrBattChrgnReqBMS1 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ PwrBattChrgnStsBMS1 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ PwrBattHeatgStsBMS1 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ ChrgnReqStsBMS1 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ MsgCnterBMS1 : 0|4@1+ (1,0) [0|15] "1" Vector__XXX
+ SG_ MsgChksumBMS1 : 0|4@1+ (1,0) [0|15] "1" Vector__XXX
+ SG_ PwrBattAvlChrgnPlsPwrBMS2 : 0|8@1+ (5,0) [0|1275] "KW" Vector__XXX
+ SG_ PwrBattAvldisChrgPlsPwrBMS2 : 0|8@1+ (5,0) [0|1275] "KW" Vector__XXX
+ SG_ PwrBattAvlChrgnContnsPwrBMS2 : 0|8@1+ (5,0) [0|1275] "KW" Vector__XXX
+ SG_ PwrBattAvldisChrgContnsPwrBMS2 : 0|8@1+ (5,0) [0|1275] "KW" Vector__XXX
+ SG_ MaxTofPwrBattBMS2 : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ MinTofPwrBattBMS2 : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ AvrgTofPwrBattBMS2 : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ MsgCnterBMS2 : 0|4@1+ (1,0) [0|15] "1" Vector__XXX
+ SG_ MsgChksumBMS2 : 0|4@1+ (1,0) [0|15] "1" Vector__XXX
+ SG_ TotChrgEgyCpBMS4 : 0|24@1+ (1,0) [0|16777215] "kwh" Vector__XXX
+ SG_ BattmanufacturersBMS4 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ OutdstationChrgEgyCpBMS4 : 0|24@1+ (0.1,0) [0|1677721.5] "kwh" Vector__XXX
+ SG_ ousidestationChrgEgyNrBMS4 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ TotChrgCpValBMS10 : 0|24@1+ (1,0) [0|16777215] "Ah" Vector__XXX
+ SG_ ChrgCpValpertimeBMS10 : 0|24@1+ (0.1,0) [0|1677721.5] "Ah" Vector__XXX
+ SG_ SngBatthighestUorBattMdlBMS9 : 0|16@1+ (0.001,0) [0|65.535] "V" Vector__XXX
+ SG_ SngBattMinUorBattMdlBMS9 : 0|16@1+ (0.001,0) [0|65.535] "V" Vector__XXX
+ SG_ NrofSngBatthighestUorBattMdlBMS9 : 0|16@1+ (1,0) [0|65535] "1" Vector__XXX
+ SG_ NrofSngBattMinUorBattMdlBMS9 : 0|16@1+ (1,0) [0|65535] "1" Vector__XXX
+ SG_ NrofMaxTprobemonomerBMS9 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ NrofMinTprobemonomerBMS9 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ PwrBattmonomerU1BMS6 : 0|16@1+ (0.001,0) [0|65.535] "V" Vector__XXX
+ SG_ PwrBattmonomerU2BMS6 : 0|16@1+ (0.001,0) [0|65.535] "V" Vector__XXX
+ SG_ PwrBattmonomerU3BMS6 : 0|16@1+ (0.001,0) [0|65.535] "V" Vector__XXX
+ SG_ PwrBattmonomerU4BMS6 : 0|16@1+ (0.001,0) [0|65.535] "V" Vector__XXX
+ SG_ PwrBatttestpoint1TBMS7 : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ PwrBatttestpoint2TBMS7 : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ PwrBatttestpoint3TBMS7 : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ highestUBattsubSysNrBMS8 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ lowestUBattsubSysNrBMS8 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ MaxTsubSysNrBMS8 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ MinTsubSysNrBMS8 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ eChrgableEgyStorgsubSyssQntyBMS8 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ reChrgableEgyStorgsubSysNrBMS8 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ TotNrSngcellsBMS8 : 0|16@1+ (1,0) [0|65535] "1" Vector__XXX
+ SG_ eChrgableEgyStorgTprobesQntyBMS8 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ codeLenreChrgableEgyStorgSysBMS8 : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ ProtlampDM1BMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ amberWarnlampDM1BMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ redstoplampDM1BMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ malFctIndcrlampDM1BMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashProtlampDM1BMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashamberWarnlampDM1BMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashredstoplampDM1BMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashmalFctIndcrlampDM1BMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ spn8leastsignificantbitsDM1BMS : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ spnSecbyteDM1BMS : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ FMiDM1BMS : 0|5@1+ (1,0) [0|31] "1" Vector__XXX
+ SG_ spn3mostsignificantbitsDM1BMS : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ occurrenceCntDM1BMS : 0|7@1+ (1,0) [0|127] "1" Vector__XXX
+ SG_ spnCnvnMetHODDM1BMS : 0|1@1+ (1,0) [0|1] "1" Vector__XXX
+ SG_ tachographVehSpdHCUTCO1 : 0|16@1+ (0.00390625,0) [0|255.99609375] "km/h" Vector__XXX
+ SG_ insulationRIMCU1 : 0|16@1+ (1,0) [0|65535] "kΩ" Vector__XXX
+ SG_ insulationMonrdetectsUResdIMCU1 : 0|16@1+ (1,0) [0|65535] "V" Vector__XXX
+ SG_ insulationMonrSysStsIMCU1 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ insulationMonrAlrmIMCU1 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ BMSReqsettingmodeBMSTMS : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ settingTBMSTMS : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ DirtCurChrg1PosRlyStsRelayState2 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ DirtCurChrg1NegRlyStsRelayState2 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ DirtCurChrg2PosRlyStsRelayState2 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ DirtCurChrg2NegRlyStsRelayState2 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ PwrBattURelayState2 : 0|16@1+ (0.05,0) [0|3276.75] "V" Vector__XXX
+ SG_ EBRSRlyStsRelayState2 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ fuelcellRlyStsRelayState2 : 0|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ PTUTRelayState2 : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ changingCnctorT1CBMS2BMS : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ changingCnctorT2CBMS2BMS : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ changingCnctorT3CBMS2BMS : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ changingCnctorT4CBMS2BMS : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ changingCnctorT5CBMS2BMS : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ changingCnctorT6CBMS2BMS : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ Chrgr1CnctorT1CBMS2BMS : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ Chrgr1CnctorT2CBMS2BMS : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ BattheatexChgrOutlWtrTHCUBEWP : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ BattheatexChgrinletWtrTHCUBEWP : 0|8@1+ (1,-40) [-40|215] "degC" Vector__XXX
+ SG_ CtrlbyteTPCMBAMHCU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ TotMsgsizeTPCMBAMHCU : 0|16@1+ (1,0) [0|65535] "1" Vector__XXX
+ SG_ packetsNrTPCMBAMHCU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ pgnTPCMBAMHCU : 0|24@1+ (1,0) [0|16777215] "1" Vector__XXX
+ SG_ SeqNrTPDTBMSHCU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ packetizeddataTPDTBMSHCU : 0|56@1+ (1,0) [0|7.20575940379279E+016] "1" Vector__XXX
+ SG_ CtrlbyteTPCMBAMBMS : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ TotMsgsizeTPCMBAMBMS : 0|16@1+ (1,0) [0|65535] "1" Vector__XXX
+ SG_ packetsNrTPCMBAMBMS : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ pgnTPCMBAMBMS : 0|24@1+ (1,0) [0|16777215] "1" Vector__XXX
+ SG_ SeqNrTPDTBMS : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ packetizeddataTPDTBMS : 0|56@1+ (1,0) [0|7.20575940379279E+016] "1" Vector__XXX
+ SG_ CtrlbyteTPCMBAMDCDC : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ TotMsgsizeTPCMBAMDCDC : 0|16@1+ (1,0) [0|65535] "1" Vector__XXX
+ SG_ packetsNrTPCMBAMDCDC : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ pgnTPCMBAMDCDC : 0|24@1+ (1,0) [0|16777215] "1" Vector__XXX
+ SG_ SeqNrTPDTDCDC : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ packetizeddataTPDTDCDC : 0|56@1+ (1,0) [0|7.20575940379279E+016] "1" Vector__XXX
+ SG_ CtrlbyteTPCMBAMOPCU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ TotMsgsizeTPCMBAMOPCU : 0|16@1+ (1,0) [0|65535] "1" Vector__XXX
+ SG_ packetsNrTPCMBAMOPCU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ pgnTPCMBAMOPCU : 0|24@1+ (1,0) [0|16777215] "1" Vector__XXX
+ SG_ SeqNrTPDTOPCU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ packetizeddataTPDTOPCU : 0|56@1+ (1,0) [0|7.20575940379279E+016] "1" Vector__XXX
+ SG_ CtrlbyteTPCMBAMPTU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ TotMsgsizeTPCMBAMPTU : 0|16@1+ (1,0) [0|65535] "1" Vector__XXX
+ SG_ packetsNrTPCMBAMPTU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ pgnTPCMBAMPTU : 0|24@1+ (1,0) [0|16777215] "1" Vector__XXX
+ SG_ SeqNrTPDTPTU : 0|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ packetizeddataTPDTPTU : 0|56@1+ (1,0) [0|7.20575940379279E+016] "1" Vector__XXX
+
+BO_ 2348820227 TSC1Mtr: 8 HCU
+ SG_ OvrdCtrlmodeTSC1Mtr : 0|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ ReqedSpdCtrlCdnsTSC1Mtr : 2|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ OvrdCtrlmodePrioTSC1Mtr : 4|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ ReqedSpdSpdLimTSC1Mtr : 8|16@1+ (0.5,0) [0|32767.5] "rpm"  MCU
+ SG_ ReqedTqTqLimTSC1Mtr : 24|8@1+ (1,-125) [-125|130] "%"  MCU
+ SG_ ReqedTqfrActnalTSC1Mtr : 40|4@1+ (1,0) [0|15] "1"  MCU
+ SG_ MsgCnterTSC1Mtr : 56|4@1+ (1,0) [0|15] "1"  MCU
+ SG_ MsgChksumTSC1Mtr : 60|4@1+ (1,0) [0|15] "1"  MCU
+
+BO_ 2364539687 EEC2HCU: 8 HCU
+ SG_ AccrPedlapPosn_EEC2HCU : 8|8@1+ (0.4,0) [0|102] "%"  MCU
+
+BO_ 2566844711 CCVSHCU: 8 HCU
+ SG_ PrkgBrkSwtCCVSHCU : 2|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ BrkSwtCCVSHCU : 28|2@1+ (1,0) [0|3] "1"  MCU
+
+BO_ 2348876583 TC1: 8 HCU
+ SG_ TrsmReqedgearTC1 : 16|8@1+ (1,-125) [-125|130] "1"  MCU
+ SG_ Trsmmode1TC1 : 40|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ Trsmmode2TC1 : 42|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ Trsmmode3TC1 : 44|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ TrsmautoNeutManreturnReqTC1 : 48|2@1+ (1,0) [0|3] "1" Vector__XXX
+
+BO_ 2348875781 TC1Handle: 8 HCU
+ SG_ TrsmReqedgearTC1Handle : 16|8@1+ (1,-125) [-125|130] "1"  MCU
+ SG_ Trsmmode1TC1Handle : 40|2@1+ (1,0) [0|3] "1" Vector__XXX
+
+BO_ 2364539395 ETC1: 8 HCU
+ SG_ ShiftinProcETC1 : 4|2@1+ (1,0) [0|3] "1"  MCU
+
+BO_ 2565866755 ETC2: 8 HCU
+ SG_ SeledgearETC2 : 0|8@1+ (1,-125) [-125|130] "1"  MCU
+ SG_ ActgearRatETC2 : 8|16@1+ (0.001,0) [0|65.535] ""  MCU
+ SG_ CurgearETC2 : 24|8@1+ (1,-125) [-125|130] "1"  MCU
+
+BO_ 2365578991 MCU1: 8 MCU
+ SG_ MotoperatingmodeMCU1 : 0|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ MotRotDirtionMCU1 : 2|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ MotSysStsMCU1 : 4|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ highprecisionMotTqMCU1 : 8|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ MotCurMaxOutphighprecisionTqMCU1 : 12|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ MotTqMCU1 : 16|8@1+ (1,-125) [-125|130] "%"  HCU
+ SG_ CurMaxOutpTqofMotMCU1 : 24|8@1+ (1,-125) [-125|130] "%"  HCU
+ SG_ MotSpdMCU1 : 32|16@1+ (0.5,0) [0|32767.5] "rpm"  HCU
+ SG_ highUPwroffAllwedMCU1 : 50|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ ActvdisChrgStMCU1 : 52|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ MotFailrStsMCU1 : 54|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ MsgCnterMCU1 : 56|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ MsgChksumMCU1 : 60|4@1+ (1,0) [0|15] "1"  HCU
+
+BO_ 2566841327 ECMCU: 34 MCU
+ SG_ MotTqECMCU : 152|16@1+ (1,0) [0|65535] "Nm"  HCU
+
+BO_ 2566864623 MCU3: 8 MCU
+ SG_ MotAvlMaxGennhighprecisionTqMCU3 : 12|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ MotAvlMaxGennTqMCU3 : 24|8@1+ (1,-125) [-125|130] "%"  HCU
+ SG_ MsgCnterMCU3 : 56|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ MsgChksumMCU3 : 60|4@1+ (1,0) [0|15] "1"  HCU
+
+BO_ 2365578992 MCU21: 8 MCU
+ SG_ MotoperatingmodeMCU21 : 0|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ MotRotDirtionMCU21 : 2|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ MotSysStsMCU21 : 4|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ highprecisionMotTqMCU21 : 8|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ otCurMaxOutphighprecisionTqMCU21 : 12|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ MotTqMCU21 : 16|8@1+ (1,-125) [-125|130] "%"  HCU
+ SG_ CurMaxOutpTqofMotMCU21 : 24|8@1+ (1,-125) [-125|130] "%"  HCU
+ SG_ MotSpdMCU21 : 32|16@1+ (0.5,0) [0|32767.5] "rpm"  HCU
+ SG_ highUPwroffAllwedMCU21 : 50|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ ActvdisChrgStMCU21 : 52|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ MotFailrStsMCU21 : 54|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ MsgCnterMCU21 : 56|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ MsgChksumMCU21 : 60|4@1+ (1,0) [0|15] "1"  HCU
+
+BO_ 2566905840 MCU22: 8 MCU
+ SG_ MotCtrllerbusUMCU22 : 0|16@1+ (1,0) [0|3212.75] "0.05V"  HCU
+ SG_ MotCtrllerbusCurMCU22 : 16|16@1+ (1,-1600) [-1600|1612.75] "0.05A"  HCU
+ SG_ MotTMCU22 : 32|8@1+ (1,-40) [-40|215] "C"  HCU
+ SG_ MotCtrllerTMCU22 : 40|8@1+ (1,-40) [-40|215] "C"  HCU
+
+BO_ 2566864624 MCU23: 8 MCU
+ SG_ otAvlMaxGennhighprecisionTqMCU23 : 12|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ MotAvlMaxGennTqMCU23 : 24|8@1+ (1,-125) [-125|130] "%"  HCU
+ SG_ MsgCnterMCU23 : 56|4@1+ (1,0) [0|15] "1"  HCU
+ SG_ MsgChksumMCU23 : 60|4@1+ (1,0) [0|15] "1"  HCU
+
+BO_ 2566834927 DM1MCU: 48 MCU
+ SG_ ProtlampDM1MCU : 0|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ amberWarnlampDM1MCU : 2|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ redstoplampDM1MCU : 4|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ malFctIndcrlampDM1MCU : 6|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ FlashProtlampDM1MCU : 8|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ FlashamberWarnlampDM1MCU : 10|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ FlashredstoplampDM1MCU : 12|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ FlashmalFctIndcrlampDM1MCU : 14|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ spn8leastsignificantbitsDM1MCU : 16|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ spnSecbyteDM1MCU : 24|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ FMiDM1MCU : 32|5@1+ (1,0) [0|31] "1"  HCU
+ SG_ spn3mostsignificantbitsDM1MCU : 37|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ occurrenceCntDM1MCU : 40|7@1+ (1,0) [0|127] "1"  HCU
+ SG_ spnCnvnMetHODDM1MCU : 47|1@1+ (1,0) [0|1] "1"  HCU
+
+BO_ 2566834928 DM1MCU2: 48 MCU
+ SG_ ProtlampDM1MCU2 : 0|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ amberWarnlampDM1MCU2 : 2|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ redstoplampDM1MCU2 : 4|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ malFctIndcrlampDM1MCU2 : 6|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ FlashProtlampDM1MCU2 : 8|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ FlashamberWarnlampDM1MCU2 : 10|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ FlashredstoplampDM1MCU2 : 12|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ FlashmalFctIndcrlampDM1MCU2 : 14|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ spn8leastsignificantbitsDM1MCU2 : 16|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ spnSecbyteDM1MCU2 : 24|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ FMiDM1MCU2 : 32|5@1+ (1,0) [0|31] "1"  HCU
+ SG_ spn3mostsignificantbitsDM1MCU2 : 37|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ occurrenceCntDM1MCU2 : 40|7@1+ (1,0) [0|127] "1"  HCU
+ SG_ spnCnvnMetHODDM1MCU2 : 47|1@1+ (1,0) [0|1] "1"  HCU
+
+BO_ 2566874371 AMT3: 8 HCU
+ SG_ ReqHCUtoCtrltheMotAMT3 : 0|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ TrsmgearselfLrningStAMT3 : 2|4@1+ (1,0) [0|15] "1"  MCU
+ SG_ holdCurgearReqAMT3 : 6|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ CluStsAMT3 : 8|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ SersparallelmodeStAMT3 : 10|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ CluCnsedTqAMT3 : 16|8@1+ (1,-125) [-125|130] "%"  MCU
+ SG_ SwtStoftheFpickerAMT3 : 48|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ DrvgFStAMT3 : 50|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ PrkgFStAMT3 : 52|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ ptobindingStAMT3 : 54|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ thepacketCnterAMT3 : 56|4@1+ (1,0) [0|15] "1" Vector__XXX
+ SG_ packetChksumAMT3 : 60|4@1+ (1,0) [0|15] "1" Vector__XXX
+
+BO_ 2348746023 HCUMCU: 8 HCU
+ SG_ theReqedMotoperatingmodeHCUMCU : 0|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ theReqedMotRotDirtionHCUMCU : 2|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ highprecisionMotTqReqedHCUMCU : 4|4@1+ (1,0) [0|15] "1"  MCU
+ SG_ MotTqReqedHCUMCU : 8|8@1+ (1,-125) [-125|130] "%"  MCU
+ SG_ MotSpdReqedHCUMCU : 16|16@1+ (0.5,0) [0|32767.5] "rpm"  MCU
+ SG_ MotworkEnaCmdHCUMCU : 32|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ MotNeghighURlyCmdHCUMCU : 34|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ MotPoshighURlyCmdHCUMCU : 36|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ MotpreChrghighURlyCmdHCUMCU : 38|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ highUPwroffReqofMotHCUMCU : 40|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ MotActvdisChrgCmdHCUMCU : 42|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ MaxSpdLimUnderCurloadHCUMCU : 48|16@1+ (0.5,0) [0|32767.5] "rpm"  MCU
+
+BO_ 2348782375 HCUMCU2: 8 HCU
+ SG_ theReqedMotoperatingmodeHCUMCU2 : 0|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ theReqedMotRotDirtionHCUMCU2 : 2|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ highprecisionMotTqReqedHCUMCU2 : 4|4@1+ (1,0) [0|15] "1"  MCU
+ SG_ MotTqReqedHCUMCU2 : 8|8@1+ (1,-125) [-125|130] "%"  MCU
+ SG_ MotSpdReqedHCUMCU2 : 16|16@1+ (0.5,0) [0|32767.5] "rpm"  MCU
+ SG_ MotworkEnaCmdHCUMCU2 : 32|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ MotNeghighURlyCmdHCUMCU2 : 34|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ MotPoshighURlyCmdHCUMCU2 : 36|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ MotpreChrghighURlyCmdHCUMCU2 : 38|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ highUPwroffReqofMotHCUMCU2 : 40|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ MotActvdisChrgCmdHCUMCU2 : 42|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ MaxSpdLimUnderCurloadHCUMCU2 : 48|16@1+ (0.5,0) [0|32767.5] "rpm"  MCU
+
+BO_ 2566849063 SC: 8 HCU
+ SG_ ptoSwtCmdSC : 4|2@1+ (1,0) [0|3] "1"  MCU
+
+BO_ 2348820228 TSC1Mtr2: 8 HCU
+ SG_ OvrdCtrlmodeTSC1Mtr2 : 0|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ ReqedSpdCtrlCdnsTSC1Mtr2 : 2|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ OvrdCtrlmodePrioTSC1Mtr2 : 4|2@1+ (1,0) [0|3] "1"  MCU
+ SG_ ReqedSpdSpdLimTSC1Mtr2 : 8|16@1+ (0.5,0) [0|32767.5] "rpm"  MCU
+ SG_ ReqedTqTqLimTSC1Mtr2 : 24|8@1+ (1,-125) [-125|130] "%"  MCU
+ SG_ ReqedTqfrActnalTSC1Mtr2 : 40|4@1+ (1,0) [0|15] "1"  MCU
+ SG_ MsgCnterTSC1Mtr2 : 56|4@1+ (1,0) [0|15] "1"  MCU
+ SG_ MsgChksumTSC1Mtr2 : 60|4@1+ (1,0) [0|15] "1"  MCU
+
+BO_ 2566905839 MCU2: 8 MCU
+ SG_ MotCtrllerbusUMCU2 : 0|16@1+ (0.05,0) [0|3276.75] "V"  HCU,HVAC
+ SG_ MotCtrllerbusCurMCU2 : 16|16@1+ (0.05,-1600) [-1600|1676.75] "A"  HCU,HVAC
+ SG_ MotTMCU2 : 32|8@1+ (1,-40) [-40|215] "C"  HCU,HVAC
+ SG_ MotCtrllerTMCU2 : 40|8@1+ (1,-40) [-40|215] "C"  HCU,HVAC
+
+BO_ 2566841930 TD: 8 HCU
+ SG_ SecsTD : 0|8@1+ (0.25,0) [0|63.75] "s"  BMS
+ SG_ MinssTD : 8|8@1+ (1,0) [0|255] "min"  BMS
+ SG_ hoursTD : 16|8@1+ (1,0) [0|255] "h"  BMS
+ SG_ MthTD : 24|8@1+ (1,0) [0|255] "month"  BMS
+ SG_ dayTD : 32|8@1+ (0.25,0) [0|63.75] "days"  BMS
+ SG_ yearTD : 40|8@1+ (1,1985) [1985|2240] "year"  BMS
+
+BO_ 2632777712 TPCMBAMMCU2: 8 MCU
+ SG_ CtrlbyteTPCMBAMMCU2 : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ TotMsgsizeTPCMBAMMCU2 : 8|16@1+ (1,0) [0|65535] "1"  HCU
+ SG_ packetsNrTPCMBAMMCU2 : 24|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ pgnTPCMBAMMCU2 : 40|24@1+ (1,0) [0|16777215] "1"  HCU
+
+BO_ 2632712176 TPDTMCU2: 8 MCU
+ SG_ SeqNrTPDTMCU2 : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ packetizeddataTPDTMCU2 : 8|56@1+ (1,0) [0|7.20575940379279E+016] "1"  HCU
+
+BO_ 2632777711 TPCMBAMMCU: 8 MCU
+ SG_ CtrlbyteTPCMBAMMCU : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ TotMsgsizeTPCMBAMMCU : 8|16@1+ (1,0) [0|65535] "1"  HCU
+ SG_ packetsNrTPCMBAMMCU : 24|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ pgnTPCMBAMMCU : 40|24@1+ (1,0) [0|16777215] "1"  HCU
+
+BO_ 2632712175 TPDTMCU: 8 MCU
+ SG_ SeqNrTPDTMCU : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ packetizeddataTPDTMCU : 8|56@1+ (1,0) [0|7.20575940379279E+016] "1"  HCU
+
+
+
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ SG_ 3221225472 DCDCOutpUReqHCUDCDC "DCDCOutputVoltageRequestDCDC output voltage requested by vehicle controller
+The actual physical value range is 22v30v beyond which DCDC outputs rated working voltage";
+CM_ SG_ 3221225472 DCDCworkingeanableCmdHCUDCDC "DCDCWorkingEanableCommandIndicates whether the vehicle controller allows DCDC to work";
+CM_ SG_ 3221225472 DCDC2OutpUReqHCUDCDC "DCDC2OutputVoltageRequestDCDC2 output voltage requested by vehicle controller
+The actual physical value range is 22v30v beyond which DCDC2 outputs rated working voltage";
+CM_ SG_ 3221225472 DCDC2workingeanableCmdHCUDCDC "DCDC2WorkingEanableCommandIndicates whether the vehicle controller allows DCDC2 to work";
+CM_ SG_ 3221225472 oilPUMPMotworkingEnaCmdHCUOPCU "OilPumpMotorWorkingEnableCommandWhether the vehicle controller allows the oil pump motor to work";
+CM_ SG_ 3221225472 mainPoshighURlyCtrlCmdHCU3 "MainPositiveHighVoltageRelayControlCommandIndicates the control signal of the main positive high voltage relay";
+CM_ SG_ 3221225472 mainNeghighURlyCtrlCmdHCU3 "MainNegativeHighVoltageRelayControlCommandIndicates the main and negative high voltage relay control signal";
+CM_ SG_ 3221225472 fuelcellRlyCtrlCmdHCU3 "FuelcellRelayControlCommandIndicates the Fuel cell Relay Control Command Signal";
+CM_ SG_ 3221225472 BattheatPTCRlyCtrlCmdHCU3 "BatteryHeatPTCrelaycontrolcommandHCU control multiinone openclose PTC relay";
+CM_ SG_ 3221225472 AcsoryRlyCtrlCmdHCU3 "accessoryrelaycontrolcommandHCU control multiinone offclose attachment relay";
+CM_ SG_ 3221225472 PTCRlyCtrlCmdHCU3 "PTCrelaycontrolcommandHCU control multiinone openclose PTC relay";
+CM_ SG_ 3221225472 MECURlyclosingReqHCU3 "MECURelayClosingRequestRepresents the closing request of HCU to the mounted relay";
+CM_ SG_ 3221225472 DCDCRlyclosingReqHCU3 "DCDCRelayClosingRequestRepresents the closing request of DCDC relay by HCU";
+CM_ SG_ 3221225472 acRlyclosingReqHCU3 "ACRelayClosingRequestRepresents the closing request of AC relay by HCU";
+CM_ SG_ 3221225472 DirtCurChrg1PosRlyCtrlCmdBMS5 "DirectCurrentCharge1PositiveRelayControlCommandIndicates the control signal of the direct current charge1 positive relay";
+CM_ SG_ 3221225472 DirtCurChrg1NegRlyCtrlCmdBMS5 "DirectCurrentCharge1NegativeRelayControlCommandIndicates the control signal of the direct current charge1 negative relay";
+CM_ SG_ 3221225472 DirtCurChrg2PosRlyCtrlCmdBMS5 "DirectCurrentCharge2PositiveRelayControlCommandIndicates the control signal of the direct current charge2 positive relay";
+CM_ SG_ 3221225472 DirtCurChrg2NegRlyCtrlCmdBMS5 "DirectCurrentCharge2NegativeRelayControlCommandIndicates the control signal of the direct current charge2 negative relay";
+CM_ SG_ 3221225472 WtrCoolgRlyCtrlCmdBMS5 "WaterCoolingRelayControlCommandIndicates the command of water cooling relay to HVAC";
+CM_ SG_ 3221225472 insulationtesterCtrlCmdBMS5 "InsulationTesterControlCommandInsulation Tester Control Command";
+CM_ SG_ 3221225472 BMSmainNegcoilDrvStBMS5 "BMSMainnegativecoildrivestateBMS primary negative coil drive state";
+CM_ SG_ 3221225472 PwrBattsohBMS5 "PowerBatterySOHRepresents the battery health status and the value range is 0100";
+CM_ SG_ 3221225472 mainNegRlydisCnctReqBMS5 "MainNegativeRelayDisconnectRequestRepresents that BMS sends the mainnegative relay disconnect request to HCU";
+CM_ SG_ 3221225472 mainNegRlyStsBMS5 "MainNegativeRelayStatusRepresents the state of the mainnegative relay";
+CM_ SG_ 3221225472 BattpackHeatgPosRlyCtrlCmdBMS5 "BatteryPackHeatingPositiveRelayControlCommandIndicates the Battery Pack Heating Positive Relay Control Command Signal";
+CM_ SG_ 3221225472 BattpackHeatgNegRlyCtrlCmdBMS5 "BatteryPackHeatingNegativeRelayControlCommandIndicates the Battery Pack Heating Negative Relay Control Command Signal";
+CM_ SG_ 3221225472 ChrgnplugCnctionStsBMS5 "ChargingPlugConnectionStatusIndicates the connection status of the charging plug
+If the dual gun is charged the signal indicates cc21";
+CM_ SG_ 3221225472 Chrgnplug2CnctionStsBMS5 "Chargingplug2connectionstatusRepresents the connection status of charging plug 2 The signal can only be obtained when the dual gun is charged cc22";
+CM_ SG_ 3221225472 ChrgnPosRlyStsBMS5 "ChargingPositiveRelayStatusRepresents the state of charging positive relay";
+CM_ SG_ 3221225472 NegChrgnRlyStsBMS5 "NegativeChargingRelayStatusRepresents the state of charging negative relay";
+CM_ SG_ 3221225472 OPCUhighUbusUOPCU1 "OPCUHighVoltageBusVoltageRepresents the high voltage bus voltage of the oil pump motor";
+CM_ SG_ 3221225472 OPCUMotFailrStsOPCU1 "OPCUMotorFailureStatusRepresents the actual fault state fed back by the oil pump motor";
+CM_ SG_ 3221225472 OPCUworkingStsOPCU1 "OPCUWorkingStatusRepresents the actual working state fed back by the oil pump motor";
+CM_ SG_ 3221225472 oilPUMPMotIvterTOPCU2 "OilPumpMotorInverterTemperatureRepresents temperature feedback of inverter of oil pump motor";
+CM_ SG_ 3221225472 oilPUMPMotOutpCurOPCU2 "OilPumpMotorOutputCurrentRepresents the output current value of the oil pump motor";
+CM_ SG_ 3221225472 ProtlampDM1OPCU "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 3221225472 amberWarnlampDM1OPCU "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 3221225472 redstoplampDM1OPCU "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 3221225472 malFctIndcrlampDM1OPCU "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 3221225472 FlashProtlampDM1OPCU "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 3221225472 FlashamberWarnlampDM1OPCU "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 3221225472 FlashredstoplampDM1OPCU "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 3221225472 FlashmalFctIndcrlampDM1OPCU "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 3221225472 spn8leastsignificantbitsDM1OPCU "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 3221225472 spnSecbyteDM1OPCU "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 3221225472 FMiDM1OPCU "FMImost significant at bit 5";
+CM_ SG_ 3221225472 spn3mostsignificantbitsDM1OPCU "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 3221225472 occurrenceCntDM1OPCU "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 3221225472 spnCnvnMetHODDM1OPCU "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ SG_ 3221225472 DCDCInpUDCDC1 "DCDCInputVoltageRepresents the input voltage of DCDC
+The actual physical value ranges from 0V to 1000V";
+CM_ SG_ 3221225472 DCDCInpCurDCDC1 "DCDCInputCurrentRepresents the input current of DCDC";
+CM_ SG_ 3221225472 DCDCOutpUDCDC1 "DCDCOutputVoltageRepresents the output voltage of DCDC
+The actual physical values range from 17 to 3125V";
+CM_ SG_ 3221225472 DCDCOutpCurDCDC1 "DCDCoutputcurrentRepresents the output current of DCDC";
+CM_ SG_ 3221225472 DCDCTDCDC1 "DCDCtemperatureRepresents the temperature of DCDC
+The actual physical values range from 40 to 125degC";
+CM_ SG_ 3221225472 DCDCworkingStsDCDC1 "DCDCworkingstatusRepresents actual status feedback from DCDC
+00：Represents the initialization state of DCDC；
+01：Indicates DCDC readiness；
+10：Represents the running state of DCDC；
+11：Indicates DCDC has fault；";
+CM_ SG_ 3221225472 DCDCFltStsDCDC1 "DCDCfaultstatusRepresents the DCDC fault status
+00：No Error；
+01：Represents level 1 failure state of DCDC alarm；
+10：Represents DCDC level 2 fault status limit；
+11：Represents level 3 fault state shutdown of DCDC；";
+CM_ SG_ 3221225472 ProtlampDM1DCDC "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 3221225472 amberWarnlampDM1DCDC "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 3221225472 redstoplampDM1DCDC "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 3221225472 malFctIndcrlampDM1DCDC "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 3221225472 FlashProtlampDM1DCDC "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 3221225472 FlashamberWarnlampDM1DCDC "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 3221225472 FlashredstoplampDM1DCDC "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 3221225472 FlashmalFctIndcrlampDM1DCDC "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 3221225472 spn8leastsignificantbitsDM1DCDC "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 3221225472 spnSecbyteDM1DCDC "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 3221225472 FMiDM1DCDC "FMImost significant at bit 5";
+CM_ SG_ 3221225472 spn3mostsignificantbitsDM1DCDC "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 3221225472 occurrenceCntDM1DCDC "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 3221225472 spnCnvnMetHODDM1DCDC "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ SG_ 3221225472 mainPosRlyStsRelayState "MainPositiveRelayStatusRepresents the actual state of the main positive relay";
+CM_ SG_ 3221225472 mainnegtiveRlyStsRelayState "MainNegtiveRelayStatusRepresents the actual state of the main Negtive relay";
+CM_ SG_ 3221225472 pduFailrStsRelayState "PDUFailureStatusRepresents the actual fault state of PDU ";
+CM_ SG_ 3221225472 preChrgnRlyStsRelayState "PreChargingRelayStatusRepresents the actual state of PreChargingRelayStatus";
+CM_ SG_ 3221225472 fuelcellRlyStsRelayState "FuelcellRelayStatusRepresents the actual state of FuelCellRelayStatus";
+CM_ SG_ 3221225472 PTCRlyStsRelayState "PTCRelayStatusRepresents the actual state of PTC relay";
+CM_ SG_ 3221225472 AcsoryRlyStsRelayState "AccessoryRelayStatusRepresents the actual state of the attachment relay";
+CM_ SG_ 3221225472 MECURlyStsRelayState "MECURelayStatusRepresents the actual state of the MECU relay";
+CM_ SG_ 3221225472 DCDCRlyStsRelayState "DCDCRelayStatusRepresents the actual state of the DCDC relay";
+CM_ SG_ 3221225472 mainPosRlyPwronStsRelayState "MainPositiveRelayPowerOnStatusRepresents the energized state of the main positive relay";
+CM_ SG_ 3221225472 MECUPwronStsRelayState "MECUPowerOnStatusRepresents the energized state of the installed relay";
+CM_ SG_ 3221225472 BattpackHeatgPosRlyStsRelayState "BatteryPackHeatingPositiveRelayStatusRepresents the actual state of the BatteryPackHeatingPositiveRelayStatus";
+CM_ SG_ 3221225472 BattpackHeatgNegRlyStsRelayState "BatteryPackHeatingNegativeRelayStatusRepresents the actual state of the BatteryPackHeatingNegativeRelayStatus";
+CM_ SG_ 3221225472 hydroCoolgRlyStsRelayState "HydrocoolingRelayStatusRepresents the actual state of the HydrocoolingRelayStatus";
+CM_ SG_ 3221225472 acRlyStsRelayState "ACRelayStatusRepresents the actual state of the air conditioner relay";
+CM_ SG_ 3221225472 insulationRIMCU1PTU "InsulationResistanceRepresents the insulation resistance value of the insulation monitor Physical value range of 0 kΩ  50000kΩ";
+CM_ SG_ 3221225472 sulationMonrdetectsUResdIMCU1PTU "InsulationMonitorDetectsVoltageReservedRepresents the voltage at both ends of the positive and negative terminals detected by the insulation monitor";
+CM_ SG_ 3221225472 insulationMonrSysStsIMCU1PTU "InsulationMonitorSystemStatusRepresents the actual system state as reflected by the insulation monitor
+Inactive indicates that the insulation monitor system is selfchecking or is at the end of the first monitoring cycle";
+CM_ SG_ 3221225472 insulationMonrAlrmIMCU1PTU "InsulationMonitorAlarmRepresents the alarm level of the insulation monitor
+First alarm serious failure
+Secondary alarm general fault";
+CM_ SG_ 3221225472 ProtlampDM1PTU "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 3221225472 amberWarnlampDM1PTU "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 3221225472 redstoplampDM1PTU "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 3221225472 malFctIndcrlampDM1PTU "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 3221225472 FlashProtlampDM1PTU "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 3221225472 FlashamberWarnlampDM1PTU "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 3221225472 FlashredstoplampDM1PTU "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 3221225472 FlashmalFctIndcrlampDM1PTU "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 3221225472 spn8leastsignificantbitsDM1PTU "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 3221225472 spnSecbyteDM1PTU "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 3221225472 FMiDM1PTU "FMImost significant at bit 5";
+CM_ SG_ 3221225472 spn3mostsignificantbitsDM1PTU "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 3221225472 occurrenceCntDM1PTU "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 3221225472 spnCnvnMetHODDM1PTU "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ SG_ 3221225472 VehCtrllerSysStsHCUBMS "VehiclecontrollersystemstatusRepresents the working state of the vehicle controller system                                                             
+ 00Normal                                                                                            ";
+CM_ SG_ 3221225472 workingRdySts_Rdy_HCUBMS "WorkingReadyStatus（READY）Indicates that the vehicle is ready for operation
+00：Not ready；
+01：Attachment ready；
+10：Motor ready；
+11：The vehicle can be driven";
+CM_ SG_ 3221225472 permittingChrgnHCUBMS "PermittingChargingIndicates whether charging is allowed";
+CM_ SG_ 3221225472 enduranceMilgHCUBMS "EnduranceMileageIndicates the mileage used for the display of the instrument
+The actual physical value range is 0km500km";
+CM_ SG_ 3221225472 SleepCmdHCUBMS "SleepCommandIndicates the sleep command sent by HCU After receiving it the receiving node realizes the sleep wake function according to the network sleep wake strategy";
+CM_ SG_ 3221225472 highUSysFailrStsHCUBMS "HighVoltageSystemFailureStatusIndicates High Voltage System Failure Status";
+CM_ SG_ 3221225472 PwrChgpermitHCUBMS "PowerChangePermitIndicates Power Change Permit Signal";
+CM_ SG_ 3221225472 vinIdnVIN "VINIdentificationVIN Identification up to 200 bytes";
+CM_ SG_ 3221225472 PwrBattUBMS1 "PowerBatteryVoltageRepresents the power battery voltage
+The actual physical value ranges from 0V to 1000V";
+CM_ SG_ 3221225472 PwrBattCurBMS1 "PowerBatterycurrentRepresents power battery current negative value represents charge positive value represents discharge";
+CM_ SG_ 3221225472 PwrBattsocBMS1 "PowerBatterySOCRepresents the remaining charge of the power battery";
+CM_ SG_ 3221225472 PwrBattSysStsBMS1 "PowerBatterySystemStatusRepresents the current working status of the power battery system
+The first alarm is a general fault
+The secondary alarm is a serious fault limited power
+Threelevel alarm for emergency failure electricity";
+CM_ SG_ 3221225472 PwrBattChrgnReqBMS1 "PowerBatteryChargingRequestIndicates whether there is a charge request
+000：No charge request before charge ready
+001：When the charging is ready send the charging request
+010：Request charging stop in case of recoverable fault reservation
+011：Unrecoverabl";
+CM_ SG_ 3221225472 PwrBattChrgnStsBMS1 "PowerBatteryChargingStatusRepresents the current charging state of the power battery";
+CM_ SG_ 3221225472 PwrBattHeatgStsBMS1 "PowerBatteryheatingStatusIndicates the heating state of the power battery";
+CM_ SG_ 3221225472 ChrgnReqStsBMS1 "ChargingrequeststatusIndicates the BMS is charging in ONOFF state";
+CM_ SG_ 3221225472 MsgCnterBMS1 "MessageCounterThe message counter is used to detect situations where the transmitting ECU malfunction repeats the same frame all the time  The receiver of the formation may use the counter parameter to detect this situation  The transmitting device will";
+CM_ SG_ 3221225472 MsgChksumBMS1 "MessagechecksumMessage checksum is used to verify the signal transmission path from the sending device to the receiving device The checksum is the sum of the following data the sum of the message ID from high to low bytes the first seven bytes of the da";
+CM_ SG_ 3221225472 PwrBattAvlChrgnPlsPwrBMS2 "PowerBatteryAvailableChargingPulsePowerThe actual charging pulse power of the power battery";
+CM_ SG_ 3221225472 PwrBattAvldisChrgPlsPwrBMS2 "PowerBatteryAvailableDischargePulsePowerrepresents the available discharge pulse power of the power battery";
+CM_ SG_ 3221225472 PwrBattAvlChrgnContnsPwrBMS2 "PowerBatteryAvailableChargingContinuousPowerRepresents the available charging Continuous power of the power battery";
+CM_ SG_ 3221225472 PwrBattAvldisChrgContnsPwrBMS2 "PowerBatteryAvailableDischargeContinuousPowerRepresents the available discharge Continuous power of power battery";
+CM_ SG_ 3221225472 MaxTofPwrBattBMS2 "MaximumtemperatureofpowerbatteryIndicates the maximum temperature of the power battery
+The actual physical value range is 40degc125degc";
+CM_ SG_ 3221225472 MinTofPwrBattBMS2 "MinimumtemperatureofpowerbatteryRepresents the lowest temperature of the power battery
+The actual physical value range is 40degc125degc";
+CM_ SG_ 3221225472 AvrgTofPwrBattBMS2 "AveragetemperatureofpowerbatteryRepresents the lowest temperature of the power battery
+The actual physical value range is 40degc125degc";
+CM_ SG_ 3221225472 MsgCnterBMS2 "MessageCounterThe message counter is used to detect situations where the transmitting ECU malfunction repeats the same frame all the time  The receiver of the formation may use the counter parameter to detect this situation  The transmitting device will";
+CM_ SG_ 3221225472 MsgChksumBMS2 "MessagechecksumMessage checksum is used to verify the signal transmission path from the sending device to the receiving device The checksum is the sum of the following data the sum of the message ID from high to low bytes the first seven bytes of the da";
+CM_ SG_ 3221225472 TotChrgEgyCpBMS4 "TotalChargeEnergyCapacityThe total amount of charging electrical energy capacity";
+CM_ SG_ 3221225472 BattmanufacturersBMS4 "Batterymanufacturers0x01：CATL；0x02Li Shen；0x03：MGL；0x04SAMSUN；0x05：LG；0x06：EVE；0x07：
+BYD；0x08Wei Hong 0x09Yuan Jing；0x0AJIEFANG；";
+CM_ SG_ 3221225472 OutdstationChrgEgyCpBMS4 "OutsideStationChargeEnergyCapacityThe outside station amount of charging electrical energy capacity";
+CM_ SG_ 3221225472 ousidestationChrgEgyNrBMS4 "OusideStationChargeEnergyNumberOuside Station Charge Energy Times";
+CM_ SG_ 3221225472 TotChrgCpValBMS10 "TotalChargeCapacityValueTotal Charge Capacity Value";
+CM_ SG_ 3221225472 ChrgCpValpertimeBMS10 "ChargeCapacityValuePerTimeCharge Capacity Value Per Time";
+CM_ SG_ 3221225472 SngBatthighestUorBattMdlBMS9 "SingleBatteryHighestVoltageorbatterymoduleRepresents the highest voltage value of a single cell or battery module in a battery pack";
+CM_ SG_ 3221225472 SngBattMinUorBattMdlBMS9 "SingleBatteryMinimumVoltageorbatterymoduleRepresents the minimum voltage of a single cell or battery module in a battery pack";
+CM_ SG_ 3221225472 NrofSngBatthighestUorBattMdlBMS9 "NumberofsinglebatteryHighestVoltageorbatterymoduleRepresents the number of the highest voltage of a single power cell or battery module";
+CM_ SG_ 3221225472 NrofSngBattMinUorBattMdlBMS9 "NumberofSingleBatteryMinimumVoltageorbatterymoduleRepresents the minimum voltage of a power cell or battery module";
+CM_ SG_ 3221225472 NrofMaxTprobemonomerBMS9 "NumberofMaximumtemperatureprobemonomerRepresents the highest temperature probe monomer code";
+CM_ SG_ 3221225472 NrofMinTprobemonomerBMS9 "NumberofMinimumtemperatureprobemonomerRepresents the lowest temperature probe monomer code";
+CM_ SG_ 3221225472 PwrBattmonomerU1BMS6 "PowerBatteryMonomerVoltage1Represents the voltage value of single battery no 1";
+CM_ SG_ 3221225472 PwrBattmonomerU2BMS6 "PowerBatteryMonomerVoltage2Represents the voltage value of single battery no 2";
+CM_ SG_ 3221225472 PwrBattmonomerU3BMS6 "PowerBatteryMonomerVoltage3Represents the voltage value of single battery no 3";
+CM_ SG_ 3221225472 PwrBattmonomerU4BMS6 "PowerBatteryMonomerVoltage4Represents the voltage value of single battery no 4";
+CM_ SG_ 3221225472 PwrBatttestpoint1TBMS7 "PowerBatteryTestPoint1TemperatureRepresents the temperature value of the power battery detection point 1";
+CM_ SG_ 3221225472 PwrBatttestpoint2TBMS7 "PowerBatteryTestPoint2TemperatureRepresents the temperature value of the power battery detection point 2";
+CM_ SG_ 3221225472 PwrBatttestpoint3TBMS7 "PowerBatteryTestPoint3TemperatureRepresents the temperature value of the power battery detection point 3";
+CM_ SG_ 3221225472 highestUBattsubSysNrBMS8 "HighestVoltageBatterySubsystemNumberReport the highest voltage battery subsystem number";
+CM_ SG_ 3221225472 lowestUBattsubSysNrBMS8 "LowestVoltageBatterySubsystemNumberReport the lowest voltage battery subsystem number";
+CM_ SG_ 3221225472 MaxTsubSysNrBMS8 "MaximumTemperatureSubsystemNumberReport highest temperature battery subsystem number";
+CM_ SG_ 3221225472 MinTsubSysNrBMS8 "MinimumTemperatureSubsystemNumberReport minimum temperature battery subsystem number";
+CM_ SG_ 3221225472 eChrgableEgyStorgsubSyssQntyBMS8 "RechargeableEnergyStorageSubsystemsQuantityRepresents the number of rechargeable energy storage subsystems";
+CM_ SG_ 3221225472 reChrgableEgyStorgsubSysNrBMS8 "RechargeableEnergyStorageSubsystemNumberRepresents the number of the rechargeable energy storage subsystem";
+CM_ SG_ 3221225472 TotNrSngcellsBMS8 "TotalnumberSingleCellsRepresents the total number of single batteries";
+CM_ SG_ 3221225472 eChrgableEgyStorgTprobesQntyBMS8 "rechargeableenergystoragetemperatureprobesQuantityRepresents the number of chargeable energy storage temperature probes";
+CM_ SG_ 3221225472 codeLenreChrgableEgyStorgSysBMS8 "CodelengthRechargeableEnergyStorageSystem。";
+CM_ SG_ 3221225472 ProtlampDM1BMS "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 3221225472 amberWarnlampDM1BMS "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 3221225472 redstoplampDM1BMS "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 3221225472 malFctIndcrlampDM1BMS "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 3221225472 FlashProtlampDM1BMS "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 3221225472 FlashamberWarnlampDM1BMS "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 3221225472 FlashredstoplampDM1BMS "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 3221225472 FlashmalFctIndcrlampDM1BMS "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 3221225472 spn8leastsignificantbitsDM1BMS "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 3221225472 spnSecbyteDM1BMS "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 3221225472 FMiDM1BMS "FMImost significant at bit 5";
+CM_ SG_ 3221225472 spn3mostsignificantbitsDM1BMS "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 3221225472 occurrenceCntDM1BMS "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 3221225472 spnCnvnMetHODDM1BMS "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ SG_ 3221225472 tachographVehSpdHCUTCO1 "TachographvehiclespeedSpeed of the vehicle registered by the tachographraw data";
+CM_ SG_ 3221225472 insulationRIMCU1 "InsulationResistanceRepresents the insulation resistance value of the insulation monitor Physical value range of 0 kΩ  50000kΩ";
+CM_ SG_ 3221225472 insulationMonrdetectsUResdIMCU1 "InsulationMonitorDetectsVoltageReservedRepresents the voltage at both ends of the positive and negative terminals detected by the insulation monitor";
+CM_ SG_ 3221225472 insulationMonrSysStsIMCU1 "InsulationMonitorSystemStatusRepresents the actual system state as reflected by the insulation monitor
+Inactive indicates that the insulation monitor system is selfchecking or is at the end of the first monitoring cycle";
+CM_ SG_ 3221225472 insulationMonrAlrmIMCU1 "InsulationMonitorAlarmRepresents the alarm level of the insulation monitor
+First alarm serious failure
+Secondary alarm general fault";
+CM_ SG_ 3221225472 BMSReqsettingmodeBMSTMS "BMSRequestSettingModeNone";
+CM_ SG_ 3221225472 settingTBMSTMS "SettingTemperatureNone";
+CM_ SG_ 3221225472 DirtCurChrg1PosRlyStsRelayState2 "DirectCurrentCharge1PositiveRelaystatusRepresents the state of Direct Current Charge1 positive relay";
+CM_ SG_ 3221225472 DirtCurChrg1NegRlyStsRelayState2 "DirectCurrentCharge1NegativeRelaystatusRepresents the state of Direct Current Charge1 negative relay";
+CM_ SG_ 3221225472 DirtCurChrg2PosRlyStsRelayState2 "DirectCurrentCharge2PositiveRelaystatusRepresents the Direct Current Charge2 Positive Relay status";
+CM_ SG_ 3221225472 DirtCurChrg2NegRlyStsRelayState2 "DirectCurrentCharge2NegativeRelaystatusRepresents the Direct Current Charge2 Negative Relay status";
+CM_ SG_ 3221225472 PwrBattURelayState2 "PowerBatteryVoltageRepresents the power battery voltage
+The actual physical value ranges from 0V to 1000V";
+CM_ SG_ 3221225472 EBRSRlyStsRelayState2 "EBRSRelayStatusRepresents the actual state of the EBRS relay";
+CM_ SG_ 3221225472 fuelcellRlyStsRelayState2 "FuelcellRelayStatusRepresents the actual state of the Fuel cell Relay";
+CM_ SG_ 3221225472 PTUTRelayState2 "PTUtemperatureRepresents the temperature of PTU
+The actual physical values range from 40 to 125degC";
+CM_ SG_ 3221225472 changingCnctorT1CBMS2BMS "ChangingConnectorTemperature1Changing Connector Temperature Test1";
+CM_ SG_ 3221225472 changingCnctorT2CBMS2BMS "ChangingConnectorTemperature2Changing Connector Temperature Test2";
+CM_ SG_ 3221225472 changingCnctorT3CBMS2BMS "ChangingConnectorTemperature3Changing Connector Temperature Test3";
+CM_ SG_ 3221225472 changingCnctorT4CBMS2BMS "ChangingConnectorTemperature4Changing Connector Temperature Test4";
+CM_ SG_ 3221225472 changingCnctorT5CBMS2BMS "ChangingConnectorTemperature5Changing Connector Temperature Test5";
+CM_ SG_ 3221225472 changingCnctorT6CBMS2BMS "ChangingConnectorTemperature6Changing Connector Temperature Test6";
+CM_ SG_ 3221225472 Chrgr1CnctorT1CBMS2BMS "Charger1ConnectorTemperature1Charger1 Connector Temperature 1";
+CM_ SG_ 3221225472 Chrgr1CnctorT2CBMS2BMS "Charger1ConnectorTemperature2Charger1 Connector Temperature 2";
+CM_ SG_ 3221225472 BattheatexChgrOutlWtrTHCUBEWP "BatteryheatexchangeroutletwatertemperatureRepresents Battery heat exchanger outlet water temperature";
+CM_ SG_ 3221225472 BattheatexChgrinletWtrTHCUBEWP "BatteryheatexchangerinletwatertemperatureRepresents Battery heat exchanger inlet water temperature";
+CM_ SG_ 3221225472 CtrlbyteTPCMBAMHCU "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 3221225472 TotMsgsizeTPCMBAMHCU "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 3221225472 packetsNrTPCMBAMHCU "packetsnumberTotal number of packets";
+CM_ SG_ 3221225472 pgnTPCMBAMHCU "PGNPGN of the packeted message";
+CM_ SG_ 3221225472 SeqNrTPDTBMSHCU "SequenceNumberSequence Number";
+CM_ SG_ 3221225472 packetizeddataTPDTBMSHCU "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+CM_ SG_ 3221225472 CtrlbyteTPCMBAMBMS "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 3221225472 TotMsgsizeTPCMBAMBMS "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 3221225472 packetsNrTPCMBAMBMS "packetsnumberTotal number of packets";
+CM_ SG_ 3221225472 pgnTPCMBAMBMS "PGNPGN of the packeted message";
+CM_ SG_ 3221225472 SeqNrTPDTBMS "SequenceNumberSequence Number";
+CM_ SG_ 3221225472 packetizeddataTPDTBMS "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+CM_ SG_ 3221225472 CtrlbyteTPCMBAMDCDC "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 3221225472 TotMsgsizeTPCMBAMDCDC "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 3221225472 packetsNrTPCMBAMDCDC "packetsnumberTotal number of packets";
+CM_ SG_ 3221225472 pgnTPCMBAMDCDC "PGNPGN of the packeted message";
+CM_ SG_ 3221225472 SeqNrTPDTDCDC "SequenceNumberSequence Number";
+CM_ SG_ 3221225472 packetizeddataTPDTDCDC "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+CM_ SG_ 3221225472 CtrlbyteTPCMBAMOPCU "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 3221225472 TotMsgsizeTPCMBAMOPCU "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 3221225472 packetsNrTPCMBAMOPCU "packetsnumberTotal number of packets";
+CM_ SG_ 3221225472 pgnTPCMBAMOPCU "PGNPGN of the packeted message";
+CM_ SG_ 3221225472 SeqNrTPDTOPCU "SequenceNumberSequence Number";
+CM_ SG_ 3221225472 packetizeddataTPDTOPCU "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+CM_ SG_ 3221225472 CtrlbyteTPCMBAMPTU "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 3221225472 TotMsgsizeTPCMBAMPTU "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 3221225472 packetsNrTPCMBAMPTU "packetsnumberTotal number of packets";
+CM_ SG_ 3221225472 pgnTPCMBAMPTU "PGNPGN of the packeted message";
+CM_ SG_ 3221225472 SeqNrTPDTPTU "SequenceNumberSequence Number";
+CM_ SG_ 3221225472 packetizeddataTPDTPTU "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+CM_ SG_ 2348820227 OvrdCtrlmodeTSC1Mtr "OverrideControlModeThe override control mode defines which sort of command is used";
+CM_ SG_ 2348820227 ReqedSpdCtrlCdnsTSC1Mtr "RequestedSpeedControlConditionsThis mode tells the engine control system the governor characteristics that are desired during speed control";
+CM_ SG_ 2348820227 OvrdCtrlmodePrioTSC1Mtr "OverrideControlModePriorityThis field is used as an input to the engine or retarder to determine thepriority of the Override Control Mode received in the TorqueSpeed Control message see PGN 0 The default is 11 Low priority It is not required to use the ";
+CM_ SG_ 2348820227 ReqedSpdSpdLimTSC1Mtr "RequestedSpeedSpeedLimitParameter provided to the engine from external sources in the torquespeed control message  This is the engine speed which the engine is expected to operate at if the speed control mode is active or the engine speed which the engi";
+CM_ SG_ 2348820227 ReqedTqTqLimTSC1Mtr "RequestedTorqueTorqueLimitParameter provided to the engine or retarder in the torquespeed control message for controlling or limiting the output torque Requested torque to the engine is measured in indicated torque as a percentage of reference engine to";
+CM_ SG_ 2348820227 ReqedTqfrActnalTSC1Mtr "RequestedTorqueFractionalThis parameter displays an additional torque in percent of the reference engine torque
+When the MSB is set to 1 this parameter is not available  When the MSB is set to 0 bits 1 to 3 indicate the desired torque with resolution of";
+CM_ SG_ 2348820227 MsgCnterTSC1Mtr "MessageCounterThe message counter is used to detect situations where the transmitting ECU malfunction repeats the same frame all the time  The receiver of the formation may use the counter parameter to detect this situation  The transmitting device will";
+CM_ SG_ 2348820227 MsgChksumTSC1Mtr "MessageChecksumThe message checksum is used to verify the signal path from the transmitting device to the receiving device
+The message checksum is calculated using the first 7 data bytes the message counter and the bytes of the message
+identifier It is ";
+CM_ BO_ 2364539687 "no comment";
+CM_ SG_ 2364539687 AccrPedlapPosn_EEC2HCU "AcceleratorpedalAPpositionThe ratio of actual accelerator pedal position to maximum pedal position Although it is used as an input to determine powertrain demand it also provides anticipatory information to transmission and ASR algorithms about driver a";
+CM_ BO_ 2566844711 "no comment";
+CM_ SG_ 2566844711 PrkgBrkSwtCCVSHCU "ParkingBrakeSwitchSwitch signal which indicates when the parking brake is setIn general the switch actuated by the operators park brake control whether a pedal lever or other control mechanism";
+CM_ SG_ 2566844711 BrkSwtCCVSHCU "BrakeswitchSwitch signal which indicates that the driver operated brake foot pedal is being pressed This brake foot pedal is controlling the vehicles service brake total vehicle braking application not park brakes It is necessary for safe drivetrain beh";
+CM_ BO_ 2348876583 "no comment";
+CM_ SG_ 2348876583 TrsmReqedgearTC1 "TransmissionRequestedGearNegative values are reverse gears positive values are forward gears zero is neutral
+Parameter specific values for this parameter are as follows
+0xFD 253 dec  Hold current gearDManual
+0xFC 252 dec  Forward Drive PositionDAuto
+0xF";
+CM_ SG_ 2348876583 Trsmmode1TC1 "TransmissionMode1Indicates whether transmission mode 1（EPMode） is enabled
+0 indicates the Economic model
+1 indicates the Power model";
+CM_ SG_ 2348876583 Trsmmode2TC1 "TransmissionMode2Indicates whether transmission mode 2（Climb Mode） is enabled";
+CM_ SG_ 2348876583 Trsmmode3TC1 "TransmissionMode3Indicates whether transmission mode 3（Low Speed Mode） is enabled";
+CM_ SG_ 2348876583 TrsmautoNeutManreturnReqTC1 "TransmissionAutoNeutralManualReturnRequestThis parameter conveys a vehicle system desire to override the operator’s current shift selector request eg Drive Reverse and shift the transmission into Neutral";
+CM_ BO_ 2348875781 "no comment";
+CM_ SG_ 2348875781 TrsmReqedgearTC1Handle "TransmissionRequestedGearNegative values are reverse gears positive values are forward gears zero is neutral
+Parameter specific values for this parameter are as follows
+0xFD 253 dec  Hold current gearDManual
+0xFC 252 dec  Forward Drive PositionDAuto
+0xF";
+CM_ SG_ 2348875781 Trsmmode1TC1Handle "TransmissionMode1Indicates whether transmission mode 1（EPMode） is enabled
+0 indicates the Economic model
+1 indicates the Power model";
+CM_ BO_ 2364539395 "no comment";
+CM_ SG_ 2364539395 ShiftinProcETC1 "ShiftInProcessIndicates that the transmission is in process of shifting from the current gear to the selected gearThis state is generally ACTIVE during the entire time that the transmission controls the vehicle This includes any transmission clutch cont";
+CM_ BO_ 2565866755 "no comment";
+CM_ SG_ 2565866755 SeledgearETC2 "SelectedGearThe gear that the transmission will attempt to achieve during the current shift if a shift is in progress or the next shift if one is pending ie waiting for torque reduction to initiate the shiftNegative values are reverse gears positive val";
+CM_ SG_ 2565866755 ActgearRatETC2 "ActualGearRatioActual ratio of input shaft speed to output shaft speed";
+CM_ SG_ 2565866755 CurgearETC2 "CurrentGearThe gear currently engaged in the transmission or the last gear engaged while the transmission is in the process of shifting to the new or selected gear Transitions toward a destination gear will not be indicated Once the selected gear has be";
+CM_ BO_ 2365578991 "no comment";
+CM_ SG_ 2365578991 MotoperatingmodeMCU1 "MotoroperatingmodeMotor working modeactual working mode
+The motor has four operating statesfree followup modetorque control modespeed control mode and rotor zero calibration
+When the motor is required to run in free followup statethe output torque of th";
+CM_ SG_ 2365578991 MotRotDirtionMCU1 "MotorrotationdirectionMotor rotation direction（actual steering）：
+00 No output in the direction of rotation（no output in the direction of rotation within ±10rpm）；
+01 Forward：motor rotation direction when the vehicle is moving forward；
+10 Reverse：motor ro";
+CM_ SG_ 2365578991 MotSysStsMCU1 "MotorsystemstatusMotor system status  
+0x0 indicates that the low voltage is powered on but the high voltage is not established  
+0x1 The low voltage is powered on and the high voltage is being powered on  
+0x2 indicates the state after both high and lo";
+CM_ SG_ 2365578991 highprecisionMotTqMCU1 "HighprecisionmotortorqueRepresents the fractional part of the actual motor torque which together with the signal  motor torque  constitutes the actual motor torque  If b3 is 1 this parameter is unavailable  When B3 is 0 b0 to B2 are used to represent th";
+CM_ SG_ 2365578991 MotCurMaxOutphighprecisionTqMCU1 "MotorcurrentmaximumoutputhighprecisiontorqueRepresents the fractional part of the current maximum output torque of the motor which together with the signal  current maximum output torque of the motor  constitutes the current maximum output torque of the";
+CM_ SG_ 2365578991 MotTqMCU1 "MotortorqueRepresents motor torque  Positive value indicates that the motor is required to be in electric state  Negative value indicates that the motor is required to be in the state of power generation  The signal is expressed in the form of torque pe";
+CM_ SG_ 2365578991 CurMaxOutpTqofMotMCU1 "CurrentmaximumoutputtorqueofmotorRepresents the maximum current output torque of the motor  The actual value ranges from 0 to 125  The signal is expressed in the form of torque percentage and 1000 represents the maximum output torque of the motor which ";
+CM_ SG_ 2365578991 MotSpdMCU1 "MotorspeedIndicates the actual motor speed";
+CM_ SG_ 2365578991 highUPwroffAllwedMCU1 "HighvoltagepoweroffallowedThe signal is the feedback of the motor high voltage power off request signal  The value of 1 indicates that poweroff is allowed and the vehicle controller will cut off the high voltage relay on the bus side of the motor";
+CM_ SG_ 2365578991 ActvdisChrgStMCU1 "ActivedischargestateIndicates the active discharge state of the motor  
+00 Active discharge is not started No active discharge command is received or active discharge is not started  
+01 Active discharge is carried out during the active discharge proces";
+CM_ SG_ 2365578991 MotFailrStsMCU1 "MotorfailurestatusMotor fault state feedback";
+CM_ SG_ 2365578991 MsgCnterMCU1 "MessagecounterThe packet counter is used to detect the repeated occurrence of the same frame due to the fault of sending ECU  The message receiver can detect this using a message counter  The packet sender increments the packet counter by one for each p";
+CM_ SG_ 2365578991 MsgChksumMCU1 "MessagechecksumThe packet checksum is used to verify the signal transmission path from the sending device to the receiving device  The checksum is the sum of the following data the sum of the packet ID from the highest byte to the lowest byte the first ";
+CM_ BO_ 2566841327 "no comment";
+CM_ SG_ 2566841327 MotTqECMCU "MotortorqueThis parameter is a 100 reference value for all defined specified motor torque parameters";
+CM_ BO_ 2566864623 "no comment";
+CM_ SG_ 2566864623 MotAvlMaxGennhighprecisionTqMCU3 "MotoravailablemaximumgenerationhighprecisiontorqueRepresents the fractional part of the maximum available power generation torque of the motor which together with the signal  maximum available power generation torque of the motor  constitutes the maximu";
+CM_ SG_ 2566864623 MotAvlMaxGennTqMCU3 "MotoravailablemaximumgenerationtorqueRepresents the maximum available power torque of the motor  The actual value ranges from 125 to 0  The signal is expressed in the form of torque percentage 1000 represents the maximum available power torque of the mo";
+CM_ SG_ 2566864623 MsgCnterMCU3 "MessagecounterThe packet counter is used to detect the repeated occurrence of the same frame due to the fault of sending ECU  The message receiver can detect this using a message counter  The packet sender increments the packet counter by one for each p";
+CM_ SG_ 2566864623 MsgChksumMCU3 "MessagechecksumThe packet checksum is used to verify the signal transmission path from the sending device to the receiving device  The checksum is the sum of the following data the sum of the packet ID from the highest byte to the lowest byte the first ";
+CM_ BO_ 2365578992 "no comment";
+CM_ SG_ 2365578992 MotoperatingmodeMCU21 "MotoroperatingmodeMotor working modeactual working mode
+The motor has four operating statesfree followup modetorque control modespeed control mode and rotor zero calibration
+When the motor is required to run in free followup statethe output torque of th";
+CM_ SG_ 2365578992 MotRotDirtionMCU21 "MotorrotationdirectionMotor rotation direction（actual steering）：
+00 No output in the direction of rotation（no output in the direction of rotation within ±10rpm）；
+01 Forward：motor rotation direction when the vehicle is moving forward；
+10 Reverse：motor ro";
+CM_ SG_ 2365578992 MotSysStsMCU21 "MotorsystemstatusMotor system status  
+0x0 indicates that the low voltage is powered on but the high voltage is not established  
+0x1 The low voltage is powered on and the high voltage is being powered on  
+0x2 indicates the state after both high and lo";
+CM_ SG_ 2365578992 highprecisionMotTqMCU21 "HighprecisionmotortorqueRepresents the fractional part of the actual motor torque which together with the signal  motor torque  constitutes the actual motor torque  If b3 is 1 this parameter is unavailable  When B3 is 0 b0 to B2 are used to represent th";
+CM_ SG_ 2365578992 otCurMaxOutphighprecisionTqMCU21 "MotorcurrentmaximumoutputhighprecisiontorqueRepresents the fractional part of the current maximum output torque of the motor which together with the signal  current maximum output torque of the motor  constitutes the current maximum output torque of the";
+CM_ SG_ 2365578992 MotTqMCU21 "MotortorqueRepresents motor torque  Positive value indicates that the motor is required to be in electric state  Negative value indicates that the motor is required to be in the state of power generation  The signal is expressed in the form of torque pe";
+CM_ SG_ 2365578992 CurMaxOutpTqofMotMCU21 "CurrentmaximumoutputtorqueofmotorRepresents the maximum current output torque of the motor  The actual value ranges from 0 to 125  The signal is expressed in the form of torque percentage and 1000 represents the maximum output torque of the motor which ";
+CM_ SG_ 2365578992 MotSpdMCU21 "MotorspeedIndicates the actual motor speed";
+CM_ SG_ 2365578992 highUPwroffAllwedMCU21 "HighvoltagepoweroffallowedThe signal is the feedback of the motor high voltage power off request signal  The value of 1 indicates that poweroff is allowed and the vehicle controller will cut off the high voltage relay on the bus side of the motor";
+CM_ SG_ 2365578992 ActvdisChrgStMCU21 "ActivedischargestateIndicates the active discharge state of the motor  
+00 Active discharge is not started No active discharge command is received or active discharge is not started  
+01 Active discharge is carried out during the active discharge proces";
+CM_ SG_ 2365578992 MotFailrStsMCU21 "MotorfailurestatusMotor fault state feedback";
+CM_ SG_ 2365578992 MsgCnterMCU21 "MessagecounterThe packet counter is used to detect the repeated occurrence of the same frame due to the fault of sending ECU  The message receiver can detect this using a message counter  The packet sender increments the packet counter by one for each p";
+CM_ SG_ 2365578992 MsgChksumMCU21 "MessagechecksumThe packet checksum is used to verify the signal transmission path from the sending device to the receiving device  The checksum is the sum of the following data the sum of the packet ID from the highest byte to the lowest byte the first ";
+CM_ BO_ 2566905840 "no comment";
+CM_ SG_ 2566905840 MotCtrllerbusUMCU22 "MotorcontrollerbusvoltageIn the MCU the busbar voltage feedback value of supportting capacity after precharging circuit";
+CM_ SG_ 2566905840 MotCtrllerbusCurMCU22 "MotorcontrollerbuscurrentIn the MCU the busbar current feedback value of supportting capacity after precharging circuit
+positive value  discharge current
+negative value  charge current";
+CM_ SG_ 2566905840 MotTMCU22 "MotortemperatureMotor temperature";
+CM_ SG_ 2566905840 MotCtrllerTMCU22 "MotorcontrollertemperatureMotor controller temperature";
+CM_ BO_ 2566864624 "no comment";
+CM_ SG_ 2566864624 otAvlMaxGennhighprecisionTqMCU23 "MotoravailablemaximumgenerationhighprecisiontorqueRepresents the fractional part of the maximum available power generation torque of the motor which together with the signal  maximum available power generation torque of the motor  constitutes the maximu";
+CM_ SG_ 2566864624 MotAvlMaxGennTqMCU23 "MotoravailablemaximumgenerationtorqueRepresents the maximum available power torque of the motor  The actual value ranges from 125 to 0  The signal is expressed in the form of torque percentage 1000 represents the maximum available power torque of the mo";
+CM_ SG_ 2566864624 MsgCnterMCU23 "MessagecounterThe packet counter is used to detect the repeated occurrence of the same frame due to the fault of sending ECU  The message receiver can detect this using a message counter  The packet sender increments the packet counter by one for each p";
+CM_ SG_ 2566864624 MsgChksumMCU23 "MessagechecksumThe packet checksum is used to verify the signal transmission path from the sending device to the receiving device  The checksum is the sum of the following data the sum of the packet ID from the highest byte to the lowest byte the first ";
+CM_ BO_ 2566834927 "no comment";
+CM_ SG_ 2566834927 ProtlampDM1MCU "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 2566834927 amberWarnlampDM1MCU "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 2566834927 redstoplampDM1MCU "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 2566834927 malFctIndcrlampDM1MCU "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 2566834927 FlashProtlampDM1MCU "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 2566834927 FlashamberWarnlampDM1MCU "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 2566834927 FlashredstoplampDM1MCU "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834927 FlashmalFctIndcrlampDM1MCU "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834927 spn8leastsignificantbitsDM1MCU "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834927 spnSecbyteDM1MCU "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 2566834927 FMiDM1MCU "FMImost significant at bit 5";
+CM_ SG_ 2566834927 spn3mostsignificantbitsDM1MCU "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834927 occurrenceCntDM1MCU "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 2566834927 spnCnvnMetHODDM1MCU "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ BO_ 2566834928 "no comment";
+CM_ SG_ 2566834928 ProtlampDM1MCU2 "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 2566834928 amberWarnlampDM1MCU2 "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 2566834928 redstoplampDM1MCU2 "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 2566834928 malFctIndcrlampDM1MCU2 "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 2566834928 FlashProtlampDM1MCU2 "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 2566834928 FlashamberWarnlampDM1MCU2 "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 2566834928 FlashredstoplampDM1MCU2 "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834928 FlashmalFctIndcrlampDM1MCU2 "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834928 spn8leastsignificantbitsDM1MCU2 "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834928 spnSecbyteDM1MCU2 "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 2566834928 FMiDM1MCU2 "FMImost significant at bit 5";
+CM_ SG_ 2566834928 spn3mostsignificantbitsDM1MCU2 "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834928 occurrenceCntDM1MCU2 "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 2566834928 spnCnvnMetHODDM1MCU2 "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ BO_ 2566874371 "no comment";
+CM_ SG_ 2566874371 ReqHCUtoCtrltheMotAMT3 "RequestHCUtocontrolthemotorIndicates that TCU requests HCU to control the motor when the driver triggers the selflearning function of the transmission";
+CM_ SG_ 2566874371 TrsmgearselfLrningStAMT3 "TransmissiongearselflearningstateRepresents the selflearning state of the transmission
+
+
+
+0001 Transmission gear needs to be learned
+
+0010 Transmission gear is learning
+
+0011 Transmission gear learning is completed
+
+0100 Transmission gear learning faile";
+CM_ SG_ 2566874371 holdCurgearReqAMT3 "HoldcurrentgearrequestHold current gear request";
+CM_ SG_ 2566874371 CluStsAMT3 "Clutchstatusindicates the current clutch status";
+CM_ SG_ 2566874371 SersparallelmodeStAMT3 "SeriesParallelModestatefeedback the TCU is in seriesparallel mode";
+CM_ SG_ 2566874371 CluCnsedTqAMT3 "Clutchconsumedtorquerepresents the clutch consumed torque percentage";
+CM_ SG_ 2566874371 SwtStoftheFpickerAMT3 "SwitchstateoftheforcepickerSwitch state of the force picker";
+CM_ SG_ 2566874371 DrvgFStAMT3 "DrivingforcestateUsed to represent the driving force state For AMT models";
+CM_ SG_ 2566874371 PrkgFStAMT3 "ParkingforcestateUsed to represent the state of parking force For AMT models）";
+CM_ SG_ 2566874371 ptobindingStAMT3 "PTObindingstateUsed to represent the actual binding state of the PTO For AMT models";
+CM_ SG_ 2566874371 thepacketCnterAMT3 "ThepacketcounterThe packet counter is used to detect the repeated occurrence of the same frame packet due to the failure of sending ECU The packet receiver can detect this using a packet counter The packet sender increments the packet counter by 1 durin";
+CM_ SG_ 2566874371 packetChksumAMT3 "PacketchecksumThe packet checksum is used to verify the signal transmission path from the sending device to the receiving device The checksum is the sum of the packet ID from the highest byte to the lowest byte the first seven bytes of the data area and";
+CM_ BO_ 2348746023 "no comment";
+CM_ SG_ 2348746023 theReqedMotoperatingmodeHCUMCU "TherequestedmotoroperatingmodeRepresents the motor operating mode required by the vehicle controller
+00 Free following mode the motor does not respond to HCU command in following state
+01 Torque control mode the motor responds to HCU torque command
+10 S";
+CM_ SG_ 2348746023 theReqedMotRotDirtionHCUMCU "TherequestedmotorrotationdirectionMotor rotation direction requested by the vehicle controller
+00 No direction control request
+01 Forward motor rotation direction when the vehicle is moving forward
+10 Reverse the motor rotation direction when the vehicl";
+CM_ SG_ 2348746023 highprecisionMotTqReqedHCUMCU "HighprecisionmotortorquerequestedThe fractional part of the motor torque requested by the vehicle controller and the signal  requested motor torque  together constitute the actual requested motor torque If b3 is 1 the parameter is not available When b3 ";
+CM_ SG_ 2348746023 MotTqReqedHCUMCU "MotortorquerequestedThe vehicle controller requests the motor torque and this signal is valid when  requested motor operating mode   01 torque control mode A positive value indicates that the motor is required to be in electric state A negative value in";
+CM_ SG_ 2348746023 MotSpdReqedHCUMCU "MotorspeedrequestedMotor speed requested by the vehicle controller when  requested motor working mode   02 speed control mode this signal is valid";
+CM_ SG_ 2348746023 MotworkEnaCmdHCUMCU "MotorworkenablecommandWhether the vehicle controller allows the motor to work 0x1 is sent when the motor is allowed to work 0x0 is sent when the motor is not allowed to work";
+CM_ SG_ 2348746023 MotNeghighURlyCmdHCUMCU "MotornegativehighvoltagerelaycommandRepresents the negative state of the main relay of the motor The motor controller has two main purposes one is to judge whether there is a fault in the precharging process together with the voltage reported by the pow";
+CM_ SG_ 2348746023 MotPoshighURlyCmdHCUMCU "MotorpositivehighvoltagerelaycommandRepresents the positive state of the main relay of the motor The motor controller has two main purposes one is to judge whether there is a fault in the precharging process together with the voltage reported by the pow";
+CM_ SG_ 2348746023 MotpreChrghighURlyCmdHCUMCU "MotorprechargehighvoltagerelaycommandIndicates the state of motor precharge relay The motor controller has two main purposes one is to judge whether there is a fault in the precharging process together with the voltage reported by the power battery Seco";
+CM_ SG_ 2348746023 highUPwroffReqofMotHCUMCU "HighvoltagepoweroffrequestofmotorIndicates whether the vehicle controller requests the motor system to be powered down at high voltage";
+CM_ SG_ 2348746023 MotActvdisChrgCmdHCUMCU "MotoractivedischargecommandIndicates whether the vehicle controller requires the motor system to discharge actively After the high voltage power supply of the motor is disconnected by HCU control the active discharge command sent by the vehicle controll";
+CM_ SG_ 2348746023 MaxSpdLimUnderCurloadHCUMCU "MaximumspeedlimitundercurrentloadMaximum speed limit under current load";
+CM_ BO_ 2348782375 "no comment";
+CM_ SG_ 2348782375 theReqedMotoperatingmodeHCUMCU2 "TherequestedmotoroperatingmodeRepresents the motor operating mode required by the vehicle controller
+00 Free following mode the motor does not respond to HCU command in following state
+01 Torque control mode the motor responds to HCU torque command
+10 S";
+CM_ SG_ 2348782375 theReqedMotRotDirtionHCUMCU2 "TherequestedmotorrotationdirectionMotor rotation direction requested by the vehicle controller
+00 No direction control request
+01 Forward motor rotation direction when the vehicle is moving forward
+10 Reverse the motor rotation direction when the vehicl";
+CM_ SG_ 2348782375 highprecisionMotTqReqedHCUMCU2 "HighprecisionmotortorquerequestedThe fractional part of the motor torque requested by the vehicle controller and the signal  requested motor torque  together constitute the actual requested motor torque If b3 is 1 the parameter is not available When b3 ";
+CM_ SG_ 2348782375 MotTqReqedHCUMCU2 "MotortorquerequestedThe vehicle controller requests the motor torque and this signal is valid when  requested motor operating mode   01 torque control mode A positive value indicates that the motor is required to be in electric state A negative value in";
+CM_ SG_ 2348782375 MotSpdReqedHCUMCU2 "MotorspeedrequestedMotor speed requested by the vehicle controller when  requested motor working mode   02 speed control mode this signal is valid";
+CM_ SG_ 2348782375 MotworkEnaCmdHCUMCU2 "MotorworkenablecommandWhether the vehicle controller allows the motor to work 0x1 is sent when the motor is allowed to work 0x0 is sent when the motor is not allowed to work";
+CM_ SG_ 2348782375 MotNeghighURlyCmdHCUMCU2 "MotornegativehighvoltagerelaycommandRepresents the negative state of the main relay of the motor The motor controller has two main purposes one is to judge whether there is a fault in the precharging process together with the voltage reported by the pow";
+CM_ SG_ 2348782375 MotPoshighURlyCmdHCUMCU2 "MotorpositivehighvoltagerelaycommandRepresents the positive state of the main relay of the motor The motor controller has two main purposes one is to judge whether there is a fault in the precharging process together with the voltage reported by the pow";
+CM_ SG_ 2348782375 MotpreChrghighURlyCmdHCUMCU2 "MotorprechargehighvoltagerelaycommandIndicates the state of motor precharge relay The motor controller has two main purposes one is to judge whether there is a fault in the precharging process together with the voltage reported by the power battery Seco";
+CM_ SG_ 2348782375 highUPwroffReqofMotHCUMCU2 "HighvoltagepoweroffrequestofmotorIndicates whether the vehicle controller requests the motor system to be powered down at high voltage";
+CM_ SG_ 2348782375 MotActvdisChrgCmdHCUMCU2 "MotoractivedischargecommandIndicates whether the vehicle controller requires the motor system to discharge actively After the high voltage power supply of the motor is disconnected by HCU control the active discharge command sent by the vehicle controll";
+CM_ SG_ 2348782375 MaxSpdLimUnderCurloadHCUMCU2 "MaximumspeedlimitundercurrentloadMaximum speed limit under current load";
+CM_ BO_ 2566849063 "no comment";
+CM_ SG_ 2566849063 ptoSwtCmdSC "PTOswitchcommandPTO switch command";
+CM_ BO_ 2348820228 "no comment";
+CM_ SG_ 2348820228 OvrdCtrlmodeTSC1Mtr2 "OverrideControlModeThe override control mode defines which sort of command is used";
+CM_ SG_ 2348820228 ReqedSpdCtrlCdnsTSC1Mtr2 "RequestedSpeedControlConditionsThis mode tells the engine control system the governor characteristics that are desired during speed control";
+CM_ SG_ 2348820228 OvrdCtrlmodePrioTSC1Mtr2 "OverrideControlModePriorityThis field is used as an input to the engine or retarder to determine thepriority of the Override Control Mode received in the TorqueSpeed Control message see PGN 0 The default is 11 Low priority It is not required to use the ";
+CM_ SG_ 2348820228 ReqedSpdSpdLimTSC1Mtr2 "RequestedSpeedSpeedLimitParameter provided to the engine from external sources in the torquespeed control message  This is the engine speed which the engine is expected to operate at if the speed control mode is active or the engine speed which the engi";
+CM_ SG_ 2348820228 ReqedTqTqLimTSC1Mtr2 "RequestedTorqueTorqueLimitParameter provided to the engine or retarder in the torquespeed control message for controlling or limiting the output torque Requested torque to the engine is measured in indicated torque as a percentage of reference engine to";
+CM_ SG_ 2348820228 ReqedTqfrActnalTSC1Mtr2 "RequestedTorqueFractionalThis parameter displays an additional torque in percent of the reference engine torque
+When the MSB is set to 1 this parameter is not available  When the MSB is set to 0 bits 1 to 3 indicate the desired torque with resolution of";
+CM_ SG_ 2348820228 MsgCnterTSC1Mtr2 "MessageCounterThe message counter is used to detect situations where the transmitting ECU malfunction repeats the same frame all the time  The receiver of the formation may use the counter parameter to detect this situation  The transmitting device will";
+CM_ SG_ 2348820228 MsgChksumTSC1Mtr2 "MessageChecksumThe message checksum is used to verify the signal path from the transmitting device to the receiving device
+The message checksum is calculated using the first 7 data bytes the message counter and the bytes of the message
+identifier It is ";
+CM_ BO_ 2566905839 "no comment";
+CM_ SG_ 2566905839 MotCtrllerbusUMCU2 "MotorcontrollerbusvoltageIn the MCU the busbar voltage feedback value of supportting capacity after precharging circuit";
+CM_ SG_ 2566905839 MotCtrllerbusCurMCU2 "MotorcontrollerbuscurrentIn the MCU the busbar current feedback value of supportting capacity after precharging circuit
+positive value  discharge current
+negative value  charge current";
+CM_ SG_ 2566905839 MotTMCU2 "MotortemperatureMotor temperature";
+CM_ SG_ 2566905839 MotCtrllerTMCU2 "MotorcontrollertemperatureMotor controller temperature";
+CM_ BO_ 2566841930 "no comment";
+CM_ SG_ 2566841930 SecsTD "SecondsThe seconds component of the current time of day  This should be reported as the seconds component of the current time at UTC Universal Time Coordinate aka GMT however it may be reported as the seconds component of the current time at a local tim";
+CM_ SG_ 2566841930 MinssTD "MinutesThe minutes component of the current time of day  This should be reported as the minutes component of the current time at UTC Universal Time Coordinate aka GMT however it may be reported as the minutes component of the current time at a local tim";
+CM_ SG_ 2566841930 hoursTD "HoursThe hour component of the current time of day  This should be reported as the hour component of the current time at UTC Universal Time Coordinate aka GMT however it may be reported as the hour component of the current time at a local time zone  The";
+CM_ SG_ 2566841930 MthTD "MonthThe month component of the current calendar date  This should be reported as the month component of the current date at UTC Universal Time Coordinate aka GMT however it may be reported as the month component of the current date at a local time zone";
+CM_ SG_ 2566841930 dayTD "DayThe day component of the current calendar date  This should be reported as the day component of the current date at UTC Universal Time Coordinate aka GMT however it may be reported as the day component of the current date at a local time zone  The Lo";
+CM_ SG_ 2566841930 yearTD "YearThe year component of the current calendar date  This should be reported as the year component of the current date at UTC Universal Time Coordinate aka GMT however it may be reported as the year component of the current date at a local time zone  Th";
+CM_ BO_ 2632777712 "no comment";
+CM_ SG_ 2632777712 CtrlbyteTPCMBAMMCU2 "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 2632777712 TotMsgsizeTPCMBAMMCU2 "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 2632777712 packetsNrTPCMBAMMCU2 "packetsnumberTotal number of packets";
+CM_ SG_ 2632777712 pgnTPCMBAMMCU2 "PGNPGN of the packeted message";
+CM_ BO_ 2632712176 "no comment";
+CM_ SG_ 2632712176 SeqNrTPDTMCU2 "SequenceNumberSequence Number";
+CM_ SG_ 2632712176 packetizeddataTPDTMCU2 "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+CM_ BO_ 2632777711 "no comment";
+CM_ SG_ 2632777711 CtrlbyteTPCMBAMMCU "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 2632777711 TotMsgsizeTPCMBAMMCU "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 2632777711 packetsNrTPCMBAMMCU "packetsnumberTotal number of packets";
+CM_ SG_ 2632777711 pgnTPCMBAMMCU "PGNPGN of the packeted message";
+CM_ BO_ 2632712175 "no comment";
+CM_ SG_ 2632712175 SeqNrTPDTMCU "SequenceNumberSequence Number";
+CM_ SG_ 2632712175 packetizeddataTPDTMCU "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+BA_DEF_ BO_  "DiagRequest" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagResponse" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagState" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 3600000;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 65535;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 65535;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","OnWrite","NotUsed","NotUsed","NotUsed","Cyclic","NotUsed","IfActive","NoMsgSendType";
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65535;
+BA_DEF_ BO_  "NmMessage" ENUM  "No","Yes";
+BA_DEF_ BO_  "TpJ1939VarDlc" ENUM  "No","Yes";
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG";
+BA_DEF_ SG_  "GenSigEnvVarType" ENUM  "int","float","undef";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 1000000;
+BA_DEF_ SG_  "GenSigTimeoutValue" INT 0 1000000000;
+BA_DEF_ BU_  "DiagStationAddress" HEX 0 255;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "ILUsed" ENUM  "No","Yes";
+BA_DEF_ BU_  "NmJ1939AAC" INT 0 1;
+BA_DEF_ BU_  "NmJ1939ECUInstance" INT 0 3;
+BA_DEF_ BU_  "NmJ1939Function" INT 0 255;
+BA_DEF_ BU_  "NmJ1939FunctionInstance" INT 0 7;
+BA_DEF_ BU_  "NmJ1939IdentityNumber" INT 0 2097151;
+BA_DEF_ BU_  "NmJ1939IndustryGroup" INT 0 7;
+BA_DEF_ BU_  "NmJ1939ManufacturerCode" INT 0 2047;
+BA_DEF_ BU_  "NmJ1939System" INT 0 127;
+BA_DEF_ BU_  "NmJ1939SystemInstance" INT 0 15;
+BA_DEF_ BU_  "NmStationAddress" INT 0 255;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "TpAddressExtension" INT 0 100000000;
+BA_DEF_ BU_  "TpAddressingMode" INT 0 4;
+BA_DEF_ BU_  "TpBlockSize" INT 0 10000000;
+BA_DEF_ BU_  "TpCanBus" INT 1 2;
+BA_DEF_ BU_  "TpNodeBaseAddress" HEX 0 2047;
+BA_DEF_ BU_  "TpRxIdentifier" HEX 0 419430399;
+BA_DEF_ BU_  "TpRxMask" HEX 0 2047;
+BA_DEF_ BU_  "TpSTMin" INT 0 1000000000;
+BA_DEF_ BU_  "TpTargetAddress" HEX 0 255;
+BA_DEF_ BU_  "TpTxAdrMode" INT 0 1;
+BA_DEF_  "Baudrate" INT 0 1000000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "DatbaseVersion" STRING ;
+BA_DEF_  "GenEnvVarEndingDsp" STRING ;
+BA_DEF_  "GenEnvVarEndingSnd" STRING ;
+BA_DEF_  "GenEnvVarPrefix" STRING ;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "NmAsrBaseAddress" HEX 0 536870911;
+BA_DEF_  "NmAsrCanMsgCycleOffset" INT 0 65535;
+BA_DEF_  "NmAsrCanMsgCycleTime" INT 0 65535;
+BA_DEF_  "NmAsrMessageCount" INT 1 256;
+BA_DEF_  "NmAsrRepeatMessageTime" INT 0 65535;
+BA_DEF_  "NmAsrTimeoutTime" INT 0 65535;
+BA_DEF_  "NmAsrWaitBusSleepTime" INT 0 65535;
+BA_DEF_  "NmBaseAddress" HEX 0 2047;
+BA_DEF_  "NmMessageCount" INT 0 255;
+BA_DEF_  "NmType" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_  "SAE_J1939_21_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_71_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_73_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_75_SpecVersion" STRING ;
+BA_DEF_  "TpBaseAddress" HEX 0 2047;
+BA_DEF_  "VersionDay" INT 1 31;
+BA_DEF_  "VersionMonth" INT 1 12;
+BA_DEF_  "VersionNumber" INT 0 99;
+BA_DEF_  "VersionWeek" INT 0 52;
+BA_DEF_  "VersionYear" INT 1 99;
+BA_DEF_DEF_  "DiagRequest" "No";
+BA_DEF_DEF_  "DiagResponse" "No";
+BA_DEF_DEF_  "DiagState" "No";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "No";
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "TpJ1939VarDlc" "No";
+BA_DEF_DEF_  "VFrameFormat" "";
+BA_DEF_DEF_  "GenSigEnvVarType" "undef";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigTimeoutValue" 0;
+BA_DEF_DEF_  "DiagStationAddress" 0;
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "ILUsed" "Yes";
+BA_DEF_DEF_  "NmJ1939AAC" 0;
+BA_DEF_DEF_  "NmJ1939ECUInstance" 0;
+BA_DEF_DEF_  "NmJ1939Function" 0;
+BA_DEF_DEF_  "NmJ1939FunctionInstance" 0;
+BA_DEF_DEF_  "NmJ1939IdentityNumber" 0;
+BA_DEF_DEF_  "NmJ1939IndustryGroup" 0;
+BA_DEF_DEF_  "NmJ1939ManufacturerCode" 0;
+BA_DEF_DEF_  "NmJ1939System" 0;
+BA_DEF_DEF_  "NmJ1939SystemInstance" 0;
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NodeLayerModules" "J1939_NL.dll";
+BA_DEF_DEF_  "TpAddressExtension" 0;
+BA_DEF_DEF_  "TpAddressingMode" 0;
+BA_DEF_DEF_  "TpBlockSize" 0;
+BA_DEF_DEF_  "TpCanBus" 1;
+BA_DEF_DEF_  "TpNodeBaseAddress" 0;
+BA_DEF_DEF_  "TpRxIdentifier" 0;
+BA_DEF_DEF_  "TpRxMask" 0;
+BA_DEF_DEF_  "TpSTMin" 0;
+BA_DEF_DEF_  "TpTargetAddress" 0;
+BA_DEF_DEF_  "TpTxAdrMode" 0;
+BA_DEF_DEF_  "Baudrate" 500000;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "DBName" "FAW_J100(500H)_VDCU_新能源_CAN_Matrix_V1.0DBC";
+BA_DEF_DEF_  "DatbaseVersion" "";
+BA_DEF_DEF_  "GenEnvVarEndingDsp" "_";
+BA_DEF_DEF_  "GenEnvVarEndingSnd" "";
+BA_DEF_DEF_  "GenEnvVarPrefix" "Env";
+BA_DEF_DEF_  "Manufacturer" "Vector";
+BA_DEF_DEF_  "NmAsrBaseAddress" 419397632;
+BA_DEF_DEF_  "NmAsrCanMsgCycleOffset" 0;
+BA_DEF_DEF_  "NmAsrCanMsgCycleTime" 100;
+BA_DEF_DEF_  "NmAsrMessageCount" 64;
+BA_DEF_DEF_  "NmAsrRepeatMessageTime" 400;
+BA_DEF_DEF_  "NmAsrTimeoutTime" 1000;
+BA_DEF_DEF_  "NmAsrWaitBusSleepTime" 750;
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "NmMessageCount" 128;
+BA_DEF_DEF_  "NmType" "NmAsr";
+BA_DEF_DEF_  "ProtocolType" "J1939";
+BA_DEF_DEF_  "SAE_J1939_21_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_71_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_73_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_75_SpecVersion" "";
+BA_DEF_DEF_  "TpBaseAddress" 0;
+BA_DEF_DEF_  "VersionDay" 1;
+BA_DEF_DEF_  "VersionMonth" 1;
+BA_DEF_DEF_  "VersionNumber" 0;
+BA_DEF_DEF_  "VersionWeek" 0;
+BA_DEF_DEF_  "VersionYear" 1;
+BA_ "ProtocolType" "J1939";
+BA_ "BusType" "CAN";
+BA_ "DBName" "FAW_PTCAN_MCU_V141";
+BA_ "NmStationAddress" BU_ HCU 39;
+BA_ "NmStationAddress" BU_ MCU 239;
+BA_ "NmStationAddress" BU_ HVAC 48;
+BA_ "NmStationAddress" BU_ BMS 243;
+BA_ "GenMsgILSupport" BO_ 2348820227 1;
+BA_ "GenMsgCycleTime" BO_ 2348820227 10;
+BA_ "VFrameFormat" BO_ 2348820227 1;
+BA_ "VFrameFormat" BO_ 2364539687 1;
+BA_ "TpJ1939VarDlc" BO_ 2364539687 0;
+BA_ "GenMsgSendType" BO_ 2364539687 0;
+BA_ "GenMsgILSupport" BO_ 2364539687 1;
+BA_ "GenMsgCycleTime" BO_ 2364539687 50;
+BA_ "VFrameFormat" BO_ 2566844711 1;
+BA_ "TpJ1939VarDlc" BO_ 2566844711 0;
+BA_ "GenMsgSendType" BO_ 2566844711 0;
+BA_ "GenMsgILSupport" BO_ 2566844711 1;
+BA_ "GenMsgCycleTime" BO_ 2566844711 100;
+BA_ "VFrameFormat" BO_ 2348876583 1;
+BA_ "TpJ1939VarDlc" BO_ 2348876583 0;
+BA_ "GenMsgSendType" BO_ 2348876583 0;
+BA_ "GenMsgILSupport" BO_ 2348876583 1;
+BA_ "GenMsgCycleTime" BO_ 2348876583 50;
+BA_ "VFrameFormat" BO_ 2348875781 1;
+BA_ "TpJ1939VarDlc" BO_ 2348875781 0;
+BA_ "GenMsgSendType" BO_ 2348875781 0;
+BA_ "GenMsgILSupport" BO_ 2348875781 1;
+BA_ "GenMsgCycleTime" BO_ 2348875781 50;
+BA_ "VFrameFormat" BO_ 2364539395 1;
+BA_ "TpJ1939VarDlc" BO_ 2364539395 0;
+BA_ "GenMsgSendType" BO_ 2364539395 0;
+BA_ "GenMsgILSupport" BO_ 2364539395 1;
+BA_ "GenMsgCycleTime" BO_ 2364539395 10;
+BA_ "VFrameFormat" BO_ 2565866755 1;
+BA_ "TpJ1939VarDlc" BO_ 2565866755 0;
+BA_ "GenMsgSendType" BO_ 2565866755 0;
+BA_ "GenMsgILSupport" BO_ 2565866755 1;
+BA_ "GenMsgCycleTime" BO_ 2565866755 100;
+BA_ "VFrameFormat" BO_ 2365578991 1;
+BA_ "TpJ1939VarDlc" BO_ 2365578991 0;
+BA_ "GenMsgSendType" BO_ 2365578991 1;
+BA_ "GenMsgILSupport" BO_ 2365578991 1;
+BA_ "TpJ1939VarDlc" BO_ 2566841327 1;
+BA_ "GenMsgSendType" BO_ 2566841327 1;
+BA_ "GenMsgILSupport" BO_ 2566841327 1;
+BA_ "VFrameFormat" BO_ 2566841327 3;
+BA_ "VFrameFormat" BO_ 2566864623 1;
+BA_ "TpJ1939VarDlc" BO_ 2566864623 0;
+BA_ "GenMsgSendType" BO_ 2566864623 1;
+BA_ "GenMsgILSupport" BO_ 2566864623 1;
+BA_ "VFrameFormat" BO_ 2365578992 1;
+BA_ "TpJ1939VarDlc" BO_ 2365578992 0;
+BA_ "GenMsgSendType" BO_ 2365578992 1;
+BA_ "GenMsgILSupport" BO_ 2365578992 1;
+BA_ "VFrameFormat" BO_ 2566905840 1;
+BA_ "TpJ1939VarDlc" BO_ 2566905840 0;
+BA_ "GenMsgSendType" BO_ 2566905840 1;
+BA_ "GenMsgILSupport" BO_ 2566905840 1;
+BA_ "VFrameFormat" BO_ 2566864624 1;
+BA_ "TpJ1939VarDlc" BO_ 2566864624 0;
+BA_ "GenMsgSendType" BO_ 2566864624 1;
+BA_ "GenMsgILSupport" BO_ 2566864624 1;
+BA_ "TpJ1939VarDlc" BO_ 2566834927 1;
+BA_ "GenMsgSendType" BO_ 2566834927 1;
+BA_ "GenMsgILSupport" BO_ 2566834927 1;
+BA_ "VFrameFormat" BO_ 2566834927 3;
+BA_ "TpJ1939VarDlc" BO_ 2566834928 1;
+BA_ "GenMsgSendType" BO_ 2566834928 1;
+BA_ "GenMsgILSupport" BO_ 2566834928 1;
+BA_ "VFrameFormat" BO_ 2566834928 3;
+BA_ "VFrameFormat" BO_ 2566874371 1;
+BA_ "TpJ1939VarDlc" BO_ 2566874371 0;
+BA_ "GenMsgSendType" BO_ 2566874371 0;
+BA_ "GenMsgILSupport" BO_ 2566874371 1;
+BA_ "GenMsgCycleTime" BO_ 2566874371 1000;
+BA_ "VFrameFormat" BO_ 2348746023 1;
+BA_ "TpJ1939VarDlc" BO_ 2348746023 0;
+BA_ "GenMsgSendType" BO_ 2348746023 0;
+BA_ "GenMsgILSupport" BO_ 2348746023 1;
+BA_ "GenMsgCycleTime" BO_ 2348746023 10;
+BA_ "VFrameFormat" BO_ 2348782375 1;
+BA_ "TpJ1939VarDlc" BO_ 2348782375 0;
+BA_ "GenMsgSendType" BO_ 2348782375 0;
+BA_ "GenMsgILSupport" BO_ 2348782375 1;
+BA_ "GenMsgCycleTime" BO_ 2348782375 10;
+BA_ "VFrameFormat" BO_ 2566849063 1;
+BA_ "TpJ1939VarDlc" BO_ 2566849063 0;
+BA_ "GenMsgSendType" BO_ 2566849063 0;
+BA_ "GenMsgILSupport" BO_ 2566849063 1;
+BA_ "GenMsgCycleTime" BO_ 2566849063 100;
+BA_ "VFrameFormat" BO_ 2348820228 1;
+BA_ "TpJ1939VarDlc" BO_ 2348820228 0;
+BA_ "GenMsgSendType" BO_ 2348820228 0;
+BA_ "GenMsgILSupport" BO_ 2348820228 1;
+BA_ "GenMsgCycleTime" BO_ 2348820228 10;
+BA_ "VFrameFormat" BO_ 2566905839 1;
+BA_ "TpJ1939VarDlc" BO_ 2566905839 0;
+BA_ "GenMsgSendType" BO_ 2566905839 1;
+BA_ "GenMsgILSupport" BO_ 2566905839 1;
+BA_ "VFrameFormat" BO_ 2566841930 1;
+BA_ "TpJ1939VarDlc" BO_ 2566841930 0;
+BA_ "GenMsgSendType" BO_ 2566841930 0;
+BA_ "GenMsgILSupport" BO_ 2566841930 1;
+BA_ "GenMsgCycleTime" BO_ 2566841930 1000;
+BA_ "TpJ1939VarDlc" BO_ 2632777712 0;
+BA_ "GenMsgSendType" BO_ 2632777712 1;
+BA_ "GenMsgILSupport" BO_ 2632777712 0;
+BA_ "GenMsgCycleTime" BO_ 2632777712 0;
+BA_ "VFrameFormat" BO_ 2632777712 3;
+BA_ "TpJ1939VarDlc" BO_ 2632712176 0;
+BA_ "GenMsgSendType" BO_ 2632712176 1;
+BA_ "GenMsgILSupport" BO_ 2632712176 0;
+BA_ "GenMsgCycleTime" BO_ 2632712176 0;
+BA_ "VFrameFormat" BO_ 2632712176 3;
+BA_ "TpJ1939VarDlc" BO_ 2632777711 0;
+BA_ "GenMsgSendType" BO_ 2632777711 1;
+BA_ "GenMsgILSupport" BO_ 2632777711 0;
+BA_ "GenMsgCycleTime" BO_ 2632777711 0;
+BA_ "VFrameFormat" BO_ 2632777711 3;
+BA_ "TpJ1939VarDlc" BO_ 2632712175 0;
+BA_ "GenMsgSendType" BO_ 2632712175 1;
+BA_ "GenMsgILSupport" BO_ 2632712175 0;
+BA_ "GenMsgCycleTime" BO_ 2632712175 0;
+BA_ "VFrameFormat" BO_ 2632712175 3;
+BA_ "GenSigStartValue" SG_ 3221225472 mainPoshighURlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 3221225472 mainNeghighURlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 3221225472 fuelcellRlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 3221225472 BattheatPTCRlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 3221225472 AcsoryRlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 3221225472 PTCRlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 3221225472 MECURlyclosingReqHCU3 3;
+BA_ "GenSigStartValue" SG_ 3221225472 DCDCRlyclosingReqHCU3 3;
+BA_ "GenSigStartValue" SG_ 3221225472 acRlyclosingReqHCU3 3;
+BA_ "GenSigStartValue" SG_ 3221225472 DirtCurChrg1PosRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 DirtCurChrg1NegRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 DirtCurChrg2PosRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 DirtCurChrg2NegRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 insulationtesterCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 BMSmainNegcoilDrvStBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 mainNegRlydisCnctReqBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 mainNegRlyStsBMS5 7;
+BA_ "GenSigStartValue" SG_ 3221225472 BattpackHeatgPosRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 BattpackHeatgNegRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 ChrgnplugCnctionStsBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 Chrgnplug2CnctionStsBMS5 3;
+BA_ "GenSigStartValue" SG_ 3221225472 ChrgnPosRlyStsBMS5 7;
+BA_ "GenSigStartValue" SG_ 3221225472 oilPUMPMotIvterTOPCU2 64;
+BA_ "GenSigStartValue" SG_ 3221225472 oilPUMPMotOutpCurOPCU2 255;
+BA_ "GenSigStartValue" SG_ 3221225472 DCDCTDCDC1 64;
+BA_ "GenSigStartValue" SG_ 3221225472 mainPosRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 mainnegtiveRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 preChrgnRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 fuelcellRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 PTCRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 AcsoryRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 MECURlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 DCDCRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 mainPosRlyPwronStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 MECUPwronStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 BattpackHeatgPosRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 BattpackHeatgNegRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 hydroCoolgRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 acRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 3221225472 PwrBattCurBMS1 32000;
+BA_ "GenSigStartValue" SG_ 3221225472 MaxTofPwrBattBMS2 64;
+BA_ "GenSigStartValue" SG_ 3221225472 MinTofPwrBattBMS2 64;
+BA_ "GenSigStartValue" SG_ 3221225472 AvrgTofPwrBattBMS2 255;
+BA_ "GenSigStartValue" SG_ 3221225472 BattmanufacturersBMS4 255;
+BA_ "GenSigStartValue" SG_ 3221225472 ousidestationChrgEgyNrBMS4 255;
+BA_ "GenSigStartValue" SG_ 3221225472 SngBatthighestUorBattMdlBMS9 65535;
+BA_ "GenSigStartValue" SG_ 3221225472 SngBattMinUorBattMdlBMS9 65535;
+BA_ "GenSigStartValue" SG_ 3221225472 NrofSngBatthighestUorBattMdlBMS9 65535;
+BA_ "GenSigStartValue" SG_ 3221225472 NrofSngBattMinUorBattMdlBMS9 65535;
+BA_ "GenSigStartValue" SG_ 3221225472 NrofMaxTprobemonomerBMS9 255;
+BA_ "GenSigStartValue" SG_ 3221225472 NrofMinTprobemonomerBMS9 255;
+BA_ "GenSigStartValue" SG_ 3221225472 PwrBatttestpoint1TBMS7 64;
+BA_ "GenSigStartValue" SG_ 3221225472 PwrBatttestpoint2TBMS7 64;
+BA_ "GenSigStartValue" SG_ 3221225472 PwrBatttestpoint3TBMS7 64;
+BA_ "GenSigStartValue" SG_ 3221225472 highestUBattsubSysNrBMS8 255;
+BA_ "GenSigStartValue" SG_ 3221225472 lowestUBattsubSysNrBMS8 255;
+BA_ "GenSigStartValue" SG_ 3221225472 MaxTsubSysNrBMS8 255;
+BA_ "GenSigStartValue" SG_ 3221225472 MinTsubSysNrBMS8 255;
+BA_ "GenSigStartValue" SG_ 3221225472 eChrgableEgyStorgsubSyssQntyBMS8 255;
+BA_ "GenSigStartValue" SG_ 3221225472 reChrgableEgyStorgsubSysNrBMS8 255;
+BA_ "GenSigStartValue" SG_ 3221225472 TotNrSngcellsBMS8 65535;
+BA_ "GenSigStartValue" SG_ 3221225472 eChrgableEgyStorgTprobesQntyBMS8 255;
+BA_ "GenSigStartValue" SG_ 3221225472 settingTBMSTMS 255;
+BA_ "GenSigStartValue" SG_ 3221225472 DirtCurChrg1PosRlyStsRelayState2 7;
+BA_ "GenSigStartValue" SG_ 3221225472 DirtCurChrg1NegRlyStsRelayState2 7;
+BA_ "GenSigStartValue" SG_ 3221225472 DirtCurChrg2PosRlyStsRelayState2 7;
+BA_ "GenSigStartValue" SG_ 3221225472 DirtCurChrg2NegRlyStsRelayState2 7;
+BA_ "GenSigStartValue" SG_ 3221225472 EBRSRlyStsRelayState2 7;
+BA_ "GenSigStartValue" SG_ 3221225472 fuelcellRlyStsRelayState2 7;
+BA_ "GenSigStartValue" SG_ 3221225472 PTUTRelayState2 64;
+BA_ "GenSigStartValue" SG_ 3221225472 changingCnctorT1CBMS2BMS 255;
+BA_ "GenSigStartValue" SG_ 3221225472 changingCnctorT2CBMS2BMS 255;
+BA_ "GenSigStartValue" SG_ 3221225472 changingCnctorT3CBMS2BMS 255;
+BA_ "GenSigStartValue" SG_ 3221225472 changingCnctorT4CBMS2BMS 255;
+BA_ "GenSigStartValue" SG_ 3221225472 changingCnctorT5CBMS2BMS 255;
+BA_ "GenSigStartValue" SG_ 3221225472 changingCnctorT6CBMS2BMS 255;
+BA_ "GenSigStartValue" SG_ 3221225472 Chrgr1CnctorT1CBMS2BMS 255;
+BA_ "GenSigStartValue" SG_ 3221225472 Chrgr1CnctorT2CBMS2BMS 255;
+BA_ "GenSigStartValue" SG_ 3221225472 BattheatexChgrOutlWtrTHCUBEWP 64;
+BA_ "GenSigStartValue" SG_ 3221225472 BattheatexChgrinletWtrTHCUBEWP 64;
+BA_ "GenSigSendType" SG_ 3221225472 CtrlbyteTPCMBAMHCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 TotMsgsizeTPCMBAMHCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 packetsNrTPCMBAMHCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 pgnTPCMBAMHCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 SeqNrTPDTBMSHCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 packetizeddataTPDTBMSHCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 CtrlbyteTPCMBAMBMS 1;
+BA_ "GenSigSendType" SG_ 3221225472 TotMsgsizeTPCMBAMBMS 1;
+BA_ "GenSigSendType" SG_ 3221225472 packetsNrTPCMBAMBMS 1;
+BA_ "GenSigSendType" SG_ 3221225472 pgnTPCMBAMBMS 1;
+BA_ "GenSigSendType" SG_ 3221225472 SeqNrTPDTBMS 1;
+BA_ "GenSigSendType" SG_ 3221225472 packetizeddataTPDTBMS 1;
+BA_ "GenSigSendType" SG_ 3221225472 CtrlbyteTPCMBAMDCDC 1;
+BA_ "GenSigSendType" SG_ 3221225472 TotMsgsizeTPCMBAMDCDC 1;
+BA_ "GenSigSendType" SG_ 3221225472 packetsNrTPCMBAMDCDC 1;
+BA_ "GenSigSendType" SG_ 3221225472 pgnTPCMBAMDCDC 1;
+BA_ "GenSigSendType" SG_ 3221225472 SeqNrTPDTDCDC 1;
+BA_ "GenSigSendType" SG_ 3221225472 packetizeddataTPDTDCDC 1;
+BA_ "GenSigSendType" SG_ 3221225472 CtrlbyteTPCMBAMOPCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 TotMsgsizeTPCMBAMOPCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 packetsNrTPCMBAMOPCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 pgnTPCMBAMOPCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 SeqNrTPDTOPCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 packetizeddataTPDTOPCU 1;
+BA_ "GenSigSendType" SG_ 3221225472 CtrlbyteTPCMBAMPTU 1;
+BA_ "GenSigSendType" SG_ 3221225472 TotMsgsizeTPCMBAMPTU 1;
+BA_ "GenSigSendType" SG_ 3221225472 packetsNrTPCMBAMPTU 1;
+BA_ "GenSigSendType" SG_ 3221225472 pgnTPCMBAMPTU 1;
+BA_ "GenSigSendType" SG_ 3221225472 SeqNrTPDTPTU 1;
+BA_ "GenSigSendType" SG_ 3221225472 packetizeddataTPDTPTU 1;
+BA_ "GenSigStartValue" SG_ 2348820227 OvrdCtrlmodePrioTSC1Mtr 3;
+BA_ "GenSigStartValue" SG_ 2348820227 ReqedTqTqLimTSC1Mtr 125;
+BA_ "GenSigStartValue" SG_ 2348820227 ReqedTqfrActnalTSC1Mtr 15;
+BA_ "GenSigStartValue" SG_ 2348876583 TrsmReqedgearTC1 125;
+BA_ "GenSigStartValue" SG_ 2348875781 TrsmReqedgearTC1Handle 125;
+BA_ "GenSigStartValue" SG_ 2565866755 SeledgearETC2 125;
+BA_ "GenSigStartValue" SG_ 2565866755 CurgearETC2 125;
+BA_ "GenSigSendType" SG_ 2365578991 MotoperatingmodeMCU1 1;
+BA_ "GenSigSendType" SG_ 2365578991 MotRotDirtionMCU1 1;
+BA_ "GenSigSendType" SG_ 2365578991 MotSysStsMCU1 1;
+BA_ "GenSigSendType" SG_ 2365578991 highprecisionMotTqMCU1 1;
+BA_ "GenSigStartValue" SG_ 2365578991 highprecisionMotTqMCU1 15;
+BA_ "GenSigSendType" SG_ 2365578991 MotCurMaxOutphighprecisionTqMCU1 1;
+BA_ "GenSigStartValue" SG_ 2365578991 MotCurMaxOutphighprecisionTqMCU1 15;
+BA_ "GenSigSendType" SG_ 2365578991 MotTqMCU1 1;
+BA_ "GenSigStartValue" SG_ 2365578991 MotTqMCU1 125;
+BA_ "GenSigSendType" SG_ 2365578991 CurMaxOutpTqofMotMCU1 1;
+BA_ "GenSigStartValue" SG_ 2365578991 CurMaxOutpTqofMotMCU1 125;
+BA_ "GenSigSendType" SG_ 2365578991 MotSpdMCU1 1;
+BA_ "GenSigSendType" SG_ 2365578991 highUPwroffAllwedMCU1 1;
+BA_ "GenSigSendType" SG_ 2365578991 ActvdisChrgStMCU1 1;
+BA_ "GenSigSendType" SG_ 2365578991 MotFailrStsMCU1 1;
+BA_ "GenSigSendType" SG_ 2365578991 MsgCnterMCU1 1;
+BA_ "GenSigSendType" SG_ 2365578991 MsgChksumMCU1 1;
+BA_ "GenSigSendType" SG_ 2566841327 MotTqECMCU 1;
+BA_ "GenSigSendType" SG_ 2566864623 MotAvlMaxGennhighprecisionTqMCU3 1;
+BA_ "GenSigStartValue" SG_ 2566864623 MotAvlMaxGennhighprecisionTqMCU3 15;
+BA_ "GenSigSendType" SG_ 2566864623 MotAvlMaxGennTqMCU3 1;
+BA_ "GenSigStartValue" SG_ 2566864623 MotAvlMaxGennTqMCU3 125;
+BA_ "GenSigSendType" SG_ 2566864623 MsgCnterMCU3 1;
+BA_ "GenSigSendType" SG_ 2566864623 MsgChksumMCU3 1;
+BA_ "GenSigSendType" SG_ 2365578992 MotoperatingmodeMCU21 1;
+BA_ "GenSigSendType" SG_ 2365578992 MotRotDirtionMCU21 1;
+BA_ "GenSigSendType" SG_ 2365578992 MotSysStsMCU21 1;
+BA_ "GenSigSendType" SG_ 2365578992 highprecisionMotTqMCU21 1;
+BA_ "GenSigStartValue" SG_ 2365578992 highprecisionMotTqMCU21 15;
+BA_ "GenSigSendType" SG_ 2365578992 otCurMaxOutphighprecisionTqMCU21 1;
+BA_ "GenSigStartValue" SG_ 2365578992 otCurMaxOutphighprecisionTqMCU21 15;
+BA_ "GenSigSendType" SG_ 2365578992 MotTqMCU21 1;
+BA_ "GenSigStartValue" SG_ 2365578992 MotTqMCU21 125;
+BA_ "GenSigSendType" SG_ 2365578992 CurMaxOutpTqofMotMCU21 1;
+BA_ "GenSigStartValue" SG_ 2365578992 CurMaxOutpTqofMotMCU21 125;
+BA_ "GenSigSendType" SG_ 2365578992 MotSpdMCU21 1;
+BA_ "GenSigSendType" SG_ 2365578992 highUPwroffAllwedMCU21 1;
+BA_ "GenSigSendType" SG_ 2365578992 ActvdisChrgStMCU21 1;
+BA_ "GenSigSendType" SG_ 2365578992 MotFailrStsMCU21 1;
+BA_ "GenSigSendType" SG_ 2365578992 MsgCnterMCU21 1;
+BA_ "GenSigSendType" SG_ 2365578992 MsgChksumMCU21 1;
+BA_ "GenSigSendType" SG_ 2566905840 MotCtrllerbusUMCU22 1;
+BA_ "GenSigSendType" SG_ 2566905840 MotCtrllerbusCurMCU22 1;
+BA_ "GenSigSendType" SG_ 2566905840 MotTMCU22 1;
+BA_ "GenSigStartValue" SG_ 2566905840 MotTMCU22 64;
+BA_ "GenSigSendType" SG_ 2566905840 MotCtrllerTMCU22 1;
+BA_ "GenSigStartValue" SG_ 2566905840 MotCtrllerTMCU22 64;
+BA_ "GenSigSendType" SG_ 2566864624 otAvlMaxGennhighprecisionTqMCU23 1;
+BA_ "GenSigStartValue" SG_ 2566864624 otAvlMaxGennhighprecisionTqMCU23 15;
+BA_ "GenSigSendType" SG_ 2566864624 MotAvlMaxGennTqMCU23 1;
+BA_ "GenSigStartValue" SG_ 2566864624 MotAvlMaxGennTqMCU23 125;
+BA_ "GenSigSendType" SG_ 2566864624 MsgCnterMCU23 1;
+BA_ "GenSigSendType" SG_ 2566864624 MsgChksumMCU23 1;
+BA_ "GenSigSendType" SG_ 2566834927 ProtlampDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 amberWarnlampDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 redstoplampDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 malFctIndcrlampDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 FlashProtlampDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 FlashamberWarnlampDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 FlashredstoplampDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 FlashmalFctIndcrlampDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 spn8leastsignificantbitsDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 spnSecbyteDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 FMiDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 spn3mostsignificantbitsDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 occurrenceCntDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834927 spnCnvnMetHODDM1MCU 1;
+BA_ "GenSigSendType" SG_ 2566834928 ProtlampDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 amberWarnlampDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 redstoplampDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 malFctIndcrlampDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 FlashProtlampDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 FlashamberWarnlampDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 FlashredstoplampDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 FlashmalFctIndcrlampDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 spn8leastsignificantbitsDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 spnSecbyteDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 FMiDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 spn3mostsignificantbitsDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 occurrenceCntDM1MCU2 1;
+BA_ "GenSigSendType" SG_ 2566834928 spnCnvnMetHODDM1MCU2 1;
+BA_ "GenSigStartValue" SG_ 2566874371 TrsmgearselfLrningStAMT3 15;
+BA_ "GenSigStartValue" SG_ 2566874371 holdCurgearReqAMT3 3;
+BA_ "GenSigStartValue" SG_ 2566874371 CluStsAMT3 3;
+BA_ "GenSigStartValue" SG_ 2566874371 CluCnsedTqAMT3 125;
+BA_ "GenSigStartValue" SG_ 2566874371 SwtStoftheFpickerAMT3 3;
+BA_ "GenSigStartValue" SG_ 2566874371 DrvgFStAMT3 3;
+BA_ "GenSigStartValue" SG_ 2566874371 PrkgFStAMT3 3;
+BA_ "GenSigStartValue" SG_ 2566874371 ptobindingStAMT3 3;
+BA_ "GenSigStartValue" SG_ 2348746023 highprecisionMotTqReqedHCUMCU 15;
+BA_ "GenSigStartValue" SG_ 2348746023 MotTqReqedHCUMCU 255;
+BA_ "GenSigStartValue" SG_ 2348746023 MaxSpdLimUnderCurloadHCUMCU 65535;
+BA_ "GenSigStartValue" SG_ 2348782375 highprecisionMotTqReqedHCUMCU2 15;
+BA_ "GenSigStartValue" SG_ 2348782375 MotTqReqedHCUMCU2 255;
+BA_ "GenSigStartValue" SG_ 2348782375 MaxSpdLimUnderCurloadHCUMCU2 65535;
+BA_ "GenSigStartValue" SG_ 2348820228 OvrdCtrlmodePrioTSC1Mtr2 3;
+BA_ "GenSigStartValue" SG_ 2348820228 ReqedTqTqLimTSC1Mtr2 125;
+BA_ "GenSigStartValue" SG_ 2348820228 ReqedTqfrActnalTSC1Mtr2 15;
+BA_ "GenSigSendType" SG_ 2566905839 MotCtrllerbusUMCU2 1;
+BA_ "GenSigSendType" SG_ 2566905839 MotCtrllerbusCurMCU2 1;
+BA_ "GenSigSendType" SG_ 2566905839 MotTMCU2 1;
+BA_ "GenSigStartValue" SG_ 2566905839 MotTMCU2 64;
+BA_ "GenSigSendType" SG_ 2566905839 MotCtrllerTMCU2 1;
+BA_ "GenSigStartValue" SG_ 2566905839 MotCtrllerTMCU2 64;
+BA_ "GenSigSendType" SG_ 2632777712 CtrlbyteTPCMBAMMCU2 1;
+BA_ "GenSigSendType" SG_ 2632777712 TotMsgsizeTPCMBAMMCU2 1;
+BA_ "GenSigSendType" SG_ 2632777712 packetsNrTPCMBAMMCU2 1;
+BA_ "GenSigSendType" SG_ 2632777712 pgnTPCMBAMMCU2 1;
+BA_ "GenSigSendType" SG_ 2632712176 SeqNrTPDTMCU2 1;
+BA_ "GenSigSendType" SG_ 2632712176 packetizeddataTPDTMCU2 1;
+BA_ "GenSigSendType" SG_ 2632777711 CtrlbyteTPCMBAMMCU 1;
+BA_ "GenSigSendType" SG_ 2632777711 TotMsgsizeTPCMBAMMCU 1;
+BA_ "GenSigSendType" SG_ 2632777711 packetsNrTPCMBAMMCU 1;
+BA_ "GenSigSendType" SG_ 2632777711 pgnTPCMBAMMCU 1;
+BA_ "GenSigSendType" SG_ 2632712175 SeqNrTPDTMCU 1;
+BA_ "GenSigSendType" SG_ 2632712175 packetizeddataTPDTMCU 1;
+VAL_ 3221225472 DCDCworkingeanableCmdHCUDCDC 0 "Disable" 1 "Enable" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 DCDC2workingeanableCmdHCUDCDC 0 "Disable" 1 "Enable" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 oilPUMPMotworkingEnaCmdHCUOPCU 0 "Disable" 1 "Enable" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 mainPoshighURlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 mainNeghighURlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 fuelcellRlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 BattheatPTCRlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 AcsoryRlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 PTCRlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 MECURlyclosingReqHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 DCDCRlyclosingReqHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 acRlyclosingReqHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 DirtCurChrg1PosRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 DirtCurChrg1NegRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 DirtCurChrg2PosRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 DirtCurChrg2NegRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 WtrCoolgRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 insulationtesterCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 BMSmainNegcoilDrvStBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 mainNegRlydisCnctReqBMS5 0 "Norequest" 1 "DisconnectRequest" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 mainNegRlyStsBMS5 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 BattpackHeatgPosRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 BattpackHeatgNegRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 ChrgnplugCnctionStsBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 Chrgnplug2CnctionStsBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 ChrgnPosRlyStsBMS5 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 NegChrgnRlyStsBMS5 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 OPCUMotFailrStsOPCU1 0 "NoError" 1 "level1failure" 2 "level2failure" 3 "level3failure" ;
+VAL_ 3221225472 OPCUworkingStsOPCU1 0 "NotRunning" 1 "Running" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 ProtlampDM1OPCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 amberWarnlampDM1OPCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 redstoplampDM1OPCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 malFctIndcrlampDM1OPCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashProtlampDM1OPCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashamberWarnlampDM1OPCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashredstoplampDM1OPCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashmalFctIndcrlampDM1OPCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 DCDCworkingStsDCDC1 0 "Initialization" 1 "Ready" 2 "Running" 3 "Error" ;
+VAL_ 3221225472 DCDCFltStsDCDC1 0 "NoError" 1 "level1failure" 2 "level2failure" 3 "level3failure" ;
+VAL_ 3221225472 ProtlampDM1DCDC 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 amberWarnlampDM1DCDC 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 redstoplampDM1DCDC 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 malFctIndcrlampDM1DCDC 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashProtlampDM1DCDC 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashamberWarnlampDM1DCDC 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashredstoplampDM1DCDC 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashmalFctIndcrlampDM1DCDC 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 mainPosRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "TimeoutReserved" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 mainnegtiveRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 pduFailrStsRelayState 0 "NoError" 1 "level1failure" 2 "level2failure" 3 "level3failure" ;
+VAL_ 3221225472 preChrgnRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Timeout" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 fuelcellRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Timeout" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 PTCRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 AcsoryRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 MECURlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 DCDCRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 mainPosRlyPwronStsRelayState 0 "Initialization" 1 "Powerongoing" 2 "Poweroncomplete" 3 "PrechargeTimeout" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 MECUPwronStsRelayState 0 "Initialization" 1 "Powerongoing" 2 "Poweroncomplete" 3 "PrechargeTimeout" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 BattpackHeatgPosRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 BattpackHeatgNegRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 hydroCoolgRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 acRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 insulationMonrSysStsIMCU1PTU 0 "NotRunning" 1 "Running" 2 "Groundfault" 3 "Assemblyfault" 4 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 insulationMonrAlrmIMCU1PTU 0 "NoError" 1 "Level1alarm" 2 "Level2alarm" 3 "Notavailable" ;
+VAL_ 3221225472 ProtlampDM1PTU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 amberWarnlampDM1PTU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 redstoplampDM1PTU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 malFctIndcrlampDM1PTU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashProtlampDM1PTU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashamberWarnlampDM1PTU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashredstoplampDM1PTU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashmalFctIndcrlampDM1PTU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 VehCtrllerSysStsHCUBMS 0 "Normal" 1 "Level1Failure" 2 "Level2Failure" 3 "Level3Failure" ;
+VAL_ 3221225472 workingRdySts_Rdy_HCUBMS 0 "Notready" 1 "Redlamp" 2 "Yellowlamp" 3 "Greenlight" ;
+VAL_ 3221225472 permittingChrgnHCUBMS 0 "NotPermit" 1 "Permit" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 SleepCmdHCUBMS 0 "NoCommand" 1 "SleepCommand" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 highUSysFailrStsHCUBMS 0 "NoError" 1 "Level1Failure" 2 "Level2Failure" 3 "Level3Failure" ;
+VAL_ 3221225472 PwrChgpermitHCUBMS 0 "NoPermit" 1 "Permit" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 3221225472 PwrBattSysStsBMS1 0 "Normal" 1 "FirstAlarm" 2 "SecondAlarm" 3 "ThirdAlarm" 4 "Reserved" 7 "Reserved" ;
+VAL_ 3221225472 PwrBattChrgnReqBMS1 0 "Nochargerequest" 1 "Chargerequest" 2 "ChargingstoprequestReserved" 3 "UnderchargerequestReserved" 4 "Reserved" 7 "Reserved" ;
+VAL_ 3221225472 PwrBattChrgnStsBMS1 0 "Nocharging" 1 "Charging" 2 "Chargingcompleted" 3 "Chargefault" ;
+VAL_ 3221225472 PwrBattHeatgStsBMS1 0 "Noheating" 1 "Heating" 2 "Heatingfailure" 3 "Heatingcomplete" ;
+VAL_ 3221225472 ChrgnReqStsBMS1 0 "Nocharging" 1 "ONcharging" 2 "OFFcharging" 3 "Invalid" ;
+VAL_ 3221225472 ProtlampDM1BMS 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 amberWarnlampDM1BMS 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 redstoplampDM1BMS 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 malFctIndcrlampDM1BMS 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashProtlampDM1BMS 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashamberWarnlampDM1BMS 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashredstoplampDM1BMS 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 FlashmalFctIndcrlampDM1BMS 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 3221225472 insulationMonrSysStsIMCU1 0 "NotRunning" 1 "Running" 2 "Groundfault" 3 "Assemblyfault" 4 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 insulationMonrAlrmIMCU1 0 "NoError" 1 "Level1alarm" 2 "Level2alarm" 3 "Notavailable" ;
+VAL_ 3221225472 BMSReqsettingmodeBMSTMS 0 "OffMode" 1 "ColdingMode" 2 "HeatingMode" 3 "SelfCycleMode" ;
+VAL_ 3221225472 DirtCurChrg1PosRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 DirtCurChrg1NegRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 DirtCurChrg2PosRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 DirtCurChrg2NegRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 EBRSRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 3221225472 fuelcellRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2348820227 OvrdCtrlmodeTSC1Mtr 0 "Overridedisabled" 1 "Speedcontrol" 2 "Torquecontrol" 3 "Speedtorquelimitcontrol" ;
+VAL_ 2348820227 ReqedSpdCtrlCdnsTSC1Mtr 0 "TransientOptimizedfordriveline" 1 "StabilityOptimizedfordriveline" 2 "StabilityOptimizedfordriveline" 3 "StabilityOptimizedfordriveline" ;
+VAL_ 2348820227 OvrdCtrlmodePrioTSC1Mtr 0 "Highestpriority" 1 "Highpriority" 2 "Mediumpriority" 3 "Lowpriority" ;
+VAL_ 2348820227 ReqedTqfrActnalTSC1Mtr 0 "0000" 1 "0125" 2 "0250" 3 "0375" 4 "0500" 5 "0625" 6 "0750" 7 "0875" 8 "Reserved" 14 "Reserved" 15 "Notavailable" ;
+VAL_ 2566844711 PrkgBrkSwtCCVSHCU 0 "Parkingbrakenotset" 1 "Parkingbrakeset" 2 "Error" 3 "Notavailable" ;
+VAL_ 2566844711 BrkSwtCCVSHCU 0 "Brakepedalreleased" 1 "Brakepedaldepressed" 2 "Error" 3 "Notavailable" ;
+VAL_ 2348876583 Trsmmode1TC1 0 "DisableEconomicmodel" 1 "EnablePowermodel" 2 "Reserved" 3 "Takenoaction" ;
+VAL_ 2348876583 Trsmmode2TC1 0 "Disable" 1 "Enable" 2 "Reserved" 3 "Takenoaction" ;
+VAL_ 2348876583 Trsmmode3TC1 0 "Disable" 1 "Enable" 2 "Reserved" 3 "Takenoaction" ;
+VAL_ 2348876583 TrsmautoNeutManreturnReqTC1 0 "NorequesttoshifttoAutoNeutrals" 1 "RequesttoshifttoAutoNeutralsta" 2 "Reserved" 3 "DontCare" ;
+VAL_ 2348875781 Trsmmode1TC1Handle 0 "DisableEconomicmodel" 1 "EnablePowermodel" 2 "Reserved" 3 "Takenoaction" ;
+VAL_ 2364539395 ShiftinProcETC1 0 "Shiftisnotinprocess" 1 "Shiftisinprocess" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2365578991 MotoperatingmodeMCU1 0 "Freefollowupmode" 1 "Torquecontrolmode" 2 "Speedcontrolmode" 3 "Rotorzerocalibrationreserved" ;
+VAL_ 2365578991 MotRotDirtionMCU1 0 "Nodirectionofrotationoutput" 1 "Forward" 2 "Reverse" 3 "Notavailable" ;
+VAL_ 2365578991 MotSysStsMCU1 0 "Inactive" 1 "Poweronstatus" 2 "Followupstatus" 3 "Normalstatus" 4 "Limitstatus" 5 "Malfunctionstatus" 6 "Poweroffstatus" 7 "Reserved" 14 "Reserved" 15 "Notavailable" ;
+VAL_ 2365578991 highprecisionMotTqMCU1 0 "0000" 1 "0125" 2 "0250" 3 "0375" 4 "0500" 5 "0625" 6 "0750" 7 "0875" 8 "Reserved" 14 "Reserved" 15 "Notavailable" ;
+VAL_ 2365578991 MotCurMaxOutphighprecisionTqMCU1 0 "0000" 1 "0125" 2 "0250" 3 "0375" 4 "0500" 5 "0625" 6 "0750" 7 "0875" 8 "Reserved" 14 "Reserved" 15 "Notavailable" ;
+VAL_ 2365578991 highUPwroffAllwedMCU1 0 "Notallowhighpressurepoweroff" 1 "Allowhighpressurepoweroff" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2365578991 ActvdisChrgStMCU1 0 "Activedischargeunstar" 1 "Activedischargeproceed" 2 "Activedischargecomplete" 3 "Activedischargequit" ;
+VAL_ 2365578991 MotFailrStsMCU1 0 "Nofault" 1 "Level1fault" 2 "Level2fault" 3 "Level3fault" ;
+VAL_ 2566864623 MotAvlMaxGennhighprecisionTqMCU3 0 "0000" 1 "0125" 2 "0250" 3 "0375" 4 "0500" 5 "0625" 6 "0750" 7 "0875" 8 "Reserved" 14 "Reserved" 15 "Notavailable" ;
+VAL_ 2365578992 MotoperatingmodeMCU21 0 "Freefollowupmode" 1 "Torquecontrolmode" 2 "Speedcontrolmode" 3 "Rotorzerocalibrationreserved" ;
+VAL_ 2365578992 MotRotDirtionMCU21 0 "Nodirectionofrotationoutput" 1 "Forward" 2 "Reverse" 3 "Notavailable" ;
+VAL_ 2365578992 MotSysStsMCU21 0 "Inactive" 1 "Poweronstatus" 2 "Followupstatus" 3 "Normalstatus" 4 "Limitstatus" 5 "Malfunctionstatus" 6 "Poweroffstatus" 7 "Reserved" 14 "Reserved" 15 "Notavailable" ;
+VAL_ 2365578992 highprecisionMotTqMCU21 0 "0000" 1 "0125" 2 "0250" 3 "0375" 4 "0500" 5 "0625" 6 "0750" 7 "0875" 8 "Reserved" 14 "Reserved" 15 "Notavailable" ;
+VAL_ 2365578992 otCurMaxOutphighprecisionTqMCU21 0 "0000" 1 "0125" 2 "0250" 3 "0375" 4 "0500" 5 "0625" 6 "0750" 7 "0875" 8 "Reserved" 14 "Reserved" 15 "Notavailable" ;
+VAL_ 2365578992 highUPwroffAllwedMCU21 0 "Notallowhighpressurepoweroff" 1 "Allowhighpressurepoweroff" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2365578992 ActvdisChrgStMCU21 0 "Activedischargeunstar" 1 "Activedischargeproceed" 2 "Activedischargecomplete" 3 "Activedischargequit" ;
+VAL_ 2365578992 MotFailrStsMCU21 0 "Nofault" 1 "Level1fault" 2 "Level2fault" 3 "Level3fault" ;
+VAL_ 2566864624 otAvlMaxGennhighprecisionTqMCU23 0 "0000" 1 "0125" 2 "0250" 3 "0375" 4 "0500" 5 "0625" 6 "0750" 7 "0875" 8 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 2566834927 ProtlampDM1MCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834927 amberWarnlampDM1MCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834927 redstoplampDM1MCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834927 malFctIndcrlampDM1MCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834927 FlashProtlampDM1MCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834927 FlashamberWarnlampDM1MCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834927 FlashredstoplampDM1MCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834927 FlashmalFctIndcrlampDM1MCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834928 ProtlampDM1MCU2 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834928 amberWarnlampDM1MCU2 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834928 redstoplampDM1MCU2 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834928 malFctIndcrlampDM1MCU2 0 "LampOff" 1 "LampOn" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834928 FlashProtlampDM1MCU2 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834928 FlashamberWarnlampDM1MCU2 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834928 FlashredstoplampDM1MCU2 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566834928 FlashmalFctIndcrlampDM1MCU2 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 15 "Notavailable" ;
+VAL_ 2566874371 ReqHCUtoCtrltheMotAMT3 0 "TCUdoesnotinterferewithmotorco" 1 "RequestHCUtostartthemotor" 2 "RequestHCUtoshutdownthemotor" 3 "Notavailable" ;
+VAL_ 2566874371 TrsmgearselfLrningStAMT3 0 "Reserved" 1 "Transmissiongearsneedtobelearn" 2 "Transmissiongearislearning" 3 "Transmissiongearlearningiscomp" 4 "Transmissiongearlearningfailed" 5 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 2566874371 holdCurgearReqAMT3 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2566874371 CluStsAMT3 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2566874371 SersparallelmodeStAMT3 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Takenoaction" ;
+VAL_ 2566874371 SwtStoftheFpickerAMT3 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2566874371 DrvgFStAMT3 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2566874371 PrkgFStAMT3 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2566874371 ptobindingStAMT3 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348746023 theReqedMotoperatingmodeHCUMCU 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348746023 theReqedMotRotDirtionHCUMCU 0 "0" 1 "1" 2 "2" 3 "3" ;
+VAL_ 2348746023 highprecisionMotTqReqedHCUMCU 0 "0000" 1 "0125" 2 "0250" 3 "0375" 4 "0500" 5 "0625" 6 "0750" 7 "0875" 8 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 2348746023 MotworkEnaCmdHCUMCU 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348746023 MotNeghighURlyCmdHCUMCU 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348746023 MotPoshighURlyCmdHCUMCU 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348746023 MotpreChrghighURlyCmdHCUMCU 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348746023 highUPwroffReqofMotHCUMCU 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348746023 MotActvdisChrgCmdHCUMCU 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348782375 theReqedMotoperatingmodeHCUMCU2 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348782375 theReqedMotRotDirtionHCUMCU2 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348782375 highprecisionMotTqReqedHCUMCU2 0 "0000" 1 "0125" 2 "0250" 3 "0375" 4 "0500" 5 "0625" 6 "0750" 7 "0875" 8 "Reserved" 14 "Reserved" 15 "Reserved" ;
+VAL_ 2348782375 MotworkEnaCmdHCUMCU2 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348782375 MotNeghighURlyCmdHCUMCU2 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348782375 MotPoshighURlyCmdHCUMCU2 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348782375 MotpreChrghighURlyCmdHCUMCU2 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348782375 highUPwroffReqofMotHCUMCU2 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348782375 MotActvdisChrgCmdHCUMCU2 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2566849063 ptoSwtCmdSC 0 "Reserved" 1 "Reserved" 2 "Reserved" 3 "Reserved" ;
+VAL_ 2348820228 OvrdCtrlmodeTSC1Mtr2 0 "Overridedisabled" 1 "Speedcontrol" 2 "Torquecontrol" 3 "Speedtorquelimitcontrol" ;
+VAL_ 2348820228 ReqedSpdCtrlCdnsTSC1Mtr2 0 "TransientOptimizedfordriveline" 1 "StabilityOptimizedfordriveline" 2 "StabilityOptimizedfordriveline" 3 "StabilityOptimizedfordriveline" ;
+VAL_ 2348820228 OvrdCtrlmodePrioTSC1Mtr2 0 "Highestpriority" 1 "Highpriority" 2 "Mediumpriority" 3 "Lowpriority" ;
+VAL_ 2348820228 ReqedTqfrActnalTSC1Mtr2 0 "0000" 1 "0125" 2 "0250" 3 "0375" 4 "0500" 5 "0625" 6 "0750" 7 "0875" 8 "Reserved" 14 "Reserved" 15 "Notavailable" ;
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00044.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="79e61aea-862b-4962-9aa1-1d39f3034ef2">
+          <SHORT-NAME>IoHwAb_swc</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="5d315ab7-0410-499a-b521-14e286594b62">
+              <SHORT-NAME>ComponentTypes</SHORT-NAME>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="866e8ba4-1e60-4f83-a004-66e69cf30e09">
+              <SHORT-NAME>Interfaces</SHORT-NAME>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="9db3e859-c97b-40d3-8a33-b04ff905ebb4">
+              <SHORT-NAME>DataTypes</SHORT-NAME>
+              <AR-PACKAGES>
+                <AR-PACKAGE UUID="f62c25a0-6b4d-4e29-a7a2-cf1cfa4ec230">
+                  <SHORT-NAME>DataConstrs</SHORT-NAME>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>LinSM</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/LinSM</DEFINITION-REF>
+                    <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>LinSMConfigSet</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMModeRequestRepetitionMax</DEFINITION-REF>
+                                    <VALUE>3</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>FAW_EMS_AGM_LIN_V1_0_ldf_QdCKJs</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel/LinSMConfirmationTimeout</DEFINITION-REF>
+                                            <VALUE>10</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel/LinSMTransceiverPassiveMode</DEFINITION-REF>
+                                            <VALUE>false</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel/LinSMNodeType</DEFINITION-REF>
+                                            <VALUE>MASTER</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel/LinSMComMNetworkHandleRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">ComM/ComMConfigSet/ComMChannels/FAW_EMS_AGM_LIN_V1_0_ldf_QdCKJs</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>NULL_SCHEDULE_QdCKJs</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel/LinSMSchedule</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel/LinSMSchedule/LinSMScheduleIndex</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel/LinSMSchedule/LinSMScheduleIndexRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">LinIf/LinIfGlobalConfig/LinIfChannels/FAW_EMS_AGM_LIN_V1_0_ldf_QdCKJs/LinIfScheduleTables/NULL_SCHEDULE_QdCKJs</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>TWO_AGM_TABLE_QdCKJs</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel/LinSMSchedule</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel/LinSMSchedule/LinSMScheduleIndex</DEFINITION-REF>
+                                                    <VALUE>1</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMConfigSet/LinSMChannel/LinSMSchedule/LinSMScheduleIndexRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">LinIf/LinIfGlobalConfig/LinIfChannels/FAW_EMS_AGM_LIN_V1_0_ldf_QdCKJs/LinIfScheduleTables/TWO_AGM_TABLE_QdCKJs</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>LinSMGeneral</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMGeneral</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMGeneral/LinSMDevErrorDetect</DEFINITION-REF>
+                                    <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMGeneral/LinSMMainProcessingPeriod</DEFINITION-REF>
+                                    <VALUE>0.005</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMGeneral/LinSMVersionInfoApi</DEFINITION-REF>
+                                    <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/LinSM/LinSMGeneral/LinSMBswMEnabled</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                    </CONTAINERS>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

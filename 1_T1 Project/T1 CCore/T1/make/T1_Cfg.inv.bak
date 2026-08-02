@@ -1,0 +1,169 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; \file            T1_Cfg.inv
+;;
+;; \brief           Contains T1 configuration parameters which should not be changed
+;;                  after a successful T1-TARGET-SW integration.
+;;
+;; \author christianher
+;;
+;; \version 3.5.0.0 r56087
+;;
+;; \copyright       GLIWA embedded systems GmbH & Co. KG, Weilheim i.OB. All rights reserved
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+#system all:
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Miscellaneous Configurations
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-syncTimeBitLength=29                           ; number of actual counting bits in the sync timer (ideally 32)
+-timeoutRxMs=1000                               ; maximum time allowed between reception of two frames of the same message [t in ms]
+-timeoutTxMs=1000                               ; maximum time allowed for (retrying) the sending of a frame [t in ms]
+-timeoutResponseMs=10000                        ; maximum time permitted between transmitting the last frame of a message that requires acknowledgment and receiving the last frame of that acknowledgment [t in ms]
+-bigEndian=false                                ; must be set to 'true' for big-endian targets.
+-numberOfFocusMeasurements=2                    ; number of parallel focus measurements [1..2]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Configuration of Communication Interface
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-txCycleMs=10                                   ; TX cycle of T1-HOST-SW in [t in ms]
+-useSameConnectionForAllSystems=true            ; Use the same connection settings for all systems [true,false]
+-canFDBitrate=500000                            ; Specifies the CAN FD bit rate [Bit/s]
+-canFDUsage=Preferred                           ; Indicates CAN FD as the preferred device for the T1-HOST-SW.
+-canFDSamplePoint=70                            ; Specifies the CAN FD sample point in percent.
+-canFDDataBitrate=1000000                       ; Specifies the CAN FD data bit rate
+-canFDDataSamplePoint=70                        ; Specifies the CAN FD data sample point in percent.
+-canFDTxDataSize=64                             ; Specifies the maximum size of CAN FD messages sent by the T1-HOST-SW to the target.
+-canFDRxDataSize=64                             ; Specifies the maximum size of CAN FD messages sent by the target to T1-HOST-SW.
+-canFDHardware=VECTOR                           ; Selects the type of CAN FD interface hardware on the host [VECTOR]
+-txChannel=CAN_FD                               ; Selects the bus type of the TxChannel [CAN/CAN_FD/ETHERNET]
+-rxChannel=CAN_FD                               ; Selects the bus type of the RxChannel [CAN/CAN_FD/ETHERNET]
+-connectionType=pure T1                         ; [pure T1,Diagnosis]
+-canTxID=0x7CB                                  ; CAN ID T1-HOST-SW -> T1-TARGET-SW
+-canRxID=0x7FA                                  ; CAN ID T1-TARGET-SW -> T1-HOST-SW
+-canExtendedIds=false                           ; [true,false]
+-useSameRxTxChannel=true                        ; same settings for RX and TX [true,false]
+-disableT1Flex=false ; [true/false(default)]
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Core 0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 0:
+-sid=2                                          ; system ID
+-systemType=AUTOSAR OS                          ; [OSEK/ErcosEK/gliwOS/RTA OSEK/AUTOSAR OS/Unknown]
+-rawTickDurationNs=(1000.0/64)*1               ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-rawTimerBitLength=32                           ; number of actual counting bits in the raw (physical register) timer (ideally 32)
+-tickDurationNs=(1000.0/64)*8                  ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-traceTimerIsSyncTimer=true                     ; is trace timer used on this core == sync timer? [true,false]
+-t1ScopeOverheadNs=178                          ; duration of one T1_TraceEventNoSusp_ call [t in ns]
+-t1FlexOverheadNs=500                           ; additional overhead for a T1.flex event [t in ns]
+-numberOfFlexStopwatches=16                     ; number of used T1.flex stopwatches [0..255]
+-numberOfFlexAddrs=16                           ; number of T1.flex addresses (must be >= numberOfFlexStopwatches) [0..255]
+-pTimer=0xFC068004                              ; address of memory mapped timer
+-traceTimerDownCounting=false                   ; trace timer counts down: [true/false]
+-t1HandlerPeriodMs=10                           ; period of T1_Handler() [t in ms]
+-cpuLoadTxPeriod=20                             ; Transmit CPU load every x CPU load frames (BSF-frame) [0..255]
+-cpuLoadAvgSamples=20                           ; Number of samples taken within period [1 or cpuLoadTxPeriod]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Core 1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 1:
+-sid=3                                          ; system ID
+-systemType=AUTOSAR OS                          ; [OSEK/ErcosEK/gliwOS/RTA OSEK/AUTOSAR OS/Unknown]
+-rawTickDurationNs=(1000.0/64)*1               ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-rawTimerBitLength=32                           ; number of actual counting bits in the raw (physical register) timer (ideally 32)
+-tickDurationNs=(1000.0/64)*8                  ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-traceTimerIsSyncTimer=true                     ; is trace timer used on this core == sync timer? [true,false]
+-t1ScopeOverheadNs=178                          ; duration of one T1_TraceEventNoSusp_ call [t in ns]
+-t1FlexOverheadNs=500                           ; additional overhead for a T1.flex event [t in ns]
+-numberOfFlexStopwatches=16                     ; number of used T1.flex stopwatches [0..255]
+-numberOfFlexAddrs=16                           ; number of T1.flex addresses (must be >= numberOfFlexStopwatches) [0..255]
+-pTimer=0xFC068004                              ; address of memory mapped timer
+-traceTimerDownCounting=false                   ; trace timer counts down: [true,false]
+-t1HandlerPeriodMs=10                           ; period of T1_Handler() [t in ms]
+-cpuLoadTxPeriod=20                             ; Transmit CPU load every x CPU load frames (BSF-frame) [0..255]
+-cpuLoadAvgSamples=20                           ; Number of samples taken within period [1 or cpuLoadTxPeriod]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Core 2
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 2:
+-sid=4                                          ; system ID
+-systemType=AUTOSAR OS                          ; [OSEK/ErcosEK/gliwOS/RTA OSEK/AUTOSAR OS/Unknown]
+-rawTickDurationNs=(1000.0/64)*1               ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-rawTimerBitLength=32                           ; number of actual counting bits in the raw (physical register) timer (ideally 32)
+-tickDurationNs=(1000.0/64)*8                  ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-traceTimerIsSyncTimer=true                     ; is trace timer used on this core == sync timer? [true,false]
+-t1ScopeOverheadNs=178                          ; duration of one T1_TraceEventNoSusp_ call [t in ns]
+-t1FlexOverheadNs=500                           ; additional overhead for a T1.flex event [t in ns]
+-numberOfFlexStopwatches=16                     ; number of used T1.flex stopwatches [0..255]
+-numberOfFlexAddrs=16                           ; number of T1.flex addresses (must be >= numberOfFlexStopwatches) [0..255]
+-pTimer=0xFC068004                              ; address of memory mapped timer
+-traceTimerDownCounting=false                   ; trace timer counts down: [true,false]
+-t1HandlerPeriodMs=10                           ; period of T1_Handler() [t in ms]
+-cpuLoadTxPeriod=20                             ; Transmit CPU load every x CPU load frames (BSF-frame) [0..255]
+-cpuLoadAvgSamples=20                           ; Number of samples taken within period [1 or cpuLoadTxPeriod]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Core 3
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 3:
+-sid=5                                          ; system ID
+-systemType=AUTOSAR OS                          ; [OSEK/ErcosEK/gliwOS/RTA OSEK/AUTOSAR OS/Unknown]
+-rawTickDurationNs=(1000.0/64)*1               ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-rawTimerBitLength=32                           ; number of actual counting bits in the raw (physical register) timer (ideally 32)
+-tickDurationNs=(1000.0/64)*8                  ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-traceTimerIsSyncTimer=true                     ; is trace timer used on this core == sync timer? [true,false]
+-t1ScopeOverheadNs=178                          ; duration of one T1_TraceEventNoSusp_ call [t in ns]
+-t1FlexOverheadNs=500                           ; additional overhead for a T1.flex event [t in ns]
+-numberOfFlexStopwatches=16                     ; number of used T1.flex stopwatches [0..255]
+-numberOfFlexAddrs=16                           ; number of T1.flex addresses (must be >= numberOfFlexStopwatches) [0..255]
+-pTimer=0xFC068004                              ; address of memory mapped timer
+-traceTimerDownCounting=false                   ; trace timer counts down: [true,false]
+-t1HandlerPeriodMs=10                           ; period of T1_Handler() [t in ms]
+-cpuLoadTxPeriod=20                             ; Transmit CPU load every x CPU load frames (BSF-frame) [0..255]
+-cpuLoadAvgSamples=20                           ; Number of samples taken within period [1 or cpuLoadTxPeriod]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Core 4
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 4:
+-sid=6                                          ; system ID
+-systemType=AUTOSAR OS                          ; [OSEK/ErcosEK/gliwOS/RTA OSEK/AUTOSAR OS/Unknown]
+-rawTickDurationNs=(1000.0/64)*1               ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-rawTimerBitLength=32                           ; number of actual counting bits in the raw (physical register) timer (ideally 32)
+-tickDurationNs=(1000.0/64)*8                  ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-traceTimerIsSyncTimer=true                     ; is trace timer used on this core == sync timer? [true,false]
+-t1ScopeOverheadNs=178                          ; duration of one T1_TraceEventNoSusp_ call [t in ns]
+-t1FlexOverheadNs=500                           ; additional overhead for a T1.flex event [t in ns]
+-numberOfFlexStopwatches=16                     ; number of used T1.flex stopwatches [0..255]
+-numberOfFlexAddrs=16                           ; number of T1.flex addresses (must be >= numberOfFlexStopwatches) [0..255]
+-pTimer=0xFC068004                              ; address of memory mapped timer
+-traceTimerDownCounting=false                   ; trace timer counts down: [true,false]
+-t1HandlerPeriodMs=10                           ; period of T1_Handler() [t in ms]
+-cpuLoadTxPeriod=20                             ; Transmit CPU load every x CPU load frames (BSF-frame) [0..255]
+-cpuLoadAvgSamples=20                           ; Number of samples taken within period [1 or cpuLoadTxPeriod]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Core 5
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#system 5:
+-sid=7                                          ; system ID
+-systemType=AUTOSAR OS                          ; [OSEK/ErcosEK/gliwOS/RTA OSEK/AUTOSAR OS/Unknown]
+-rawTickDurationNs=(1000.0/64)*1               ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-rawTimerBitLength=32                           ; number of actual counting bits in the raw (physical register) timer (ideally 32)
+-tickDurationNs=(1000.0/64)*8                  ; tick duration [t in ns] (150 MHz with clock pre-scale = 4)
+-traceTimerIsSyncTimer=true                     ; is trace timer used on this core == sync timer? [true,false]
+-t1ScopeOverheadNs=178                          ; duration of one T1_TraceEventNoSusp_ call [t in ns]
+-t1FlexOverheadNs=500                           ; additional overhead for a T1.flex event [t in ns]
+-numberOfFlexStopwatches=16                     ; number of used T1.flex stopwatches [0..255]
+-numberOfFlexAddrs=16                           ; number of T1.flex addresses (must be >= numberOfFlexStopwatches) [0..255]
+-pTimer=0xFC068004                              ; address of memory mapped timer
+-traceTimerDownCounting=false                   ; trace timer counts down: [true,false]
+-t1HandlerPeriodMs=10                           ; period of T1_Handler() [t in ms]
+-cpuLoadTxPeriod=20                             ; Transmit CPU load every x CPU load frames (BSF-frame) [0..255]
+-cpuLoadAvgSamples=20                           ; Number of samples taken within period [1 or cpuLoadTxPeriod]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; EOF
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

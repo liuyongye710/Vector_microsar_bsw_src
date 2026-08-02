@@ -1,0 +1,297 @@
+;All-in-one script for CCFC3007PT
+
+;脚本调用参数
+local &para
+ENTRY &para
+
+
+local &JTAG_CLOCK &CURRENT_CMM
+
+;当前CMM路径
+&CURRENT_CMM=OS.PresentPracticeFile()
+&JTAG_CLOCK="1MHZ"   ;JTAG时钟频率，格式1MHZ 或者 500KHZ等
+
+
+IF "&para"==""
+(
+  ;脚本调用不传递任何参数时，仅创建CCFC3007PT菜单
+  GOSUB CREATE_MENU
+
+)
+
+IF "&para"=="CONNECT_CHIP"
+(
+  ;单核连接芯片
+  GOSUB CONNECT_CHIP
+)
+
+IF ("&para"=="PREPARE_ONLY")||("&para"=="ERASE_ALL")||("&para"=="PROGRAM_ALL")
+(
+  ;FLASH操作
+  GOSUB FLASH_PROGRAMMING &para
+)
+
+IF "&para"=="SMP"
+(
+  ;单核连接芯片
+  GOSUB SMP_DEBUGGING
+)
+
+IF "&para"=="AMP"
+(
+  ;单核连接芯片
+  GOSUB AMP_DEBUGGING
+)
+
+ENDDO
+
+
+
+
+CREATE_MENU:
+(
+  Menu.reset
+  menu.ReProgram
+  (&+
+    Add
+    Menu
+    (
+      POPUP "CCFC3007PT"
+      (
+        MENUITEM "[:btnok]连接芯片" "Do &CURRENT_CMM CONNECT_CHIP"
+        POPUP "[:flash]FLASH烧写"
+        (
+          MENUITEM "[:chip]仅做FLASH初始化" "Do &CURRENT_CMM PREPARE_ONLY"
+          MENUITEM "[:flashreprogram]全擦除" "Do &CURRENT_CMM ERASE_ALL"
+          MENUITEM "[:flashreprogram]烧写文件" "Do &CURRENT_CMM PROGRAM_ALL"
+        )
+        ;预留功能
+        ;MENUITEM "[:chip]外设寄存器" "per X:\ccfc3007pt.per"
+        POPUP "[:profile]多核调试"
+        (
+          MENUITEM "[:oinfo]SMP多核调试" "Do &CURRENT_CMM SMP"
+          MENUITEM "[:flashstate]AMP多核调试" "Do &CURRENT_CMM AMP"
+        )
+      )
+    )
+  )
+
+  RETURN
+)
+
+CONNECT_CHIP:
+(
+  print %color.GREEN "连接芯片..."
+  RESET
+  SYStem.RESet
+  system.BdmClock &JTAG_CLOCK
+  system.DETECT CPU
+  system.config.core 3. 1.
+  SYStem.Option.WATCHDOG OFF
+  system.up
+  D.S e:0xFC058010 %be %LONG 0xC520
+  D.S e:0xFC058010 %be %LONG 0xD928
+  D.S e:0xFC058000 %be %LONG 0xFF000000       ; SWT2_CR
+  dialog.YESNO "是否需要初始化所有RAM空间？ 0x40000000--0x4017FFFF"
+  PRIVATE &ANS
+  ENTRY &ANS
+  if &ANS
+  (
+    print %color.GREEN "初始化所以RAM空间..."
+    Data.Set EA:0x40000000--0x4017FFFF %Quad 0	;--all sram init
+  )
+
+  RETURN
+
+)
+
+
+FLASH_PROGRAMMING:
+(
+  private &flash_para
+  ENTRY &flash_para
+
+  ;Create FLASH.list
+  ; Low and Mid address space
+  FLASH.RESET
+  FLASH.Create 1. 0x00404000--0x00407FFF NOP    Quad 0x0000    ; BAF block 0
+  FLASH.Create 1. 0x00FC0000--0x00FC3FFF TARGET Quad 0x0001    ; 16 KB Flash block1
+  FLASH.Create 1. 0x00FC4000--0x00FC7FFF TARGET Quad 0x0002    ; 16 KB Flash block2
+  FLASH.Create 1. 0x00FC8000--0x00FCBFFF TARGET Quad 0x0003    ; 16 KB Flash block3
+  FLASH.Create 1. 0x00FCC000--0x00FCFFFF TARGET Quad 0x0004    ; 16 KB Flash block4
+  FLASH.Create 1. 0x0060C000--0x0060FFFF NOP    Quad 0x0005    ; 16 KB HSM code block5
+  FLASH.Create 1. 0x00FD0000--0x00FD7FFF TARGET Quad 0x0006    ; 32 KB Flash block0
+;  FLASH.Create 1. 0x00FD8000--0x00FDFFFF TARGET Quad 0x0007    ; 32 KB Flash block1
+  FLASH.Create 1. 0x00FE0000--0x00FEFFFF TARGET Quad 0x0008    ; 64 KB Low Flash block0
+  FLASH.Create 1. 0x00FF0000--0x00FFFFFF TARGET Quad 0x0009    ; 64 KB Low Flash block1
+  FLASH.Create 1. 0x00610000--0x0061FFFF NOP    Quad 0x000a    ; 64 KB HSM code block2
+  FLASH.Create 1. 0x00620000--0x0062FFFF NOP    Quad 0x000b    ; 64 KB HSM code block3
+  ; HSM Data no overlay
+  FLASH.Create 2. 0x00680000--0x00683FFF NOP    Quad 0x0100    ; 16 KB HSM data block0
+  FLASH.Create 2. 0x00684000--0x00687FFF NOP    Quad 0x0101    ; 16 KB HSM data block1
+  FLASH.Create 2. 0x00688000--0x0068BFFF NOP    Quad 0x0102    ; 16 KB HSM data block2
+  FLASH.Create 2. 0x0068C000--0x0068FFFF NOP    Quad 0x0103    ; 16 KB HSM data block3
+  FLASH.Create 2. 0x00690000--0x00697FFF NOP    Quad 0x0104    ; 32 KB HSM data block4
+  FLASH.Create 2. 0x00698000--0x0069FFFF NOP    Quad 0x0105    ; 32 KB HSM data block5
+  FLASH.Create 2. 0x006A0000--0x006AFFFF NOP    Quad 0x0106    ; 64 KB HSM data block6
+  FLASH.Create 2. 0x006B0000--0x006BFFFF NOP    Quad 0x0107    ; 64 KB HSM data block7
+  ; Data Flash no overlay
+  FLASH.Create 3. 0x00800000--0x0080FFFF TARGET Quad 0x0200    ; 64 KB EEPROM block0
+  FLASH.Create 3. 0x00810000--0x0081FFFF TARGET Quad 0x0201    ; 64 KB EEPROM block1
+  FLASH.Create 3. 0x00820000--0x0082FFFF TARGET Quad 0x0202    ; 64 KB EEPROM block2
+  FLASH.Create 3. 0x00830000--0x0083FFFF TARGET Quad 0x0203    ; 64 KB EEPROM block3
+  FLASH.Create 3. 0x00840000--0x0084FFFF TARGET Quad 0x0204    ; 64 KB EEPROM block4
+  FLASH.Create 3. 0x00850000--0x0085FFFF TARGET Quad 0x0205    ; 64 KB EEPROM block5
+  FLASH.Create 3. 0x00860000--0x0086FFFF TARGET Quad 0x0206    ; 64 KB EEPROM block6
+  FLASH.Create 3. 0x00870000--0x0087FFFF TARGET Quad 0x0207    ; 64 KB EEPROM block7
+  ; High address space
+  ; 256k address space
+  FLASH.Create 4. 0x01000000--0x0103FFFF TARGET Quad 0x0300    ; 256 KB Flash block0
+  FLASH.Create 4. 0x01040000--0x0107FFFF TARGET Quad 0x0301    ; 256 KB Flash block1
+  FLASH.Create 4. 0x01080000--0x010BFFFF TARGET Quad 0x0302    ; 256 KB Flash block2
+  FLASH.Create 4. 0x010C0000--0x010FFFFF TARGET Quad 0x0303    ; 256 KB Flash block3
+  FLASH.Create 4. 0x01100000--0x0113FFFF TARGET Quad 0x0304    ; 256 KB Flash block4
+  FLASH.Create 4. 0x01140000--0x0117FFFF TARGET Quad 0x0305    ; 256 KB Flash block5
+  FLASH.Create 4. 0x01180000--0x011BFFFF TARGET Quad 0x0306    ; 256 KB Flash block6
+  FLASH.Create 4. 0x011C0000--0x011FFFFF TARGET Quad 0x0307    ; 256 KB Flash block7
+  FLASH.Create 5. 0x01200000--0x0123FFFF TARGET Quad 0x0308    ; 256 KB Flash block8
+  FLASH.Create 5. 0x01240000--0x0127FFFF TARGET Quad 0x0309    ; 256 KB Flash block9
+  FLASH.Create 5. 0x01280000--0x012BFFFF TARGET Quad 0x030a    ; 256 KB Flash block10
+  FLASH.Create 5. 0x012C0000--0x012FFFFF TARGET Quad 0x030b    ; 256 KB Flash block11
+  FLASH.Create 5. 0x01300000--0x0133FFFF TARGET Quad 0x030c    ; 256 KB Flash block12
+  FLASH.Create 5. 0x01340000--0x0137FFFF TARGET Quad 0x030d    ; 256 KB Flash block13
+  FLASH.Create 5. 0x01380000--0x013BFFFF TARGET Quad 0x030e    ; 256 KB Flash block14
+  FLASH.Create 5. 0x013C0000--0x013FFFFF TARGET Quad 0x030f    ; 256 KB Flash block15
+  FLASH.Create 6. 0x01400000--0x0143FFFF TARGET Quad 0x0310    ; 256 KB Flash block16
+  FLASH.Create 6. 0x01440000--0x0147FFFF TARGET Quad 0x0311    ; 256 KB Flash block17
+  FLASH.Create 6. 0x01480000--0x014BFFFF TARGET Quad 0x0312    ; 256 KB Flash block18
+  FLASH.Create 6. 0x014C0000--0x014FFFFF TARGET Quad 0x0313    ; 256 KB Flash block19
+  FLASH.Create 6. 0x01500000--0x0153FFFF TARGET Quad 0x0314    ; 256 KB Flash block20
+  FLASH.Create 6. 0x01540000--0x0157FFFF TARGET Quad 0x0315    ; 256 KB Flash block21
+  FLASH.Create 6. 0x01580000--0x015BFFFF TARGET Quad 0x0316    ; 256 KB Flash block22
+  FLASH.Create 6. 0x015C0000--0x015FFFFF TARGET Quad 0x0317    ; 256 KB Flash block23
+  FLASH.Create 7. 0x01600000--0x0163FFFF TARGET Quad 0x0318    ; 256 KB Flash block24
+  FLASH.Create 7. 0x01640000--0x0167FFFF TARGET Quad 0x0319    ; 256 KB Flash block25
+  FLASH.Create 7. 0x01680000--0x016BFFFF TARGET Quad 0x031a    ; 256 KB Flash block26
+  FLASH.Create 7. 0x016C0000--0x016FFFFF TARGET Quad 0x031b    ; 256 KB Flash block27
+  FLASH.Create 7. 0x01700000--0x0173FFFF TARGET Quad 0x031c    ; 256 KB Flash block28
+  FLASH.Create 7. 0x01740000--0x0177FFFF TARGET Quad 0x031d    ; 256 KB Flash block29
+  FLASH.Create 7. 0x01780000--0x017BFFFF TARGET Quad 0x031e    ; 256 KB Flash block30
+  FLASH.Create 7. 0x017C0000--0x017FFFFF TARGET Quad 0x031f    ; 256 KB Flash block31
+  
+  FLASH.Create 8. 0x01800000--0x0183FFFF TARGET Quad 0x0400    ; 256 KB Flash block32
+  FLASH.Create 8. 0x01840000--0x0187FFFF TARGET Quad 0x0401    ; 256 KB Flash block33
+  FLASH.Create 8. 0x01880000--0x018BFFFF TARGET Quad 0x0402    ; 256 KB Flash block34
+  FLASH.Create 8. 0x018C0000--0x018FFFFF TARGET Quad 0x0403    ; 256 KB Flash block35
+  FLASH.Create 8. 0x01900000--0x0193FFFF TARGET Quad 0x0404    ; 256 KB Flash block36
+  FLASH.Create 8. 0x01940000--0x0197FFFF TARGET Quad 0x0405    ; 256 KB Flash block37
+  FLASH.Create 8. 0x01980000--0x019BFFFF TARGET Quad 0x0406    ; 256 KB Flash block38
+  FLASH.Create 8. 0x019C0000--0x019FFFFF TARGET Quad 0x0407    ; 256 KB Flash block39
+  FLASH.Create 9. 0x01A00000--0x01A3FFFF TARGET Quad 0x0408    ; 256 KB Flash block40
+  FLASH.Create 9. 0x01A40000--0x01A7FFFF TARGET Quad 0x0409    ; 256 KB Flash block41
+  FLASH.Create 9. 0x01A80000--0x01ABFFFF TARGET Quad 0x040a    ; 256 KB Flash block42
+  FLASH.Create 9. 0x01AC0000--0x01AFFFFF TARGET Quad 0x040b    ; 256 KB Flash block43
+  FLASH.Create 9. 0x01B00000--0x01B3FFFF TARGET Quad 0x040c    ; 256 KB Flash block44
+  FLASH.Create 9. 0x01B40000--0x01B7FFFF TARGET Quad 0x040d    ; 256 KB Flash block45
+  FLASH.Create 9. 0x01B80000--0x01BBFFFF TARGET Quad 0x040e    ; 256 KB Flash block46
+  FLASH.Create 9. 0x01BC0000--0x01BFFFFF TARGET Quad 0x040f    ; 256 KB Flash block47
+
+
+  ; Overlay enabled mapping
+  FLASH.CreateALIAS 0x08A00000--0x08FFFFFF 0x00A00000   ; Small & medium flash blocks
+  FLASH.CreateALIAS 0x09000000--0x09FFFFFF 0x01000000   ; Large flash blocks
+
+  &rambase=0x40000000
+
+  ;FLASH.TARGET E:&rambase E:&rambase+0x2000 0x1000 flash_driver/c55fm5746m.bin /STACKSIZE 0x0200
+  FLASH.TARGET E:&rambase E:&rambase+0x2000 0x1000 ~~/demo/powerpc/flash/quad/c55fm5746m.bin /STACKSIZE 0x0200
+
+
+
+  IF "&flash_para"=="PREPARE_ONLY"
+  (
+    print %color.GREEN "FLASH烧写准备就绪..."
+    FLASH.LIST
+    RETURN
+  )
+
+  IF "&flash_para"=="ERASE_ALL"
+  (
+    Flash.Erase ALL
+    print %color.GREEN "全片擦除完成..."
+    RETURN
+  )
+
+  IF "&flash_para"=="PROGRAM_ALL"
+  (
+    Flash.ReProgram All
+    Data.load.auto *
+    FLASH.ReProgram Off
+    print %color.GREEN "烧写完成..."
+    RETURN
+  )
+
+  print %WARNING "【FLASH_PROGRAMMING】无有效参数"
+  RETURN
+
+)
+
+SMP_DEBUGGING:
+(
+  SYStem.mode NoDebug
+  core.ASSIGN 1,2,3
+  core.select 2
+  SYStem.mode Attach
+  list /core 0
+  list /core 1
+  list /core 2
+  RETURN
+)
+
+AMP_DEBUGGING:
+(
+  private &elf_z4_2 &elf_z7_0 &elf_z7_1
+  
+  &elf_z4_2="f:\p\05_3007PT\20240418T1\CECU_CCFC3007PT_V1.0_20240923\Workspace\HighTec\CCFC3007PT_DEBUG_FLASH\CECU_CCFC3007PT_V1.0_Dev.elf"
+  &elf_z7_0="f:\p\05_3007PT\20240418T1\CECU_CCFC3007PT_V1.0_20240923\Workspace\HighTec\CCFC3007PT_DEBUG_FLASH\CECU_CCFC3007PT_V1.0_Dev.elf"
+  &elf_z7_1="f:\p\05_3007PT\20240418T1\CECU_CCFC3007PT_V1.0_20240923\Workspace\HighTec\CCFC3007PT_DEBUG_FLASH\CECU_CCFC3007PT_V1.0_Dev.elf"
+  SYStem.mode NoDebug
+  core.ASSIGN 3.
+  ;SYStem.up
+  SYStem.up
+  d.load.elf "&elf_z4_2" /Nocode /Noreg
+  b.s main
+  FramePOS 0 0 33% 80%
+
+
+  TargetSystem.NewInstance c1 /ARCHitecture POWERPC
+  IC c1 sys.detect cpu
+  ic c1 sys.config.core 1. 1.
+  ic c1 sys.Attach
+  ic c1 break.request
+  ic c1 List
+  ic c1 d.load.elf "&elf_z7_0" /Nocode /Noreg
+  ic c1 FramePOS 33% 0 33% 80%
+
+
+  TargetSystem.NewInstance c2 /ARCHitecture POWERPC
+  IC c2 sys.detect cpu
+  ic c2 sys.config.core 2. 1.
+  ic c2 sys.Attach
+  ic c2 break.request
+  ic c2 List
+  ic c2 d.load.elf "&elf_z7_1" /Nocode /Noreg
+  ic c2 FramePOS 66% 0 33% 80%
+  
+  
+  b.s y.exit(Mcore_Init) /Onchip 
+  ic others b.s main /onchip
+  on error continue
+
+  go  //1st time , z4 goes to end of Mcore_Init; slave cores will be halt at the reset vector
+  ic all wait 0.5s
+  ic all go  //2nd time , all cores go to main()
+  on error
+
+  RETURN
+)

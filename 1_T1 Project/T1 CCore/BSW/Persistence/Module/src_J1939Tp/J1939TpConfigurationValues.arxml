@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>J1939Tp</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/J1939Tp</DEFINITION-REF>
+                    <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>J1939TpConfiguration</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>ECMC_DM1MCU_D3_sO0</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCancellationSupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDynamicBlockCalculation</DEFINITION-REF>
+                                            <VALUE>false</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxMaxPacketsPerBlock</DEFINITION-REF>
+                                            <VALUE>255</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxProtocolType</DEFINITION-REF>
+                                            <VALUE>J1939TP_PROTOCOL_BAM</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxRetrySupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxSa</DEFINITION-REF>
+                                            <VALUE>239</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxCmNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPCMBAMMCU_D3_sO0</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxDtNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>9</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPDTMCU_D3_sO0</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxPg_ECMC</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgDynLength</DEFINITION-REF>
+                                                    <VALUE>false</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgPGN</DEFINITION-REF>
+                                                    <VALUE>65251</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <SUB-CONTAINERS>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>J1939TpTxNSdu</SHORT-NAME>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduId</DEFINITION-REF>
+                                                            <VALUE>1</VALUE>
+                                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/ECMCU_D3_sO0</VALUE-REF>
+                                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                            </SUB-CONTAINERS>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxPg_DM1MCU</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgDynLength</DEFINITION-REF>
+                                                    <VALUE>false</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgPGN</DEFINITION-REF>
+                                                    <VALUE>65226</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <SUB-CONTAINERS>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>J1939TpTxNSdu</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduId</DEFINITION-REF>
+                                                            <VALUE>6</VALUE>
+                                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/DM1MCU_D3_sO0</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                            </SUB-CONTAINERS>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>DM1MCU2_D3_sO0</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCancellationSupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDynamicBlockCalculation</DEFINITION-REF>
+                                            <VALUE>false</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxMaxPacketsPerBlock</DEFINITION-REF>
+                                            <VALUE>255</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxProtocolType</DEFINITION-REF>
+                                            <VALUE>J1939TP_PROTOCOL_BAM</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxRetrySupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxSa</DEFINITION-REF>
+                                            <VALUE>240</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxCmNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>6</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPCMBAMMCU2_D3_sO0</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxDtNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>7</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPDTMCU2_D3_sO0</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxPg</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgDynLength</DEFINITION-REF>
+                                                    <VALUE>false</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgPGN</DEFINITION-REF>
+                                                    <VALUE>65226</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <SUB-CONTAINERS>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>J1939TpTxNSdu</SHORT-NAME>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduId</DEFINITION-REF>
+                                                            <VALUE>7</VALUE>
+                                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/DM1MCU2_D3_sO0</VALUE-REF>
+                                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                            </SUB-CONTAINERS>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>DM1APCU_OjcG_c</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCancellationSupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDynamicBlockCalculation</DEFINITION-REF>
+                                            <VALUE>false</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxMaxPacketsPerBlock</DEFINITION-REF>
+                                            <VALUE>255</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxProtocolType</DEFINITION-REF>
+                                            <VALUE>J1939TP_PROTOCOL_BAM</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxRetrySupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxSa</DEFINITION-REF>
+                                            <VALUE>48</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxCmNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>27</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPCMBAMAPCU_OjcG_c</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxDtNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>28</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPDTAPCU_OjcG_c</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxPg</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgDynLength</DEFINITION-REF>
+                                                    <VALUE>false</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgPGN</DEFINITION-REF>
+                                                    <VALUE>65226</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <SUB-CONTAINERS>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>J1939TpTxNSdu</SHORT-NAME>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduId</DEFINITION-REF>
+                                                            <VALUE>30</VALUE>
+                                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/DM1APCU_OjcG_c</VALUE-REF>
+                                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                            </SUB-CONTAINERS>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>DM1DCDC_OjcG_c</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCancellationSupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDynamicBlockCalculation</DEFINITION-REF>
+                                            <VALUE>false</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxMaxPacketsPerBlock</DEFINITION-REF>
+                                            <VALUE>255</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxProtocolType</DEFINITION-REF>
+                                            <VALUE>J1939TP_PROTOCOL_BAM</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxRetrySupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxSa</DEFINITION-REF>
+                                            <VALUE>26</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxCmNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>23</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPCMBAMDCDC_OjcG_c</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxDtNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>24</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPDTDCDC_OjcG_c</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxPg</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgDynLength</DEFINITION-REF>
+                                                    <VALUE>false</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgPGN</DEFINITION-REF>
+                                                    <VALUE>65226</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <SUB-CONTAINERS>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>J1939TpTxNSdu</SHORT-NAME>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduId</DEFINITION-REF>
+                                                            <VALUE>32</VALUE>
+                                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/DM1DCDC_OjcG_c</VALUE-REF>
+                                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                            </SUB-CONTAINERS>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>DM1OPCU_OjcG_c</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCancellationSupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDynamicBlockCalculation</DEFINITION-REF>
+                                            <VALUE>false</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxMaxPacketsPerBlock</DEFINITION-REF>
+                                            <VALUE>255</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxProtocolType</DEFINITION-REF>
+                                            <VALUE>J1939TP_PROTOCOL_BAM</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxRetrySupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxSa</DEFINITION-REF>
+                                            <VALUE>46</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxCmNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>25</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPCMBAMOPCU_OjcG_c</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxDtNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>26</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPDTOPCU_OjcG_c</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxPg</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgDynLength</DEFINITION-REF>
+                                                    <VALUE>false</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgPGN</DEFINITION-REF>
+                                                    <VALUE>65226</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <SUB-CONTAINERS>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>J1939TpTxNSdu</SHORT-NAME>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduId</DEFINITION-REF>
+                                                            <VALUE>33</VALUE>
+                                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/DM1OPCU_OjcG_c</VALUE-REF>
+                                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                            </SUB-CONTAINERS>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>DM1PTU_OjcG_c</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCancellationSupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDynamicBlockCalculation</DEFINITION-REF>
+                                            <VALUE>false</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxMaxPacketsPerBlock</DEFINITION-REF>
+                                            <VALUE>255</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxProtocolType</DEFINITION-REF>
+                                            <VALUE>J1939TP_PROTOCOL_BAM</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>NONE</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxRetrySupport</DEFINITION-REF>
+                                            <VALUE>true</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxSa</DEFINITION-REF>
+                                            <VALUE>96</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxCmNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>29</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxCmNPdu/J1939TpTxCmNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPCMBAMPTU_OjcG_c</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxDtNPdu</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduTxConfId</DEFINITION-REF>
+                                                    <VALUE>30</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxDtNPdu/J1939TpTxDtNPduRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/TPDTPTU_OjcG_c</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>J1939TpTxPg</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgDynLength</DEFINITION-REF>
+                                                    <VALUE>false</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxPgPGN</DEFINITION-REF>
+                                                    <VALUE>65226</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <SUB-CONTAINERS>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>J1939TpTxNSdu</SHORT-NAME>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduId</DEFINITION-REF>
+                                                            <VALUE>40</VALUE>
+                                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpConfiguration/J1939TpTxChannel/J1939TpTxPg/J1939TpTxNSdu/J1939TpTxNSduRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucConfigSet/EcucPduCollection/Pdus/DM1PTU_OjcG_c</VALUE-REF>
+                                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                            </SUB-CONTAINERS>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>J1939TpGeneral</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpGeneral</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpGeneral/J1939TpCancellationSupport</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpGeneral/J1939TpDevErrorDetect</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpGeneral/J1939TpMainFunctionPeriod</DEFINITION-REF>
+                                    <VALUE>0.005</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpGeneral/J1939TpTxConfTimeout</DEFINITION-REF>
+                                    <VALUE>1</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/J1939Tp/J1939TpGeneral/J1939TpVersionInfoApi</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                    </CONTAINERS>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

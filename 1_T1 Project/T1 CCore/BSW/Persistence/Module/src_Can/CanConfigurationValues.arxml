@@ -1,0 +1,1270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>Can</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/Can</DEFINITION-REF>
+                    <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanConfigSet</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CAN_Matrix_DCDC_V0_1_20250414_VR82BV</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanBusoffProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerId</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanRxProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanTxProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanWakeupProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerDefaultBaudrate</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/CAN_Matrix_DCDC_V0_1_20250414_VR82BV/CanControllerBaudrateConfigs/CanControllerBaudrateConfig</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanControllerBaudrateConfig</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRate</DEFINITION-REF>
+                                                    <VALUE>500</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRateConfigID</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerPropSeg</DEFINITION-REF>
+                                                    <VALUE>7</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg1</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg2</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSyncJumpWidth</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CanController1</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanBusoffProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerId</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanRxProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanTxProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanWakeupProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerDefaultBaudrate</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/CanController1/CanControllerBaudrateConfigs/CanControllerBaudrateConfig</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanControllerBaudrateConfig</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRate</DEFINITION-REF>
+                                                    <VALUE>500</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRateConfigID</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerPropSeg</DEFINITION-REF>
+                                                    <VALUE>7</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg1</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg2</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSyncJumpWidth</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>FAW_MCD_MCU_CAN_V1_4_1_D3_sO0</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanBusoffProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerId</DEFINITION-REF>
+                                            <VALUE>2</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanRxProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanTxProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanWakeupProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerDefaultBaudrate</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW_MCD_MCU_CAN_V1_4_1_D3_sO0/CanControllerBaudrateConfigs/CanControllerBaudrateConfig</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanControllerBaudrateConfig</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRate</DEFINITION-REF>
+                                                    <VALUE>500</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRateConfigID</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerPropSeg</DEFINITION-REF>
+                                                    <VALUE>7</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg1</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg2</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSyncJumpWidth</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>FAW2_MCD_MCU_CAN_DBC_V0_1_CHL_20241216_Voxyrf</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanBusoffProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerId</DEFINITION-REF>
+                                            <VALUE>3</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanRxProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanTxProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanWakeupProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerDefaultBaudrate</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW2_MCD_MCU_CAN_DBC_V0_1_CHL_20241216_Voxyrf/CanControllerBaudrateConfigs/CanControllerBaudrateConfig</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanControllerBaudrateConfig</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRate</DEFINITION-REF>
+                                                    <VALUE>250</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRateConfigID</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerPropSeg</DEFINITION-REF>
+                                                    <VALUE>7</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg1</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg2</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSyncJumpWidth</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>FAW3_HVAC_V2_0DBC_OjcG_c</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanBusoffProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerId</DEFINITION-REF>
+                                            <VALUE>4</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanRxProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanTxProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanWakeupProcessing</DEFINITION-REF>
+                                            <VALUE>INTERRUPT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerDefaultBaudrate</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW3_HVAC_V2_0DBC_OjcG_c/CanControllerBaudrateConfigs/CanControllerBaudrateConfig</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanControllerBaudrateConfig</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRate</DEFINITION-REF>
+                                                    <VALUE>500</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerBaudRateConfigID</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerPropSeg</DEFINITION-REF>
+                                                    <VALUE>7</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg1</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSeg2</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanController/CanControllerBaudrateConfig/CanControllerSyncJumpWidth</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>DCDC_Status_CAN0_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>0</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/CAN_Matrix_DCDC_V0_1_20250414_VR82BV</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>AMT3_CAN2_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>1</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW_MCD_MCU_CAN_V1_4_1_D3_sO0</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CCVSHCU_CAN2_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>2</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW_MCD_MCU_CAN_V1_4_1_D3_sO0</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EEC2HCU_ETC1_CAN2_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>3</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW_MCD_MCU_CAN_V1_4_1_D3_sO0</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>ETC2_SC_CAN2_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>4</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW_MCD_MCU_CAN_V1_4_1_D3_sO0</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>HCUMCU_CAN2_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>5</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW_MCD_MCU_CAN_V1_4_1_D3_sO0</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>TC_TSC_CAN2_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>6</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW_MCD_MCU_CAN_V1_4_1_D3_sO0</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>MCU_Rx_Data_1_CAN3_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>FULL</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>7</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW2_MCD_MCU_CAN_DBC_V0_1_CHL_20241216_Voxyrf</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>MCU_Rx_Data_2_CAN3_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>FULL</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>8</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW2_MCD_MCU_CAN_DBC_V0_1_CHL_20241216_Voxyrf</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>XCP_Request_CAN3_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>FULL</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>9</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW2_MCD_MCU_CAN_DBC_V0_1_CHL_20241216_Voxyrf</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>GL_Rx_REQ_CAN3_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>FULL</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>10</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW2_MCD_MCU_CAN_DBC_V0_1_CHL_20241216_Voxyrf</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>HCU_OPCU_DCDC_CAN4_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>11</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW3_HVAC_V2_0DBC_OjcG_c</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>HCU_APCU_3_CAN4_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>12</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW3_HVAC_V2_0DBC_OjcG_c</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>BMS5_MCU2_CAN4_Rx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>13</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>RECEIVE</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW3_HVAC_V2_0DBC_OjcG_c</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CanHwFilter</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHwFilter/CanHwFilterMask</DEFINITION-REF>
+                                                    <VALUE>536870911</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CAN0_Tx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>14</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>TRANSMIT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/CAN_Matrix_DCDC_V0_1_20250414_VR82BV</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CAN2_Tx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>15</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>TRANSMIT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW_MCD_MCU_CAN_V1_4_1_D3_sO0</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CAN3_Tx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>16</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>TRANSMIT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW2_MCD_MCU_CAN_DBC_V0_1_CHL_20241216_Voxyrf</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>CAN4_Tx</SHORT-NAME>
+                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject</DEFINITION-REF>
+                                    <PARAMETER-VALUES>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanHandleType</DEFINITION-REF>
+                                            <VALUE>BASIC</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanIdType</DEFINITION-REF>
+                                            <VALUE>MIXED</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                        <ECUC-NUMERICAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectId</DEFINITION-REF>
+                                            <VALUE>17</VALUE>
+                                        </ECUC-NUMERICAL-PARAM-VALUE>
+                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanObjectType</DEFINITION-REF>
+                                            <VALUE>TRANSMIT</VALUE>
+                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                    </PARAMETER-VALUES>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/Can/CanConfigSet/CanHardwareObject/CanControllerRef</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Can/CanConfigSet/CanControllers/FAW3_HVAC_V2_0DBC_OjcG_c</VALUE-REF>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>CanGeneral</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Can/CanGeneral</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                    </CONTAINERS>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

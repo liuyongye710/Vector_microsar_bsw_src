@@ -1,0 +1,79 @@
+// T32 Tue Apr 16 10:30:56 2024
+
+B::
+
+TOOLBAR   ON
+STATUSBAR ON
+FramePOS 6.5,3.7143,,,Maximized
+WinPAGE.RESet
+
+WinPAGE.Create P000
+WinCLEAR
+
+WinPOS 24.25 7.5714 0. 0. 0. 0. W007 ICONIC
+PER
+WinPAN 0. 104.
+
+WinPOS 104.0 19.429 82. 22. 14. 1. W006
+WinTABS 10. 10. 25.
+List.auto
+
+WinPOS 98.25 21.571 89. 20. 14. 1. W001
+WinTABS 10. 10. 25.
+list e:main
+setup.VAR %E.on %SpotLight.on 
+WinPOS 0.0 0.14286 31. 8. 0. 0. W002
+
+Var.Watch Core0
+VAR.ADDWATCH AppTask1000ms0Counter
+VAR.ADDWATCH AppTask500ms0Counter
+VAR.ADDWATCH AppTask200ms0Counter
+VAR.ADDWATCH AppTask100ms0Counter
+VAR.ADDWATCH AppTask50ms0Counter
+VAR.ADDWATCH AppTask20ms0Counter
+VAR.ADDWATCH AppTask10ms0Counter
+VAR.ADDWATCH AppTask5ms0Counter
+
+WinPOS 0.0 14.286 31. 9. 0. 0. W003
+Var.Watch Core1
+
+VAR.ADDWATCH AppTask1000ms1Counter
+VAR.ADDWATCH AppTask500ms1Counter
+VAR.ADDWATCH AppTask200ms1Counter
+VAR.ADDWATCH AppTask100ms1Counter
+VAR.ADDWATCH AppTask50ms1Counter
+VAR.ADDWATCH AppTask20ms1Counter
+VAR.ADDWATCH AppTask10ms1Counter
+VAR.ADDWATCH AppTask5ms1Counter
+
+WinPOS 0.0 29.571 32. 11. 0. 0. W000
+Var.Watch AppTask1000ms2Counter
+
+VAR.ADDWATCH AppTask500ms2Counter
+VAR.ADDWATCH AppTask200ms2Counter
+VAR.ADDWATCH AppTask100ms2Counter
+VAR.ADDWATCH AppTask50ms2Counter
+VAR.ADDWATCH AppTask20ms2Counter
+VAR.ADDWATCH AppTask5ms2Counter
+VAR.ADDWATCH AppTask4ms2Counter
+VAR.ADDWATCH AppTask1ms2Counter
+
+WinPOS 35.375 0.0 58. 41. 0. 0. W004
+Var.Watch PETTER_test
+
+VAR.ADDWATCH DutyCycle_4
+VAR.ADDWATCH DutyCycle_3
+VAR.ADDWATCH DutyCycle_2
+
+WinPOS 98.0 0.35714 89. 15. 0. 0. W005
+Var.Watch timming
+
+VAR.ADDWATCH Tst_CX_IO_Average_Speed
+VAR.ADDWATCH Tst_CX_IO_Engine_Sync_Mode
+VAR.ADDWATCH Tst_CX_IO_Cam_Sync_Status
+VAR.ADDWATCH Tst_CX_IO_Crank_Sync_Status
+VAR.ADDWATCH Tst_ISR_Cnt
+
+WinPAGE.select P000
+
+ENDDO

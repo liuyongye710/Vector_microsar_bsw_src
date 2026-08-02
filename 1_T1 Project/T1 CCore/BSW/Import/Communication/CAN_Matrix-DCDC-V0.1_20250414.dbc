@@ -1,0 +1,479 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: DCDC MCU
+
+
+BO_ 768 DCDC_Cmd1: 8 MCU
+ SG_ DCDC_VouSet : 7|16@0+ (0.05,0) [0|3276.75] "V"  DCDC
+ SG_ DCDC_CouSet : 19|12@0+ (0.1,0) [0|409.5] "A"  DCDC
+ SG_ DCDC_Mode : 21|2@0+ (1,0) [0|3] ""  DCDC
+ SG_ DCDC_Enable : 22|1@0+ (1,0) [0|1] ""  DCDC
+ SG_ DCDC_Sleep : 23|1@0+ (1,0) [0|3] ""  DCDC
+ SG_ DCDC_Precharge : 33|2@0+ (1,0) [0|3] ""  DCDC
+ SG_ DCDC_Fault_Clear : 34|1@0+ (1,0) [0|1] ""  DCDC
+ SG_ DCDC_Dir : 39|1@0+ (1,0) [0|1] ""  DCDC
+ SG_ DCDC_Dir_Check : 55|1@0+ (1,0) [0|1] ""  DCDC
+ SG_ DCDC_Counter : 51|4@0+ (1,0) [0|15] ""  DCDC
+ SG_ DCDC_Checksum : 63|8@0+ (1,0) [0|255] ""  DCDC
+
+BO_ 769 DCDC_Cmd2: 8 MCU
+
+BO_ 770 DCDC_Status1: 8 DCDC
+ SG_ DCDC_VIn : 7|10@0+ (1,0) [0|1023] "V"  MCU
+ SG_ DCDC_Vout : 35|12@0+ (0.05,0) [0|204.75] "V"  MCU
+ SG_ DCDC_Cout : 31|12@0+ (0.1,0) [0|409.5] "A"  MCU
+ SG_ DCDC_ModeFB : 22|2@0+ (1,0) [0|3] ""  MCU
+ SG_ DCDC_DirFB : 20|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Cmdsrc : 19|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Faultlevel : 18|3@0+ (1,0) [0|7] ""  MCU
+ SG_ DCDC_State : 55|4@0+ (1,0) [0|15] ""  MCU
+ SG_ DCDC_Counter1 : 51|4@0+ (1,0) [0|15] ""  MCU
+ SG_ DCDC_Checksum1 : 63|8@0+ (1,0) [0|255] ""  MCU
+
+BO_ 771 DCDC_Status2: 8 DCDC
+ SG_ DCDC_CoutLimit : 7|10@0+ (0.5,0) [0|511.5] "A"  MCU
+ SG_ DCDC_Vin_OV_level1 : 8|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vin_OV_level3 : 9|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vin_OV_level4 : 10|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vin_UV_level1 : 11|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vin_UV_level3 : 12|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vin_UV_level4 : 13|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vout_OV_level1 : 16|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vout_OV_level3 : 17|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vout_OV_level4 : 18|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vout_UV_level1 : 19|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vout_UV_level3 : 20|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Vout_UV_level4 : 21|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Cout_OC_level1 : 22|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Cout_OC_level2 : 23|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Cout_OC_level3 : 24|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Cout_OC_level4 : 25|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Out_SC_level1 : 26|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Out_SC_level2 : 27|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_PSFB_OT_level1 : 28|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_PSFB_OT_level3 : 29|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_PSFB_OT_level4 : 30|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_SR_OT_level1 : 31|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_SR_OT_level3 : 32|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_SR_OT_level4 : 33|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_OC_PSFB_level2 : 34|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_OC_BoostSub1_level2 : 35|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_OC_BoostSub2_level2 : 36|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_CAN_Timeout : 37|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_CAN_E2E : 38|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Initial_Failure : 39|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Precharge_Failure : 40|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_PSFB_CS_Failure : 41|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_Hard_Failure_level1 : 42|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_HOC_PSFB_level1 : 43|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_HOC_Cout_level1 : 44|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_HOC_Vin_level1 : 45|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_HOV_Vout_Boost_level1 : 46|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_HOV_Vout_level1 : 47|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_HOC_BoostSub1_level1 : 48|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_HOC_BoostSub2_level2 : 49|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_BoostSub1_CS_Failure : 50|1@0+ (1,0) [0|1] ""  MCU
+ SG_ DCDC_BoostSub2_CS_Failure : 51|1@0+ (1,0) [0|1] ""  MCU
+
+BO_ 772 DCDC_Status3: 8 DCDC
+ SG_ DCDC_SoftVer : 7|16@0+ (1,0) [0|65535] ""  MCU
+ SG_ DCDC_HardVer : 23|16@0+ (1,0) [0|65535] ""  MCU
+ SG_ DCDC_Temp_Dclink : 39|8@0+ (1,-40) [-40|215] "℃"  MCU
+ SG_ DCDC_Temp_SR : 47|8@0+ (1,-40) [-40|215] "℃"  MCU
+ SG_ DCDC_Temp_TSFM : 55|8@0+ (1,-40) [-40|215] "℃"  MCU
+ SG_ DCDC_Temp_PSFB : 63|8@0+ (1,-40) [-40|215] "℃"  MCU
+
+BO_ 1795 DCDC_XCPReq: 8 MCU
+ SG_ XCP_Request_Signal : 0|64@1+ (1,0) [0|0] ""  DCDC
+
+BO_ 1796 DCDC_XCPRes: 8 DCDC
+ SG_ XCP_Response_Signal : 0|64@1+ (1,0) [0|0] ""  MCU
+
+BO_ 1984 DCDC_DigReqPhy: 8 MCU
+ SG_ DCDC_Rx_STmin_2 : 63|8@0+ (1,0) [0|255] ""  DCDC
+ SG_ DCDC_Rx_SN_2 : 55|4@0+ (1,0) [0|15] ""  DCDC
+ SG_ DCDC_Rx_SF_DL_2 : 47|4@0+ (1,0) [0|15] ""  DCDC
+ SG_ DCDC_Rx_N_PCItype_2 : 39|4@0+ (1,0) [0|15] ""  DCDC
+ SG_ DCDC_Rx_FS_2 : 31|4@0+ (1,0) [0|15] ""  DCDC
+ SG_ DCDC_Rx_FF_DL_2 : 15|12@0+ (1,0) [0|0] ""  DCDC
+ SG_ DCDC_Rx_BS_2 : 7|8@0+ (1,0) [0|255] ""  DCDC
+
+BO_ 2015 DCDC_DigReqFun: 8 MCU
+ SG_ DCDC_Rx_STmin_1 : 63|8@0+ (1,0) [0|255] ""  DCDC
+ SG_ DCDC_Rx_SN_1 : 55|4@0+ (1,0) [0|15] ""  DCDC
+ SG_ DCDC_Rx_SF_DL_1 : 47|4@0+ (1,0) [0|15] ""  DCDC
+ SG_ DCDC_Rx_N_PCItype_1 : 39|4@0+ (1,0) [0|15] ""  DCDC
+ SG_ DCDC_Rx_FS_1 : 31|4@0+ (1,0) [0|15] ""  DCDC
+ SG_ DCDC_Rx_FF_DL_1 : 15|12@0+ (1,0) [0|0] ""  DCDC
+ SG_ DCDC_Rx_BS_1 : 7|8@0+ (1,0) [0|255] ""  DCDC
+
+BO_ 1992 DCDC_DigRes: 8 DCDC
+ SG_ DCDC_Tx_STmin : 63|8@0+ (1,0) [0|255] ""  MCU
+ SG_ DCDC_Tx_SN : 55|4@0+ (1,0) [0|15] ""  MCU
+ SG_ DCDC_Tx_SF_DL : 47|4@0+ (1,0) [0|15] ""  MCU
+ SG_ DCDC_Tx_N_PCItype : 39|4@0+ (1,0) [0|15] ""  MCU
+ SG_ DCDC_Tx_FS : 31|4@0+ (1,0) [0|15] ""  MCU
+ SG_ DCDC_Tx_FF_DL : 15|12@0+ (1,0) [0|0] ""  MCU
+ SG_ DCDC_Tx_BS : 7|8@0+ (1,0) [0|255] ""  MCU
+
+
+
+CM_ SG_ 768 DCDC_VouSet "输出电压";
+CM_ SG_ 768 DCDC_CouSet "输出电流";
+CM_ SG_ 768 DCDC_Mode "模式";
+CM_ SG_ 768 DCDC_Enable "运行使能";
+CM_ SG_ 768 DCDC_Sleep "下电指令";
+CM_ SG_ 768 DCDC_Precharge "预充电状态";
+CM_ SG_ 768 DCDC_Fault_Clear "清除故障";
+CM_ SG_ 768 DCDC_Dir "转换方向，仅双向DCDC有效";
+CM_ SG_ 768 DCDC_Dir_Check "转换方向，仅双向DCDC有效";
+CM_ SG_ 768 DCDC_Counter "生命循环信号";
+CM_ SG_ 768 DCDC_Checksum "校验和";
+CM_ SG_ 770 DCDC_VIn "输入电压";
+CM_ SG_ 770 DCDC_Vout "输出电压";
+CM_ SG_ 770 DCDC_Cout "输出电流";
+CM_ SG_ 770 DCDC_ModeFB "模式反馈";
+CM_ SG_ 770 DCDC_DirFB "转换方向反馈";
+CM_ SG_ 770 DCDC_Cmdsrc "命令源";
+CM_ SG_ 770 DCDC_Faultlevel "故障等级";
+CM_ SG_ 770 DCDC_State "系统状态";
+CM_ SG_ 770 DCDC_Counter1 "生命循环信号";
+CM_ SG_ 770 DCDC_Checksum1 "校验和";
+CM_ SG_ 771 DCDC_CoutLimit "允许最大输出电流";
+CM_ SG_ 771 DCDC_Vin_OV_level1 "输入电压一级过压";
+CM_ SG_ 771 DCDC_Vin_OV_level3 "输入电压三级过压";
+CM_ SG_ 771 DCDC_Vin_OV_level4 "输入电压四级过压";
+CM_ SG_ 771 DCDC_Vin_UV_level1 "输入电压一级过压";
+CM_ SG_ 771 DCDC_Vin_UV_level3 "输入电压三级过压";
+CM_ SG_ 771 DCDC_Vin_UV_level4 "输入电压四级过压";
+CM_ SG_ 771 DCDC_Vout_OV_level1 "输出电压一级过压";
+CM_ SG_ 771 DCDC_Vout_OV_level3 "输出电压三级过压";
+CM_ SG_ 771 DCDC_Vout_OV_level4 "输出电压四级过压";
+CM_ SG_ 771 DCDC_Vout_UV_level1 "输出电压一级欠压";
+CM_ SG_ 771 DCDC_Vout_UV_level3 "输出电压三级欠压";
+CM_ SG_ 771 DCDC_Vout_UV_level4 "输出电压四级欠压";
+CM_ SG_ 771 DCDC_Cout_OC_level1 "输出电流一级过流";
+CM_ SG_ 771 DCDC_Cout_OC_level2 "输出电流二级过流";
+CM_ SG_ 771 DCDC_Cout_OC_level3 "输出电流三级过流";
+CM_ SG_ 771 DCDC_Cout_OC_level4 "输出电流四级过流";
+CM_ SG_ 771 DCDC_Out_SC_level1 "输出短路一级故障";
+CM_ SG_ 771 DCDC_Out_SC_level2 "输出短路二级故障";
+CM_ SG_ 771 DCDC_PSFB_OT_level1 "移相全桥过温一级故障";
+CM_ SG_ 771 DCDC_PSFB_OT_level3 "移相全桥过温三级故障";
+CM_ SG_ 771 DCDC_PSFB_OT_level4 "移相全桥过温四级故障";
+CM_ SG_ 771 DCDC_SR_OT_level1 "整流管过温一级故障";
+CM_ SG_ 771 DCDC_SR_OT_level3 "整流管过温三级故障";
+CM_ SG_ 771 DCDC_SR_OT_level4 "整流管过温四级故障";
+CM_ SG_ 771 DCDC_OC_PSFB_level2 "变压器原边电流过流";
+CM_ SG_ 771 DCDC_OC_BoostSub1_level2 "升压支路1电流过流";
+CM_ SG_ 771 DCDC_OC_BoostSub2_level2 "升压支路2电流过流";
+CM_ SG_ 771 DCDC_CAN_Timeout "通信超时";
+CM_ SG_ 771 DCDC_CAN_E2E "E2E错误";
+CM_ SG_ 771 DCDC_Initial_Failure "初始化失败";
+CM_ SG_ 771 DCDC_Precharge_Failure "预充失败";
+CM_ SG_ 771 DCDC_PSFB_CS_Failure "变压器原边电流传感器故障";
+CM_ SG_ 771 DCDC_Hard_Failure_level1 "硬件故障总标识";
+CM_ SG_ 771 DCDC_HOC_PSFB_level1 "变压器原边硬件过流";
+CM_ SG_ 771 DCDC_HOC_Cout_level1 "输出硬件过流";
+CM_ SG_ 771 DCDC_HOC_Vin_level1 "输入电压硬件过压";
+CM_ SG_ 771 DCDC_HOV_Vout_Boost_level1 "升压输出电压硬件过压";
+CM_ SG_ 771 DCDC_HOV_Vout_level1 "输出电压硬件过压";
+CM_ SG_ 771 DCDC_HOC_BoostSub1_level1 "升压支路1硬件过流";
+CM_ SG_ 771 DCDC_HOC_BoostSub2_level2 "升压支路2硬件过流";
+CM_ SG_ 771 DCDC_BoostSub1_CS_Failure "升压支路1传感器故障升压支路2传感器故障";
+CM_ SG_ 772 DCDC_SoftVer "软件版本";
+CM_ SG_ 772 DCDC_HardVer "硬件版本";
+CM_ SG_ 772 DCDC_Temp_Dclink "DCDC电容温度";
+CM_ SG_ 772 DCDC_Temp_SR "同步整流管温度";
+CM_ SG_ 772 DCDC_Temp_TSFM "变压器温度";
+CM_ SG_ 772 DCDC_Temp_PSFB "全桥功率管温度";
+BA_DEF_ EV_  "GenEnvAutoGenCtrl" ENUM  "No","Yes";
+BA_DEF_ EV_  "GenEnvMsgOffset" INT 0 2147483647;
+BA_DEF_ EV_  "GenEnvMsgName" STRING ;
+BA_DEF_ EV_  "GenEnvIsGeneratedSnd" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 1000000000;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 100000000000;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "SigType" STRING ;
+BA_DEF_ SG_  "SPN" INT 0 524287;
+BA_DEF_ SG_  "DDI" INT 0 65535;
+BA_DEF_ SG_  "SAEDocument" STRING ;
+BA_DEF_ SG_  "GenSigTimeoutValue" INT 0 1000000000;
+BA_DEF_ SG_  "GenSigEnvVarType" ENUM  "int","float","undef";
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 999999;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 50000;
+BA_DEF_ BO_  "DiagUUDTResponse" ENUM  "No","Yes";
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG";
+BA_DEF_ BO_  "CanTpFcFrameId" HEX 0 2147483647;
+BA_DEF_ BO_  "CanTpBs" INT 0 255;
+BA_DEF_ BO_  "CanTpSTmin" INT 0 0;
+BA_DEF_ BO_  "TpJ1939VarDlc" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagState" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagRequest" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagResponse" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 1000;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "NmAsrMessage" ENUM  "no","yes";
+BA_DEF_ BO_  "GenMsgRequestable" INT 0 1;
+BA_DEF_ BO_  "SingleFrame" INT 0 1;
+BA_DEF_ BO_  "SAE_Document" STRING ;
+BA_DEF_ BO_  "_Cdb_Sc_CTm_FAW_v3_1" INT 0 0;
+BA_DEF_ BO_  "_Cdb_Sc_CTm_FAW_v3_0" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTimeActive" INT 0 0;
+BA_DEF_ BO_  "_Cdb_Sc_CTm_FAW_v2_3" INT 0 0;
+BA_DEF_ BO_  "_Cdb_Sc_CTm_FAW_v2_2" INT 0 0;
+BA_DEF_ BO_  "_Cdb_Sc_CTm_FAW_v2_1" INT 0 0;
+BA_DEF_ BO_  "NmMessage" ENUM  "No","Yes";
+BA_DEF_ BU_  "NmAsrCanMsgReducedTime" INT 0 65535;
+BA_DEF_ BU_  "NmAsrNodeIdentifier" HEX 0 255;
+BA_DEF_ BU_  "NmAsrNode" ENUM  "no","yes";
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "NmStationAddress" HEX 0 65535;
+BA_DEF_ BU_  "NmJ1939AAC" INT 0 1;
+BA_DEF_ BU_  "NmJ1939IndustryGroup" INT 0 7;
+BA_DEF_ BU_  "NmJ1939System" INT 0 127;
+BA_DEF_ BU_  "NmJ1939SystemInstance" INT 0 15;
+BA_DEF_ BU_  "NmJ1939Function" INT 0 255;
+BA_DEF_ BU_  "NmJ1939FunctionInstance" INT 0 7;
+BA_DEF_ BU_  "NmJ1939ECUInstance" INT 0 3;
+BA_DEF_ BU_  "NmJ1939ManufacturerCode" INT 0 2047;
+BA_DEF_ BU_  "NmJ1939IdentityNumber" INT 0 2097151;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "NmCAN" INT 0 2;
+BA_DEF_ BU_  "NmNode" ENUM  "No","Yes";
+BA_DEF_ BU_  "DiagStationAddress" HEX 0 255;
+BA_DEF_ BU_  "TpUseFC" INT 0 1;
+BA_DEF_ BU_  "TpTargetAddress" HEX 0 255;
+BA_DEF_ BU_  "TpAddressingMode" INT 0 4;
+BA_DEF_ BU_  "TpBlockSize" INT 0 10000000;
+BA_DEF_ BU_  "TpSTMin" INT 0 1000000000;
+BA_DEF_ BU_  "TpAddressExtension" INT 0 100000000;
+BA_DEF_ BU_  "TpTxAdrMode" INT 0 1;
+BA_DEF_ BU_  "TpCanBus" INT 1 2;
+BA_DEF_ BU_  "TpRxMask" HEX 0 2047;
+BA_DEF_ BU_  "TpRxIdentifier" HEX 0 419430399;
+BA_DEF_ BU_  "TpTxIdentifier" HEX 0 419430399;
+BA_DEF_ BU_  "TpNodeBaseAddress" HEX 0 2047;
+BA_DEF_ BU_  "ILUsed" ENUM  "No","Yes";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_  "VersionDay" INT 0 31;
+BA_DEF_  "VersionMonth" INT 0 12;
+BA_DEF_  "VersionYear" INT 0 99;
+BA_DEF_  "VersionNumber" INT 0 0;
+BA_DEF_  "NmAsrCanMsgCycleTime" INT 0 65535;
+BA_DEF_  "NmAsrRepeatMessageTime" INT 0 65535;
+BA_DEF_  "NmAsrTimeoutTime" INT 0 65535;
+BA_DEF_  "NmAsrWaitBusSleepTime" INT 0 65535;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "Baudrate" INT 0 1000000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "NmAsrCanMsgCycleOffset" INT 0 65535;
+BA_DEF_  "NmType" STRING ;
+BA_DEF_  "NmAsrMessageCount" INT 1 256;
+BA_DEF_  "NmAsrBaseAddress" HEX 0 2047;
+BA_DEF_  "DatbaseVersion" STRING ;
+BA_DEF_  "SAE_J1939_75_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_21_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_73_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_71_SpecVersion" STRING ;
+BA_DEF_  "NmMessageCount" INT 0 255;
+BA_DEF_  "NmBaseAddress" HEX 0 2047;
+BA_DEF_  "TpBaseAddress" HEX 0 2047;
+BA_DEF_  "VersionWeek" INT 0 52;
+BA_DEF_  "GenEnvVarPrefix" STRING ;
+BA_DEF_  "GenEnvVarEndingSnd" STRING ;
+BA_DEF_  "GenEnvVarEndingDsp" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","Event","IfActive","NoMsgSendType","NotUsed","vector_leerstring";
+BA_DEF_REL_ BU_SG_REL_  "GenSigFirstTimeoutTime" INT 0 65535;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutTime" INT 0 10000000;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutMsg" HEX 0 2047;
+BA_DEF_DEF_  "GenEnvAutoGenCtrl" "No";
+BA_DEF_DEF_  "GenEnvMsgOffset" 0;
+BA_DEF_DEF_  "GenEnvMsgName" "";
+BA_DEF_DEF_  "GenEnvIsGeneratedSnd" "No";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "SigType" "";
+BA_DEF_DEF_  "SPN" 0;
+BA_DEF_DEF_  "DDI" 0;
+BA_DEF_DEF_  "SAEDocument" "";
+BA_DEF_DEF_  "GenSigTimeoutValue" 0;
+BA_DEF_DEF_  "GenSigEnvVarType" "undef";
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "DiagUUDTResponse" "No";
+BA_DEF_DEF_  "VFrameFormat" "J1939PG";
+BA_DEF_DEF_  "CanTpFcFrameId" 2147483647;
+BA_DEF_DEF_  "CanTpBs" 0;
+BA_DEF_DEF_  "CanTpSTmin" 1;
+BA_DEF_DEF_  "TpJ1939VarDlc" "No";
+BA_DEF_DEF_  "DiagState" "No";
+BA_DEF_DEF_  "DiagRequest" "No";
+BA_DEF_DEF_  "DiagResponse" "No";
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "No";
+BA_DEF_DEF_  "NmAsrMessage" "no";
+BA_DEF_DEF_  "GenMsgRequestable" 1;
+BA_DEF_DEF_  "SingleFrame" 1;
+BA_DEF_DEF_  "SAE_Document" "";
+BA_DEF_DEF_  "_Cdb_Sc_CTm_FAW_v3_1" 0;
+BA_DEF_DEF_  "_Cdb_Sc_CTm_FAW_v3_0" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeActive" 0;
+BA_DEF_DEF_  "_Cdb_Sc_CTm_FAW_v2_3" 0;
+BA_DEF_DEF_  "_Cdb_Sc_CTm_FAW_v2_2" 0;
+BA_DEF_DEF_  "_Cdb_Sc_CTm_FAW_v2_1" 0;
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "NmAsrCanMsgReducedTime" 50;
+BA_DEF_DEF_  "NmAsrNodeIdentifier" 0;
+BA_DEF_DEF_  "NmAsrNode" "no";
+BA_DEF_DEF_  "NodeLayerModules" "CANoeILNLVector.dll";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NmJ1939AAC" 0;
+BA_DEF_DEF_  "NmJ1939IndustryGroup" 0;
+BA_DEF_DEF_  "NmJ1939System" 0;
+BA_DEF_DEF_  "NmJ1939SystemInstance" 0;
+BA_DEF_DEF_  "NmJ1939Function" 0;
+BA_DEF_DEF_  "NmJ1939FunctionInstance" 0;
+BA_DEF_DEF_  "NmJ1939ECUInstance" 0;
+BA_DEF_DEF_  "NmJ1939ManufacturerCode" 0;
+BA_DEF_DEF_  "NmJ1939IdentityNumber" 0;
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "NmCAN" 0;
+BA_DEF_DEF_  "NmNode" "No";
+BA_DEF_DEF_  "DiagStationAddress" 0;
+BA_DEF_DEF_  "TpUseFC" 0;
+BA_DEF_DEF_  "TpTargetAddress" 0;
+BA_DEF_DEF_  "TpAddressingMode" 0;
+BA_DEF_DEF_  "TpBlockSize" 0;
+BA_DEF_DEF_  "TpSTMin" 0;
+BA_DEF_DEF_  "TpAddressExtension" 0;
+BA_DEF_DEF_  "TpTxAdrMode" 0;
+BA_DEF_DEF_  "TpCanBus" 1;
+BA_DEF_DEF_  "TpRxMask" 0;
+BA_DEF_DEF_  "TpRxIdentifier" 0;
+BA_DEF_DEF_  "TpTxIdentifier" 0;
+BA_DEF_DEF_  "TpNodeBaseAddress" 0;
+BA_DEF_DEF_  "ILUsed" "No";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "ProtocolType" "*";
+BA_DEF_DEF_  "VersionDay" 0;
+BA_DEF_DEF_  "VersionMonth" 0;
+BA_DEF_DEF_  "VersionYear" 0;
+BA_DEF_DEF_  "VersionNumber" 0;
+BA_DEF_DEF_  "NmAsrCanMsgCycleTime" 100;
+BA_DEF_DEF_  "NmAsrRepeatMessageTime" 400;
+BA_DEF_DEF_  "NmAsrTimeoutTime" 1000;
+BA_DEF_DEF_  "NmAsrWaitBusSleepTime" 750;
+BA_DEF_DEF_  "Manufacturer" "";
+BA_DEF_DEF_  "Baudrate" 500000;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "NmAsrCanMsgCycleOffset" 0;
+BA_DEF_DEF_  "NmType" "";
+BA_DEF_DEF_  "NmAsrMessageCount" 128;
+BA_DEF_DEF_  "NmAsrBaseAddress" 1280;
+BA_DEF_DEF_  "DatbaseVersion" "";
+BA_DEF_DEF_  "SAE_J1939_75_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_21_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_73_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_71_SpecVersion" "";
+BA_DEF_DEF_  "NmMessageCount" 128;
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "TpBaseAddress" 0;
+BA_DEF_DEF_  "VersionWeek" 0;
+BA_DEF_DEF_  "GenEnvVarPrefix" "Env";
+BA_DEF_DEF_  "GenEnvVarEndingSnd" "_";
+BA_DEF_DEF_  "GenEnvVarEndingDsp" "Dsp_";
+BA_DEF_DEF_  "GenMsgCycleTime" 2200;
+BA_DEF_DEF_  "GenMsgSendType" "";
+BA_DEF_DEF_REL_ "GenSigFirstTimeoutTime" 0;
+BA_DEF_DEF_REL_ "GenSigTimeoutTime" 0;
+BA_DEF_DEF_REL_ "GenSigTimeoutMsg" 0;
+BA_ "DBName" "CAN_MatrixDCDCV0120250305";
+BA_ "GenMsgSendType" BO_ 768 0;
+BA_ "GenMsgCycleTime" BO_ 768 10;
+BA_ "VFrameFormat" BO_ 768 0;
+BA_ "GenMsgILSupport" BO_ 768 1;
+BA_ "GenMsgSendType" BO_ 769 0;
+BA_ "GenMsgCycleTime" BO_ 769 10;
+BA_ "VFrameFormat" BO_ 769 0;
+BA_ "GenMsgILSupport" BO_ 769 1;
+BA_ "GenMsgSendType" BO_ 770 0;
+BA_ "GenMsgCycleTime" BO_ 770 10;
+BA_ "VFrameFormat" BO_ 770 0;
+BA_ "GenMsgILSupport" BO_ 770 1;
+BA_ "GenMsgSendType" BO_ 771 0;
+BA_ "GenMsgCycleTime" BO_ 771 10;
+BA_ "VFrameFormat" BO_ 771 0;
+BA_ "GenMsgILSupport" BO_ 771 1;
+BA_ "GenMsgSendType" BO_ 772 0;
+BA_ "GenMsgCycleTime" BO_ 772 20;
+BA_ "VFrameFormat" BO_ 772 0;
+BA_ "GenMsgILSupport" BO_ 772 1;
+BA_ "GenMsgSendType" BO_ 1795 0;
+BA_ "GenMsgCycleTime" BO_ 1795 0;
+BA_ "VFrameFormat" BO_ 1795 0;
+BA_ "GenMsgSendType" BO_ 1796 0;
+BA_ "GenMsgCycleTime" BO_ 1796 0;
+BA_ "VFrameFormat" BO_ 1796 0;
+BA_ "GenMsgSendType" BO_ 1984 0;
+BA_ "GenMsgCycleTime" BO_ 1984 0;
+BA_ "VFrameFormat" BO_ 1984 0;
+BA_ "GenMsgSendType" BO_ 2015 0;
+BA_ "GenMsgCycleTime" BO_ 2015 0;
+BA_ "VFrameFormat" BO_ 2015 0;
+BA_ "GenMsgSendType" BO_ 1992 0;
+BA_ "GenMsgCycleTime" BO_ 1992 0;
+BA_ "VFrameFormat" BO_ 1992 0;
+BA_ "GenSigSendType" SG_ 1795 XCP_Request_Signal 7;
+BA_ "GenSigSendType" SG_ 1796 XCP_Response_Signal 7;
+VAL_ 768 DCDC_Mode 0 "CV " 1 "CC " 2 "CP " 3 "CV " ;
+VAL_ 768 DCDC_Enable 0 "disable " 1 "enable " ;
+VAL_ 768 DCDC_Sleep 0 "none " 1 "Sleep_Cmd " ;
+VAL_ 768 DCDC_Precharge 0 "none " 1 "prechargegoing " 2 "prechargefinish " 3 "enableprecharge " ;
+VAL_ 768 DCDC_Fault_Clear 0 "none " 1 "FaultClear " ;
+VAL_ 768 DCDC_Dir 0 "HV2LV " 1 "LV2HV " ;
+VAL_ 768 DCDC_Dir_Check 0 "Dirinvalid " 1 "Dirvalid " ;
+VAL_ 770 DCDC_ModeFB 0 "CV " 1 "CC " 2 "CP " 3 "CV " ;
+VAL_ 770 DCDC_DirFB 0 "HV2LV " 1 "LV2HV " ;
+VAL_ 770 DCDC_Cmdsrc 0 "CAN " 1 "IO " ;
+VAL_ 770 DCDC_Faultlevel 4 "Level1" 0 "Normal " 1 "Level4 " 2 "Level3 " 3 "Level2 " ;
+VAL_ 770 DCDC_State 0 "Initial " 1 "standby " 2 "ready " 3 "Sstart " 4 "run " 5 "Fault " 6 "Sleep " ;
+

@@ -1,0 +1,775 @@
+/**********************************************************************************************************************
+ *  COPYRIGHT
+ *  -------------------------------------------------------------------------------------------------------------------
+ *
+ *                This software is copyright protected and proprietary to Vector Informatik GmbH.
+ *                Vector Informatik GmbH grants to you only those rights as set out in the license conditions.
+ *                All other rights remain with Vector Informatik GmbH.
+ *  -------------------------------------------------------------------------------------------------------------------
+ *  FILE DESCRIPTION
+ *  -------------------------------------------------------------------------------------------------------------------
+ *          File:  Rte.oil
+ *        Config:  FAW_MultiCore297_Demo.dpa
+ *   ECU-Project:  iECU
+ *
+ *     Generator:  MICROSAR RTE Generator Version 4.18.0
+ *                 RTE Core Version 1.18.0
+ *       License:  Unlimited license CBD1600956 for China FAW Group Corporation
+ *
+ *   Description:  OIL-File containing project specific OS definitions for the MICROSAR RTE
+ *********************************************************************************************************************/
+
+/**********************************************************************************************************************
+ *                                              P L E A S E   N O T E
+ *
+ * The attributes in this file must not be changed. Missing mandatory attributes must be set in the including file.
+ * They are presented as a comment in the corresponding object definition containing a list of all legal values.
+ *********************************************************************************************************************/
+
+   TASK Task1000ms_Core0 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 51:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable1000ms_Core0 {
+      COUNTER = SystemTimer_Core0;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task1000ms_Core0;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task1000ms_Core1 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 51:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable1000ms_Core1 {
+      COUNTER = SystemTimer_Core1;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task1000ms_Core1;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task1000ms_Core2 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 51:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable1000ms_Core2 {
+      COUNTER = SystemTimer_Core2;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task1000ms_Core2;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   TASK Task100ms_Core0 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 54:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable100ms_Core0 {
+      COUNTER = SystemTimer_Core0;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task100ms_Core0;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task100ms_Core1 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 54:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable100ms_Core1 {
+      COUNTER = SystemTimer_Core1;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task100ms_Core1;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task100ms_Core2 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 54:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable100ms_Core2 {
+      COUNTER = SystemTimer_Core2;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task100ms_Core2;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   TASK Task10ms_Core0 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 57:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable10ms_Core0 {
+      COUNTER = SystemTimer_Core0;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task10ms_Core0;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task10ms_Core1 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 57:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable10ms_Core1 {
+      COUNTER = SystemTimer_Core1;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task10ms_Core1;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task10ms_Core2 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 57:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable10ms_Core2 {
+      COUNTER = SystemTimer_Core2;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task10ms_Core2;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   TASK Task1ms_Core0 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 59:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable1ms_Core0 {
+      COUNTER = SystemTimer_Core0;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task1ms_Core0;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task1ms_Core1 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 59:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable1ms_Core1 {
+      COUNTER = SystemTimer_Core1;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task1ms_Core1;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task1ms_Core2 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 59:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable1ms_Core2 {
+      COUNTER = SystemTimer_Core2;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task1ms_Core2;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   TASK Task200ms_Core0 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 53:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable200ms_Core0 {
+      COUNTER = SystemTimer_Core0;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task200ms_Core0;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task200ms_Core1 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 53:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable200ms_Core1 {
+      COUNTER = SystemTimer_Core1;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task200ms_Core1;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task200ms_Core2 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 53:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable200ms_Core2 {
+      COUNTER = SystemTimer_Core2;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task200ms_Core2;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   TASK Task20ms_Core0 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 56:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable20ms_Core0 {
+      COUNTER = SystemTimer_Core0;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task20ms_Core0;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task20ms_Core1 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 56:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable20ms_Core1 {
+      COUNTER = SystemTimer_Core1;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task20ms_Core1;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task20ms_Core2 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 56:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable20ms_Core2 {
+      COUNTER = SystemTimer_Core2;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task20ms_Core2;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   TASK Task500ms_Core0 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 52:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable500ms_Core0 {
+      COUNTER = SystemTimer_Core0;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task500ms_Core0;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task500ms_Core1 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 52:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable500ms_Core1 {
+      COUNTER = SystemTimer_Core1;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task500ms_Core1;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task500ms_Core2 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 52:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable500ms_Core2 {
+      COUNTER = SystemTimer_Core2;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task500ms_Core2;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   TASK Task50ms_Core0 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 55:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable50ms_Core0 {
+      COUNTER = SystemTimer_Core0;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task50ms_Core0;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task50ms_Core1 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 55:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable50ms_Core1 {
+      COUNTER = SystemTimer_Core1;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task50ms_Core1;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task50ms_Core2 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 55:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable50ms_Core2 {
+      COUNTER = SystemTimer_Core2;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task50ms_Core2;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   TASK Task5ms_Core0 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 58:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable5ms_Core0 {
+      COUNTER = SystemTimer_Core0;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task5ms_Core0;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task5ms_Core1 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 58:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable5ms_Core1 {
+      COUNTER = SystemTimer_Core1;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task5ms_Core1;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK Task5ms_Core2 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 58:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable5ms_Core2 {
+      COUNTER = SystemTimer_Core2;
+      ACTION = ACTIVATETASK
+      {
+         TASK = Task5ms_Core2;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   TASK TaskSchM_Core0 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 90:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Cyclic2_TaskSchM_Core0_0_10ms:"@RO@";
+      EVENT = Rte_Ev_Cyclic2_TaskSchM_Core0_0_20ms:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE2_TaskSchM_Core0_0_10ms {
+      COUNTER = SystemTimer_Core0;
+      ACTION = SETEVENT
+      {
+         TASK = TaskSchM_Core0;
+         EVENT = Rte_Ev_Cyclic2_TaskSchM_Core0_0_10ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE2_TaskSchM_Core0_0_20ms {
+      COUNTER = SystemTimer_Core0;
+      ACTION = SETEVENT
+      {
+         TASK = TaskSchM_Core0;
+         EVENT = Rte_Ev_Cyclic2_TaskSchM_Core0_0_20ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core1;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK TaskSchM_Core1 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 90:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE2_EcuM_EcuM_MainFunction {
+      COUNTER = SystemTimer_Core1;
+      ACTION = ACTIVATETASK
+      {
+         TASK = TaskSchM_Core1;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core2;
+   }:"@RO@@NR@";
+
+   TASK TaskSchM_Core2 {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 90:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE3_EcuM_EcuM_MainFunction {
+      COUNTER = SystemTimer_Core2;
+      ACTION = ACTIVATETASK
+      {
+         TASK = TaskSchM_Core2;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Core0;
+      ACCESSING_APPLICATION = OsApplication_Core1;
+   }:"@RO@@NR@";
+
+   EVENT Rte_Ev_Cyclic2_TaskSchM_Core0_0_10ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic2_TaskSchM_Core0_0_20ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+
+   APPLICATION OsApplication_Core0 {
+      TRUSTED = TRUE;
+// Add the following four attributes according to your needs.
+// Note: They do not have a default value and are therefore necessary in the configuration.
+//      STARTUPHOOK = FALSE;
+//      SHUTDOWNHOOK = FALSE;
+//      ERRORHOOK = FALSE;
+//      HAS_RESTARTTASK = FALSE;
+      TASK = Task1000ms_Core0;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable1000ms_Core0;
+      TASK = Task100ms_Core0;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable100ms_Core0;
+      TASK = Task10ms_Core0;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable10ms_Core0;
+      TASK = Task1ms_Core0;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable1ms_Core0;
+      TASK = Task200ms_Core0;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable200ms_Core0;
+      TASK = Task20ms_Core0;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable20ms_Core0;
+      TASK = Task500ms_Core0;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable500ms_Core0;
+      TASK = Task50ms_Core0;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable50ms_Core0;
+      TASK = Task5ms_Core0;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core0_Runnable5ms_Core0;
+      TASK = TaskSchM_Core0;
+      ALARM = Rte_Al_TE2_TaskSchM_Core0_0_10ms;
+      ALARM = Rte_Al_TE2_TaskSchM_Core0_0_20ms;
+      CORE = 0;
+  };
+
+   APPLICATION OsApplication_Core1 {
+      TRUSTED = TRUE;
+// Add the following four attributes according to your needs.
+// Note: They do not have a default value and are therefore necessary in the configuration.
+//      STARTUPHOOK = FALSE;
+//      SHUTDOWNHOOK = FALSE;
+//      ERRORHOOK = FALSE;
+//      HAS_RESTARTTASK = FALSE;
+      TASK = Task1000ms_Core1;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable1000ms_Core1;
+      TASK = Task100ms_Core1;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable100ms_Core1;
+      TASK = Task10ms_Core1;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable10ms_Core1;
+      TASK = Task1ms_Core1;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable1ms_Core1;
+      TASK = Task200ms_Core1;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable200ms_Core1;
+      TASK = Task20ms_Core1;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable20ms_Core1;
+      TASK = Task500ms_Core1;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable500ms_Core1;
+      TASK = Task50ms_Core1;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable50ms_Core1;
+      TASK = Task5ms_Core1;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core1_Runnable5ms_Core1;
+      TASK = TaskSchM_Core1;
+      ALARM = Rte_Al_TE2_EcuM_EcuM_MainFunction;
+      CORE = 1;
+  };
+
+   APPLICATION OsApplication_Core2 {
+      TRUSTED = TRUE;
+// Add the following four attributes according to your needs.
+// Note: They do not have a default value and are therefore necessary in the configuration.
+//      STARTUPHOOK = FALSE;
+//      SHUTDOWNHOOK = FALSE;
+//      ERRORHOOK = FALSE;
+//      HAS_RESTARTTASK = FALSE;
+      TASK = Task1000ms_Core2;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable1000ms_Core2;
+      TASK = Task100ms_Core2;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable100ms_Core2;
+      TASK = Task10ms_Core2;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable10ms_Core2;
+      TASK = Task1ms_Core2;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable1ms_Core2;
+      TASK = Task200ms_Core2;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable200ms_Core2;
+      TASK = Task20ms_Core2;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable20ms_Core2;
+      TASK = Task500ms_Core2;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable500ms_Core2;
+      TASK = Task50ms_Core2;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable50ms_Core2;
+      TASK = Task5ms_Core2;
+      ALARM = Rte_Al_TE_CpAp_FAWDemo_Core2_Runnable5ms_Core2;
+      TASK = TaskSchM_Core2;
+      ALARM = Rte_Al_TE3_EcuM_EcuM_MainFunction;
+      CORE = 2;
+  };

@@ -1,0 +1,49 @@
+// T3210000 Mon Mar  3 10:08:18 2025
+
+B::
+
+TOOLBAR   ON
+STATUSBAR ON
+FramePOS -0.88889 0.0 141. 79.
+WinPAGE.RESet
+
+WinPAGE.Create P000
+WinCLEAR
+
+WinPOS 111.11 39.4 102. 9. 5. 0. W002
+Frame /Locals /Caller
+
+WinPOS 111.33 27.8 102. 6. 24. 1. W004
+WinTABS 13. 0. 0. 0. 0. 0. 0. 0. 0. 50.
+Break.List
+setup.VAR %E.on %SpotLight.on
+WinPOS 68.333 0.066667 38. 14. 0. 0. W001
+Var.Watch
+
+Var.AddWatch AppTask1000ms0Counter
+Var.AddWatch AppTask500ms0Counter
+Var.AddWatch AppTask200ms0Counter
+Var.AddWatch AppTask100ms0Counter
+Var.AddWatch AppTask50ms0Counter
+Var.AddWatch AppTask20ms0Counter
+Var.AddWatch AppTask10ms0Counter
+Var.AddWatch AppTask2ms0Counter
+
+WinPOS 142.44 13.4 58. 8. 0. 0. W005
+RunTime
+
+WinPOS 111.33 0.066667 103. 21. 14. 1. W000
+WinTABS 10. 10. 25.
+list
+
+WinPOS 0.33333 21.4 106. 18. 0. 0. W003
+Var.Watch temp_Pwm3phIn
+Var.AddWatch isrAtomCount
+Var.AddWatch isrDmaAdcRfifoCount
+Var.AddWatch ISR_ERR_status
+Var.AddWatch isrExcutionTime
+Var.AddWatch isrASWExcutionTime
+
+WinPAGE.select P000
+
+ENDDO

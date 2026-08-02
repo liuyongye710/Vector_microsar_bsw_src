@@ -1,0 +1,40 @@
+; Trace32 Configuration file for AMP multicore debugging
+;
+; Syntax:
+;  t32m*.exe [<-option> <filename> <arguments>] [<-option> <filename> <arguments>]
+;    Available options:
+;    -c Define T32 configuration file. Default : config.t32
+;    -s Define T32 startup script. Default (if available): t32.cmm
+; Parameters:
+;   t32mtc -c config_multicore.t32 <intercom_port> <title> <tmp-dir> <sys-dir> <help-dir> <interface-to-debug-module> [interface options]
+; Examples:
+;   t32mtc -c config_multicore.t32 10000 TriCore_CORE0 C:\temp C:\t32 C:\t32\pdf USB CORE=1 -s tc275t_demo_loop.cmm
+;   t32mtc -c config_multicore.t32 10000 TriCore_CORE0 C:\temp C:\t32 C:\t32\pdf NET NODE=pod-mob2 PACKLEN=1024 CORE=1 -s tc275t_demo_loop.cmm
+;
+; $Id: config_multicore.t32 8522 2015-07-13 08:25:19Z mobermeir $
+
+IC=NETASSIST
+PORT=${1}
+
+;Environment variables
+;Get the parameters from the batch file
+;The parameters are set within the batch file 
+OS=
+ID=T32${1}
+TMP=${3}
+SYS=${4}
+HELP=${5}
+
+PBI=
+${6}
+${7}
+${8}
+${9}
+
+; Printer settings
+PRINTER=WINDOWS
+
+; Screen fonts
+SCREEN=
+FONT=SMALL
+HEADER=NC ${2}

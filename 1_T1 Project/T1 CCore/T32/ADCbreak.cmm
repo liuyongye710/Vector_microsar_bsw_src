@@ -1,0 +1,17 @@
+// T3210002 Sat Dec 28 12:48:27 2024
+
+B::
+
+Break.RESet
+Break.CONFIG.VarConvert ON
+Break.CONFIG.InexactData ON
+Break.CONFIG.InexactTrigger OFF
+Break.CONFIG.InexactResume ON
+Break.CONFIG.InexactAddress ON
+Break.CONFIG.AlwaysAlive OFF
+Break.Set     PhC_Init\27 /Program
+Break.Set     Adc_Wrapper_EnableHardwareTrigger\51 /Program
+Break.Set     EQADC_SetCfifoConfig\143\\3 /Program
+Break.Set     EDMA_LLD_SetLoopTransferConfig\30\\4 /Program
+
+ENDDO

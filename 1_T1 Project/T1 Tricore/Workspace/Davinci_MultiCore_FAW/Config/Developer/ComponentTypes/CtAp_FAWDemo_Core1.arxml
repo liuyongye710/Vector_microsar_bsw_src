@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00044.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="2D5B041A-07E5-4252-95DC-E4505966FFEF">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="5B4BEFCA-1FF6-4693-B8DF-EEB4215AB9B3">
+          <SHORT-NAME>CtAp_FAWDemo_Core1</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="4920674C-AC87-4B92-8FC2-D7014473CE78">
+              <SHORT-NAME>CtAp_FAWDemo_Core1_InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <TIMING-EVENT UUID="CA95E341-DBE3-4C89-B465-9E3825498213">
+                  <SHORT-NAME>TMT_Runnable200ms_Core1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CtAp_FAWDemo_Core1/CtAp_FAWDemo_Core1_InternalBehavior/Runnable200ms_Core1</START-ON-EVENT-REF>
+                  <PERIOD>0.2</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="572765DE-877F-454C-960E-B42241609E8B">
+                  <SHORT-NAME>TMT_Runnable10ms_Core1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CtAp_FAWDemo_Core1/CtAp_FAWDemo_Core1_InternalBehavior/Runnable10ms_Core1</START-ON-EVENT-REF>
+                  <PERIOD>0.01</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="240102EB-E65B-4F78-AF81-60442F964DA2">
+                  <SHORT-NAME>TMT_Runnable20ms_Core1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CtAp_FAWDemo_Core1/CtAp_FAWDemo_Core1_InternalBehavior/Runnable20ms_Core1</START-ON-EVENT-REF>
+                  <PERIOD>0.02</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="873FF227-21D6-4F85-A3A9-4E991E61B796">
+                  <SHORT-NAME>TMT_Runnable100ms_Core1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CtAp_FAWDemo_Core1/CtAp_FAWDemo_Core1_InternalBehavior/Runnable100ms_Core1</START-ON-EVENT-REF>
+                  <PERIOD>0.1</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="E781E8E5-5C96-4D57-A57B-45CF42346923">
+                  <SHORT-NAME>TMT_Runnable50ms_Core1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CtAp_FAWDemo_Core1/CtAp_FAWDemo_Core1_InternalBehavior/Runnable50ms_Core1</START-ON-EVENT-REF>
+                  <PERIOD>0.05</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="8F33A95C-1B93-478F-B971-2180D9ACD97D">
+                  <SHORT-NAME>TMT_Runnable1ms_Core1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CtAp_FAWDemo_Core1/CtAp_FAWDemo_Core1_InternalBehavior/Runnable1ms_Core1</START-ON-EVENT-REF>
+                  <PERIOD>0.001</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="26CB6A99-F686-4C16-AE09-9063CC1A62DC">
+                  <SHORT-NAME>TMT_Runnable5ms_Core1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CtAp_FAWDemo_Core1/CtAp_FAWDemo_Core1_InternalBehavior/Runnable5ms_Core1</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="83E0DE08-DED7-40DF-B961-D44B16069AA2">
+                  <SHORT-NAME>TMT_Runnable500ms_Core1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CtAp_FAWDemo_Core1/CtAp_FAWDemo_Core1_InternalBehavior/Runnable500ms_Core1</START-ON-EVENT-REF>
+                  <PERIOD>0.5</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="756A8973-7442-4CAE-84BA-04E99D3229FC">
+                  <SHORT-NAME>TMT_Runnable1000ms_Core1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CtAp_FAWDemo_Core1/CtAp_FAWDemo_Core1_InternalBehavior/Runnable1000ms_Core1</START-ON-EVENT-REF>
+                  <PERIOD>1</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="1FC12A44-F371-4B64-9289-F591EB3F3FEF">
+                  <SHORT-NAME>Runnable200ms_Core1</SHORT-NAME>
+                  <SYMBOL>Runnable200ms_Core1</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="E8936EA4-2B1E-4FD6-9BB3-2ADCCD697C82">
+                  <SHORT-NAME>Runnable10ms_Core1</SHORT-NAME>
+                  <SYMBOL>Runnable10ms_Core1</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="FB612C2F-DFF3-4DB5-B40F-4F35B1C85494">
+                  <SHORT-NAME>Runnable20ms_Core1</SHORT-NAME>
+                  <SYMBOL>Runnable20ms_Core1</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="D7F03171-31B6-40CE-B1B3-9B573897DA5D">
+                  <SHORT-NAME>Runnable100ms_Core1</SHORT-NAME>
+                  <SYMBOL>Runnable100ms_Core1</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="D90E6BF6-A443-4067-9644-502BB9D2124C">
+                  <SHORT-NAME>Runnable50ms_Core1</SHORT-NAME>
+                  <SYMBOL>Runnable50ms_Core1</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="FE1234B5-9D69-431D-B45B-306790455C9B">
+                  <SHORT-NAME>Runnable1ms_Core1</SHORT-NAME>
+                  <SYMBOL>Runnable1ms_Core1</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="63D492F0-F856-4506-890E-22FD8BC10025">
+                  <SHORT-NAME>Runnable5ms_Core1</SHORT-NAME>
+                  <SYMBOL>Runnable5ms_Core1</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="8A5F932B-3995-44EA-B36C-D9E9CE2142B5">
+                  <SHORT-NAME>Runnable500ms_Core1</SHORT-NAME>
+                  <SYMBOL>Runnable500ms_Core1</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="4A025053-DAA3-40DB-ACFD-E1945625C351">
+                  <SHORT-NAME>Runnable1000ms_Core1</SHORT-NAME>
+                  <SYMBOL>Runnable1000ms_Core1</SYMBOL>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="9D1D5F27-B9AA-47B7-B7C3-A6C16D03C04F">
+          <SHORT-NAME>CtAp_FAWDemo_Core1_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/CtAp_FAWDemo_Core1/CtAp_FAWDemo_Core1_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

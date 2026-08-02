@@ -1,0 +1,376 @@
+/********************************************************************************/
+/*                                                                            			*/
+/*  LIN Description file   		                                              	*/
+/*                                                                            			*/
+/*  Version: 0.4  				                    	*/
+/*  Created by : Kevin DONG                                                 		*/
+/*  Supervised by : Eddie TANG                                          		*/
+/*  KEBODA Chongqing AUTOMOTIVE                                            	*/
+/*  ALL RIGHTS RESERVED                                                       		*/
+/*  DATED : 11 October 2016                                                   		*/
+/* ******************************************************************************/
+
+LIN_description_file;
+LIN_protocol_version = "2.1";
+LIN_language_version = "2.1";
+LIN_speed = 19.2 kbps;
+
+Nodes {
+  Master: EMS, 10 ms, 0 ms ;
+  Slaves: AGM1, AGM2, Handle, MSW ;
+}
+
+Signals {
+  Actuator_PartNum_Grp1_1: 16, 0, AGM1 ;
+  Actuator_PartNum_Grp1_2: 16, 0, AGM1 ;
+  Actuator_PartNum_Grp1_3: 16, 0, AGM1 ;
+  Actuator_PartNum_Grp1_4: 16, 0, AGM1 ;
+  Actuator_PartNum_Grp2_1: 16, 0, AGM1 ;
+  Actuator_PartNum_Grp2_2: 16, 0, AGM1 ;
+  Actuator_PartNum_Grp2_3: 16, 0, AGM1 ;
+  Actuator_PartNum_Grp2_4: 16, 0, AGM1 ;
+  Actuator2_PartNum_Grp1_1: 16, 0, AGM2 ;
+  Actuator2_PartNum_Grp1_2: 16, 0, AGM2 ;
+  Actuator2_PartNum_Grp1_3: 16, 0, AGM2 ;
+  Actuator2_PartNum_Grp1_4: 16, 0, AGM2 ;
+  Actuator2_PartNum_Grp2_1: 16, 0, AGM2 ;
+  Actuator2_PartNum_Grp2_2: 16, 0, AGM2 ;
+  Actuator2_PartNum_Grp2_3: 16, 0, AGM2 ;
+  Actuator2_PartNum_Grp2_4: 16, 0, AGM2 ;
+  AGM1_HldgCurStg_Status: 2, 0, AGM1, EMS ;
+  AGM1_HldgCurStg_Cmd: 2, 0, EMS, AGM1 ;
+  AGM2_HldgCurStg_Status: 2, 0, AGM2, EMS ;
+  AGM2_HldgCurStg_Cmd: 2, 0, EMS, AGM2 ;
+  AGM1BoostTrq_Status: 1, 0, AGM1, EMS ;
+  AGM2BoostTrq_Status: 1, 0, AGM2, EMS ;
+  AGM1BoostTrq_Cmd: 1, 0, EMS, AGM1 ;
+  AGM2BoostTrq_Cmd: 1, 0, EMS, AGM2 ;
+  AGM1_OverTvlBrkg_Status: 1, 0, AGM1, EMS ;
+  AGM1_BlockError_Status: 1, 0, AGM1, EMS ;
+  AGM1_CalbIsOn_Status: 1, 0, AGM1, EMS ;
+  AGM1_CalbIsReq_Status: 1, 1, AGM1, EMS ;
+  AGM1_CalbIsEnbld_Cmd: 1, 0, EMS, AGM1 ;
+  AGM1_ElectricalError_Status: 1, 0, AGM1, EMS ;
+  AGM1_CurrentPos_Status: 8, 127, AGM1, EMS ;
+  AGM1_Position_Cmd: 8, 0, EMS, AGM1 ;
+  AGM1_OverTemError_Status: 1, 0, AGM1, EMS ;
+  AGM1_UnderOverVoltError_Status: 1, 0, AGM1, EMS ;
+  AGM1_SnsrError_Status: 1, 0, AGM1, EMS ;
+  AGM1_LIN_ErrorStatus: 1, 0, AGM1, EMS ;
+  AGM2_OverTvlBrkg_Status: 1, 0, AGM2, EMS ;
+  AGM2_BlockError_Status: 1, 0, AGM2, EMS ;
+  AGM2_CalbIsOn_Status: 1, 0, AGM2, EMS ;
+  AGM2_CalbIsReq_Status: 1, 1, AGM2, EMS ;
+  AGM2_CalbIsEnbld_Cmd: 1, 0, EMS, AGM2 ;
+  AGM2_ElectricalError_Status: 1, 0, AGM2, EMS ;
+  AGM2_CurrentPos_Status: 8, 127, AGM2, EMS ;
+  AGM2_Position_Cmd: 8, 0, EMS, AGM2 ;
+  AGM2_OverTemError_Status: 1, 0, AGM2, EMS ;
+  AGM2_UnderOverVoltError_Status: 1, 0, AGM2, EMS ;
+  AGM2_LIN_ErrorStatus: 1, 0, AGM2, EMS ;
+  AGM2_SnsrError_Status: 1, 0, AGM2, EMS ;
+  TransmissionRequestedGear: 8, 0, Handle, EMS ;
+  TransmissionMode1: 2, 0, Handle, EMS ;
+  Handle_LINError: 2, 0, Handle, EMS ;
+  PWMOutputVoltageError: 2, 0, Handle, EMS ;
+  BattarySupplyError: 2, 0, Handle, EMS ;
+  MultipleGearDetectedError: 2, 0, Handle, EMS ;
+  NoGearDetectedError: 2, 0, Handle, EMS ;
+  CCACCModeSwitch: 2, 0, MSW, EMS ;
+  CruiseControlResumeSwitch: 2, 0, MSW, EMS ;
+  SETPLUSSwitch: 2, 0, MSW, EMS ;
+  SETMinusSwitch: 2, 0, MSW, EMS ;
+  OFFSwitch: 2, 0, MSW, EMS ;
+  VariableSpeedLimitSwitch: 2, 0, MSW, EMS ;
+  AnswerPhoneSwitch: 2, 0, MSW, EMS ;
+  HangUpSwitch: 2, 0, MSW, EMS ;
+  MenuOKSwitch: 2, 0, MSW, EMS ;
+  MenuMode: 2, 0, MSW, EMS ;
+  MenuUpSwitch: 2, 0, MSW, EMS ;
+  MenuDownSwitch: 2, 0, MSW, EMS ;
+  MenuLeftSwitch: 2, 0, MSW, EMS ;
+  MenuRightSwitch: 2, 0, MSW, EMS ;
+  MSWLINError: 2, 0, MSW, EMS ;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0 ;
+  MasterReqB1: 8, 0 ;
+  MasterReqB2: 8, 0 ;
+  MasterReqB3: 8, 0 ;
+  MasterReqB4: 8, 0 ;
+  MasterReqB5: 8, 0 ;
+  MasterReqB6: 8, 0 ;
+  MasterReqB7: 8, 0 ;
+  SlaveRespB0: 8, 0 ;
+  SlaveRespB1: 8, 0 ;
+  SlaveRespB2: 8, 0 ;
+  SlaveRespB3: 8, 0 ;
+  SlaveRespB4: 8, 0 ;
+  SlaveRespB5: 8, 0 ;
+  SlaveRespB6: 8, 0 ;
+  SlaveRespB7: 8, 0 ;
+}
+
+
+
+Frames {
+  EMS_AGM1_CMD: 14, EMS, 4 {
+    AGM1_Position_Cmd, 0 ;
+    AGM1_CalbIsEnbld_Cmd, 8 ;
+    AGM1BoostTrq_Cmd, 9 ;
+    AGM1_HldgCurStg_Cmd, 10 ;
+  }
+  AGM1_EMS_ST: 15, AGM1, 4 {
+    AGM1_CurrentPos_Status, 8 ;
+    AGM1_OverTvlBrkg_Status, 16 ;
+    AGM1_SnsrError_Status, 17 ;
+    AGM1_CalbIsOn_Status, 18 ;
+    AGM1_CalbIsReq_Status, 19 ;
+    AGM1_UnderOverVoltError_Status, 20 ;
+    AGM1_BlockError_Status, 21 ;
+    AGM1_ElectricalError_Status, 22 ;
+    AGM1_OverTemError_Status, 23 ;
+    AGM1BoostTrq_Status, 24 ;
+    AGM1_HldgCurStg_Status, 25 ;
+    AGM1_LIN_ErrorStatus, 27 ;
+  }
+  EMS_AGM2_CMD: 20, EMS, 4 {
+    AGM2_Position_Cmd, 0 ;
+    AGM2_CalbIsEnbld_Cmd, 8 ;
+    AGM2BoostTrq_Cmd, 9 ;
+    AGM2_HldgCurStg_Cmd, 10 ;
+  }
+  AGM2_EMS_ST: 21, AGM2, 4 {
+    AGM2_CurrentPos_Status, 8 ;
+    AGM2_OverTvlBrkg_Status, 16 ;
+    AGM2_SnsrError_Status, 17 ;
+    AGM2_CalbIsOn_Status, 18 ;
+    AGM2_CalbIsReq_Status, 19 ;
+    AGM2_UnderOverVoltError_Status, 20 ;
+    AGM2_BlockError_Status, 21 ;
+    AGM2_ElectricalError_Status, 22 ;
+    AGM2_OverTemError_Status, 23 ;
+    AGM2BoostTrq_Status, 24 ;
+    AGM2_HldgCurStg_Status, 25 ;
+    AGM2_LIN_ErrorStatus, 27 ;
+  }
+  HandleToEMS: 1, Handle, 4 {
+    TransmissionRequestedGear, 0 ;
+    TransmissionMode1, 8 ;
+    Handle_LINError, 10 ;
+    PWMOutputVoltageError, 12 ;
+    BattarySupplyError, 14 ;
+    MultipleGearDetectedError, 16 ;
+    NoGearDetectedError, 18 ;
+  }
+  MSWToEMS: 2, MSW, 6 {
+    CCACCModeSwitch, 0 ;
+    CruiseControlResumeSwitch, 2 ;
+    SETPLUSSwitch, 4 ;
+    SETMinusSwitch, 6 ;
+    OFFSwitch, 8 ;
+    VariableSpeedLimitSwitch, 10 ;
+    AnswerPhoneSwitch, 12 ;
+    HangUpSwitch, 14 ;
+    MenuOKSwitch, 16 ;
+    MenuMode, 18 ;
+    MenuUpSwitch, 20 ;
+    MenuDownSwitch, 22 ;
+    MenuLeftSwitch, 24 ;
+    MenuRightSwitch, 26 ;
+    MSWLINError, 28 ;
+  }
+}
+
+
+
+Diagnostic_frames {
+  MasterReq: 0x3c {
+    MasterReqB0, 0 ;
+    MasterReqB1, 8 ;
+    MasterReqB2, 16 ;
+    MasterReqB3, 24 ;
+    MasterReqB4, 32 ;
+    MasterReqB5, 40 ;
+    MasterReqB6, 48 ;
+    MasterReqB7, 56 ;
+  }
+  SlaveResp: 0x3d {
+    SlaveRespB0, 0 ;
+    SlaveRespB1, 8 ;
+    SlaveRespB2, 16 ;
+    SlaveRespB3, 24 ;
+    SlaveRespB4, 32 ;
+    SlaveRespB5, 40 ;
+    SlaveRespB6, 48 ;
+    SlaveRespB7, 56 ;
+  }
+}
+
+Node_attributes {
+  AGM1{
+    LIN_protocol = "2.1" ;
+    configured_NAD = 0x1 ;
+    initial_NAD = 0x1 ;
+    product_id = 0x87, 0x2, 0 ;
+    response_error = AGM1_LIN_ErrorStatus ;
+    P2_min = 50 ms ;
+    ST_min = 0 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      EMS_AGM1_CMD ;
+      AGM1_EMS_ST ;
+    }
+  }
+  AGM2{
+    LIN_protocol = "2.1" ;
+    configured_NAD = 0x2 ;
+    initial_NAD = 0x1 ;
+    product_id = 0x87, 0x2, 0 ;
+    response_error = AGM2_LIN_ErrorStatus ;
+    P2_min = 50 ms ;
+    ST_min = 0 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      EMS_AGM2_CMD ;
+      AGM2_EMS_ST ;
+    }
+  }
+  Handle{
+    LIN_protocol = "2.1" ;
+    configured_NAD = 0xFF ;
+    initial_NAD = 0xFF ;
+    product_id = 0x0, 0x0, 255 ;
+    P2_min = 50 ms ;
+    ST_min = 0 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      HandleToEMS ;
+    }
+  }
+  MSW{
+    LIN_protocol = "2.1" ;
+    configured_NAD = 0xFF ;
+    initial_NAD = 0xFF ;
+    product_id = 0x0, 0x0, 255 ;
+    P2_min = 50 ms ;
+    ST_min = 0 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      MSWToEMS ;
+    }
+  }
+}
+
+Schedule_tables {
+ TWO_AGM_TABLE {
+    HandleToEMS delay 10 ms ;
+    MSWToEMS delay 10 ms ;
+    EMS_AGM1_CMD delay 30 ms ;
+    HandleToEMS delay 10 ms ;
+    MSWToEMS delay 10 ms ;
+    AGM1_EMS_ST delay 30 ms ;
+    HandleToEMS delay 10 ms ;
+    MSWToEMS delay 10 ms ;
+    EMS_AGM2_CMD delay 30 ms ;
+    HandleToEMS delay 10 ms ;
+    MSWToEMS delay 10 ms ;
+    AGM2_EMS_ST delay 30 ms ;
+  }
+}
+
+
+Signal_encoding_types {
+  ActuatorSpeedCoding {
+    logical_value, 0, "VCU power off" ;
+    logical_value, 1, "Slow vehicle speed Level" ;
+    logical_value, 2, "Medium vehicle speed Level" ;
+    logical_value, 3, "Fast vehicle speed Level" ;
+  }
+  BooleanRating {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  BoostTorqueRqCoding {
+    logical_value, 0, "Not Triggered" ;
+    logical_value, 1, "Boost Torque Triggered" ;
+  }
+  AGM1BoostTrq_Status_Encoding {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  TransmissionMode1 {
+    logical_value, 1, "Disable" ;
+    logical_value, 2, "Enable" ;
+    logical_value, 3, "Reserved" ;
+    logical_value, 4, "Take no action" ;
+  }
+  Handle_LINError {
+    logical_value, 1, "Normal" ;
+    logical_value, 2, "Error" ;
+    logical_value, 3, "Reserved" ;
+    logical_value, 4, "Invalid Value" ;
+  }
+  PWMOutputVoltageError {
+    logical_value, 1, "Normal" ;
+    logical_value, 2, "PWM output high voltage error" ;
+    logical_value, 3, "PWM output low voltage error" ;
+    logical_value, 4, "Not available" ;
+  }
+  BattarySupplyError {
+    logical_value, 1, "Normal" ;
+    logical_value, 2, "Battary supply too low error" ;
+    logical_value, 3, "New Value DescriptionBattary supply too high error" ;
+    logical_value, 4, "Not available" ;
+  }
+  MultipleGearDetectedError {
+    logical_value, 1, "Normal" ;
+    logical_value, 2, "Error" ;
+    logical_value, 3, "Reserved" ;
+    logical_value, 4, "Not available" ;
+  }
+  NoGearDetectedError {
+    logical_value, 1, "Normal" ;
+    logical_value, 2, "Error" ;
+    logical_value, 3, "Reserved" ;
+    logical_value, 4, "Not available" ;
+  }
+  CCACCModeSwitch {
+    logical_value, 3, "Error" ;
+    logical_value, 4, "Not available" ;
+    logical_value, 1, "Not pressed" ;
+    logical_value, 2, "Pressed" ;
+  }
+  MenuMode {
+    logical_value, 1, "VIST Mode" ;
+    logical_value, 2, "IC Mode" ;
+    logical_value, 3, "Error" ;
+    logical_value, 4, "Not available" ;
+  }
+  MSWLINError {
+    logical_value, 1, "Normal" ;
+    logical_value, 2, "Error" ;
+    logical_value, 3, "Reserved" ;
+    logical_value, 4, "Invalid Value" ;
+  }
+}
+
+Signal_representation {
+  ActuatorSpeedCoding: AGM1_HldgCurStg_Status, AGM1_HldgCurStg_Cmd, AGM2_HldgCurStg_Status, AGM2_HldgCurStg_Cmd ;
+  BattarySupplyError: BattarySupplyError ;
+  BooleanRating: AGM1BoostTrq_Status, AGM2BoostTrq_Status, AGM1_OverTvlBrkg_Status, AGM1_BlockError_Status, AGM1_CalbIsOn_Status, AGM1_CalbIsReq_Status, AGM1_CalbIsEnbld_Cmd, AGM1_ElectricalError_Status, AGM1_OverTemError_Status, AGM1_UnderOverVoltError_Status, AGM1_SnsrError_Status, AGM1_LIN_ErrorStatus, AGM2_OverTvlBrkg_Status, AGM2_BlockError_Status, AGM2_CalbIsOn_Status, AGM2_CalbIsReq_Status, AGM2_CalbIsEnbld_Cmd, AGM2_ElectricalError_Status, AGM2_OverTemError_Status, AGM2_UnderOverVoltError_Status, AGM2_LIN_ErrorStatus, AGM2_SnsrError_Status ;
+  BoostTorqueRqCoding: AGM1BoostTrq_Cmd, AGM2BoostTrq_Cmd ;
+  CCACCModeSwitch: CCACCModeSwitch, CruiseControlResumeSwitch, SETPLUSSwitch, SETMinusSwitch, OFFSwitch, VariableSpeedLimitSwitch, AnswerPhoneSwitch, HangUpSwitch, MenuOKSwitch, MenuUpSwitch, MenuDownSwitch, MenuLeftSwitch, MenuRightSwitch ;
+  Handle_LINError: Handle_LINError ;
+  MSWLINError: MSWLINError ;
+  MenuMode: MenuMode ;
+  MultipleGearDetectedError: MultipleGearDetectedError ;
+  NoGearDetectedError: NoGearDetectedError ;
+  PWMOutputVoltageError: PWMOutputVoltageError ;
+  TransmissionMode1: TransmissionMode1 ;
+}

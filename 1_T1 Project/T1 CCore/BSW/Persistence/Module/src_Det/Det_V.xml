@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Validator>
+    <ValidatorVersion>0.2.28</ValidatorVersion>
+    <ValidatorItem>
+        <Tree-Path></Tree-Path>
+        <Tree-Node-Child-Error-Count>0</Tree-Node-Child-Error-Count>
+        <Config-Child-Error-Count>0</Config-Child-Error-Count>
+        <Config-Child-Warning-Count>0</Config-Child-Warning-Count>
+        <Tree-Node-Error-Msg></Tree-Node-Error-Msg>
+        <AllConfig-Error-Msg/>
+    </ValidatorItem>
+    <ValidatorItem>
+        <Tree-Path>Det</Tree-Path>
+        <Tree-Node-Child-Error-Count>0</Tree-Node-Child-Error-Count>
+        <Config-Child-Error-Count>0</Config-Child-Error-Count>
+        <Config-Child-Warning-Count>0</Config-Child-Warning-Count>
+        <Tree-Node-Error-Msg></Tree-Node-Error-Msg>
+        <AllConfig-Error-Msg/>
+    </ValidatorItem>
+    <ValidatorItem>
+        <Tree-Path>Det/DetGeneral</Tree-Path>
+        <Tree-Node-Child-Error-Count>0</Tree-Node-Child-Error-Count>
+        <Config-Child-Error-Count>0</Config-Child-Error-Count>
+        <Config-Child-Warning-Count>0</Config-Child-Warning-Count>
+        <Tree-Node-Error-Msg></Tree-Node-Error-Msg>
+        <AllConfig-Error-Msg>
+            <Config-Item>
+                <Config-Name>DetReportRuntimeErrorCallout</Config-Name>
+                <Config-Level>0</Config-Level>
+                <Config-Error-Msg></Config-Error-Msg>
+            </Config-Item>
+            <Config-Item>
+                <Config-Name>DetReportTransientFaultCallout</Config-Name>
+                <Config-Level>0</Config-Level>
+                <Config-Error-Msg></Config-Error-Msg>
+            </Config-Item>
+        </AllConfig-Error-Msg>
+    </ValidatorItem>
+</Validator>

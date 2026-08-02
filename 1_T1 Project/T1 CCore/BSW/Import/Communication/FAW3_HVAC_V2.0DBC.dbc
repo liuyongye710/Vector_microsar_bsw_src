@@ -1,0 +1,1031 @@
+VERSION "created by canmatrix"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: HCU HVAC DCDC2 BMS
+
+
+BO_ 2566850343 HCUDCDC: 8 HCU
+ SG_ DCDCOutpUReqHCUDCDC : 0|8@1+ (0.125,0) [0|31.875] "V"  HVAC
+ SG_ DCDCworkingeanableCmdHCUDCDC : 8|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ DCDC2OutpUReqHCUDCDC : 32|8@1+ (0.125,0) [0|31.875] "V"  DCDC2
+ SG_ DCDC2workingeanableCmdHCUDCDC : 40|2@1+ (1,0) [0|3] "1"  DCDC2
+
+BO_ 2566850599 HCUAPCU: 8 HCU
+ SG_ airPUMPMotworkingEnaHCUAPCU : 0|2@1+ (1,0) [0|3] "1"  HVAC
+
+BO_ 2566850087 HCUOPCU: 8 HCU
+ SG_ oilPUMPMotworkingEnaCmdHCUOPCU : 0|2@1+ (1,0) [0|3] "1"  HVAC
+
+BO_ 2566852391 HCU3: 8 HCU
+ SG_ mainPoshighURlyCtrlCmdHCU3 : 0|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ mainNeghighURlyCtrlCmdHCU3 : 2|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ fuelcellRlyCtrlCmdHCU3 : 8|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ BattheatPTCRlyCtrlCmdHCU3 : 12|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ AcsoryRlyCtrlCmdHCU3 : 32|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ PTCRlyCtrlCmdHCU3 : 34|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ MECURlyclosingReqHCU3 : 36|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ DCDCRlyclosingReqHCU3 : 38|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ acRlyclosingReqHCU3 : 40|2@1+ (1,0) [0|3] "1"  HVAC
+
+BO_ 2566863603 BMS5: 8 BMS
+ SG_ DirtCurChrg1PosRlyCtrlCmdBMS5 : 0|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ DirtCurChrg1NegRlyCtrlCmdBMS5 : 2|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ DirtCurChrg2PosRlyCtrlCmdBMS5 : 4|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ DirtCurChrg2NegRlyCtrlCmdBMS5 : 6|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ WtrCoolgRlyCtrlCmdBMS5 : 8|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ insulationtesterCtrlCmdBMS5 : 12|2@1+ (1,0) [0|3] "1"  HVAC
+ SG_ BMSmainNegcoilDrvStBMS5 : 14|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ PwrBattsohBMS5 : 16|8@1+ (0.4,0) [0|102] "%"  HCU
+ SG_ mainNegRlydisCnctReqBMS5 : 38|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ mainNegRlyStsBMS5 : 40|3@1+ (1,0) [0|7] "1"  HCU,HVAC
+ SG_ BattpackHeatgPosRlyCtrlCmdBMS5 : 44|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ BattpackHeatgNegRlyCtrlCmdBMS5 : 46|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ ChrgnplugCnctionStsBMS5 : 48|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ Chrgnplug2CnctionStsBMS5 : 50|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ ChrgnPosRlyStsBMS5 : 56|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ NegChrgnRlyStsBMS5 : 59|3@1+ (1,0) [0|7] "1"  HCU
+
+BO_ 2566907952 APCU1: 8 HVAC
+ SG_ APCUhighUbusUAPCU1 : 0|16@1+ (0.1,0) [0|6553.5] "V"  HCU
+ SG_ APCUMotworkingStsAPCU1 : 24|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ APCUMotFailrStsAPCU1 : 28|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ APCUOutpCurAPCU1 : 40|16@1+ (1,0) [0|6425.5] "0.1A"  HCU
+
+BO_ 2566908208 APCU2: 8 HVAC
+ SG_ APCUTAPCU2 : 0|8@1+ (1,-40) [-40|215] "C"  HCU
+
+BO_ 2566834736 DM1APCU: 48 HVAC
+ SG_ ProtlampDM1APCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ amberWarnlampDM1APCU : 2|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ redstoplampDM1APCU : 4|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ malFctIndcrlampDM1APCU : 6|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashProtlampDM1APCU : 8|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashamberWarnlampDM1APCU : 10|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashredstoplampDM1APCU : 12|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashmalFctIndcrlampDM1APCU : 14|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ spn8leastsignificantbitsDM1APCU : 16|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ spnSecbyteDM1APCU : 24|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ FMiDM1APCU : 32|5@1+ (1,0) [0|31] "1" Vector__XXX
+ SG_ spn3mostsignificantbitsDM1APCU : 37|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ occurrenceCntDM1APCU : 40|7@1+ (1,0) [0|127] "1" Vector__XXX
+ SG_ spnCnvnMetHODDM1APCU : 47|1@1+ (1,0) [0|1] "1" Vector__XXX
+
+BO_ 2566906650 DCDC1: 8 HVAC
+ SG_ DCDCInpUDCDC1 : 0|16@1+ (0.05,0) [0|3276.75] "V"  HCU
+ SG_ DCDCInpCurDCDC1 : 16|8@1+ (0.1,0) [0|25.5] "A"  HCU
+ SG_ DCDCOutpUDCDC1 : 24|8@1+ (0.125,0) [0|31.875] "V"  HCU
+ SG_ DCDCOutpCurDCDC1 : 32|8@1+ (1,0) [0|255] "A"  HCU
+ SG_ DCDCTDCDC1 : 40|8@1+ (1,-40) [-40|215] "C"  HCU
+ SG_ DCDCworkingStsDCDC1 : 48|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ DCDCFltStsDCDC1 : 50|2@1+ (1,0) [0|3] "1"  HCU
+
+BO_ 2566834714 DM1DCDC: 48 HVAC
+ SG_ ProtlampDM1DCDC : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ amberWarnlampDM1DCDC : 2|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ redstoplampDM1DCDC : 4|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ malFctIndcrlampDM1DCDC : 6|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashProtlampDM1DCDC : 8|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashamberWarnlampDM1DCDC : 10|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashredstoplampDM1DCDC : 12|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashmalFctIndcrlampDM1DCDC : 14|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ spn8leastsignificantbitsDM1DCDC : 16|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ spnSecbyteDM1DCDC : 24|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ FMiDM1DCDC : 32|5@1+ (1,0) [0|31] "1" Vector__XXX
+ SG_ spn3mostsignificantbitsDM1DCDC : 37|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ occurrenceCntDM1DCDC : 40|7@1+ (1,0) [0|127] "1" Vector__XXX
+ SG_ spnCnvnMetHODDM1DCDC : 47|1@1+ (1,0) [0|1] "1" Vector__XXX
+
+BO_ 2566834734 DM1OPCU: 48 HVAC
+ SG_ ProtlampDM1OPCU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ amberWarnlampDM1OPCU : 2|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ redstoplampDM1OPCU : 4|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ malFctIndcrlampDM1OPCU : 6|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashProtlampDM1OPCU : 8|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashamberWarnlampDM1OPCU : 10|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashredstoplampDM1OPCU : 12|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashmalFctIndcrlampDM1OPCU : 14|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ spn8leastsignificantbitsDM1OPCU : 16|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ spnSecbyteDM1OPCU : 24|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ FMiDM1OPCU : 32|5@1+ (1,0) [0|31] "1" Vector__XXX
+ SG_ spn3mostsignificantbitsDM1OPCU : 37|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ occurrenceCntDM1OPCU : 40|7@1+ (1,0) [0|127] "1" Vector__XXX
+ SG_ spnCnvnMetHODDM1OPCU : 47|1@1+ (1,0) [0|1] "1" Vector__XXX
+
+BO_ 2566905902 OPCU1: 8 HVAC
+ SG_ OPCUhighUbusUOPCU1 : 16|16@1+ (1,0) [0|65535] "V"  HCU
+ SG_ OPCUMotFailrStsOPCU1 : 60|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ OPCUworkingStsOPCU1 : 62|2@1+ (1,0) [0|3] "1"  HCU
+
+BO_ 2566906158 OPCU2: 8 HVAC
+ SG_ oilPUMPMotIvterTOPCU2 : 8|8@1+ (1,-40) [-40|215] "C"  HCU
+ SG_ oilPUMPMotOutpCurOPCU2 : 24|8@1+ (0.1,0) [0|25.5] "A"  HCU
+
+BO_ 2566907744 RelayState: 8 HVAC
+ SG_ mainPosRlyStsRelayState : 0|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ mainnegtiveRlyStsRelayState : 3|3@1+ (1,0) [0|7] "1"  HCU,BMS
+ SG_ pduFailrStsRelayState : 6|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ preChrgnRlyStsRelayState : 8|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ fuelcellRlyStsRelayState : 11|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ PTCRlyStsRelayState : 24|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ AcsoryRlyStsRelayState : 27|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ MECURlyStsRelayState : 32|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ DCDCRlyStsRelayState : 35|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ mainPosRlyPwronStsRelayState : 40|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ MECUPwronStsRelayState : 43|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ BattpackHeatgPosRlyStsRelayState : 48|3@1+ (1,0) [0|7] "1"  HCU,BMS
+ SG_ BattpackHeatgNegRlyStsRelayState : 51|3@1+ (1,0) [0|7] "1"  HCU,BMS
+ SG_ hydroCoolgRlyStsRelayState : 56|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ acRlyStsRelayState : 59|3@1+ (1,0) [0|7] "1"  HCU
+
+BO_ 2566894688 RelayState2: 8 HVAC
+ SG_ DirtCurChrg1PosRlyStsRelayState2 : 0|3@1+ (1,0) [0|7] "1"  BMS
+ SG_ DirtCurChrg1NegRlyStsRelayState2 : 3|3@1+ (1,0) [0|7] "1"  BMS
+ SG_ DirtCurChrg2NegRlyStsRelayState2 : 8|3@1+ (1,0) [0|7] "1"  BMS
+ SG_ DirtCurChrg2NegRlyStsRelayS_0000 : 11|3@1+ (1,0) [0|7] "1"  BMS
+ SG_ PwrBattURelayState2 : 16|16@1+ (0.05,0) [0|3276.75] "V"  BMS
+ SG_ BattheatPTCRlyStsRelayState2 : 32|3@1+ (1,0) [0|7] "1"  HCU
+ SG_ WtrCoolgRlyStsRelayState2 : 35|3@1+ (1,0) [0|7] "1"  BMS
+
+BO_ 2566850912 IMCU1PTU: 8 HVAC
+ SG_ insulationRIMCU1PTU : 0|16@1+ (1,0) [0|65535] "kΩ"  BMS
+ SG_ sulationMonrdetectsUResdIMCU1PTU : 16|16@1+ (1,0) [0|65535] "V"  BMS
+ SG_ insulationMonrSysStsIMCU1PTU : 32|3@1+ (1,0) [0|7] "1"  BMS
+ SG_ insulationMonrAlrmIMCU1PTU : 36|2@1+ (1,0) [0|3] "1"  BMS
+
+BO_ 2566909280 MECU1Reserved: 8 HVAC
+ SG_ MECUbusbarUMECU1Reserved : 32|16@1+ (0.1,0) [0|6553.5] "V"  HCU
+
+BO_ 2566834784 DM1PTU: 48 HVAC
+ SG_ ProtlampDM1PTU : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ amberWarnlampDM1PTU : 2|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ redstoplampDM1PTU : 4|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ malFctIndcrlampDM1PTU : 6|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashProtlampDM1PTU : 8|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashamberWarnlampDM1PTU : 10|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashredstoplampDM1PTU : 12|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashmalFctIndcrlampDM1PTU : 14|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ spn8leastsignificantbitsDM1PTU : 16|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ spnSecbyteDM1PTU : 24|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ FMiDM1PTU : 32|5@1+ (1,0) [0|31] "1" Vector__XXX
+ SG_ spn3mostsignificantbitsDM1PTU : 37|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ occurrenceCntDM1PTU : 40|7@1+ (1,0) [0|127] "1" Vector__XXX
+ SG_ spnCnvnMetHODDM1PTU : 47|1@1+ (1,0) [0|1] "1" Vector__XXX
+
+BO_ 2566906677 DCDC21: 8 DCDC2
+ SG_ DCDC2InpUDCDC21 : 0|16@1+ (0.05,0) [0|3276.75] "V"  HCU
+ SG_ DCDC2InpCurDCDC21 : 16|8@1+ (0.1,0) [0|25.5] "A"  HCU
+ SG_ DCDC2OutpUDCDC21 : 24|8@1+ (0.125,0) [0|31.875] "V"  HCU
+ SG_ DCDC2OutpCurDCDC21 : 32|8@1+ (1,0) [0|255] "A"  HCU
+ SG_ DCDC2TDCDC21 : 40|8@1+ (1,-40) [-40|215] "C"  HCU
+ SG_ DCDC2workingStsDCDC21 : 48|2@1+ (1,0) [0|3] "1"  HCU
+ SG_ DCDC2FltStsDCDC21 : 50|2@1+ (1,0) [0|3] "1"  HCU
+
+BO_ 2566834741 DM1DCDC2: 48 DCDC2
+ SG_ ProtlampDM1DCDC2 : 0|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ amberWarnlampDM1DCDC2 : 2|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ redstoplampDM1DCDC2 : 4|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ malFctIndcrlampDM1DCDC2 : 6|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashProtlampDM1DCDC2 : 8|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashamberWarnlampDM1DCDC2 : 10|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashredstoplampDM1DCDC2 : 12|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ FlashmalFctIndcrlampDM1DCDC2 : 14|2@1+ (1,0) [0|3] "1" Vector__XXX
+ SG_ spn8leastsignificantbitsDM1DCDC2 : 16|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ spnSecbyteDM1DCDC2 : 24|8@1+ (1,0) [0|255] "1" Vector__XXX
+ SG_ FMiDM1DCDC2 : 32|5@1+ (1,0) [0|31] "1" Vector__XXX
+ SG_ spn3mostsignificantbitsDM1DCDC2 : 37|3@1+ (1,0) [0|7] "1" Vector__XXX
+ SG_ occurrenceCntDM1DCDC2 : 40|7@1+ (1,0) [0|127] "1" Vector__XXX
+ SG_ spnCnvnMetHODDM1DCDC2 : 47|1@1+ (1,0) [0|1] "1" Vector__XXX
+
+BO_ 2566905839 MCU2: 8 HCU
+ SG_ MotCtrllerbusUMCU2 : 0|16@1+ (0.05,0) [0|3276.75] "V"  HVAC
+ SG_ MotCtrllerbusCurMCU2 : 16|16@1+ (0.05,-1600) [-1600|1676.75] "A"  HVAC
+ SG_ MotTMCU2 : 32|8@1+ (1,-40) [-40|215] "C"  HVAC
+ SG_ MotCtrllerTMCU2 : 40|8@1+ (1,-40) [-40|215] "C"  HVAC
+
+BO_ 2632777498 TPCMBAMDCDC: 8 HVAC
+ SG_ CtrlbyteTPCMBAMDCDC : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ TotMsgsizeTPCMBAMDCDC : 8|16@1+ (1,0) [0|65535] "1"  HCU
+ SG_ packetsNrTPCMBAMDCDC : 24|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ pgnTPCMBAMDCDC : 40|24@1+ (1,0) [0|16777215] "1"  HCU
+
+BO_ 2632711962 TPDTDCDC: 8 HVAC
+ SG_ SeqNrTPDTDCDC : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ packetizeddataTPDTDCDC : 8|56@1+ (1,0) [0|7.20575940379279E+016] "1"  HCU
+
+BO_ 2632777518 TPCMBAMOPCU: 8 HVAC
+ SG_ CtrlbyteTPCMBAMOPCU : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ TotMsgsizeTPCMBAMOPCU : 8|16@1+ (1,0) [0|65535] "1"  HCU
+ SG_ packetsNrTPCMBAMOPCU : 24|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ pgnTPCMBAMOPCU : 40|24@1+ (1,0) [0|16777215] "1"  HCU
+
+BO_ 2632711982 TPDTOPCU: 8 HVAC
+ SG_ SeqNrTPDTOPCU : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ packetizeddataTPDTOPCU : 8|56@1+ (1,0) [0|7.20575940379279E+016] "1"  HCU
+
+BO_ 2632777520 TPCMBAMAPCU: 8 HVAC
+ SG_ CtrlbyteTPCMBAMAPCU : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ TotMsgsizeTPCMBAMAPCU : 8|16@1+ (1,0) [0|65535] "1"  HCU
+ SG_ packetsNrTPCMBAMAPCU : 24|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ pgnTPCMBAMAPCU : 40|24@1+ (1,0) [0|16777215] "1"  HCU
+
+BO_ 2632711984 TPDTAPCU: 8 HVAC
+ SG_ SeqNrTPDTAPCU : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ packetizeddataTPDTAPCU : 8|56@1+ (1,0) [0|7.20575940379279E+016] "1"  HCU
+
+BO_ 2632777568 TPCMBAMPTU: 8 HVAC
+ SG_ CtrlbyteTPCMBAMPTU : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ TotMsgsizeTPCMBAMPTU : 8|16@1+ (1,0) [0|65535] "1"  HCU
+ SG_ packetsNrTPCMBAMPTU : 24|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ pgnTPCMBAMPTU : 40|24@1+ (1,0) [0|16777215] "1"  HCU
+
+BO_ 2632712032 TPDTPTU: 8 HVAC
+ SG_ SeqNrTPDTPTU : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ packetizeddataTPDTPTU : 8|56@1+ (1,0) [0|7.20575940379279E+016] "1"  HCU
+
+BO_ 2632777525 TPCMBAMDCDC2: 8 DCDC2
+ SG_ CtrlbyteTPCMBAMDCDC2 : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ TotMsgsizeTPCMBAMDCDC2 : 8|16@1+ (1,0) [0|65535] "1"  HCU
+ SG_ packetsNrTPCMBAMDCDC2 : 24|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ pgnTPCMBAMDCDC2 : 40|24@1+ (1,0) [0|16777215] "1"  HCU
+
+BO_ 2632711989 TPDTDCDC2: 8 DCDC2
+ SG_ SeqNrTPDTDCDC2 : 0|8@1+ (1,0) [0|255] "1"  HCU
+ SG_ packetizeddataTPDTDCDC2 : 8|56@1+ (1,0) [0|7.20575940379279E+016] "1"  HCU
+
+
+
+CM_ BO_ 2566850343 "no comment";
+CM_ SG_ 2566850343 DCDCOutpUReqHCUDCDC "DCDCOutputVoltageRequestDCDC output voltage requested by vehicle controllerThe actual physical value range is 22v30v beyond which DCDC outputs rated working voltage";
+CM_ SG_ 2566850343 DCDCworkingeanableCmdHCUDCDC "DCDCWorkingEanableCommandIndicates whether the vehicle controller allows DCDC to work";
+CM_ SG_ 2566850343 DCDC2OutpUReqHCUDCDC "DCDC2OutputVoltageRequestDCDC2 output voltage requested by vehicle controller
+The actual physical value range is 22v30v beyond which DCDC2 outputs rated working voltage";
+CM_ SG_ 2566850343 DCDC2workingeanableCmdHCUDCDC "DCDC2WorkingEanableCommandIndicates whether the vehicle controller allows DCDC2 to work";
+CM_ BO_ 2566850599 "no comment";
+CM_ SG_ 2566850599 airPUMPMotworkingEnaHCUAPCU "AirPumpMotorWorkingEnableIndicates whether the vehicle controller allows the air pump motor to work";
+CM_ BO_ 2566850087 "no comment";
+CM_ SG_ 2566850087 oilPUMPMotworkingEnaCmdHCUOPCU "OilPumpMotorWorkingEnableCommandWhether the vehicle controller allows the oil pump motor to work";
+CM_ BO_ 2566852391 "no comment";
+CM_ SG_ 2566852391 mainPoshighURlyCtrlCmdHCU3 "MainPositiveHighVoltageRelayControlCommandIndicates the control signal of the main positive high voltage relay";
+CM_ SG_ 2566852391 mainNeghighURlyCtrlCmdHCU3 "MainNegativeHighVoltageRelayControlCommandIndicates the main and negative high voltage relay control signal";
+CM_ SG_ 2566852391 fuelcellRlyCtrlCmdHCU3 "FuelcellRelayControlCommandIndicates the Fuel cell Relay Control Command Signal";
+CM_ SG_ 2566852391 BattheatPTCRlyCtrlCmdHCU3 "BatteryHeatPTCrelaycontrolcommandHCU control multiinone openclose PTC relay";
+CM_ SG_ 2566852391 AcsoryRlyCtrlCmdHCU3 "accessoryrelaycontrolcommandHCU control multiinone offclose attachment relay";
+CM_ SG_ 2566852391 PTCRlyCtrlCmdHCU3 "PTCrelaycontrolcommandHCU control multiinone openclose PTC relay";
+CM_ SG_ 2566852391 MECURlyclosingReqHCU3 "MECURelayClosingRequestRepresents the closing request of HCU to the mounted relay";
+CM_ SG_ 2566852391 DCDCRlyclosingReqHCU3 "DCDCRelayClosingRequestRepresents the closing request of DCDC relay by HCU";
+CM_ SG_ 2566852391 acRlyclosingReqHCU3 "ACRelayClosingRequestRepresents the closing request of AC relay by HCU";
+CM_ BO_ 2566863603 "no comment";
+CM_ SG_ 2566863603 DirtCurChrg1PosRlyCtrlCmdBMS5 "DirectCurrentCharge1PositiveRelayControlCommandIndicates the control signal of the direct current charge1 positive relay";
+CM_ SG_ 2566863603 DirtCurChrg1NegRlyCtrlCmdBMS5 "DirectCurrentCharge1NegativeRelayControlCommandIndicates the control signal of the direct current charge1 negative relay";
+CM_ SG_ 2566863603 DirtCurChrg2PosRlyCtrlCmdBMS5 "DirectCurrentCharge2PositiveRelayControlCommandIndicates the control signal of the direct current charge2 positive relay";
+CM_ SG_ 2566863603 DirtCurChrg2NegRlyCtrlCmdBMS5 "DirectCurrentCharge2NegativeRelayControlCommandIndicates the control signal of the direct current charge2 negative relay";
+CM_ SG_ 2566863603 WtrCoolgRlyCtrlCmdBMS5 "WaterCoolingRelayControlCommandIndicates the command of water cooling relay to HVAC";
+CM_ SG_ 2566863603 insulationtesterCtrlCmdBMS5 "InsulationTesterControlCommandInsulation Tester Control Command";
+CM_ SG_ 2566863603 BMSmainNegcoilDrvStBMS5 "BMSMainnegativecoildrivestateBMS primary negative coil drive state";
+CM_ SG_ 2566863603 PwrBattsohBMS5 "PowerBatterySOHRepresents the battery health status and the value range is 0100";
+CM_ SG_ 2566863603 mainNegRlydisCnctReqBMS5 "MainNegativeRelayDisconnectRequestRepresents that BMS sends the mainnegative relay disconnect request to HCU";
+CM_ SG_ 2566863603 mainNegRlyStsBMS5 "MainNegativeRelayStatusRepresents the state of the mainnegative relay";
+CM_ SG_ 2566863603 BattpackHeatgPosRlyCtrlCmdBMS5 "BatteryPackHeatingPositiveRelayControlCommandIndicates the Battery Pack Heating Positive Relay Control Command Signal";
+CM_ SG_ 2566863603 BattpackHeatgNegRlyCtrlCmdBMS5 "BatteryPackHeatingNegativeRelayControlCommandIndicates the Battery Pack Heating Negative Relay Control Command Signal";
+CM_ SG_ 2566863603 ChrgnplugCnctionStsBMS5 "ChargingPlugConnectionStatusIndicates the connection status of the charging plug
+If the dual gun is charged the signal indicates cc21";
+CM_ SG_ 2566863603 Chrgnplug2CnctionStsBMS5 "Chargingplug2connectionstatusRepresents the connection status of charging plug 2 The signal can only be obtained when the dual gun is charged cc22";
+CM_ SG_ 2566863603 ChrgnPosRlyStsBMS5 "ChargingPositiveRelayStatusRepresents the state of charging positive relay";
+CM_ SG_ 2566863603 NegChrgnRlyStsBMS5 "NegativeChargingRelayStatusRepresents the state of charging negative relay";
+CM_ BO_ 2566907952 "no comment";
+CM_ SG_ 2566907952 APCUhighUbusUAPCU1 "APCUHighVoltageBusVoltageRepresents the high voltage bus voltage of the air pump controller
+The actual physical value ranges from 0V to 1000V";
+CM_ SG_ 2566907952 APCUMotworkingStsAPCU1 "APCUMotorWorkingStatusRepresents the actual working state of air pump motor feedback
+00：Indicates the air pump is in the initial state
+01：Indicates that the air pump is ready；                      
+10：Indicates that the air pump is in operation；        ";
+CM_ SG_ 2566907952 APCUMotFailrStsAPCU1 "APCUMotorFailureStatusRepresents the actual fault state of air pump motor feedback
+Level1 Failure：Warning；
+Level2 Failure：limit；
+Level3 Failure：Shut Down；";
+CM_ SG_ 2566907952 APCUOutpCurAPCU1 "APCUOutputCurrentRepresents output current of air pump controller nonbus current";
+CM_ BO_ 2566908208 "no comment";
+CM_ SG_ 2566908208 APCUTAPCU2 "APCUTemperatureRepresents the air pump controller temperature";
+CM_ BO_ 2566834736 "no comment";
+CM_ SG_ 2566834736 ProtlampDM1APCU "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 2566834736 amberWarnlampDM1APCU "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 2566834736 redstoplampDM1APCU "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 2566834736 malFctIndcrlampDM1APCU "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 2566834736 FlashProtlampDM1APCU "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 2566834736 FlashamberWarnlampDM1APCU "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 2566834736 FlashredstoplampDM1APCU "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834736 FlashmalFctIndcrlampDM1APCU "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834736 spn8leastsignificantbitsDM1APCU "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834736 spnSecbyteDM1APCU "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 2566834736 FMiDM1APCU "FMImost significant at bit 5";
+CM_ SG_ 2566834736 spn3mostsignificantbitsDM1APCU "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834736 occurrenceCntDM1APCU "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 2566834736 spnCnvnMetHODDM1APCU "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ BO_ 2566906650 "no comment";
+CM_ SG_ 2566906650 DCDCInpUDCDC1 "DCDCInputVoltageRepresents the input voltage of DCDC
+The actual physical value ranges from 0V to 1000V";
+CM_ SG_ 2566906650 DCDCInpCurDCDC1 "DCDCInputCurrentRepresents the input current of DCDC";
+CM_ SG_ 2566906650 DCDCOutpUDCDC1 "DCDCOutputVoltageRepresents the output voltage of DCDC
+The actual physical values range from 17 to 3125V";
+CM_ SG_ 2566906650 DCDCOutpCurDCDC1 "DCDCoutputcurrentRepresents the output current of DCDC";
+CM_ SG_ 2566906650 DCDCTDCDC1 "DCDCtemperatureRepresents the temperature of DCDC
+The actual physical values range from 40 to 125degC";
+CM_ SG_ 2566906650 DCDCworkingStsDCDC1 "DCDCworkingstatusRepresents actual status feedback from DCDC
+00：Represents the initialization state of DCDC；
+01：Indicates DCDC readiness；
+10：Represents the running state of DCDC；
+11：Indicates DCDC has fault；";
+CM_ SG_ 2566906650 DCDCFltStsDCDC1 "DCDCfaultstatusRepresents the DCDC fault status
+00：No Error；
+01：Represents level 1 failure state of DCDC alarm；
+10：Represents DCDC level 2 fault status limit；
+11：Represents level 3 fault state shutdown of DCDC；";
+CM_ BO_ 2566834714 "no comment";
+CM_ SG_ 2566834714 ProtlampDM1DCDC "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 2566834714 amberWarnlampDM1DCDC "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 2566834714 redstoplampDM1DCDC "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 2566834714 malFctIndcrlampDM1DCDC "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 2566834714 FlashProtlampDM1DCDC "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 2566834714 FlashamberWarnlampDM1DCDC "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 2566834714 FlashredstoplampDM1DCDC "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834714 FlashmalFctIndcrlampDM1DCDC "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834714 spn8leastsignificantbitsDM1DCDC "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834714 spnSecbyteDM1DCDC "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 2566834714 FMiDM1DCDC "FMImost significant at bit 5";
+CM_ SG_ 2566834714 spn3mostsignificantbitsDM1DCDC "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834714 occurrenceCntDM1DCDC "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 2566834714 spnCnvnMetHODDM1DCDC "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ BO_ 2566834734 "no comment";
+CM_ SG_ 2566834734 ProtlampDM1OPCU "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 2566834734 amberWarnlampDM1OPCU "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 2566834734 redstoplampDM1OPCU "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 2566834734 malFctIndcrlampDM1OPCU "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 2566834734 FlashProtlampDM1OPCU "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 2566834734 FlashamberWarnlampDM1OPCU "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 2566834734 FlashredstoplampDM1OPCU "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834734 FlashmalFctIndcrlampDM1OPCU "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834734 spn8leastsignificantbitsDM1OPCU "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834734 spnSecbyteDM1OPCU "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 2566834734 FMiDM1OPCU "FMImost significant at bit 5";
+CM_ SG_ 2566834734 spn3mostsignificantbitsDM1OPCU "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834734 occurrenceCntDM1OPCU "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 2566834734 spnCnvnMetHODDM1OPCU "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ BO_ 2566905902 "no comment";
+CM_ SG_ 2566905902 OPCUhighUbusUOPCU1 "OPCUHighVoltageBusVoltageRepresents the high voltage bus voltage of the oil pump motor";
+CM_ SG_ 2566905902 OPCUMotFailrStsOPCU1 "OPCUMotorFailureStatusRepresents the actual fault state fed back by the oil pump motor";
+CM_ SG_ 2566905902 OPCUworkingStsOPCU1 "OPCUWorkingStatusRepresents the actual working state fed back by the oil pump motor";
+CM_ BO_ 2566906158 "no comment";
+CM_ SG_ 2566906158 oilPUMPMotIvterTOPCU2 "OilPumpMotorInverterTemperatureRepresents temperature feedback of inverter of oil pump motor";
+CM_ SG_ 2566906158 oilPUMPMotOutpCurOPCU2 "OilPumpMotorOutputCurrentRepresents the output current value of the oil pump motor";
+CM_ BO_ 2566907744 "no comment";
+CM_ SG_ 2566907744 mainPosRlyStsRelayState "MainPositiveRelayStatusRepresents the actual state of the main positive relay";
+CM_ SG_ 2566907744 mainnegtiveRlyStsRelayState "MainNegtiveRelayStatusRepresents the actual state of the main Negtive relay";
+CM_ SG_ 2566907744 pduFailrStsRelayState "PDUFailureStatusRepresents the actual fault state of PDU ";
+CM_ SG_ 2566907744 preChrgnRlyStsRelayState "PreChargingRelayStatusRepresents the actual state of PreChargingRelayStatus";
+CM_ SG_ 2566907744 fuelcellRlyStsRelayState "FuelcellRelayStatusRepresents the actual state of FuelCellRelayStatus";
+CM_ SG_ 2566907744 PTCRlyStsRelayState "PTCRelayStatusRepresents the actual state of PTC relay";
+CM_ SG_ 2566907744 AcsoryRlyStsRelayState "AccessoryRelayStatusRepresents the actual state of the attachment relay";
+CM_ SG_ 2566907744 MECURlyStsRelayState "MECURelayStatusRepresents the actual state of the MECU relay";
+CM_ SG_ 2566907744 DCDCRlyStsRelayState "DCDCRelayStatusRepresents the actual state of the DCDC relay";
+CM_ SG_ 2566907744 mainPosRlyPwronStsRelayState "MainPositiveRelayPowerOnStatusRepresents the energized state of the main positive relay";
+CM_ SG_ 2566907744 MECUPwronStsRelayState "MECUPowerOnStatusRepresents the energized state of the installed relay";
+CM_ SG_ 2566907744 BattpackHeatgPosRlyStsRelayState "BatteryPackHeatingPositiveRelayStatusRepresents the actual state of the BatteryPackHeatingPositiveRelayStatus";
+CM_ SG_ 2566907744 BattpackHeatgNegRlyStsRelayState "BatteryPackHeatingNegativeRelayStatusRepresents the actual state of the BatteryPackHeatingNegativeRelayStatus";
+CM_ SG_ 2566907744 hydroCoolgRlyStsRelayState "HydrocoolingRelayStatusRepresents the actual state of the HydrocoolingRelayStatus";
+CM_ SG_ 2566907744 acRlyStsRelayState "ACRelayStatusRepresents the actual state of the air conditioner relay";
+CM_ BO_ 2566894688 "no comment";
+CM_ SG_ 2566894688 DirtCurChrg1PosRlyStsRelayState2 "DirectCurrentCharge1PositiveRelaystatusRepresents the Direct Current Charge1 Positive Relay status";
+CM_ SG_ 2566894688 DirtCurChrg1NegRlyStsRelayState2 "DirectCurrentCharge1NegativeRelaystatusRepresents the Direct Current Charge1 Negative Relay status";
+CM_ SG_ 2566894688 DirtCurChrg2NegRlyStsRelayState2 "DirectCurrentCharge2NegativeRelaystatusRepresents the Direct Current Charge2 Negative Relay status";
+CM_ SG_ 2566894688 DirtCurChrg2NegRlyStsRelayS_0000 "DirectCurrentCharge2NegativeRelaystatusRepresents the Direct Current Charge2 Negative Relay status";
+CM_ SG_ 2566894688 PwrBattURelayState2 "PowerBatteryVoltageRepresents the power battery voltage
+The actual physical value ranges from 0V to 1000V";
+CM_ SG_ 2566894688 BattheatPTCRlyStsRelayState2 "BatteryHeatPTCRelayStatusRepresents the actual state of Battery Heat PTC relay";
+CM_ SG_ 2566894688 WtrCoolgRlyStsRelayState2 "WaterCoolingRelayStatusRepresents the actual state of Water Cooling relay";
+CM_ BO_ 2566850912 "no comment";
+CM_ SG_ 2566850912 insulationRIMCU1PTU "InsulationResistanceRepresents the insulation resistance value of the insulation monitor Physical value range of 0 kΩ  50000kΩ";
+CM_ SG_ 2566850912 sulationMonrdetectsUResdIMCU1PTU "InsulationMonitorDetectsVoltageReservedRepresents the voltage at both ends of the positive and negative terminals detected by the insulation monitor";
+CM_ SG_ 2566850912 insulationMonrSysStsIMCU1PTU "InsulationMonitorSystemStatusRepresents the actual system state as reflected by the insulation monitor
+Inactive indicates that the insulation monitor system is selfchecking or is at the end of the first monitoring cycle";
+CM_ SG_ 2566850912 insulationMonrAlrmIMCU1PTU "InsulationMonitorAlarmRepresents the alarm level of the insulation monitor
+First alarm serious failure
+Secondary alarm general fault";
+CM_ BO_ 2566909280 "no comment";
+CM_ SG_ 2566909280 MECUbusbarUMECU1Reserved "MECUBusbarVoltageUsed to represent the bus voltage of the motor controller";
+CM_ BO_ 2566834784 "no comment";
+CM_ SG_ 2566834784 ProtlampDM1PTU "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 2566834784 amberWarnlampDM1PTU "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 2566834784 redstoplampDM1PTU "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 2566834784 malFctIndcrlampDM1PTU "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 2566834784 FlashProtlampDM1PTU "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 2566834784 FlashamberWarnlampDM1PTU "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 2566834784 FlashredstoplampDM1PTU "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834784 FlashmalFctIndcrlampDM1PTU "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834784 spn8leastsignificantbitsDM1PTU "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834784 spnSecbyteDM1PTU "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 2566834784 FMiDM1PTU "FMImost significant at bit 5";
+CM_ SG_ 2566834784 spn3mostsignificantbitsDM1PTU "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834784 occurrenceCntDM1PTU "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 2566834784 spnCnvnMetHODDM1PTU "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ BO_ 2566906677 "no comment";
+CM_ SG_ 2566906677 DCDC2InpUDCDC21 "DCDC2InputVoltageRepresents the input voltage of DCDC2
+The actual physical value ranges from 0V to 1000V";
+CM_ SG_ 2566906677 DCDC2InpCurDCDC21 "DCDC2InputCurrentRepresents the input current of DCDC2";
+CM_ SG_ 2566906677 DCDC2OutpUDCDC21 "DCDC2OutputVoltageRepresents the output voltage of DCDC2
+The actual physical values range from 17 to 3125V";
+CM_ SG_ 2566906677 DCDC2OutpCurDCDC21 "DCDC2outputcurrentRepresents the output current of DCDC2";
+CM_ SG_ 2566906677 DCDC2TDCDC21 "DCDC2temperatureRepresents the temperature of DCDC2
+The actual physical values range from 40 to 125degC";
+CM_ SG_ 2566906677 DCDC2workingStsDCDC21 "DCDC2workingstatusRepresents actual status feedback from DCDC2
+00：Represents the initialization state of DCDC2；
+01：Indicates DCDC2 readiness；
+10：Represents the running state of DCDC2；
+11：Indicates DCDC2 has fault；";
+CM_ SG_ 2566906677 DCDC2FltStsDCDC21 "DCDC2faultstatusRepresents the DCDC2 fault status
+00：No Error；
+01：Represents level 1 failure state of DCDC2 alarm；
+10：Represents DCDC2 level 2 fault status limit；
+11：Represents level 3 fault state shutdown of DCDC2；";
+CM_ BO_ 2566834741 "no comment";
+CM_ SG_ 2566834741 ProtlampDM1DCDC2 "ProtectLampThis lamp is used to relay trouble code information that is reporting a problem with a vehicle system that is most probably not electronic subsystem related";
+CM_ SG_ 2566834741 amberWarnlampDM1DCDC2 "AmberWarningLampThis lamp is used to relay trouble code information that is reporting a problem with the vehicle system but the vehicle need not be immediately stopped";
+CM_ SG_ 2566834741 redstoplampDM1DCDC2 "RedStopLampThis lamp is used to relay trouble code information that is of a severe enough condition that it warrants stopping the vehicle";
+CM_ SG_ 2566834741 malFctIndcrlampDM1DCDC2 "MalfunctionIndicatorLampA lamp used to relay only emissionsrelated trouble code information This lamp is only illuminated when there is an emissionrelated trouble code active";
+CM_ SG_ 2566834741 FlashProtlampDM1DCDC2 "FlashProtectLampThis parameter provides the capability to flash the protect lamp";
+CM_ SG_ 2566834741 FlashamberWarnlampDM1DCDC2 "FlashAmberWarningLampThis parameter provides the capability to flash the AWL";
+CM_ SG_ 2566834741 FlashredstoplampDM1DCDC2 "FlashRedStopLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834741 FlashmalFctIndcrlampDM1DCDC2 "FlashMalfunctionIndicatorLampThis parameter provides the capability to flash the RSL";
+CM_ SG_ 2566834741 spn8leastsignificantbitsDM1DCDC2 "SPN8leastsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834741 spnSecbyteDM1DCDC2 "SPNsecondbytemost significant at bit 8";
+CM_ SG_ 2566834741 FMiDM1DCDC2 "FMImost significant at bit 5";
+CM_ SG_ 2566834741 spn3mostsignificantbitsDM1DCDC2 "SPN3mostsignificantbitsmost significant at bit 8";
+CM_ SG_ 2566834741 occurrenceCntDM1DCDC2 "OccurrenceCountThe 7bit occurrence count field contains the number of times a fault has been independently detected";
+CM_ SG_ 2566834741 spnCnvnMetHODDM1DCDC2 "SPNConversionMethodWhen this 1bit field is equal to a zero the SPN should be converted as it is defined in this document";
+CM_ BO_ 2566905839 "no comment";
+CM_ SG_ 2566905839 MotCtrllerbusUMCU2 "MotorcontrollerbusvoltageRepresents the bus voltage feedback value on the support capacitor in the motor controller after the precharging circuit";
+CM_ SG_ 2566905839 MotCtrllerbusCurMCU2 "MotorcontrollerbuscurrentRepresents the bus current feedback value on the support capacitor in the motor controller after precharging the circuit
+Positive value  discharge current
+Negative value  charging current";
+CM_ SG_ 2566905839 MotTMCU2 "MotortemperatureIndicates the motor temperature";
+CM_ SG_ 2566905839 MotCtrllerTMCU2 "MotorcontrollertemperatureRepresents the motor controller temperature";
+CM_ BO_ 2632777498 "no comment";
+CM_ SG_ 2632777498 CtrlbyteTPCMBAMDCDC "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 2632777498 TotMsgsizeTPCMBAMDCDC "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 2632777498 packetsNrTPCMBAMDCDC "packetsnumberTotal number of packets";
+CM_ SG_ 2632777498 pgnTPCMBAMDCDC "PGNPGN of the packeted message";
+CM_ BO_ 2632711962 "no comment";
+CM_ SG_ 2632711962 SeqNrTPDTDCDC "SequenceNumberSequence Number";
+CM_ SG_ 2632711962 packetizeddataTPDTDCDC "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+CM_ BO_ 2632777518 "no comment";
+CM_ SG_ 2632777518 CtrlbyteTPCMBAMOPCU "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 2632777518 TotMsgsizeTPCMBAMOPCU "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 2632777518 packetsNrTPCMBAMOPCU "packetsnumberTotal number of packets";
+CM_ SG_ 2632777518 pgnTPCMBAMOPCU "PGNPGN of the packeted message";
+CM_ BO_ 2632711982 "no comment";
+CM_ SG_ 2632711982 SeqNrTPDTOPCU "SequenceNumberSequence Number";
+CM_ SG_ 2632711982 packetizeddataTPDTOPCU "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+CM_ BO_ 2632777520 "no comment";
+CM_ SG_ 2632777520 CtrlbyteTPCMBAMAPCU "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 2632777520 TotMsgsizeTPCMBAMAPCU "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 2632777520 packetsNrTPCMBAMAPCU "packetsnumberTotal number of packets";
+CM_ SG_ 2632777520 pgnTPCMBAMAPCU "PGNPGN of the packeted message";
+CM_ BO_ 2632711984 "no comment";
+CM_ SG_ 2632711984 SeqNrTPDTAPCU "SequenceNumberSequence Number";
+CM_ SG_ 2632711984 packetizeddataTPDTAPCU "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+CM_ BO_ 2632777568 "no comment";
+CM_ SG_ 2632777568 CtrlbyteTPCMBAMPTU "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 2632777568 TotMsgsizeTPCMBAMPTU "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 2632777568 packetsNrTPCMBAMPTU "packetsnumberTotal number of packets";
+CM_ SG_ 2632777568 pgnTPCMBAMPTU "PGNPGN of the packeted message";
+CM_ BO_ 2632712032 "no comment";
+CM_ SG_ 2632712032 SeqNrTPDTPTU "SequenceNumberSequence Number";
+CM_ SG_ 2632712032 packetizeddataTPDTPTU "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+CM_ BO_ 2632777525 "no comment";
+CM_ SG_ 2632777525 CtrlbyteTPCMBAMDCDC2 "ControlByteControl byte  32 Broadcast Announce Message";
+CM_ SG_ 2632777525 TotMsgsizeTPCMBAMDCDC2 "TotalmessagesizeTotal message size number of bytes";
+CM_ SG_ 2632777525 packetsNrTPCMBAMDCDC2 "packetsnumberTotal number of packets";
+CM_ SG_ 2632777525 pgnTPCMBAMDCDC2 "PGNPGN of the packeted message";
+CM_ BO_ 2632711989 "no comment";
+CM_ SG_ 2632711989 SeqNrTPDTDCDC2 "SequenceNumberSequence Number";
+CM_ SG_ 2632711989 packetizeddataTPDTDCDC2 "PacketizedDataPacketized Data 7 bytes Note the last packet of a multipacket PG may require less than 7 data bytes The extra bytes should be filled with FFh";
+BA_DEF_ BO_  "DiagRequest" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagResponse" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagState" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 3600000;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 65535;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 65535;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","NotUsed","NotUsed","NotUsed","NotUsed","Cyclic","NotUsed","IfActive","NoMsgSendType";
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65535;
+BA_DEF_ BO_  "NmMessage" ENUM  "No","Yes";
+BA_DEF_ BO_  "TpJ1939VarDlc" ENUM  "No","Yes";
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG";
+BA_DEF_ SG_  "GenSigEnvVarType" ENUM  "int","float","undef";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 1000000;
+BA_DEF_ SG_  "GenSigTimeoutValue" INT 0 1000000000;
+BA_DEF_ BU_  "DiagStationAddress" HEX 0 255;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "ILUsed" ENUM  "No","Yes";
+BA_DEF_ BU_  "NmJ1939AAC" INT 0 1;
+BA_DEF_ BU_  "NmJ1939ECUInstance" INT 0 3;
+BA_DEF_ BU_  "NmJ1939Function" INT 0 255;
+BA_DEF_ BU_  "NmJ1939FunctionInstance" INT 0 7;
+BA_DEF_ BU_  "NmJ1939IdentityNumber" INT 0 2097151;
+BA_DEF_ BU_  "NmJ1939IndustryGroup" INT 0 7;
+BA_DEF_ BU_  "NmJ1939ManufacturerCode" INT 0 2047;
+BA_DEF_ BU_  "NmJ1939System" INT 0 127;
+BA_DEF_ BU_  "NmJ1939SystemInstance" INT 0 15;
+BA_DEF_ BU_  "NmStationAddress" INT 0 255;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "TpAddressExtension" INT 0 100000000;
+BA_DEF_ BU_  "TpAddressingMode" INT 0 4;
+BA_DEF_ BU_  "TpBlockSize" INT 0 10000000;
+BA_DEF_ BU_  "TpCanBus" INT 1 2;
+BA_DEF_ BU_  "TpNodeBaseAddress" HEX 0 2047;
+BA_DEF_ BU_  "TpRxIdentifier" HEX 0 419430399;
+BA_DEF_ BU_  "TpRxMask" HEX 0 2047;
+BA_DEF_ BU_  "TpSTMin" INT 0 1000000000;
+BA_DEF_ BU_  "TpTargetAddress" HEX 0 255;
+BA_DEF_ BU_  "TpTxAdrMode" INT 0 1;
+BA_DEF_  "Baudrate" INT 0 1000000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "DatbaseVersion" STRING ;
+BA_DEF_  "GenEnvVarEndingDsp" STRING ;
+BA_DEF_  "GenEnvVarEndingSnd" STRING ;
+BA_DEF_  "GenEnvVarPrefix" STRING ;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "NmAsrBaseAddress" HEX 0 536870911;
+BA_DEF_  "NmAsrCanMsgCycleOffset" INT 0 65535;
+BA_DEF_  "NmAsrCanMsgCycleTime" INT 0 65535;
+BA_DEF_  "NmAsrMessageCount" INT 1 256;
+BA_DEF_  "NmAsrRepeatMessageTime" INT 0 65535;
+BA_DEF_  "NmAsrTimeoutTime" INT 0 65535;
+BA_DEF_  "NmAsrWaitBusSleepTime" INT 0 65535;
+BA_DEF_  "NmBaseAddress" HEX 0 2047;
+BA_DEF_  "NmMessageCount" INT 0 255;
+BA_DEF_  "NmType" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_  "SAE_J1939_21_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_71_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_73_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_75_SpecVersion" STRING ;
+BA_DEF_  "TpBaseAddress" HEX 0 2047;
+BA_DEF_  "VersionDay" INT 1 31;
+BA_DEF_  "VersionMonth" INT 1 12;
+BA_DEF_  "VersionNumber" INT 0 99;
+BA_DEF_  "VersionWeek" INT 0 52;
+BA_DEF_  "VersionYear" INT 1 99;
+BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
+BA_DEF_DEF_  "DiagRequest" "No";
+BA_DEF_DEF_  "DiagResponse" "No";
+BA_DEF_DEF_  "DiagState" "No";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "No";
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "TpJ1939VarDlc" "No";
+BA_DEF_DEF_  "VFrameFormat" "";
+BA_DEF_DEF_  "GenSigEnvVarType" "undef";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigTimeoutValue" 0;
+BA_DEF_DEF_  "DiagStationAddress" 0;
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "ILUsed" "Yes";
+BA_DEF_DEF_  "NmJ1939AAC" 0;
+BA_DEF_DEF_  "NmJ1939ECUInstance" 0;
+BA_DEF_DEF_  "NmJ1939Function" 0;
+BA_DEF_DEF_  "NmJ1939FunctionInstance" 0;
+BA_DEF_DEF_  "NmJ1939IdentityNumber" 0;
+BA_DEF_DEF_  "NmJ1939IndustryGroup" 0;
+BA_DEF_DEF_  "NmJ1939ManufacturerCode" 0;
+BA_DEF_DEF_  "NmJ1939System" 0;
+BA_DEF_DEF_  "NmJ1939SystemInstance" 0;
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NodeLayerModules" "J1939_NL.dll";
+BA_DEF_DEF_  "TpAddressExtension" 0;
+BA_DEF_DEF_  "TpAddressingMode" 0;
+BA_DEF_DEF_  "TpBlockSize" 0;
+BA_DEF_DEF_  "TpCanBus" 1;
+BA_DEF_DEF_  "TpNodeBaseAddress" 0;
+BA_DEF_DEF_  "TpRxIdentifier" 0;
+BA_DEF_DEF_  "TpRxMask" 0;
+BA_DEF_DEF_  "TpSTMin" 0;
+BA_DEF_DEF_  "TpTargetAddress" 0;
+BA_DEF_DEF_  "TpTxAdrMode" 0;
+BA_DEF_DEF_  "Baudrate" 500000;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "DBName" "FAW_新能源商用车_HVAC&DCDC2_通信矩阵_V2.0DBC";
+BA_DEF_DEF_  "DatbaseVersion" "";
+BA_DEF_DEF_  "GenEnvVarEndingDsp" "_";
+BA_DEF_DEF_  "GenEnvVarEndingSnd" "";
+BA_DEF_DEF_  "GenEnvVarPrefix" "Env";
+BA_DEF_DEF_  "Manufacturer" "Vector";
+BA_DEF_DEF_  "NmAsrBaseAddress" 419397632;
+BA_DEF_DEF_  "NmAsrCanMsgCycleOffset" 0;
+BA_DEF_DEF_  "NmAsrCanMsgCycleTime" 100;
+BA_DEF_DEF_  "NmAsrMessageCount" 64;
+BA_DEF_DEF_  "NmAsrRepeatMessageTime" 400;
+BA_DEF_DEF_  "NmAsrTimeoutTime" 1000;
+BA_DEF_DEF_  "NmAsrWaitBusSleepTime" 750;
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "NmMessageCount" 128;
+BA_DEF_DEF_  "NmType" "NmAsr";
+BA_DEF_DEF_  "ProtocolType" "J1939";
+BA_DEF_DEF_  "SAE_J1939_21_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_71_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_73_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_75_SpecVersion" "";
+BA_DEF_DEF_  "TpBaseAddress" 0;
+BA_DEF_DEF_  "VersionDay" 1;
+BA_DEF_DEF_  "VersionMonth" 1;
+BA_DEF_DEF_  "VersionNumber" 0;
+BA_DEF_DEF_  "VersionWeek" 0;
+BA_DEF_DEF_  "VersionYear" 1;
+BA_DEF_DEF_  "SystemSignalLongSymbol" "";
+BA_ "ProtocolType" "J1939";
+BA_ "BusType" "CAN";
+BA_ "DBName" "FAW__HVACDCDC2__V20DBC";
+BA_ "NmStationAddress" BU_ HCU 39;
+BA_ "NmStationAddress" BU_ HVAC 48;
+BA_ "NmStationAddress" BU_ DCDC2 53;
+BA_ "NmStationAddress" BU_ BMS 243;
+BA_ "VFrameFormat" BO_ 2566850343 1;
+BA_ "TpJ1939VarDlc" BO_ 2566850343 0;
+BA_ "GenMsgSendType" BO_ 2566850343 0;
+BA_ "GenMsgILSupport" BO_ 2566850343 1;
+BA_ "GenMsgCycleTime" BO_ 2566850343 100;
+BA_ "VFrameFormat" BO_ 2566850599 1;
+BA_ "TpJ1939VarDlc" BO_ 2566850599 0;
+BA_ "GenMsgSendType" BO_ 2566850599 0;
+BA_ "GenMsgILSupport" BO_ 2566850599 1;
+BA_ "GenMsgCycleTime" BO_ 2566850599 100;
+BA_ "VFrameFormat" BO_ 2566850087 1;
+BA_ "TpJ1939VarDlc" BO_ 2566850087 0;
+BA_ "GenMsgSendType" BO_ 2566850087 0;
+BA_ "GenMsgILSupport" BO_ 2566850087 1;
+BA_ "GenMsgCycleTime" BO_ 2566850087 100;
+BA_ "VFrameFormat" BO_ 2566852391 1;
+BA_ "TpJ1939VarDlc" BO_ 2566852391 0;
+BA_ "GenMsgSendType" BO_ 2566852391 0;
+BA_ "GenMsgILSupport" BO_ 2566852391 1;
+BA_ "GenMsgCycleTime" BO_ 2566852391 100;
+BA_ "VFrameFormat" BO_ 2566863603 1;
+BA_ "TpJ1939VarDlc" BO_ 2566863603 0;
+BA_ "GenMsgSendType" BO_ 2566863603 0;
+BA_ "GenMsgILSupport" BO_ 2566863603 1;
+BA_ "GenMsgCycleTime" BO_ 2566863603 20;
+BA_ "VFrameFormat" BO_ 2566907952 1;
+BA_ "TpJ1939VarDlc" BO_ 2566907952 0;
+BA_ "GenMsgSendType" BO_ 2566907952 0;
+BA_ "GenMsgILSupport" BO_ 2566907952 1;
+BA_ "GenMsgCycleTime" BO_ 2566907952 100;
+BA_ "VFrameFormat" BO_ 2566908208 1;
+BA_ "TpJ1939VarDlc" BO_ 2566908208 0;
+BA_ "GenMsgSendType" BO_ 2566908208 0;
+BA_ "GenMsgILSupport" BO_ 2566908208 1;
+BA_ "GenMsgCycleTime" BO_ 2566908208 1000;
+BA_ "TpJ1939VarDlc" BO_ 2566834736 1;
+BA_ "GenMsgSendType" BO_ 2566834736 0;
+BA_ "GenMsgILSupport" BO_ 2566834736 1;
+BA_ "GenMsgCycleTime" BO_ 2566834736 1000;
+BA_ "VFrameFormat" BO_ 2566834736 3;
+BA_ "VFrameFormat" BO_ 2566906650 1;
+BA_ "TpJ1939VarDlc" BO_ 2566906650 0;
+BA_ "GenMsgSendType" BO_ 2566906650 0;
+BA_ "GenMsgILSupport" BO_ 2566906650 1;
+BA_ "GenMsgCycleTime" BO_ 2566906650 100;
+BA_ "TpJ1939VarDlc" BO_ 2566834714 1;
+BA_ "GenMsgSendType" BO_ 2566834714 0;
+BA_ "GenMsgILSupport" BO_ 2566834714 1;
+BA_ "GenMsgCycleTime" BO_ 2566834714 1000;
+BA_ "VFrameFormat" BO_ 2566834714 3;
+BA_ "TpJ1939VarDlc" BO_ 2566834734 1;
+BA_ "GenMsgSendType" BO_ 2566834734 0;
+BA_ "GenMsgILSupport" BO_ 2566834734 1;
+BA_ "GenMsgCycleTime" BO_ 2566834734 1000;
+BA_ "VFrameFormat" BO_ 2566834734 3;
+BA_ "VFrameFormat" BO_ 2566905902 1;
+BA_ "TpJ1939VarDlc" BO_ 2566905902 0;
+BA_ "GenMsgSendType" BO_ 2566905902 0;
+BA_ "GenMsgILSupport" BO_ 2566905902 1;
+BA_ "GenMsgCycleTime" BO_ 2566905902 100;
+BA_ "VFrameFormat" BO_ 2566906158 1;
+BA_ "TpJ1939VarDlc" BO_ 2566906158 0;
+BA_ "GenMsgSendType" BO_ 2566906158 0;
+BA_ "GenMsgILSupport" BO_ 2566906158 1;
+BA_ "GenMsgCycleTime" BO_ 2566906158 1000;
+BA_ "VFrameFormat" BO_ 2566907744 1;
+BA_ "TpJ1939VarDlc" BO_ 2566907744 0;
+BA_ "GenMsgSendType" BO_ 2566907744 0;
+BA_ "GenMsgILSupport" BO_ 2566907744 1;
+BA_ "GenMsgCycleTime" BO_ 2566907744 100;
+BA_ "VFrameFormat" BO_ 2566894688 1;
+BA_ "TpJ1939VarDlc" BO_ 2566894688 0;
+BA_ "GenMsgSendType" BO_ 2566894688 0;
+BA_ "GenMsgILSupport" BO_ 2566894688 1;
+BA_ "GenMsgCycleTime" BO_ 2566894688 100;
+BA_ "VFrameFormat" BO_ 2566850912 1;
+BA_ "TpJ1939VarDlc" BO_ 2566850912 0;
+BA_ "GenMsgSendType" BO_ 2566850912 0;
+BA_ "GenMsgILSupport" BO_ 2566850912 1;
+BA_ "GenMsgCycleTime" BO_ 2566850912 1000;
+BA_ "VFrameFormat" BO_ 2566909280 1;
+BA_ "TpJ1939VarDlc" BO_ 2566909280 0;
+BA_ "GenMsgSendType" BO_ 2566909280 0;
+BA_ "GenMsgILSupport" BO_ 2566909280 1;
+BA_ "GenMsgCycleTime" BO_ 2566909280 100;
+BA_ "TpJ1939VarDlc" BO_ 2566834784 1;
+BA_ "GenMsgSendType" BO_ 2566834784 0;
+BA_ "GenMsgILSupport" BO_ 2566834784 1;
+BA_ "GenMsgCycleTime" BO_ 2566834784 1000;
+BA_ "VFrameFormat" BO_ 2566834784 3;
+BA_ "VFrameFormat" BO_ 2566906677 1;
+BA_ "TpJ1939VarDlc" BO_ 2566906677 0;
+BA_ "GenMsgSendType" BO_ 2566906677 0;
+BA_ "GenMsgILSupport" BO_ 2566906677 1;
+BA_ "GenMsgCycleTime" BO_ 2566906677 100;
+BA_ "TpJ1939VarDlc" BO_ 2566834741 1;
+BA_ "GenMsgSendType" BO_ 2566834741 0;
+BA_ "GenMsgILSupport" BO_ 2566834741 1;
+BA_ "GenMsgCycleTime" BO_ 2566834741 1000;
+BA_ "VFrameFormat" BO_ 2566834741 3;
+BA_ "VFrameFormat" BO_ 2566905839 1;
+BA_ "TpJ1939VarDlc" BO_ 2566905839 0;
+BA_ "GenMsgSendType" BO_ 2566905839 0;
+BA_ "GenMsgILSupport" BO_ 2566905839 1;
+BA_ "GenMsgCycleTime" BO_ 2566905839 100;
+BA_ "TpJ1939VarDlc" BO_ 2632777498 1;
+BA_ "GenMsgSendType" BO_ 2632777498 8;
+BA_ "GenMsgILSupport" BO_ 2632777498 0;
+BA_ "GenMsgCycleTime" BO_ 2632777498 0;
+BA_ "VFrameFormat" BO_ 2632777498 3;
+BA_ "TpJ1939VarDlc" BO_ 2632711962 1;
+BA_ "GenMsgSendType" BO_ 2632711962 8;
+BA_ "GenMsgILSupport" BO_ 2632711962 0;
+BA_ "GenMsgCycleTime" BO_ 2632711962 0;
+BA_ "VFrameFormat" BO_ 2632711962 3;
+BA_ "TpJ1939VarDlc" BO_ 2632777518 1;
+BA_ "GenMsgSendType" BO_ 2632777518 8;
+BA_ "GenMsgILSupport" BO_ 2632777518 0;
+BA_ "GenMsgCycleTime" BO_ 2632777518 0;
+BA_ "VFrameFormat" BO_ 2632777518 3;
+BA_ "TpJ1939VarDlc" BO_ 2632711982 1;
+BA_ "GenMsgSendType" BO_ 2632711982 8;
+BA_ "GenMsgILSupport" BO_ 2632711982 0;
+BA_ "GenMsgCycleTime" BO_ 2632711982 0;
+BA_ "VFrameFormat" BO_ 2632711982 3;
+BA_ "TpJ1939VarDlc" BO_ 2632777520 1;
+BA_ "GenMsgSendType" BO_ 2632777520 8;
+BA_ "GenMsgILSupport" BO_ 2632777520 0;
+BA_ "GenMsgCycleTime" BO_ 2632777520 0;
+BA_ "VFrameFormat" BO_ 2632777520 3;
+BA_ "TpJ1939VarDlc" BO_ 2632711984 1;
+BA_ "GenMsgSendType" BO_ 2632711984 8;
+BA_ "GenMsgILSupport" BO_ 2632711984 0;
+BA_ "GenMsgCycleTime" BO_ 2632711984 0;
+BA_ "VFrameFormat" BO_ 2632711984 3;
+BA_ "TpJ1939VarDlc" BO_ 2632777568 1;
+BA_ "GenMsgSendType" BO_ 2632777568 8;
+BA_ "GenMsgILSupport" BO_ 2632777568 0;
+BA_ "GenMsgCycleTime" BO_ 2632777568 0;
+BA_ "VFrameFormat" BO_ 2632777568 3;
+BA_ "TpJ1939VarDlc" BO_ 2632712032 1;
+BA_ "GenMsgSendType" BO_ 2632712032 8;
+BA_ "GenMsgILSupport" BO_ 2632712032 0;
+BA_ "GenMsgCycleTime" BO_ 2632712032 0;
+BA_ "VFrameFormat" BO_ 2632712032 3;
+BA_ "VFrameFormat" BO_ 2632777525 1;
+BA_ "TpJ1939VarDlc" BO_ 2632777525 0;
+BA_ "GenMsgSendType" BO_ 2632777525 8;
+BA_ "GenMsgILSupport" BO_ 2632777525 1;
+BA_ "GenMsgCycleTime" BO_ 2632777525 0;
+BA_ "VFrameFormat" BO_ 2632711989 1;
+BA_ "TpJ1939VarDlc" BO_ 2632711989 0;
+BA_ "GenMsgSendType" BO_ 2632711989 8;
+BA_ "GenMsgILSupport" BO_ 2632711989 1;
+BA_ "GenMsgCycleTime" BO_ 2632711989 0;
+BA_ "GenSigStartValue" SG_ 2566852391 mainPoshighURlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 2566852391 mainNeghighURlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 2566852391 fuelcellRlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 2566852391 BattheatPTCRlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 2566852391 AcsoryRlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 2566852391 PTCRlyCtrlCmdHCU3 3;
+BA_ "GenSigStartValue" SG_ 2566852391 MECURlyclosingReqHCU3 3;
+BA_ "GenSigStartValue" SG_ 2566852391 DCDCRlyclosingReqHCU3 3;
+BA_ "GenSigStartValue" SG_ 2566852391 acRlyclosingReqHCU3 3;
+BA_ "GenSigStartValue" SG_ 2566863603 DirtCurChrg1PosRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 DirtCurChrg1NegRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 DirtCurChrg2PosRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 DirtCurChrg2NegRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 insulationtesterCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 BMSmainNegcoilDrvStBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 PwrBattsohBMS5 255;
+BA_ "GenSigStartValue" SG_ 2566863603 mainNegRlydisCnctReqBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 mainNegRlyStsBMS5 7;
+BA_ "GenSigStartValue" SG_ 2566863603 BattpackHeatgPosRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 BattpackHeatgNegRlyCtrlCmdBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 ChrgnplugCnctionStsBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 Chrgnplug2CnctionStsBMS5 3;
+BA_ "GenSigStartValue" SG_ 2566863603 ChrgnPosRlyStsBMS5 7;
+BA_ "GenSigStartValue" SG_ 2566908208 APCUTAPCU2 64;
+BA_ "GenSigStartValue" SG_ 2566906650 DCDCTDCDC1 64;
+BA_ "GenSigStartValue" SG_ 2566906158 oilPUMPMotIvterTOPCU2 64;
+BA_ "GenSigStartValue" SG_ 2566906158 oilPUMPMotOutpCurOPCU2 255;
+BA_ "GenSigStartValue" SG_ 2566907744 mainPosRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 mainnegtiveRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 preChrgnRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 fuelcellRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 PTCRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 AcsoryRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 MECURlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 DCDCRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 mainPosRlyPwronStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 MECUPwronStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 BattpackHeatgPosRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 BattpackHeatgNegRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 hydroCoolgRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566907744 acRlyStsRelayState 7;
+BA_ "GenSigStartValue" SG_ 2566894688 DirtCurChrg1PosRlyStsRelayState2 7;
+BA_ "GenSigStartValue" SG_ 2566894688 DirtCurChrg1NegRlyStsRelayState2 7;
+BA_ "GenSigStartValue" SG_ 2566894688 DirtCurChrg2NegRlyStsRelayState2 7;
+BA_ "SystemSignalLongSymbol" SG_ 2566894688 DirtCurChrg2NegRlyStsRelayState2 "DirtCurChrg2NegRlyStsRelayState20";
+BA_ "GenSigStartValue" SG_ 2566894688 DirtCurChrg2NegRlyStsRelayS_0000 7;
+BA_ "SystemSignalLongSymbol" SG_ 2566894688 DirtCurChrg2NegRlyStsRelayS_0000 "DirtCurChrg2NegRlyStsRelayState21";
+BA_ "GenSigStartValue" SG_ 2566894688 BattheatPTCRlyStsRelayState2 7;
+BA_ "GenSigStartValue" SG_ 2566894688 WtrCoolgRlyStsRelayState2 7;
+BA_ "GenSigStartValue" SG_ 2566906677 DCDC2TDCDC21 64;
+BA_ "GenSigStartValue" SG_ 2566905839 MotCtrllerbusCurMCU2 32000;
+BA_ "GenSigStartValue" SG_ 2566905839 MotTMCU2 64;
+BA_ "GenSigStartValue" SG_ 2566905839 MotCtrllerTMCU2 64;
+BA_ "GenSigSendType" SG_ 2632777498 CtrlbyteTPCMBAMDCDC 1;
+BA_ "GenSigSendType" SG_ 2632777498 TotMsgsizeTPCMBAMDCDC 1;
+BA_ "GenSigSendType" SG_ 2632777498 packetsNrTPCMBAMDCDC 1;
+BA_ "GenSigSendType" SG_ 2632777498 pgnTPCMBAMDCDC 1;
+BA_ "GenSigSendType" SG_ 2632711962 SeqNrTPDTDCDC 1;
+BA_ "GenSigSendType" SG_ 2632711962 packetizeddataTPDTDCDC 1;
+BA_ "GenSigSendType" SG_ 2632777518 CtrlbyteTPCMBAMOPCU 1;
+BA_ "GenSigSendType" SG_ 2632777518 TotMsgsizeTPCMBAMOPCU 1;
+BA_ "GenSigSendType" SG_ 2632777518 packetsNrTPCMBAMOPCU 1;
+BA_ "GenSigSendType" SG_ 2632777518 pgnTPCMBAMOPCU 1;
+BA_ "GenSigSendType" SG_ 2632711982 SeqNrTPDTOPCU 1;
+BA_ "GenSigSendType" SG_ 2632711982 packetizeddataTPDTOPCU 1;
+BA_ "GenSigSendType" SG_ 2632777520 CtrlbyteTPCMBAMAPCU 1;
+BA_ "GenSigSendType" SG_ 2632777520 TotMsgsizeTPCMBAMAPCU 1;
+BA_ "GenSigSendType" SG_ 2632777520 packetsNrTPCMBAMAPCU 1;
+BA_ "GenSigSendType" SG_ 2632777520 pgnTPCMBAMAPCU 1;
+BA_ "GenSigSendType" SG_ 2632711984 SeqNrTPDTAPCU 1;
+BA_ "GenSigSendType" SG_ 2632711984 packetizeddataTPDTAPCU 1;
+BA_ "GenSigSendType" SG_ 2632777568 CtrlbyteTPCMBAMPTU 1;
+BA_ "GenSigSendType" SG_ 2632777568 TotMsgsizeTPCMBAMPTU 1;
+BA_ "GenSigSendType" SG_ 2632777568 packetsNrTPCMBAMPTU 1;
+BA_ "GenSigSendType" SG_ 2632777568 pgnTPCMBAMPTU 1;
+BA_ "GenSigSendType" SG_ 2632712032 SeqNrTPDTPTU 1;
+BA_ "GenSigSendType" SG_ 2632712032 packetizeddataTPDTPTU 1;
+BA_ "GenSigSendType" SG_ 2632777525 CtrlbyteTPCMBAMDCDC2 1;
+BA_ "GenSigSendType" SG_ 2632777525 TotMsgsizeTPCMBAMDCDC2 1;
+BA_ "GenSigSendType" SG_ 2632777525 packetsNrTPCMBAMDCDC2 1;
+BA_ "GenSigSendType" SG_ 2632777525 pgnTPCMBAMDCDC2 1;
+BA_ "GenSigSendType" SG_ 2632711989 SeqNrTPDTDCDC2 1;
+BA_ "GenSigSendType" SG_ 2632711989 packetizeddataTPDTDCDC2 1;
+VAL_ 2566850343 DCDCworkingeanableCmdHCUDCDC 0 "Disable" 1 "Enable" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566850343 DCDC2workingeanableCmdHCUDCDC 0 "Disable" 1 "Enable" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566850599 airPUMPMotworkingEnaHCUAPCU 0 "Disable" 1 "Enable" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566850087 oilPUMPMotworkingEnaCmdHCUOPCU 0 "Disable" 1 "Enable" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566852391 mainPoshighURlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566852391 mainNeghighURlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566852391 fuelcellRlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566852391 BattheatPTCRlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566852391 AcsoryRlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566852391 PTCRlyCtrlCmdHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566852391 MECURlyclosingReqHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566852391 DCDCRlyclosingReqHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566852391 acRlyclosingReqHCU3 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 DirtCurChrg1PosRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 DirtCurChrg1NegRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 DirtCurChrg2PosRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 DirtCurChrg2NegRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 WtrCoolgRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 insulationtesterCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 BMSmainNegcoilDrvStBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 mainNegRlydisCnctReqBMS5 0 "Norequest" 1 "DisconnectRequest" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 mainNegRlyStsBMS5 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566863603 BattpackHeatgPosRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 BattpackHeatgNegRlyCtrlCmdBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 ChrgnplugCnctionStsBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 Chrgnplug2CnctionStsBMS5 0 "Disconnect" 1 "Connect" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566863603 ChrgnPosRlyStsBMS5 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566863603 NegChrgnRlyStsBMS5 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907952 APCUMotworkingStsAPCU1 0 "Initial" 1 "Ready" 2 "Running" 3 "Error" ;
+VAL_ 2566907952 APCUMotFailrStsAPCU1 0 "NoError" 1 "Level1Failure" 2 "Level2Failure" 3 "Level3Failure" ;
+VAL_ 2566834736 ProtlampDM1APCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834736 amberWarnlampDM1APCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834736 redstoplampDM1APCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834736 malFctIndcrlampDM1APCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834736 FlashProtlampDM1APCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834736 FlashamberWarnlampDM1APCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834736 FlashredstoplampDM1APCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834736 FlashmalFctIndcrlampDM1APCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566906650 DCDCworkingStsDCDC1 0 "Initialization" 1 "Ready" 2 "Running" 3 "Error" ;
+VAL_ 2566906650 DCDCFltStsDCDC1 0 "NoError" 1 "level1failure" 2 "level2failure" 3 "level3failure" ;
+VAL_ 2566834714 ProtlampDM1DCDC 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834714 amberWarnlampDM1DCDC 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834714 redstoplampDM1DCDC 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834714 malFctIndcrlampDM1DCDC 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834714 FlashProtlampDM1DCDC 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834714 FlashamberWarnlampDM1DCDC 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834714 FlashredstoplampDM1DCDC 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834714 FlashmalFctIndcrlampDM1DCDC 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834734 ProtlampDM1OPCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834734 amberWarnlampDM1OPCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834734 redstoplampDM1OPCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834734 malFctIndcrlampDM1OPCU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834734 FlashProtlampDM1OPCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834734 FlashamberWarnlampDM1OPCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834734 FlashredstoplampDM1OPCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834734 FlashmalFctIndcrlampDM1OPCU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566905902 OPCUMotFailrStsOPCU1 0 "NoError" 1 "level1failure" 2 "level2failure" 3 "level3failure" ;
+VAL_ 2566905902 OPCUworkingStsOPCU1 0 "NotRunning" 1 "Running" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566907744 mainPosRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "TimeoutReserved" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 mainnegtiveRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 pduFailrStsRelayState 0 "NoError" 1 "level1failure" 2 "level2failure" 3 "level3failure" ;
+VAL_ 2566907744 preChrgnRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Timeout" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 fuelcellRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Timeout" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 PTCRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 AcsoryRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 MECURlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 DCDCRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 mainPosRlyPwronStsRelayState 0 "Initialization" 1 "Powerongoing" 2 "Poweroncomplete" 3 "PrechargeTimeout" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 MECUPwronStsRelayState 0 "Initialization" 1 "Powerongoing" 2 "Poweroncomplete" 3 "PrechargeTimeout" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 BattpackHeatgPosRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 BattpackHeatgNegRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 hydroCoolgRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566907744 acRlyStsRelayState 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566894688 DirtCurChrg1PosRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "TimeoutReserved" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566894688 DirtCurChrg1NegRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566894688 DirtCurChrg2NegRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566894688 DirtCurChrg2NegRlyStsRelayS_0000 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566894688 BattheatPTCRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566894688 WtrCoolgRlyStsRelayState2 0 "Disconnect" 1 "Connect" 2 "adhesion" 3 "Normallyopen" 4 "Reserved" 6 "Reserved" 7 "Notavailable" ;
+VAL_ 2566850912 insulationMonrSysStsIMCU1PTU 0 "NotRunning" 1 "Running" 2 "Groundfault" 3 "Assemblyfault" 4 "Reserved" 7 "Notavailable" ;
+VAL_ 2566850912 insulationMonrAlrmIMCU1PTU 0 "NoError" 1 "Level1alarm" 2 "Level2alarm" 3 "Notavailable" ;
+VAL_ 2566834784 ProtlampDM1PTU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834784 amberWarnlampDM1PTU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834784 redstoplampDM1PTU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834784 malFctIndcrlampDM1PTU 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834784 FlashProtlampDM1PTU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834784 FlashamberWarnlampDM1PTU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834784 FlashredstoplampDM1PTU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834784 FlashmalFctIndcrlampDM1PTU 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566906677 DCDC2workingStsDCDC21 0 "Initialization" 1 "Ready" 2 "Running" 3 "Error" ;
+VAL_ 2566906677 DCDC2FltStsDCDC21 0 "NoError" 1 "level1failure" 2 "level2failure" 3 "level3failure" ;
+VAL_ 2566834741 ProtlampDM1DCDC2 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834741 amberWarnlampDM1DCDC2 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834741 redstoplampDM1DCDC2 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834741 malFctIndcrlampDM1DCDC2 0 "LampOff" 1 "LampOn" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834741 FlashProtlampDM1DCDC2 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834741 FlashamberWarnlampDM1DCDC2 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834741 FlashredstoplampDM1DCDC2 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+VAL_ 2566834741 FlashmalFctIndcrlampDM1DCDC2 0 "SlowFlash" 1 "FastFlash" 2 "Reserved" 3 "Notavailable" ;
+

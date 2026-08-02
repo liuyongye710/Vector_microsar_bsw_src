@@ -1,0 +1,30 @@
+Variant ID: 57
+Version: 2.5.5.0
+$Revision: 40405 $
+$URL: https://gliwa.com/svn/repos/T1target/trunk/70_release/tricore/tricore-tasking/tricore-tasking-v1_6_Xcore-57/lib/version.tx $
+Rev.  Checksum (SHA-1)                         File Name
+40402 0442b5bf3abf8a9c8dc02df1a46d5b526e85eeef libt1base.a
+    0 fb99daaff565a42920b5ecc80b486882ea5db556 libt1com8.a
+40234 6b7c646fdce0dd0d40d9a949ca06094928004a5d libt1cont.a
+40022 3f9f64112beb9740e669e7f38750dd7384faa584 libt1delay.a
+40400 f73631011543222c66026d41f63ace60ba1e281a libt1flex.a
+37719 fd4ac6e213b5e98bf45e161ffc6a64d461d994ff libt1mod.a
+39992 d394b611893603f31d21446b9d9717ffcc00456e libt1scope.a
+Rev.  Checksum (SHA-1)                         File Name
+    0 556b73117d61ce73666236706c0c18b0040ad13b T1_baseInterface.h
+    0 42e60d1b8faa1bce740a9dcd07b329c4fb6fcd0b T1_contInterface.h
+    0 92d8d8a5303963f6479a528ca5771ea0ef1e92fe T1_delayInterface.h
+    0 2c6ad277b86f8137017c23af4343cd7756279c2c T1_flexInterface.h
+    0 1c7c6048fadf5549c04e88fb00214461066c2b6c T1_MemMap.h
+    0 0f810a1658c4f33b28dcbc64c8e805e8f6886ad4 T1_modInterface.h
+    0 a381a7fe0ab33b60ac49b825f45fced3d61f78a9 T1_scopeInterface.h
+    0 f99d7441caadc506e7388704d2e92bdcf69f645b T1_targetSpecifics.h
+Rev.  Checksum (SHA-1)                         File Name
+    0 28978b8a1e3f697a9aeb3a4ae00c7114ca445129 libt1comN.a
+Rev.  Checksum (SHA-1)                         File Name
+    0 3a86d9b01892758acdf4fb719c30a600e95c7070 GCP_config.h
+    0 a1bb8c0a64fa491c1f5faa1c27a32b619ec9c771 GCP_driverInterface.h
+    0 a70cf707f7dfb090c78bf3f70cdcedadd8f78c36 GCP_sharedInterface.h
+    0 5309890eaef181f7806dbfaef1b457f72a13a3c0 GCP_startCode.h
+    0 aa78845f6ba59683129dc4a3e3f803be00510aed GCP_stopCode.h
+    0 0f004ccb7c49acdc575de5ad0dc37e49aea568ee GCP_T1interface.h

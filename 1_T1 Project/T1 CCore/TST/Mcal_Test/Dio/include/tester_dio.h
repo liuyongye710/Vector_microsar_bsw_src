@@ -1,0 +1,80 @@
+#include "mcu.h"
+#include "port.h"
+#include "Port_Cfg.h"
+#include "Dio_cfg.h"
+#include "Dio.h"
+typedef void (*Diofunc)(void);
+typedef struct _DiofuncMachine
+{
+    char *name;
+    Diofunc diofunc;
+}DiofuncMachine;
+
+#if 0 
+void testdio0008();
+void testdio0009();
+void testdio0010();
+void testdio0011();
+void testdio0012();
+void testdio0013();
+void testdio0014();
+void testdio0015();
+void testdio0016();
+void testdio0017();
+void testdio0018();
+void testdio0019();
+void testdio0020();
+void testdio0021();
+void testdio0022();
+void testdio0023();
+void testdio0024();
+void testdio0025();
+void testdio0026();
+void testdio0027();
+void testdio0028();
+void testdio0029();
+void testdio0030();
+void testdio0031();
+void testdio0032();
+void testdio0033();
+void testdio0034();
+void testdio0035();
+void testdio0036();
+void testdio0037();
+void testdio0038();
+void testdio0039();
+void testdio0040();
+void testdio0041();
+void testdio0042();
+void testdio0043();
+void testdio0044();
+void testdio0045();
+void testdio0046();
+void testdio0047();
+void testdio0048();
+void testdio0049();
+void testdio0050();
+void testdio0051();
+void testdio0052();
+void testdio0053();
+void testdio0054();
+void testdio0055();
+void testdio0056();
+void testdio0057();
+void testdio0058();
+void testdio0059();
+void testdio0060();
+void testdio0061();
+void testdio0062();
+void testdio0063();
+void testdio0064();
+#endif
+void testdio0001();
+void testdio0002();
+void testdio0003();
+void testdio0004();
+void testdio0005();
+void testdio0006();
+void testdio0007();
+void testdio0008();
+

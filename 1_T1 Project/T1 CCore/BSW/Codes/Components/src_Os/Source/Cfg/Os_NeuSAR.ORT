@@ -1,0 +1,1786 @@
+/*
+********************************************************************************
+*
+*  File name:	Os_NeuSAR.ORT
+*
+*  Copyright	Neusoft Reach Corporation. All rights reserved.
+*
+********************************************************************************
+*
+* History
+*-------------------------------------------------------------------------------
+********************************************************************************
+* Version: 3.0
+* Author/Date : Niexb/2022.07.26
+* Change: New create.
+* Cause: New
+********************************************************************************/
+VERSION {
+    KOIL = "2.3";
+    OSSEMANTICS = "ORTI", "2.3";
+}; /* VERSION */
+
+IMPLEMENTATION NeuSAR_ORTI {
+OS {
+CTYPE "int" vs_SMP_NUMCPU, "Number of CPUs";
+
+ENUM "CoreIdType" [
+        "OS_CORE_ID_0" = 0U
+        "OS_CORE_ID_1" = 1U
+        "OS_CORE_ID_2" = 2U
+    ] vs_COREID[], "Current Core ID";
+
+TOTRACE ENUM "void *" [
+        "DEFAULT_INIT_TASK_CORE0" = "&OsCfg_Task_Default_Init_Task_Core0_Dyn",
+        "IDLE_TASK_CORE0" = "&OsCfg_Task_Idle_Task_Core0_Dyn",
+        "TASK_INIT_CORE0_QM" = "&OsCfg_Task_Task_Init_Core0_QM_Dyn",
+        "TASK_10MS_CORE0_QM" = "&OsCfg_Task_Task_10ms_Core0_QM_Dyn",
+        "TASK_20MS_CORE0_QM" = "&OsCfg_Task_Task_20ms_Core0_QM_Dyn",
+        "TASK_50MS_CORE0_QM" = "&OsCfg_Task_Task_50ms_Core0_QM_Dyn",
+        "TASK_100MS_CORE0_QM" = "&OsCfg_Task_Task_100ms_Core0_QM_Dyn",
+        "TASK_200MS_CORE0_QM" = "&OsCfg_Task_Task_200ms_Core0_QM_Dyn",
+        "TASK_500MS_CORE0_QM" = "&OsCfg_Task_Task_500ms_Core0_QM_Dyn",
+        "TASK_1000MS_CORE0_QM" = "&OsCfg_Task_Task_1000ms_Core0_QM_Dyn",
+        "TASK_2MS_CORE0_QM" = "&OsCfg_Task_Task_2ms_Core0_QM_Dyn",
+        "DEFAULT_INIT_TASK_CORE1" = "&OsCfg_Task_Default_Init_Task_Core1_Dyn",
+        "IDLE_TASK_CORE1" = "&OsCfg_Task_Idle_Task_Core1_Dyn",
+        "TASK_INIT_CORE1_QM" = "&OsCfg_Task_Task_Init_Core1_QM_Dyn",
+        "TASK_5MS_CORE1_QM" = "&OsCfg_Task_Task_5ms_Core1_QM_Dyn",
+        "TASK_10MS_CORE1_QM" = "&OsCfg_Task_Task_10ms_Core1_QM_Dyn",
+        "TASK_20MS_CORE1_QM" = "&OsCfg_Task_Task_20ms_Core1_QM_Dyn",
+        "TASK_50MS_CORE1_QM" = "&OsCfg_Task_Task_50ms_Core1_QM_Dyn",
+        "TASK_100MS_CORE1_QM" = "&OsCfg_Task_Task_100ms_Core1_QM_Dyn",
+        "TASK_200MS_CORE1_QM" = "&OsCfg_Task_Task_200ms_Core1_QM_Dyn",
+        "TASK_500MS_CORE1_QM" = "&OsCfg_Task_Task_500ms_Core1_QM_Dyn",
+        "TASK_1000MS_CORE1_QM" = "&OsCfg_Task_Task_1000ms_Core1_QM_Dyn",
+        "DEFAULT_INIT_TASK_CORE2" = "&OsCfg_Task_Default_Init_Task_Core2_Dyn",
+        "IDLE_TASK_CORE2" = "&OsCfg_Task_Idle_Task_Core2_Dyn",
+        "TASK_INIT_CORE2_QM" = "&OsCfg_Task_Task_Init_Core2_QM_Dyn",
+        "TASK_1MS_CORE2_QM" = "&OsCfg_Task_Task_1ms_Core2_QM_Dyn",
+        "TASK_4MS_CORE2_QM" = "&OsCfg_Task_Task_4ms_Core2_QM_Dyn",
+        "TASK_5MS_CORE2_QM" = "&OsCfg_Task_Task_5ms_Core2_QM_Dyn",
+        "TASK_10MS_CORE2_QM" = "&OsCfg_Task_Task_10ms_Core2_QM_Dyn",
+        "TASK_20MS_CORE2_QM" = "&OsCfg_Task_Task_20ms_Core2_QM_Dyn",
+        "TASK_50MS_CORE2_QM" = "&OsCfg_Task_Task_50ms_Core2_QM_Dyn",
+        "TASK_100MS_CORE2_QM" = "&OsCfg_Task_Task_100ms_Core2_QM_Dyn",
+        "TASK_200MS_CORE2_QM" = "&OsCfg_Task_Task_200ms_Core2_QM_Dyn",
+        "TASK_500MS_CORE2_QM" = "&OsCfg_Task_Task_500ms_Core2_QM_Dyn",
+        "TASK_1000MS_CORE2_QM" = "&OsCfg_Task_Task_1000ms_Core2_QM_Dyn",
+        "COUNTERISR_SYSTEMTIMER_CORE0" = "&OsCfg_Isr_CounterIsr_SystemTimer_Core0_Dyn",
+        "MULTICOMMISR_OSCORE_CORE0" = "&OsCfg_Isr_MultiCommIsr_OsCore_Core0_Dyn",
+        "OS_MONITOR_ISR" = "&OsCfg_Isr_Os_Monitor_Isr_Dyn",
+        "COUNTERISR_SYSTEMTIMER_CORE1" = "&OsCfg_Isr_CounterIsr_SystemTimer_Core1_Dyn",
+        "MULTICOMMISR_OSCORE_CORE1" = "&OsCfg_Isr_MultiCommIsr_OsCore_Core1_Dyn",
+        "COUNTERISR_SYSTEMTIMER_CORE2" = "&OsCfg_Isr_CounterIsr_SystemTimer_Core2_Dyn",
+        "MULTICOMMISR_OSCORE_CORE2" = "&OsCfg_Isr_MultiCommIsr_OsCore_Core2_Dyn",
+        "FLASHDONE_ISR" = "&OsCfg_Isr_FlashDone_Isr_Dyn",
+        "PIT0_CH4" = "&OsCfg_Isr_PIT0_CH4_Dyn",
+        "PIT0_CH5" = "&OsCfg_Isr_PIT0_CH5_Dyn",
+        "PIT0_CH6" = "&OsCfg_Isr_PIT0_CH6_Dyn",
+        "CAN1_ISR" = "&OsCfg_Isr_Can1_Isr_Dyn",
+        "CAN2_ISR" = "&OsCfg_Isr_Can2_Isr_Dyn",
+        "CAN3_ISR" = "&OsCfg_Isr_Can3_Isr_Dyn",
+        "CAN4_ISR" = "&OsCfg_Isr_Can4_Isr_Dyn",
+        "ADC89_GRP0_ISR" = "&OsCfg_Isr_Adc89_Grp0_Isr_Dyn",
+        "ADC89_GRP1_ISR" = "&OsCfg_Isr_Adc89_Grp1_Isr_Dyn",
+        "ADC89_GRP2_ISR" = "&OsCfg_Isr_Adc89_Grp2_Isr_Dyn",
+        "ADC89_GRP3_ISR" = "&OsCfg_Isr_Adc89_Grp3_Isr_Dyn",
+        "ADC89_GRP4_ISR" = "&OsCfg_Isr_Adc89_Grp4_Isr_Dyn",
+        "ADC89_GRP5_ISR" = "&OsCfg_Isr_Adc89_Grp5_Isr_Dyn",
+        "INVALID_TASK" = "0x0U"
+    ] CURRENTTASK[], "Running Task";
+
+TOTRACE ENUM "void *" [
+        "COUNTERISR_SYSTEMTIMER_CORE0" = "&OsCfg_Isr_CounterIsr_SystemTimer_Core0_Dyn",
+        "MULTICOMMISR_OSCORE_CORE0" = "&OsCfg_Isr_MultiCommIsr_OsCore_Core0_Dyn",
+        "OS_MONITOR_ISR" = "&OsCfg_Isr_Os_Monitor_Isr_Dyn",
+        "COUNTERISR_SYSTEMTIMER_CORE1" = "&OsCfg_Isr_CounterIsr_SystemTimer_Core1_Dyn",
+        "MULTICOMMISR_OSCORE_CORE1" = "&OsCfg_Isr_MultiCommIsr_OsCore_Core1_Dyn",
+        "COUNTERISR_SYSTEMTIMER_CORE2" = "&OsCfg_Isr_CounterIsr_SystemTimer_Core2_Dyn",
+        "MULTICOMMISR_OSCORE_CORE2" = "&OsCfg_Isr_MultiCommIsr_OsCore_Core2_Dyn",
+        "FLASHDONE_ISR" = "&OsCfg_Isr_FlashDone_Isr_Dyn",
+        "PIT0_CH4" = "&OsCfg_Isr_PIT0_CH4_Dyn",
+        "PIT0_CH5" = "&OsCfg_Isr_PIT0_CH5_Dyn",
+        "PIT0_CH6" = "&OsCfg_Isr_PIT0_CH6_Dyn",
+        "CAN1_ISR" = "&OsCfg_Isr_Can1_Isr_Dyn",
+        "CAN2_ISR" = "&OsCfg_Isr_Can2_Isr_Dyn",
+        "CAN3_ISR" = "&OsCfg_Isr_Can3_Isr_Dyn",
+        "CAN4_ISR" = "&OsCfg_Isr_Can4_Isr_Dyn",
+        "ADC89_GRP0_ISR" = "&OsCfg_Isr_Adc89_Grp0_Isr_Dyn",
+        "ADC89_GRP1_ISR" = "&OsCfg_Isr_Adc89_Grp1_Isr_Dyn",
+        "ADC89_GRP2_ISR" = "&OsCfg_Isr_Adc89_Grp2_Isr_Dyn",
+        "ADC89_GRP3_ISR" = "&OsCfg_Isr_Adc89_Grp3_Isr_Dyn",
+        "ADC89_GRP4_ISR" = "&OsCfg_Isr_Adc89_Grp4_Isr_Dyn",
+        "ADC89_GRP5_ISR" = "&OsCfg_Isr_Adc89_Grp5_Isr_Dyn",
+        "INVALID_ISR" = "0x0U"
+    ] CURRENTISR[], "Running ISR";
+
+ENUM "Os_ProcType" [
+      "INVALID_TYPE"       = "0x0000",
+      "PROTECTHOOK_TYPE"   = "0x0001",
+      "ALARM_TYPE"         = "0x0002",
+      "SHOUTDOWNHOOK_TYPE" = "0x0004",
+      "STARTHOOK_TYPE"     = "0x0008",
+      "POSTTASKHOOK_TYPE"  = "0x0010",
+      "PRETASKHOOK_TYPE"   = "0x0020",
+      "ERRHOOK_TYPE"       = "0x0040",
+      "ISR_CAT2_TYPE"      = "0x0080",
+      "ISR_CAT1_TYPE"      = "0x0100",
+      "ISR_TASK_TYPE"      = "0x0200",
+      "SYS_TYPE"           = "0x0400",
+      "SPINLOCK_TYPE"      = "0x0800",
+      "RESOURCE_TYPE"      = "0x1000"
+    ] CURRENTPROC[], "Current processor type";
+
+ENUM "unsigned char" [
+      "E_OS_OK"                    = "0x00",
+      "E_OS_ACCESS"                = "0x01",
+      "E_OS_CALLEVEL"              = "0x02",
+      "E_OS_ID"                    = "0x03",
+      "E_OS_LIMIT"                 = "0x04",
+      "E_OS_NOFUNC"                = "0x05",
+      "E_OS_RESOURCE"              = "0x06",
+      "E_OS_STATE"                 = "0x07",
+      "E_OS_VALUE"                 = "0x08",
+      "E_OS_SERVICEID"             = "0x09",
+      "E_OS_ILLEGAL_ADDRESS"       = "0x0A",
+      "E_OS_MISSINGEND"            = "0x0B",
+      "E_OS_DISABLEDINT"           = "0x0C",
+      "E_OS_STACKFAULT"            = "0x0D",
+      "E_OS_PROTECTION_MEMORY"     = "0x0E",
+      "E_OS_PROTECTION_TIME"       = "0x0F",
+      "E_OS_PROTECTION_ARRIVAL"    = "0x10",
+      "E_OS_PROTECTION_LOCKED"     = "0x11",
+      "E_OS_PROTECTION_EXCEPTION"  = "0x12",
+      "E_OS_INTERFERENCE_DEADLOCK" = "0x13",
+      "E_OS_NESTING_DEADLOCK"      = "0x14",
+      "E_OS_SPINLOCK"              = "0x15",
+      "E_OS_CORE"                  = "0x16",
+      "E_OS_PARAM_POINTER"         = "0x17",
+      "E_OS_NODATA"                = "0x18",
+      "E_OS_BUFFFULL"              = "0x19",
+      "E_OS_BUFFEMPTY"             = "0x1A",
+      "E_OS_RESOURCE_LOCKED"       = "0x1B",
+      "E_OS_PRIORITY "             = "0x1C",
+      "E_OS_SYS_CROSS_TIMEOUT"     = "0xFF"
+    ] LASTERROR[], "Last OSEK Error";
+
+ENUM "unsigned char" [
+      "OS_APPMODE_NONE"  = 0,
+      "OSDEFAULTAPPMODE" = 1,
+      "OS_APPMODE_ANY"   = 255
+    ] CURRENTAPPMODE[], "Current Application Mode";
+  }, "OS"; /* OS */
+
+TASK {
+CTYPE "uint32" vs_Runtime, "Runtime";
+CTYPE "uint32" vs_MaxRuntime, "MaxRuntime";
+CTYPE "uint32" vs_Cpuload, "CpuLoad";
+ENUM "unsigned long" [
+       "0" = 0U,
+       "1" = 1U,
+       "2" = 2U,
+       "3" = 3U,
+       "4" = 4U,
+       "5" = 5U,
+       "6" = 6U,
+       "7" = 7U,
+       "8" = 8U,
+       "9" = 9U,
+       "10" = 10U,
+       "11" = 11U,
+       "12" = 12U
+    ] DynPriority, "Current priority";
+ENUM "unsigned long" [
+       "0" = 0U,
+       "1" = 1U,
+       "2" = 2U,
+       "3" = 3U,
+       "4" = 4U,
+       "5" = 5U,
+       "6" = 6U,
+       "7" = 7U,
+       "8" = 8U,
+       "9" = 9U,
+       "10" = 10U,
+       "11" = 11U,
+       "12" = 12U
+    ] CfgPriority, "configured priority";
+
+ENUM "TaskStateType" [
+      "RUNNING" = 0,
+      "READY" = 1,
+      "WAITING" = 2,
+      "SUSPENDED" = 3,
+      "UNKNOWN" = 0xFF
+    ] STATE, "State";
+
+ENUM "void *" [
+       "OsCfg_Arch_Stack_Default_Init_Task_Core0" : OsCfg_Arch_Stack_Default_Init_Task_Core0 = "&OsCfg_Arch_Stack_Default_Init_Task_Core0",
+       "OsCfg_Arch_Stack_Idle_Task_Core0" : OsCfg_Arch_Stack_Idle_Task_Core0 = "&OsCfg_Arch_Stack_Idle_Task_Core0",
+       "OsCfg_Arch_Stack_Task_Init_Core0_QM" : OsCfg_Arch_Stack_Task_Init_Core0_QM = "&OsCfg_Arch_Stack_Task_Init_Core0_QM",
+       "OsCfg_Arch_Stack_Task_10ms_Core0_QM" : OsCfg_Arch_Stack_Task_10ms_Core0_QM = "&OsCfg_Arch_Stack_Task_10ms_Core0_QM",
+       "OsCfg_Arch_Stack_Task_20ms_Core0_QM" : OsCfg_Arch_Stack_Task_20ms_Core0_QM = "&OsCfg_Arch_Stack_Task_20ms_Core0_QM",
+       "OsCfg_Arch_Stack_Task_50ms_Core0_QM" : OsCfg_Arch_Stack_Task_50ms_Core0_QM = "&OsCfg_Arch_Stack_Task_50ms_Core0_QM",
+       "OsCfg_Arch_Stack_Task_100ms_Core0_QM" : OsCfg_Arch_Stack_Task_100ms_Core0_QM = "&OsCfg_Arch_Stack_Task_100ms_Core0_QM",
+       "OsCfg_Arch_Stack_Task_200ms_Core0_QM" : OsCfg_Arch_Stack_Task_200ms_Core0_QM = "&OsCfg_Arch_Stack_Task_200ms_Core0_QM",
+       "OsCfg_Arch_Stack_Task_500ms_Core0_QM" : OsCfg_Arch_Stack_Task_500ms_Core0_QM = "&OsCfg_Arch_Stack_Task_500ms_Core0_QM",
+       "OsCfg_Arch_Stack_Task_1000ms_Core0_QM" : OsCfg_Arch_Stack_Task_1000ms_Core0_QM = "&OsCfg_Arch_Stack_Task_1000ms_Core0_QM",
+       "OsCfg_Arch_Stack_Task_2ms_Core0_QM" : OsCfg_Arch_Stack_Task_2ms_Core0_QM = "&OsCfg_Arch_Stack_Task_2ms_Core0_QM",
+       "OsCfg_Arch_Stack_Default_Init_Task_Core1" : OsCfg_Arch_Stack_Default_Init_Task_Core1 = "&OsCfg_Arch_Stack_Default_Init_Task_Core1",
+       "OsCfg_Arch_Stack_Idle_Task_Core1" : OsCfg_Arch_Stack_Idle_Task_Core1 = "&OsCfg_Arch_Stack_Idle_Task_Core1",
+       "OsCfg_Arch_Stack_Task_Init_Core1_QM" : OsCfg_Arch_Stack_Task_Init_Core1_QM = "&OsCfg_Arch_Stack_Task_Init_Core1_QM",
+       "OsCfg_Arch_Stack_Task_5ms_Core1_QM" : OsCfg_Arch_Stack_Task_5ms_Core1_QM = "&OsCfg_Arch_Stack_Task_5ms_Core1_QM",
+       "OsCfg_Arch_Stack_Task_10ms_Core1_QM" : OsCfg_Arch_Stack_Task_10ms_Core1_QM = "&OsCfg_Arch_Stack_Task_10ms_Core1_QM",
+       "OsCfg_Arch_Stack_Task_20ms_Core1_QM" : OsCfg_Arch_Stack_Task_20ms_Core1_QM = "&OsCfg_Arch_Stack_Task_20ms_Core1_QM",
+       "OsCfg_Arch_Stack_Task_50ms_Core1_QM" : OsCfg_Arch_Stack_Task_50ms_Core1_QM = "&OsCfg_Arch_Stack_Task_50ms_Core1_QM",
+       "OsCfg_Arch_Stack_Task_100ms_Core1_QM" : OsCfg_Arch_Stack_Task_100ms_Core1_QM = "&OsCfg_Arch_Stack_Task_100ms_Core1_QM",
+       "OsCfg_Arch_Stack_Task_200ms_Core1_QM" : OsCfg_Arch_Stack_Task_200ms_Core1_QM = "&OsCfg_Arch_Stack_Task_200ms_Core1_QM",
+       "OsCfg_Arch_Stack_Task_500ms_Core1_QM" : OsCfg_Arch_Stack_Task_500ms_Core1_QM = "&OsCfg_Arch_Stack_Task_500ms_Core1_QM",
+       "OsCfg_Arch_Stack_Task_1000ms_Core1_QM" : OsCfg_Arch_Stack_Task_1000ms_Core1_QM = "&OsCfg_Arch_Stack_Task_1000ms_Core1_QM",
+       "OsCfg_Arch_Stack_Default_Init_Task_Core2" : OsCfg_Arch_Stack_Default_Init_Task_Core2 = "&OsCfg_Arch_Stack_Default_Init_Task_Core2",
+       "OsCfg_Arch_Stack_Idle_Task_Core2" : OsCfg_Arch_Stack_Idle_Task_Core2 = "&OsCfg_Arch_Stack_Idle_Task_Core2",
+       "OsCfg_Arch_Stack_Task_Init_Core2_QM" : OsCfg_Arch_Stack_Task_Init_Core2_QM = "&OsCfg_Arch_Stack_Task_Init_Core2_QM",
+       "OsCfg_Arch_Stack_Task_1ms_Core2_QM" : OsCfg_Arch_Stack_Task_1ms_Core2_QM = "&OsCfg_Arch_Stack_Task_1ms_Core2_QM",
+       "OsCfg_Arch_Stack_Task_4ms_Core2_QM" : OsCfg_Arch_Stack_Task_4ms_Core2_QM = "&OsCfg_Arch_Stack_Task_4ms_Core2_QM",
+       "OsCfg_Arch_Stack_Task_5ms_Core2_QM" : OsCfg_Arch_Stack_Task_5ms_Core2_QM = "&OsCfg_Arch_Stack_Task_5ms_Core2_QM",
+       "OsCfg_Arch_Stack_Task_10ms_Core2_QM" : OsCfg_Arch_Stack_Task_10ms_Core2_QM = "&OsCfg_Arch_Stack_Task_10ms_Core2_QM",
+       "OsCfg_Arch_Stack_Task_20ms_Core2_QM" : OsCfg_Arch_Stack_Task_20ms_Core2_QM = "&OsCfg_Arch_Stack_Task_20ms_Core2_QM",
+       "OsCfg_Arch_Stack_Task_50ms_Core2_QM" : OsCfg_Arch_Stack_Task_50ms_Core2_QM = "&OsCfg_Arch_Stack_Task_50ms_Core2_QM",
+       "OsCfg_Arch_Stack_Task_100ms_Core2_QM" : OsCfg_Arch_Stack_Task_100ms_Core2_QM = "&OsCfg_Arch_Stack_Task_100ms_Core2_QM",
+       "OsCfg_Arch_Stack_Task_200ms_Core2_QM" : OsCfg_Arch_Stack_Task_200ms_Core2_QM = "&OsCfg_Arch_Stack_Task_200ms_Core2_QM",
+       "OsCfg_Arch_Stack_Task_500ms_Core2_QM" : OsCfg_Arch_Stack_Task_500ms_Core2_QM = "&OsCfg_Arch_Stack_Task_500ms_Core2_QM",
+       "OsCfg_Arch_Stack_Task_1000ms_Core2_QM" : OsCfg_Arch_Stack_Task_1000ms_Core2_QM = "&OsCfg_Arch_Stack_Task_1000ms_Core2_QM",
+       "OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core0" : OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core0 = "&OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core0",
+       "OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core0" : OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core0 = "&OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core0",
+       "OsCfg_Arch_Stack_Os_Monitor_Isr" : OsCfg_Arch_Stack_Os_Monitor_Isr = "&OsCfg_Arch_Stack_Os_Monitor_Isr",
+       "OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core1" : OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core1 = "&OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core1",
+       "OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core1" : OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core1 = "&OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core1",
+       "OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core2" : OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core2 = "&OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core2",
+       "OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core2" : OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core2 = "&OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core2",
+       "OsCfg_Arch_Stack_FlashDone_Isr" : OsCfg_Arch_Stack_FlashDone_Isr = "&OsCfg_Arch_Stack_FlashDone_Isr",
+       "OsCfg_Arch_Stack_PIT0_CH4" : OsCfg_Arch_Stack_PIT0_CH4 = "&OsCfg_Arch_Stack_PIT0_CH4",
+       "OsCfg_Arch_Stack_PIT0_CH5" : OsCfg_Arch_Stack_PIT0_CH5 = "&OsCfg_Arch_Stack_PIT0_CH5",
+       "OsCfg_Arch_Stack_PIT0_CH6" : OsCfg_Arch_Stack_PIT0_CH6 = "&OsCfg_Arch_Stack_PIT0_CH6",
+       "OsCfg_Arch_Stack_Can1_Isr" : OsCfg_Arch_Stack_Can1_Isr = "&OsCfg_Arch_Stack_Can1_Isr",
+       "OsCfg_Arch_Stack_Can2_Isr" : OsCfg_Arch_Stack_Can2_Isr = "&OsCfg_Arch_Stack_Can2_Isr",
+       "OsCfg_Arch_Stack_Can3_Isr" : OsCfg_Arch_Stack_Can3_Isr = "&OsCfg_Arch_Stack_Can3_Isr",
+       "OsCfg_Arch_Stack_Can4_Isr" : OsCfg_Arch_Stack_Can4_Isr = "&OsCfg_Arch_Stack_Can4_Isr",
+       "OsCfg_Arch_Stack_Adc89_Grp0_Isr" : OsCfg_Arch_Stack_Adc89_Grp0_Isr = "&OsCfg_Arch_Stack_Adc89_Grp0_Isr",
+       "OsCfg_Arch_Stack_Adc89_Grp1_Isr" : OsCfg_Arch_Stack_Adc89_Grp1_Isr = "&OsCfg_Arch_Stack_Adc89_Grp1_Isr",
+       "OsCfg_Arch_Stack_Adc89_Grp2_Isr" : OsCfg_Arch_Stack_Adc89_Grp2_Isr = "&OsCfg_Arch_Stack_Adc89_Grp2_Isr",
+       "OsCfg_Arch_Stack_Adc89_Grp3_Isr" : OsCfg_Arch_Stack_Adc89_Grp3_Isr = "&OsCfg_Arch_Stack_Adc89_Grp3_Isr",
+       "OsCfg_Arch_Stack_Adc89_Grp4_Isr" : OsCfg_Arch_Stack_Adc89_Grp4_Isr = "&OsCfg_Arch_Stack_Adc89_Grp4_Isr",
+       "OsCfg_Arch_Stack_Adc89_Grp5_Isr" : OsCfg_Arch_Stack_Adc89_Grp5_Isr = "&OsCfg_Arch_Stack_Adc89_Grp5_Isr"
+    ] STACK, "Stack";
+
+ENUM "unsigned char" [
+      "BASIC" = 0,
+      "EXTENDED" = 1
+    ] vs_TaskType, "Type";
+
+ENUM "unsigned char" [
+      "FULL" = 0,
+      "NON" = 1
+    ] vs_ScheduleType, "Schedule type";
+
+CTYPE "Os_ActivationCntType" CURRENTACTIVATIONS, "Activations";
+CTYPE "Os_ActivationCntType" vs_MaxActivations, "Max. Activations";
+
+ENUM "void *" [
+        "No lock" = "0U",
+        "Resource_Core0_Task_OsResource0_lock" = "&OsCfg_Resource_Core0_Task_OsResource0_Dyn.rsrcListNode",
+        "Resource_Core1_Task_OsResource1_lock" = "&OsCfg_Resource_Core1_Task_OsResource1_Dyn.rsrcListNode",
+        "Resource_Core2_Task_OsResource2_lock" = "&OsCfg_Resource_Core2_Task_OsResource2_Dyn.rsrcListNode"
+    ] vs_ResLockState, "Res lock state";
+
+}, "Tasks"; /* TASK */
+
+STACK {
+    CTYPE "unsigned long" SIZE, "Stack Size (Byte)";
+    CTYPE "Os_Stack_Address *" BASEADDRESS, "Stack Start Address";
+    STRING STACKDIRECTION, "Stack Direction";
+    CTYPE "Os_Stack_Address" FILLPATTERN, "Stack Fill Pattern";
+  }, "Stacks"; /* STACK */
+
+ALARM {
+    ENUM "Os_AlarmStateType" [
+      "ALARM_OFF" = 0,
+      "ALARM_SET" = 1
+    ] STATE, "Alarm State";
+    CTYPE "Os_TickType" CYCLETIME, "Cycle Time (Ticks)";
+    ENUM "unsigned char" [
+      "ALRM_CB" = 3,
+      "ALRM_IC" = 2,
+      "ALRM_SE" = 1,
+      "ALRM_AT" = 0
+     ] vs_Action, "Alarm Action";
+    STRING COUNTER, "Counter";
+  }, "Alarms"; /* ALARM */
+
+EVENT {
+    CTYPE "EventMaskType" vs_EventMask, "Event Mask";
+  }, "Events"; /* EVENT */
+
+RESOURCE {
+    ENUM "unsigned char" [
+      "LOCKED" = 1,
+      "RELEASED" = 0
+     ] vs_STATE, "Resource State";
+    ENUM "unsigned char" [
+      "ISR" = 1,
+      "TASK" = 0
+     ] TYPE, "Resource Type";
+  }, "Resources";  /* RESOURCE */
+
+SPINLOCK {
+    ENUM "unsigned char" [
+      "LOCKED" = 1,
+      "UNLOCKED" = 0
+     ] vs_STATE, "Spinlock State";
+    ENUM "unsigned char" [
+      "SCHEDULER" = 3,
+      "CAT2_ISR" = 2,
+      "ALL_ISR" = 1,
+      "NOTHING" = 0
+     ] vs_Method, "Spinlock Method";
+  }, "Spinlocks";  /* SPINLOCK */
+
+SCHEDULETABLE {
+    ENUM "ScheduleTableStatusType" [
+      "STOPPED" = 0,
+      "NEXT" = 1,
+      "WAITING" = 2,
+      "RUNNING" = 3,
+      "RUNNING_AND_SYNCHRONOUS" = 4
+    ] vs_STATE, "State";
+    ENUM "void *" [
+      "-" = "0x0"
+    ] vs_ScheduleTableNext, "Next ScheduleTable";
+    ENUM "void *" [
+      "-" = "0x0"
+    ] vs_ExpiryPointCurrent, "current Expiry Point";
+  }, "ScheduleTables"; /* SCHEDULETABLE */
+
+CPULOAD{
+  CTYPE "uint32" vs_Runtime, "RunTime";
+  CTYPE "uint32" vs_Cpuload, "CpuLoad";
+},"Cpuload";/* CPULOAD */
+}
+
+/* Core */
+OS CCFC3008 {
+  vs_SMP_NUMCPU = "3U";
+  /* Os Information for AUTOSAR core OsCore0 */
+  vs_COREID[0] = "OsCfg_Core_OsCore0.coreCoreLogicId";
+  CURRENTTASK[0] = "OsCfg_Core_OsCore0_Dyn.currentTask";
+  CURRENTISR[0] = "OsCfg_Core_OsCore0_Dyn.currentIsr";
+  CURRENTPROC[0] = "OsCfg_Core_OsCore0_Dyn.currentProcType";
+  LASTERROR[0] = "OsCfg_Core_OsCore0_Dyn.errorInformation.error";
+  CURRENTAPPMODE[0] = "OsCfg_Core_OsCore0_Dyn.coreAppMode";
+
+  /* Os Information for AUTOSAR core OsCore1 */
+  vs_COREID[1] = "OsCfg_Core_OsCore1.coreCoreLogicId";
+  CURRENTTASK[1] = "OsCfg_Core_OsCore1_Dyn.currentTask";
+  CURRENTISR[1] = "OsCfg_Core_OsCore1_Dyn.currentIsr";
+  CURRENTPROC[1] = "OsCfg_Core_OsCore1_Dyn.currentProcType";
+  LASTERROR[1] = "OsCfg_Core_OsCore1_Dyn.errorInformation.error";
+  CURRENTAPPMODE[1] = "OsCfg_Core_OsCore1_Dyn.coreAppMode";
+
+  /* Os Information for AUTOSAR core OsCore2 */
+  vs_COREID[2] = "OsCfg_Core_OsCore2.coreCoreLogicId";
+  CURRENTTASK[2] = "OsCfg_Core_OsCore2_Dyn.currentTask";
+  CURRENTISR[2] = "OsCfg_Core_OsCore2_Dyn.currentIsr";
+  CURRENTPROC[2] = "OsCfg_Core_OsCore2_Dyn.currentProcType";
+  LASTERROR[2] = "OsCfg_Core_OsCore2_Dyn.errorInformation.error";
+  CURRENTAPPMODE[2] = "OsCfg_Core_OsCore2_Dyn.coreAppMode";
+
+}
+/* Task */
+TASK Default_Init_Task_Core0 {
+  vs_Runtime = "Os_Monitor_TaskStackPara[0].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[0].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[0].CpuLoad";
+  DynPriority = "OsCfg_Task_Default_Init_Task_Core0_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Default_Init_Task_Core0.cfgPrio";
+  STATE = "OsCfg_Task_Default_Init_Task_Core0_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Default_Init_Task_Core0";
+  vs_TaskType = "OsCfg_Task_Default_Init_Task_Core0.taskType";
+  vs_ScheduleType = "OsCfg_Task_Default_Init_Task_Core0.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Default_Init_Task_Core0_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Default_Init_Task_Core0.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Default_Init_Task_Core0_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Default_Init_Task_Core0_Dyn.spinListHead.nextNode";
+}; /* Default_Init_Task_Core0 */
+
+TASK Idle_Task_Core0 {
+  vs_Runtime = "Os_Monitor_TaskStackPara[1].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[1].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[1].CpuLoad";
+  DynPriority = "OsCfg_Task_Idle_Task_Core0_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Idle_Task_Core0.cfgPrio";
+  STATE = "OsCfg_Task_Idle_Task_Core0_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Idle_Task_Core0";
+  vs_TaskType = "OsCfg_Task_Idle_Task_Core0.taskType";
+  vs_ScheduleType = "OsCfg_Task_Idle_Task_Core0.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Idle_Task_Core0_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Idle_Task_Core0.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Idle_Task_Core0_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Idle_Task_Core0_Dyn.spinListHead.nextNode";
+}; /* Idle_Task_Core0 */
+
+TASK Task_Init_Core0_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[2].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[2].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[2].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_Init_Core0_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_Init_Core0_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_Init_Core0_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_Init_Core0_QM";
+  vs_TaskType = "OsCfg_Task_Task_Init_Core0_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_Init_Core0_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_Init_Core0_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_Init_Core0_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_Init_Core0_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_Init_Core0_QM_Dyn.spinListHead.nextNode";
+}; /* Task_Init_Core0_QM */
+
+TASK Task_10ms_Core0_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[3].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[3].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[3].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_10ms_Core0_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_10ms_Core0_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_10ms_Core0_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_10ms_Core0_QM";
+  vs_TaskType = "OsCfg_Task_Task_10ms_Core0_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_10ms_Core0_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_10ms_Core0_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_10ms_Core0_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_10ms_Core0_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_10ms_Core0_QM_Dyn.spinListHead.nextNode";
+}; /* Task_10ms_Core0_QM */
+
+TASK Task_20ms_Core0_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[4].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[4].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[4].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_20ms_Core0_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_20ms_Core0_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_20ms_Core0_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_20ms_Core0_QM";
+  vs_TaskType = "OsCfg_Task_Task_20ms_Core0_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_20ms_Core0_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_20ms_Core0_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_20ms_Core0_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_20ms_Core0_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_20ms_Core0_QM_Dyn.spinListHead.nextNode";
+}; /* Task_20ms_Core0_QM */
+
+TASK Task_50ms_Core0_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[5].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[5].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[5].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_50ms_Core0_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_50ms_Core0_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_50ms_Core0_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_50ms_Core0_QM";
+  vs_TaskType = "OsCfg_Task_Task_50ms_Core0_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_50ms_Core0_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_50ms_Core0_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_50ms_Core0_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_50ms_Core0_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_50ms_Core0_QM_Dyn.spinListHead.nextNode";
+}; /* Task_50ms_Core0_QM */
+
+TASK Task_100ms_Core0_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[6].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[6].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[6].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_100ms_Core0_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_100ms_Core0_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_100ms_Core0_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_100ms_Core0_QM";
+  vs_TaskType = "OsCfg_Task_Task_100ms_Core0_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_100ms_Core0_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_100ms_Core0_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_100ms_Core0_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_100ms_Core0_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_100ms_Core0_QM_Dyn.spinListHead.nextNode";
+}; /* Task_100ms_Core0_QM */
+
+TASK Task_200ms_Core0_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[7].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[7].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[7].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_200ms_Core0_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_200ms_Core0_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_200ms_Core0_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_200ms_Core0_QM";
+  vs_TaskType = "OsCfg_Task_Task_200ms_Core0_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_200ms_Core0_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_200ms_Core0_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_200ms_Core0_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_200ms_Core0_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_200ms_Core0_QM_Dyn.spinListHead.nextNode";
+}; /* Task_200ms_Core0_QM */
+
+TASK Task_500ms_Core0_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[8].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[8].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[8].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_500ms_Core0_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_500ms_Core0_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_500ms_Core0_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_500ms_Core0_QM";
+  vs_TaskType = "OsCfg_Task_Task_500ms_Core0_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_500ms_Core0_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_500ms_Core0_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_500ms_Core0_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_500ms_Core0_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_500ms_Core0_QM_Dyn.spinListHead.nextNode";
+}; /* Task_500ms_Core0_QM */
+
+TASK Task_1000ms_Core0_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[9].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[9].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[9].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_1000ms_Core0_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_1000ms_Core0_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_1000ms_Core0_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_1000ms_Core0_QM";
+  vs_TaskType = "OsCfg_Task_Task_1000ms_Core0_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_1000ms_Core0_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_1000ms_Core0_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_1000ms_Core0_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_1000ms_Core0_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_1000ms_Core0_QM_Dyn.spinListHead.nextNode";
+}; /* Task_1000ms_Core0_QM */
+
+TASK Task_2ms_Core0_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[10].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[10].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[10].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_2ms_Core0_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_2ms_Core0_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_2ms_Core0_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_2ms_Core0_QM";
+  vs_TaskType = "OsCfg_Task_Task_2ms_Core0_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_2ms_Core0_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_2ms_Core0_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_2ms_Core0_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_2ms_Core0_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_2ms_Core0_QM_Dyn.spinListHead.nextNode";
+}; /* Task_2ms_Core0_QM */
+
+TASK Default_Init_Task_Core1 {
+  vs_Runtime = "Os_Monitor_TaskStackPara[11].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[11].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[11].CpuLoad";
+  DynPriority = "OsCfg_Task_Default_Init_Task_Core1_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Default_Init_Task_Core1.cfgPrio";
+  STATE = "OsCfg_Task_Default_Init_Task_Core1_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Default_Init_Task_Core1";
+  vs_TaskType = "OsCfg_Task_Default_Init_Task_Core1.taskType";
+  vs_ScheduleType = "OsCfg_Task_Default_Init_Task_Core1.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Default_Init_Task_Core1_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Default_Init_Task_Core1.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Default_Init_Task_Core1_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Default_Init_Task_Core1_Dyn.spinListHead.nextNode";
+}; /* Default_Init_Task_Core1 */
+
+TASK Idle_Task_Core1 {
+  vs_Runtime = "Os_Monitor_TaskStackPara[12].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[12].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[12].CpuLoad";
+  DynPriority = "OsCfg_Task_Idle_Task_Core1_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Idle_Task_Core1.cfgPrio";
+  STATE = "OsCfg_Task_Idle_Task_Core1_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Idle_Task_Core1";
+  vs_TaskType = "OsCfg_Task_Idle_Task_Core1.taskType";
+  vs_ScheduleType = "OsCfg_Task_Idle_Task_Core1.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Idle_Task_Core1_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Idle_Task_Core1.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Idle_Task_Core1_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Idle_Task_Core1_Dyn.spinListHead.nextNode";
+}; /* Idle_Task_Core1 */
+
+TASK Task_Init_Core1_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[13].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[13].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[13].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_Init_Core1_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_Init_Core1_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_Init_Core1_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_Init_Core1_QM";
+  vs_TaskType = "OsCfg_Task_Task_Init_Core1_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_Init_Core1_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_Init_Core1_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_Init_Core1_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_Init_Core1_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_Init_Core1_QM_Dyn.spinListHead.nextNode";
+}; /* Task_Init_Core1_QM */
+
+TASK Task_5ms_Core1_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[14].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[14].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[14].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_5ms_Core1_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_5ms_Core1_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_5ms_Core1_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_5ms_Core1_QM";
+  vs_TaskType = "OsCfg_Task_Task_5ms_Core1_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_5ms_Core1_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_5ms_Core1_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_5ms_Core1_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_5ms_Core1_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_5ms_Core1_QM_Dyn.spinListHead.nextNode";
+}; /* Task_5ms_Core1_QM */
+
+TASK Task_10ms_Core1_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[15].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[15].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[15].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_10ms_Core1_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_10ms_Core1_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_10ms_Core1_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_10ms_Core1_QM";
+  vs_TaskType = "OsCfg_Task_Task_10ms_Core1_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_10ms_Core1_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_10ms_Core1_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_10ms_Core1_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_10ms_Core1_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_10ms_Core1_QM_Dyn.spinListHead.nextNode";
+}; /* Task_10ms_Core1_QM */
+
+TASK Task_20ms_Core1_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[16].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[16].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[16].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_20ms_Core1_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_20ms_Core1_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_20ms_Core1_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_20ms_Core1_QM";
+  vs_TaskType = "OsCfg_Task_Task_20ms_Core1_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_20ms_Core1_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_20ms_Core1_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_20ms_Core1_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_20ms_Core1_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_20ms_Core1_QM_Dyn.spinListHead.nextNode";
+}; /* Task_20ms_Core1_QM */
+
+TASK Task_50ms_Core1_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[17].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[17].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[17].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_50ms_Core1_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_50ms_Core1_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_50ms_Core1_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_50ms_Core1_QM";
+  vs_TaskType = "OsCfg_Task_Task_50ms_Core1_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_50ms_Core1_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_50ms_Core1_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_50ms_Core1_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_50ms_Core1_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_50ms_Core1_QM_Dyn.spinListHead.nextNode";
+}; /* Task_50ms_Core1_QM */
+
+TASK Task_100ms_Core1_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[18].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[18].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[18].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_100ms_Core1_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_100ms_Core1_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_100ms_Core1_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_100ms_Core1_QM";
+  vs_TaskType = "OsCfg_Task_Task_100ms_Core1_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_100ms_Core1_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_100ms_Core1_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_100ms_Core1_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_100ms_Core1_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_100ms_Core1_QM_Dyn.spinListHead.nextNode";
+}; /* Task_100ms_Core1_QM */
+
+TASK Task_200ms_Core1_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[19].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[19].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[19].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_200ms_Core1_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_200ms_Core1_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_200ms_Core1_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_200ms_Core1_QM";
+  vs_TaskType = "OsCfg_Task_Task_200ms_Core1_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_200ms_Core1_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_200ms_Core1_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_200ms_Core1_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_200ms_Core1_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_200ms_Core1_QM_Dyn.spinListHead.nextNode";
+}; /* Task_200ms_Core1_QM */
+
+TASK Task_500ms_Core1_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[20].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[20].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[20].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_500ms_Core1_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_500ms_Core1_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_500ms_Core1_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_500ms_Core1_QM";
+  vs_TaskType = "OsCfg_Task_Task_500ms_Core1_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_500ms_Core1_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_500ms_Core1_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_500ms_Core1_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_500ms_Core1_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_500ms_Core1_QM_Dyn.spinListHead.nextNode";
+}; /* Task_500ms_Core1_QM */
+
+TASK Task_1000ms_Core1_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[21].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[21].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[21].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_1000ms_Core1_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_1000ms_Core1_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_1000ms_Core1_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_1000ms_Core1_QM";
+  vs_TaskType = "OsCfg_Task_Task_1000ms_Core1_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_1000ms_Core1_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_1000ms_Core1_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_1000ms_Core1_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_1000ms_Core1_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_1000ms_Core1_QM_Dyn.spinListHead.nextNode";
+}; /* Task_1000ms_Core1_QM */
+
+TASK Default_Init_Task_Core2 {
+  vs_Runtime = "Os_Monitor_TaskStackPara[22].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[22].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[22].CpuLoad";
+  DynPriority = "OsCfg_Task_Default_Init_Task_Core2_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Default_Init_Task_Core2.cfgPrio";
+  STATE = "OsCfg_Task_Default_Init_Task_Core2_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Default_Init_Task_Core2";
+  vs_TaskType = "OsCfg_Task_Default_Init_Task_Core2.taskType";
+  vs_ScheduleType = "OsCfg_Task_Default_Init_Task_Core2.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Default_Init_Task_Core2_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Default_Init_Task_Core2.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Default_Init_Task_Core2_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Default_Init_Task_Core2_Dyn.spinListHead.nextNode";
+}; /* Default_Init_Task_Core2 */
+
+TASK Idle_Task_Core2 {
+  vs_Runtime = "Os_Monitor_TaskStackPara[23].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[23].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[23].CpuLoad";
+  DynPriority = "OsCfg_Task_Idle_Task_Core2_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Idle_Task_Core2.cfgPrio";
+  STATE = "OsCfg_Task_Idle_Task_Core2_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Idle_Task_Core2";
+  vs_TaskType = "OsCfg_Task_Idle_Task_Core2.taskType";
+  vs_ScheduleType = "OsCfg_Task_Idle_Task_Core2.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Idle_Task_Core2_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Idle_Task_Core2.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Idle_Task_Core2_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Idle_Task_Core2_Dyn.spinListHead.nextNode";
+}; /* Idle_Task_Core2 */
+
+TASK Task_Init_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[24].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[24].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[24].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_Init_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_Init_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_Init_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_Init_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_Init_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_Init_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_Init_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_Init_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_Init_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_Init_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_Init_Core2_QM */
+
+TASK Task_1ms_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[25].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[25].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[25].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_1ms_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_1ms_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_1ms_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_1ms_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_1ms_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_1ms_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_1ms_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_1ms_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_1ms_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_1ms_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_1ms_Core2_QM */
+
+TASK Task_4ms_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[26].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[26].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[26].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_4ms_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_4ms_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_4ms_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_4ms_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_4ms_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_4ms_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_4ms_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_4ms_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_4ms_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_4ms_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_4ms_Core2_QM */
+
+TASK Task_5ms_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[27].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[27].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[27].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_5ms_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_5ms_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_5ms_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_5ms_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_5ms_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_5ms_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_5ms_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_5ms_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_5ms_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_5ms_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_5ms_Core2_QM */
+
+TASK Task_10ms_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[28].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[28].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[28].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_10ms_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_10ms_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_10ms_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_10ms_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_10ms_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_10ms_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_10ms_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_10ms_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_10ms_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_10ms_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_10ms_Core2_QM */
+
+TASK Task_20ms_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[29].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[29].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[29].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_20ms_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_20ms_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_20ms_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_20ms_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_20ms_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_20ms_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_20ms_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_20ms_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_20ms_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_20ms_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_20ms_Core2_QM */
+
+TASK Task_50ms_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[30].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[30].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[30].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_50ms_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_50ms_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_50ms_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_50ms_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_50ms_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_50ms_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_50ms_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_50ms_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_50ms_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_50ms_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_50ms_Core2_QM */
+
+TASK Task_100ms_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[31].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[31].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[31].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_100ms_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_100ms_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_100ms_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_100ms_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_100ms_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_100ms_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_100ms_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_100ms_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_100ms_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_100ms_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_100ms_Core2_QM */
+
+TASK Task_200ms_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[32].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[32].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[32].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_200ms_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_200ms_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_200ms_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_200ms_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_200ms_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_200ms_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_200ms_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_200ms_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_200ms_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_200ms_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_200ms_Core2_QM */
+
+TASK Task_500ms_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[33].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[33].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[33].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_500ms_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_500ms_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_500ms_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_500ms_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_500ms_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_500ms_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_500ms_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_500ms_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_500ms_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_500ms_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_500ms_Core2_QM */
+
+TASK Task_1000ms_Core2_QM {
+  vs_Runtime = "Os_Monitor_TaskStackPara[34].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_TaskStackPara[34].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_TaskStackPara[34].CpuLoad";
+  DynPriority = "OsCfg_Task_Task_1000ms_Core2_QM_Dyn.currentPrio";
+  CfgPriority = "OsCfg_Task_Task_1000ms_Core2_QM.cfgPrio";
+  STATE = "OsCfg_Task_Task_1000ms_Core2_QM_Dyn.state";
+  STACK = "&OsCfg_Arch_Stack_Task_1000ms_Core2_QM";
+  vs_TaskType = "OsCfg_Task_Task_1000ms_Core2_QM.taskType";
+  vs_ScheduleType = "OsCfg_Task_Task_1000ms_Core2_QM.schdType";
+  CURRENTACTIVATIONS = "OsCfg_Task_Task_1000ms_Core2_QM_Dyn.activationsCnt";
+  vs_MaxActivations = "OsCfg_Task_Task_1000ms_Core2_QM.maxActivations";
+  vs_ResLockState   = "OsCfg_Task_Task_1000ms_Core2_QM_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Task_Task_1000ms_Core2_QM_Dyn.spinListHead.nextNode";
+}; /* Task_1000ms_Core2_QM */
+
+TASK CounterIsr_SystemTimer_Core0 {
+  vs_Runtime = "Os_Monitor_IsrStackPara[0].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[0].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[0].CpuLoad";
+  CfgPriority = "OsCfg_Isr_CounterIsr_SystemTimer_Core0.source->level"; 
+  STACK = "OsCfg_Arch_Context_CounterIsr_SystemTimer_Core0.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_CounterIsr_SystemTimer_Core0_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_CounterIsr_SystemTimer_Core0_Dyn.spinListHead.nextNode";
+}; /* CounterIsr_SystemTimer_Core0 */
+
+TASK MultiCommIsr_OsCore_Core0 {
+  vs_Runtime = "Os_Monitor_IsrStackPara[1].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[1].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[1].CpuLoad";
+  CfgPriority = "OsCfg_Isr_MultiCommIsr_OsCore_Core0.source->level"; 
+  STACK = "OsCfg_Arch_Context_MultiCommIsr_OsCore_Core0.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_MultiCommIsr_OsCore_Core0_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_MultiCommIsr_OsCore_Core0_Dyn.spinListHead.nextNode";
+}; /* MultiCommIsr_OsCore_Core0 */
+
+TASK Os_Monitor_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[2].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[2].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[2].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Os_Monitor_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Os_Monitor_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Os_Monitor_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Os_Monitor_Isr_Dyn.spinListHead.nextNode";
+}; /* Os_Monitor_Isr */
+
+TASK CounterIsr_SystemTimer_Core1 {
+  vs_Runtime = "Os_Monitor_IsrStackPara[3].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[3].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[3].CpuLoad";
+  CfgPriority = "OsCfg_Isr_CounterIsr_SystemTimer_Core1.source->level"; 
+  STACK = "OsCfg_Arch_Context_CounterIsr_SystemTimer_Core1.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_CounterIsr_SystemTimer_Core1_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_CounterIsr_SystemTimer_Core1_Dyn.spinListHead.nextNode";
+}; /* CounterIsr_SystemTimer_Core1 */
+
+TASK MultiCommIsr_OsCore_Core1 {
+  vs_Runtime = "Os_Monitor_IsrStackPara[4].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[4].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[4].CpuLoad";
+  CfgPriority = "OsCfg_Isr_MultiCommIsr_OsCore_Core1.source->level"; 
+  STACK = "OsCfg_Arch_Context_MultiCommIsr_OsCore_Core1.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_MultiCommIsr_OsCore_Core1_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_MultiCommIsr_OsCore_Core1_Dyn.spinListHead.nextNode";
+}; /* MultiCommIsr_OsCore_Core1 */
+
+TASK CounterIsr_SystemTimer_Core2 {
+  vs_Runtime = "Os_Monitor_IsrStackPara[5].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[5].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[5].CpuLoad";
+  CfgPriority = "OsCfg_Isr_CounterIsr_SystemTimer_Core2.source->level"; 
+  STACK = "OsCfg_Arch_Context_CounterIsr_SystemTimer_Core2.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_CounterIsr_SystemTimer_Core2_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_CounterIsr_SystemTimer_Core2_Dyn.spinListHead.nextNode";
+}; /* CounterIsr_SystemTimer_Core2 */
+
+TASK MultiCommIsr_OsCore_Core2 {
+  vs_Runtime = "Os_Monitor_IsrStackPara[6].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[6].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[6].CpuLoad";
+  CfgPriority = "OsCfg_Isr_MultiCommIsr_OsCore_Core2.source->level"; 
+  STACK = "OsCfg_Arch_Context_MultiCommIsr_OsCore_Core2.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_MultiCommIsr_OsCore_Core2_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_MultiCommIsr_OsCore_Core2_Dyn.spinListHead.nextNode";
+}; /* MultiCommIsr_OsCore_Core2 */
+
+TASK FlashDone_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[7].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[7].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[7].CpuLoad";
+  CfgPriority = "OsCfg_Isr_FlashDone_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_FlashDone_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_FlashDone_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_FlashDone_Isr_Dyn.spinListHead.nextNode";
+}; /* FlashDone_Isr */
+
+TASK PIT0_CH4 {
+  vs_Runtime = "Os_Monitor_IsrStackPara[8].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[8].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[8].CpuLoad";
+  CfgPriority = "OsCfg_Isr_PIT0_CH4.source->level"; 
+  STACK = "OsCfg_Arch_Context_PIT0_CH4.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_PIT0_CH4_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_PIT0_CH4_Dyn.spinListHead.nextNode";
+}; /* PIT0_CH4 */
+
+TASK PIT0_CH5 {
+  vs_Runtime = "Os_Monitor_IsrStackPara[9].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[9].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[9].CpuLoad";
+  CfgPriority = "OsCfg_Isr_PIT0_CH5.source->level"; 
+  STACK = "OsCfg_Arch_Context_PIT0_CH5.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_PIT0_CH5_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_PIT0_CH5_Dyn.spinListHead.nextNode";
+}; /* PIT0_CH5 */
+
+TASK PIT0_CH6 {
+  vs_Runtime = "Os_Monitor_IsrStackPara[10].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[10].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[10].CpuLoad";
+  CfgPriority = "OsCfg_Isr_PIT0_CH6.source->level"; 
+  STACK = "OsCfg_Arch_Context_PIT0_CH6.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_PIT0_CH6_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_PIT0_CH6_Dyn.spinListHead.nextNode";
+}; /* PIT0_CH6 */
+
+TASK Can1_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[11].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[11].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[11].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Can1_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Can1_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Can1_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Can1_Isr_Dyn.spinListHead.nextNode";
+}; /* Can1_Isr */
+
+TASK Can2_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[12].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[12].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[12].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Can2_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Can2_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Can2_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Can2_Isr_Dyn.spinListHead.nextNode";
+}; /* Can2_Isr */
+
+TASK Can3_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[13].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[13].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[13].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Can3_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Can3_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Can3_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Can3_Isr_Dyn.spinListHead.nextNode";
+}; /* Can3_Isr */
+
+TASK Can4_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[14].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[14].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[14].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Can4_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Can4_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Can4_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Can4_Isr_Dyn.spinListHead.nextNode";
+}; /* Can4_Isr */
+
+TASK Adc89_Grp0_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[15].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[15].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[15].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Adc89_Grp0_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Adc89_Grp0_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Adc89_Grp0_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Adc89_Grp0_Isr_Dyn.spinListHead.nextNode";
+}; /* Adc89_Grp0_Isr */
+
+TASK Adc89_Grp1_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[16].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[16].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[16].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Adc89_Grp1_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Adc89_Grp1_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Adc89_Grp1_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Adc89_Grp1_Isr_Dyn.spinListHead.nextNode";
+}; /* Adc89_Grp1_Isr */
+
+TASK Adc89_Grp2_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[17].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[17].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[17].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Adc89_Grp2_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Adc89_Grp2_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Adc89_Grp2_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Adc89_Grp2_Isr_Dyn.spinListHead.nextNode";
+}; /* Adc89_Grp2_Isr */
+
+TASK Adc89_Grp3_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[18].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[18].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[18].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Adc89_Grp3_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Adc89_Grp3_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Adc89_Grp3_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Adc89_Grp3_Isr_Dyn.spinListHead.nextNode";
+}; /* Adc89_Grp3_Isr */
+
+TASK Adc89_Grp4_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[19].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[19].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[19].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Adc89_Grp4_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Adc89_Grp4_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Adc89_Grp4_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Adc89_Grp4_Isr_Dyn.spinListHead.nextNode";
+}; /* Adc89_Grp4_Isr */
+
+TASK Adc89_Grp5_Isr {
+  vs_Runtime = "Os_Monitor_IsrStackPara[20].RunTime[0]";
+  vs_MaxRuntime = "Os_Monitor_IsrStackPara[20].RunTime_Max";
+  vs_Cpuload = "Os_Monitor_IsrStackPara[20].CpuLoad";
+  CfgPriority = "OsCfg_Isr_Adc89_Grp5_Isr.source->level"; 
+  STACK = "OsCfg_Arch_Context_Adc89_Grp5_Isr.stackEndAddr";
+  vs_ResLockState = "OsCfg_Isr_Adc89_Grp5_Isr_Dyn.resListHead.nextNode";
+  vs_SpinLockState   = "OsCfg_Isr_Adc89_Grp5_Isr_Dyn.spinListHead.nextNode";
+}; /* Adc89_Grp5_Isr */
+
+
+
+/* Task Stack */
+STACK OsCfg_Arch_Stack_Default_Init_Task_Core0 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Default_Init_Task_Core0)";
+  BASEADDRESS = "OsCfg_Arch_Context_Default_Init_Task_Core0.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Default_Init_Task_Core0 */
+
+STACK OsCfg_Arch_Stack_Idle_Task_Core0 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Idle_Task_Core0)";
+  BASEADDRESS = "OsCfg_Arch_Context_Idle_Task_Core0.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Idle_Task_Core0 */
+
+STACK OsCfg_Arch_Stack_Task_Init_Core0_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_Init_Core0_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_Init_Core0_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_Init_Core0_QM */
+
+STACK OsCfg_Arch_Stack_Task_10ms_Core0_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_10ms_Core0_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_10ms_Core0_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_10ms_Core0_QM */
+
+STACK OsCfg_Arch_Stack_Task_20ms_Core0_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_20ms_Core0_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_20ms_Core0_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_20ms_Core0_QM */
+
+STACK OsCfg_Arch_Stack_Task_50ms_Core0_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_50ms_Core0_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_50ms_Core0_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_50ms_Core0_QM */
+
+STACK OsCfg_Arch_Stack_Task_100ms_Core0_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_100ms_Core0_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_100ms_Core0_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_100ms_Core0_QM */
+
+STACK OsCfg_Arch_Stack_Task_200ms_Core0_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_200ms_Core0_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_200ms_Core0_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_200ms_Core0_QM */
+
+STACK OsCfg_Arch_Stack_Task_500ms_Core0_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_500ms_Core0_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_500ms_Core0_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_500ms_Core0_QM */
+
+STACK OsCfg_Arch_Stack_Task_1000ms_Core0_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_1000ms_Core0_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_1000ms_Core0_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_1000ms_Core0_QM */
+
+STACK OsCfg_Arch_Stack_Task_2ms_Core0_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_2ms_Core0_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_2ms_Core0_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_2ms_Core0_QM */
+
+STACK OsCfg_Arch_Stack_Default_Init_Task_Core1 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Default_Init_Task_Core1)";
+  BASEADDRESS = "OsCfg_Arch_Context_Default_Init_Task_Core1.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Default_Init_Task_Core1 */
+
+STACK OsCfg_Arch_Stack_Idle_Task_Core1 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Idle_Task_Core1)";
+  BASEADDRESS = "OsCfg_Arch_Context_Idle_Task_Core1.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Idle_Task_Core1 */
+
+STACK OsCfg_Arch_Stack_Task_Init_Core1_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_Init_Core1_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_Init_Core1_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_Init_Core1_QM */
+
+STACK OsCfg_Arch_Stack_Task_5ms_Core1_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_5ms_Core1_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_5ms_Core1_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_5ms_Core1_QM */
+
+STACK OsCfg_Arch_Stack_Task_10ms_Core1_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_10ms_Core1_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_10ms_Core1_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_10ms_Core1_QM */
+
+STACK OsCfg_Arch_Stack_Task_20ms_Core1_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_20ms_Core1_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_20ms_Core1_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_20ms_Core1_QM */
+
+STACK OsCfg_Arch_Stack_Task_50ms_Core1_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_50ms_Core1_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_50ms_Core1_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_50ms_Core1_QM */
+
+STACK OsCfg_Arch_Stack_Task_100ms_Core1_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_100ms_Core1_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_100ms_Core1_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_100ms_Core1_QM */
+
+STACK OsCfg_Arch_Stack_Task_200ms_Core1_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_200ms_Core1_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_200ms_Core1_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_200ms_Core1_QM */
+
+STACK OsCfg_Arch_Stack_Task_500ms_Core1_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_500ms_Core1_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_500ms_Core1_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_500ms_Core1_QM */
+
+STACK OsCfg_Arch_Stack_Task_1000ms_Core1_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_1000ms_Core1_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_1000ms_Core1_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_1000ms_Core1_QM */
+
+STACK OsCfg_Arch_Stack_Default_Init_Task_Core2 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Default_Init_Task_Core2)";
+  BASEADDRESS = "OsCfg_Arch_Context_Default_Init_Task_Core2.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Default_Init_Task_Core2 */
+
+STACK OsCfg_Arch_Stack_Idle_Task_Core2 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Idle_Task_Core2)";
+  BASEADDRESS = "OsCfg_Arch_Context_Idle_Task_Core2.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Idle_Task_Core2 */
+
+STACK OsCfg_Arch_Stack_Task_Init_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_Init_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_Init_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_Init_Core2_QM */
+
+STACK OsCfg_Arch_Stack_Task_1ms_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_1ms_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_1ms_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_1ms_Core2_QM */
+
+STACK OsCfg_Arch_Stack_Task_4ms_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_4ms_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_4ms_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_4ms_Core2_QM */
+
+STACK OsCfg_Arch_Stack_Task_5ms_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_5ms_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_5ms_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_5ms_Core2_QM */
+
+STACK OsCfg_Arch_Stack_Task_10ms_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_10ms_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_10ms_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_10ms_Core2_QM */
+
+STACK OsCfg_Arch_Stack_Task_20ms_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_20ms_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_20ms_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_20ms_Core2_QM */
+
+STACK OsCfg_Arch_Stack_Task_50ms_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_50ms_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_50ms_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_50ms_Core2_QM */
+
+STACK OsCfg_Arch_Stack_Task_100ms_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_100ms_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_100ms_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_100ms_Core2_QM */
+
+STACK OsCfg_Arch_Stack_Task_200ms_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_200ms_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_200ms_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_200ms_Core2_QM */
+
+STACK OsCfg_Arch_Stack_Task_500ms_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_500ms_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_500ms_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_500ms_Core2_QM */
+
+STACK OsCfg_Arch_Stack_Task_1000ms_Core2_QM {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Task_1000ms_Core2_QM)";
+  BASEADDRESS = "OsCfg_Arch_Context_Task_1000ms_Core2_QM.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Task_1000ms_Core2_QM */
+
+STACK OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core0 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core0)";
+  BASEADDRESS = "OsCfg_Arch_Context_CounterIsr_SystemTimer_Core0.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* CounterIsr_SystemTimer_Core0 */
+
+STACK OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core0 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core0)";
+  BASEADDRESS = "OsCfg_Arch_Context_MultiCommIsr_OsCore_Core0.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* MultiCommIsr_OsCore_Core0 */
+
+STACK OsCfg_Arch_Stack_Os_Monitor_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Os_Monitor_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Os_Monitor_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Os_Monitor_Isr */
+
+STACK OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core1 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core1)";
+  BASEADDRESS = "OsCfg_Arch_Context_CounterIsr_SystemTimer_Core1.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* CounterIsr_SystemTimer_Core1 */
+
+STACK OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core1 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core1)";
+  BASEADDRESS = "OsCfg_Arch_Context_MultiCommIsr_OsCore_Core1.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* MultiCommIsr_OsCore_Core1 */
+
+STACK OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core2 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_CounterIsr_SystemTimer_Core2)";
+  BASEADDRESS = "OsCfg_Arch_Context_CounterIsr_SystemTimer_Core2.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* CounterIsr_SystemTimer_Core2 */
+
+STACK OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core2 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_MultiCommIsr_OsCore_Core2)";
+  BASEADDRESS = "OsCfg_Arch_Context_MultiCommIsr_OsCore_Core2.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* MultiCommIsr_OsCore_Core2 */
+
+STACK OsCfg_Arch_Stack_FlashDone_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_FlashDone_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_FlashDone_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* FlashDone_Isr */
+
+STACK OsCfg_Arch_Stack_PIT0_CH4 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_PIT0_CH4)";
+  BASEADDRESS = "OsCfg_Arch_Context_PIT0_CH4.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* PIT0_CH4 */
+
+STACK OsCfg_Arch_Stack_PIT0_CH5 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_PIT0_CH5)";
+  BASEADDRESS = "OsCfg_Arch_Context_PIT0_CH5.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* PIT0_CH5 */
+
+STACK OsCfg_Arch_Stack_PIT0_CH6 {
+  SIZE = "sizeof(OsCfg_Arch_Stack_PIT0_CH6)";
+  BASEADDRESS = "OsCfg_Arch_Context_PIT0_CH6.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* PIT0_CH6 */
+
+STACK OsCfg_Arch_Stack_Can1_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Can1_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Can1_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Can1_Isr */
+
+STACK OsCfg_Arch_Stack_Can2_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Can2_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Can2_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Can2_Isr */
+
+STACK OsCfg_Arch_Stack_Can3_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Can3_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Can3_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Can3_Isr */
+
+STACK OsCfg_Arch_Stack_Can4_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Can4_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Can4_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Can4_Isr */
+
+STACK OsCfg_Arch_Stack_Adc89_Grp0_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Adc89_Grp0_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Adc89_Grp0_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Adc89_Grp0_Isr */
+
+STACK OsCfg_Arch_Stack_Adc89_Grp1_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Adc89_Grp1_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Adc89_Grp1_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Adc89_Grp1_Isr */
+
+STACK OsCfg_Arch_Stack_Adc89_Grp2_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Adc89_Grp2_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Adc89_Grp2_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Adc89_Grp2_Isr */
+
+STACK OsCfg_Arch_Stack_Adc89_Grp3_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Adc89_Grp3_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Adc89_Grp3_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Adc89_Grp3_Isr */
+
+STACK OsCfg_Arch_Stack_Adc89_Grp4_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Adc89_Grp4_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Adc89_Grp4_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Adc89_Grp4_Isr */
+
+STACK OsCfg_Arch_Stack_Adc89_Grp5_Isr {
+  SIZE = "sizeof(OsCfg_Arch_Stack_Adc89_Grp5_Isr)";
+  BASEADDRESS = "OsCfg_Arch_Context_Adc89_Grp5_Isr.stackEndAddr";
+  STACKDIRECTION = "DOWN";
+  FILLPATTERN = "0xAAAAAAAA";
+}; /* Adc89_Grp5_Isr */
+
+
+/* Isr Stack */
+/* Alram*/
+ALARM SystemTimer_Core0 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_10ms_Core0_QM_10ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_10ms_Core0_QM_10ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_10ms_Core0_QM_10ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core0";
+}; /* SystemTimer_Core0 */
+
+ALARM SystemTimer_Core0 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_20ms_Core0_QM_20ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_20ms_Core0_QM_20ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_20ms_Core0_QM_20ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core0";
+}; /* SystemTimer_Core0 */
+
+ALARM SystemTimer_Core0 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_50ms_Core0_QM_50ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_50ms_Core0_QM_50ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_50ms_Core0_QM_50ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core0";
+}; /* SystemTimer_Core0 */
+
+ALARM SystemTimer_Core0 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_100ms_Core0_QM_100ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_100ms_Core0_QM_100ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_100ms_Core0_QM_100ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core0";
+}; /* SystemTimer_Core0 */
+
+ALARM SystemTimer_Core0 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_200ms_Core0_QM_200ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_200ms_Core0_QM_200ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_200ms_Core0_QM_200ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core0";
+}; /* SystemTimer_Core0 */
+
+ALARM SystemTimer_Core0 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_500ms_Core0_QM_500ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_500ms_Core0_QM_500ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_500ms_Core0_QM_500ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core0";
+}; /* SystemTimer_Core0 */
+
+ALARM SystemTimer_Core0 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_1000ms_Core0_QM_1000ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_1000ms_Core0_QM_1000ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_1000ms_Core0_QM_1000ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core0";
+}; /* SystemTimer_Core0 */
+
+ALARM SystemTimer_Core0 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_2ms_Core0_QM_2ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_2ms_Core0_QM_2ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_2ms_Core0_QM_2ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core0";
+}; /* SystemTimer_Core0 */
+
+ALARM SystemTimer_Core1 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_5ms_Core1_QM_5ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_5ms_Core1_QM_5ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_5ms_Core1_QM_5ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core1";
+}; /* SystemTimer_Core1 */
+
+ALARM SystemTimer_Core1 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_10ms_Core1_QM_10ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_10ms_Core1_QM_10ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_10ms_Core1_QM_10ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core1";
+}; /* SystemTimer_Core1 */
+
+ALARM SystemTimer_Core1 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_20ms_Core1_QM_20ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_20ms_Core1_QM_20ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_20ms_Core1_QM_20ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core1";
+}; /* SystemTimer_Core1 */
+
+ALARM SystemTimer_Core1 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_50ms_Core1_QM_50ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_50ms_Core1_QM_50ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_50ms_Core1_QM_50ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core1";
+}; /* SystemTimer_Core1 */
+
+ALARM SystemTimer_Core1 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_100ms_Core1_QM_100ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_100ms_Core1_QM_100ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_100ms_Core1_QM_100ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core1";
+}; /* SystemTimer_Core1 */
+
+ALARM SystemTimer_Core1 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_200ms_Core1_QM_200ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_200ms_Core1_QM_200ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_200ms_Core1_QM_200ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core1";
+}; /* SystemTimer_Core1 */
+
+ALARM SystemTimer_Core1 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_500ms_Core1_QM_500ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_500ms_Core1_QM_500ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_500ms_Core1_QM_500ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core1";
+}; /* SystemTimer_Core1 */
+
+ALARM SystemTimer_Core1 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_1000ms_Core1_QM_1000ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_1000ms_Core1_QM_1000ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_1000ms_Core1_QM_1000ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core1";
+}; /* SystemTimer_Core1 */
+
+ALARM SystemTimer_Core2 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_1ms_Core2_QM_1ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_1ms_Core2_QM_1ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_1ms_Core2_QM_1ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core2";
+}; /* SystemTimer_Core2 */
+
+ALARM SystemTimer_Core2 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_5ms_Core2_QM_5ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_5ms_Core2_QM_5ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_5ms_Core2_QM_5ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core2";
+}; /* SystemTimer_Core2 */
+
+ALARM SystemTimer_Core2 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_10ms_Core2_QM_10ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_10ms_Core2_QM_10ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_10ms_Core2_QM_10ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core2";
+}; /* SystemTimer_Core2 */
+
+ALARM SystemTimer_Core2 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_20ms_Core2_QM_20ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_20ms_Core2_QM_20ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_20ms_Core2_QM_20ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core2";
+}; /* SystemTimer_Core2 */
+
+ALARM SystemTimer_Core2 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_50ms_Core2_QM_50ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_50ms_Core2_QM_50ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_50ms_Core2_QM_50ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core2";
+}; /* SystemTimer_Core2 */
+
+ALARM SystemTimer_Core2 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_100ms_Core2_QM_100ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_100ms_Core2_QM_100ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_100ms_Core2_QM_100ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core2";
+}; /* SystemTimer_Core2 */
+
+ALARM SystemTimer_Core2 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_200ms_Core2_QM_200ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_200ms_Core2_QM_200ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_200ms_Core2_QM_200ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core2";
+}; /* SystemTimer_Core2 */
+
+ALARM SystemTimer_Core2 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_500ms_Core2_QM_500ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_500ms_Core2_QM_500ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_500ms_Core2_QM_500ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core2";
+}; /* SystemTimer_Core2 */
+
+ALARM SystemTimer_Core2 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_1000ms_Core2_QM_1000ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_1000ms_Core2_QM_1000ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_1000ms_Core2_QM_1000ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core2";
+}; /* SystemTimer_Core2 */
+
+ALARM SystemTimer_Core2 {
+STATE= "OsCfg_Alarm_Rte_Al_TE_Task_4ms_Core2_QM_4ms_Dyn.state";
+CYCLETIME = "OsCfg_Alarm_Rte_Al_TE_Task_4ms_Core2_QM_4ms_Dyn.cycle";
+vs_Action = "OsCfg_Alarm_Rte_Al_TE_Task_4ms_Core2_QM_4ms.cntExpKind";
+COUNTER = "OsCfg_Counter_SystemTimer_Core2";
+}; /* SystemTimer_Core2 */
+
+
+/* Resource */
+RESOURCE Core0_Task_OsResource0 {
+vs_STATE = "OsCfg_Resource_Core0_Task_OsResource0_Dyn.state";
+TYPE = "OsCfg_Resource_Core0_Task_OsResource0.rsrcType";
+}; /* Core0_Task_OsResource0 */
+
+RESOURCE Core1_Task_OsResource1 {
+vs_STATE = "OsCfg_Resource_Core1_Task_OsResource1_Dyn.state";
+TYPE = "OsCfg_Resource_Core1_Task_OsResource1.rsrcType";
+}; /* Core1_Task_OsResource1 */
+
+RESOURCE Core2_Task_OsResource2 {
+vs_STATE = "OsCfg_Resource_Core2_Task_OsResource2_Dyn.state";
+TYPE = "OsCfg_Resource_Core2_Task_OsResource2.rsrcType";
+}; /* Core2_Task_OsResource2 */
+
+
+/* Spinlock */
+/* ScheduleTable */
+/* Cpuload */
+CPULOAD OSPHYSICALCORE0 {
+vs_Runtime = "Os_Monitor_CpuLoadkPara[0].CoreStartRunTime";
+vs_Cpuload = "Os_Monitor_CpuLoadkPara[0].Cpuload";
+}; /* OSPHYSICALCORE0 */
+
+CPULOAD OSPHYSICALCORE1 {
+vs_Runtime = "Os_Monitor_CpuLoadkPara[1].CoreStartRunTime";
+vs_Cpuload = "Os_Monitor_CpuLoadkPara[1].Cpuload";
+}; /* OSPHYSICALCORE1 */
+
+CPULOAD OSPHYSICALCORE2 {
+vs_Runtime = "Os_Monitor_CpuLoadkPara[2].CoreStartRunTime";
+vs_Cpuload = "Os_Monitor_CpuLoadkPara[2].Cpuload";
+}; /* OSPHYSICALCORE2 */
+
+

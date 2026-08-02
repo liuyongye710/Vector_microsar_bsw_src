@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR>
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+            <ELEMENTS>
+                <ECUC-MODULE-CONFIGURATION-VALUES>
+                    <SHORT-NAME>EcuM</SHORT-NAME>
+                    <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/EcuM</DEFINITION-REF>
+                    <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EcuMConfiguration</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration</DEFINITION-REF>
+                            <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EcuMCommonConfiguration</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration</DEFINITION-REF>
+                                    <REFERENCE-VALUES>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDefaultAppMode</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsAppModes/OSDEFAULTAPPMODE</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMOSResource</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsResources/Core0_Task_OsResource0</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMOSResource</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsResources/Core1_Task_OsResource1</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                        <ECUC-REFERENCE-VALUE>
+                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMOSResource</DEFINITION-REF>
+                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">Os/OsResources/Core2_Task_OsResource2</VALUE-REF>
+                                            <IMPORT>NONE</IMPORT>
+                                        </ECUC-REFERENCE-VALUE>
+                                    </REFERENCE-VALUES>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>EcuMDefaultShutdownTarget</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDefaultShutdownTarget</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDefaultShutdownTarget/EcuMDefaultState</DEFINITION-REF>
+                                                    <VALUE>EcuMStateOff</VALUE>
+                                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>EcuMDriverInitListOne</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne</DEFINITION-REF>
+                                            <SUB-CONTAINERS>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Adc_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Adc</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>POSTBUILD_PTR</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMPbParameter</DEFINITION-REF>
+                                                            <VALUE>&amp;Adc_Config</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Adc.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Can_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Can</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>POSTBUILD_PTR</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMPbParameter</DEFINITION-REF>
+                                                            <VALUE>&amp;Can_Config</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Can.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>CalAppl_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>CalAppl</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>VOID</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>CalSramInit</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Cal_Appl.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Fls_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Fls</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>POSTBUILD_PTR</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMPbParameter</DEFINITION-REF>
+                                                            <VALUE>&amp;Fls_Config</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Fls.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Gpt_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Gpt</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>POSTBUILD_PTR</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMPbParameter</DEFINITION-REF>
+                                                            <VALUE>&amp;GptChannelConfigSet_0</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Gpt.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Icu_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Icu</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>POSTBUILD_PTR</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMPbParameter</DEFINITION-REF>
+                                                            <VALUE>&amp;IcuConfigSet_0</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Icu.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Lin_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Lin</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>POSTBUILD_PTR</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMPbParameter</DEFINITION-REF>
+                                                            <VALUE>&amp;LinGlobalConfig</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Lin.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Port_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Port</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>POSTBUILD_PTR</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMPbParameter</DEFINITION-REF>
+                                                            <VALUE>&amp;PortContainer</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Port.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Pwm_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Pwm</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>POSTBUILD_PTR</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMPbParameter</DEFINITION-REF>
+                                                            <VALUE>&amp;Pwm_Config</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Pwm.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Spi_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Spi</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>POSTBUILD_PTR</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMPbParameter</DEFINITION-REF>
+                                                            <VALUE>&amp;Spi_Configuration</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Spi.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Os_Core0_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Os</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>VOID</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Os.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE0</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Os_Core1_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Os</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>VOID</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Os.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE1</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                                <ECUC-CONTAINER-VALUE>
+                                                    <SHORT-NAME>Os_Core2_InitFunction</SHORT-NAME>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <SOURCE-FILE></SOURCE-FILE>
+                                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem</DEFINITION-REF>
+                                                    <PARAMETER-VALUES>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleID</DEFINITION-REF>
+                                                            <VALUE>Os</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleParameter</DEFINITION-REF>
+                                                            <VALUE>VOID</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMModuleService</DEFINITION-REF>
+                                                            <VALUE>Init</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                        <ECUC-TEXTUAL-PARAM-VALUE>
+                                                            <IMPORT>NONE</IMPORT>
+                                                            <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/EcuMHeaderFile</DEFINITION-REF>
+                                                            <VALUE>Os.h</VALUE>
+                                                        </ECUC-TEXTUAL-PARAM-VALUE>
+                                                    </PARAMETER-VALUES>
+                                                    <REFERENCE-VALUES>
+                                                        <ECUC-REFERENCE-VALUE>
+                                                            <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne/EcuMDriverInitItem/OSCoreRef</DEFINITION-REF>
+                                                            <VALUE-REF DEST="ECUC-CONTAINER-VALUE">EcuC/EcucHardware/EcucCoreDefinitions/OsCore_CORE2</VALUE-REF>
+                                                            <IMPORT>NONE</IMPORT>
+                                                        </ECUC-REFERENCE-VALUE>
+                                                    </REFERENCE-VALUES>
+                                                </ECUC-CONTAINER-VALUE>
+                                            </SUB-CONTAINERS>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>EcuMDriverInitListZero</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListZero</DEFINITION-REF>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>ECUM_WKSOURCE_POWER</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourceId</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>ECUM_WKSOURCE_RESET</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourceId</DEFINITION-REF>
+                                                    <VALUE>1</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>ECUM_WKSOURCE_INTERNAL_RESET</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourceId</DEFINITION-REF>
+                                                    <VALUE>2</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>ECUM_WKSOURCE_INTERNAL_WDG</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourceId</DEFINITION-REF>
+                                                    <VALUE>3</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>ECUM_WKSOURCE_EXTERNAL_WDG</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourceId</DEFINITION-REF>
+                                                    <VALUE>4</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>CAN_MatrixDCDCV0120250305_VR82BV</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourceId</DEFINITION-REF>
+                                                    <VALUE>5</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMComMChannelRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">ComM/ComMConfigSet/ComMChannels/CAN_MatrixDCDCV0120250305_VR82BV</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>FAW_PTCAN_MCU_V141_D3_sO0</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourceId</DEFINITION-REF>
+                                                    <VALUE>6</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMComMChannelRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">ComM/ComMConfigSet/ComMChannels/FAW_PTCAN_MCU_V141_D3_sO0</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>FAW_MCD_MCU_Voxyrf</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourceId</DEFINITION-REF>
+                                                    <VALUE>7</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMComMChannelRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">ComM/ComMConfigSet/ComMChannels/FAW_MCD_MCU_Voxyrf</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>FAW__HVACDCDC2__V20DBC_OjcG_c</SHORT-NAME>
+                                            <IMPORT>COMM_IMPORT</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMWakeupSourceId</DEFINITION-REF>
+                                                    <VALUE>8</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                            <REFERENCE-VALUES>
+                                                <ECUC-REFERENCE-VALUE>
+                                                    <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource/EcuMComMChannelRef</DEFINITION-REF>
+                                                    <VALUE-REF DEST="ECUC-CONTAINER-VALUE">ComM/ComMConfigSet/ComMChannels/FAW__HVACDCDC2__V20DBC_OjcG_c</VALUE-REF>
+                                                    <IMPORT>COMM_IMPORT</IMPORT>
+                                                </ECUC-REFERENCE-VALUE>
+                                            </REFERENCE-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                    <SHORT-NAME>EcuMFlexConfiguration</SHORT-NAME>
+                                    <IMPORT>NONE</IMPORT>
+                                    <SOURCE-FILE></SOURCE-FILE>
+                                    <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration</DEFINITION-REF>
+                                    <SUB-CONTAINERS>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>EcuMFlexUserConfig0</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig</DEFINITION-REF>
+                                            <PARAMETER-VALUES>
+                                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                                    <IMPORT>NONE</IMPORT>
+                                                    <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig/EcuMFlexUser</DEFINITION-REF>
+                                                    <VALUE>0</VALUE>
+                                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                            </PARAMETER-VALUES>
+                                        </ECUC-CONTAINER-VALUE>
+                                        <ECUC-CONTAINER-VALUE>
+                                            <SHORT-NAME>EcuMGoDownAllowedUsers</SHORT-NAME>
+                                            <IMPORT>NONE</IMPORT>
+                                            <SOURCE-FILE></SOURCE-FILE>
+                                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMGoDownAllowedUsers</DEFINITION-REF>
+                                        </ECUC-CONTAINER-VALUE>
+                                    </SUB-CONTAINERS>
+                                </ECUC-CONTAINER-VALUE>
+                            </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EcuMFlexGeneral</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMFlexGeneral</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                            <SHORT-NAME>EcuMGeneral</SHORT-NAME>
+                            <IMPORT>NONE</IMPORT>
+                            <SOURCE-FILE></SOURCE-FILE>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMGeneral</DEFINITION-REF>
+                            <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMGeneral/EcuMDevErrorDetect</DEFINITION-REF>
+                                    <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMGeneral/EcuMIncludeDet</DEFINITION-REF>
+                                    <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMGeneral/EcuMMainFunctionPeriod</DEFINITION-REF>
+                                    <VALUE>0.005</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                    <IMPORT>NONE</IMPORT>
+                                    <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMGeneral/EcuMVersionInfoApi</DEFINITION-REF>
+                                    <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                            </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                    </CONTAINERS>
+                </ECUC-MODULE-CONFIGURATION-VALUES>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

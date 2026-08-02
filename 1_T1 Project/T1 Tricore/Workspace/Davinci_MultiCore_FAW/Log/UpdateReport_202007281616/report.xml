@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Report cfgVersion="5.17.51 SP2" projectPath="X:\Projects\FAW_OS\TASKING_V6.0r1\FAW_MultiCore297_Demo\01_MV4_ECU_V01\Workspace\Davinci_MultiCore_FAW" sipPath="D:\Vector_FAW_297" name="DaVinci Update Report">
+    <Ecuc>
+        <Package name="ActiveEcuC">
+            <Modules count="9">
+                <Module name="CanIf">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/ActiveEcuC/CanIf">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="Com">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/ActiveEcuC/Com">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="Can">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/ActiveEcuC/Can">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="PduR">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/ActiveEcuC/PduR">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="EcuM">
+                    <Types count="4">
+                        <Added count="4">
+                            <Difference label="Parameter" identifier="/ActiveEcuC/EcuM/EcuMConfiguration/EcuMFlexConfiguration[0:EcuMFlexModuleConfigurationRef]">
+<Other changed="false">/ActiveEcuC/Can/CanConfigSet</Other>
+                            </Difference>
+                            <Difference label="Container" identifier="/ActiveEcuC/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverRestartList">
+<Other changed="false">EcuMDriverRestartList</Other>
+                            </Difference>
+                            <Difference label="Container" identifier="/ActiveEcuC/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMDriverInitListOne">
+<Other changed="false">EcuMDriverInitListOne</Other>
+                            </Difference>
+                            <Difference label="Container" identifier="/ActiveEcuC/EcuM/EcuMConfiguration/EcuMCommonConfiguration/CN_CAN00_d9752b68">
+<Other changed="false">CN_CAN00_d9752b68</Other>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="CanSM">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/ActiveEcuC/CanSM">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="ComM">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/ActiveEcuC/ComM">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="EcuC">
+                    <Types count="4">
+                        <Added count="4">
+                            <Difference label="Container" identifier="/ActiveEcuC/EcuC/EcucPduCollection/T1_TxMsg_oCAN00_ef2c7eaf_Tx">
+<Other changed="false">T1_TxMsg_oCAN00_ef2c7eaf_Tx</Other>
+                            </Difference>
+                            <Difference label="Container" identifier="/ActiveEcuC/EcuC/EcucPduCollection/T1_RxMsg_oCAN00_c2c93374_Rx">
+<Other changed="false">T1_RxMsg_oCAN00_c2c93374_Rx</Other>
+                            </Difference>
+                            <Difference label="Container" identifier="/ActiveEcuC/EcuC/EcucPduCollection/T1_RxMsg_oCAN00_53752368_Rx">
+<Other changed="false">T1_RxMsg_oCAN00_53752368_Rx</Other>
+                            </Difference>
+                            <Difference label="Container" identifier="/ActiveEcuC/EcuC/EcucPduCollection/T1_TxMsg_oCAN00_2df49694_Tx">
+<Other changed="false">T1_TxMsg_oCAN00_2df49694_Tx</Other>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="Nm">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/ActiveEcuC/Nm">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+            </Modules>
+        </Package>
+        <Package name="InitialEcuC">
+            <Modules count="8">
+                <Module name="CanIf">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/InitialEcuC/CanIf">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="Com">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/InitialEcuC/Com">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="Can">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/InitialEcuC/Can">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="PduR">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/InitialEcuC/PduR">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="EcuM">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/InitialEcuC/EcuM">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="CanSM">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/InitialEcuC/CanSM">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="ComM">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/InitialEcuC/ComM">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+                <Module name="EcuC">
+                    <Types count="1">
+                        <Added count="1">
+                            <Difference label="Module Configuration" identifier="/InitialEcuC/EcuC">
+<Other changed="false"/>
+                            </Difference>
+                        </Added>
+                    </Types>
+                </Module>
+            </Modules>
+        </Package>
+    </Ecuc>
+</Report>
